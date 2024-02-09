@@ -15,7 +15,7 @@ References:
 Blurt of notes:
 
 - Take out cyberpatriot
--  Remove current events replace with gernal knowledge      - chain of command, general orders etc 
+-  Remove current events replace with gernal knowledge     - chain of command, general orders etc
 - Remove calendar
 - Copy events add picture, chief will supply pictures
 - Add a slide of random pictures
