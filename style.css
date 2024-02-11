@@ -51,7 +51,6 @@ header{
 
 .btn:hover{
   text-decoration: underline;
-  display:contents;
 }
 .dropdown{
   position: absolute;
