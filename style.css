@@ -56,12 +56,24 @@ header{
   position: absolute;
   top:6vmin;
   width: 12.5vw;
-  background-color: rgba(0, 0, 128, 0.6);
+  background-color: darkslategrey;
+  display: none;
+  text-align: center;
+  justify-content: center;
+  transition: color 0.5s linear;
+}
+.dropdown:hover{
+  opacity:1;
+}
+.dropdown tr td{
+  width: 12.5vw;
+  padding-top: 1vmin;
+  padding-bottom: 1vmin;
 }
 #main{
   box-sizing: border-box;
   overflow: hidden;
-  height: 100vh;
+  height: 90vh;
   position: relative;
   vertical-align:middle;
   
@@ -163,5 +175,21 @@ header{
   }
   to {
     margin-top: 0%;
+  }
+}
+@keyframes fadein{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+@keyframes fadeoit{
+  from{
+    opacity:1;
+  }
+  to{
+    opacity:0;
   }
 }
