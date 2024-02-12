@@ -1,9 +1,12 @@
 <style>
-    *, html {
+*, html {
 scroll-behavior: smooth !important;
+max-width: 100%;
 }
 
 body{
+max-width: 100%;
+overflow-x: hidden;
 margin: 0;
 padding: 0;
 background-color: rgb(0, 0, 80);
@@ -15,9 +18,8 @@ h1{
 margin: 0;
 }
 
-
 header{
-position: fixed;
+position:sticky;
 top:0px;
 z-index: 99;
 padding: 5vmin;
@@ -90,13 +92,19 @@ font-size: 6vmin;
   right:15vmin;
   vertical-align:middle;
 }
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 </style>
 
 
 <header id="topbar"> 
     <img class="icon" src="/images/NJROTC-Seal.svg"> 
     <span class="title">Parlier NJROTC</span> 
-    <img id="home" class="icon" title="Home" onclick="window.scrollTo(0,0)" src="/images/home.svg"> 
+    <img id="home" class="icon" title="Home" onclick="location.href = 'index.html' " src="/images/home.svg"> 
     <div id="buttons">
         <div class="btn">
             Tutorials
@@ -182,7 +190,7 @@ font-size: 6vmin;
     }
     
     
-    
+    /*
     let fade = true
     
     function animatebar(){
@@ -205,4 +213,7 @@ font-size: 6vmin;
     window.onscrollend = () =>{
         animatebar()
         console.log("end")
-    }</script>
+    }*/
+    
+    
+    </script>

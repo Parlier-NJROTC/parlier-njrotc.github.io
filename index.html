@@ -10,87 +10,14 @@
 </head>
 
 <body>
-    <!-- header is requried by every webpage-->
-    <header id="topbar"> 
-        <img class="icon" src="./images/NJROTC-Seal.svg"> 
-        <span class="title">Parlier NJROTC</span> 
-        <img id="home" class="icon" title="Home" onclick="window.scrollTo(0,0)" src="./images/home.svg"> 
-        <div id="buttons">
-            <div class="btn">
-                Tutorials
-                <table class="dropdown">
-                        <tr>
-                            <td onclick="window.location = './Subpages/Knowledge/Orders/index.html' ">How to iron uniform</td>
-                        </tr>
-                    </a>
-                      <tr>
-                        <td>How to shine your shoes</td>
-                      </tr>
-                      <tr>
-                        <td>How to something</td>
-                      </tr>
-                      <tr>
-                        <td>How to make dropdown menu</td>
-                      </tr>
-                </table>
-            </div>
-            <div class="btn">
-                General Knowledge
-                <table class="dropdown">
-                    <tr>
-                        <td onclikc="">General Orders</td>
-                      </tr>
-                      <tr>
-                        <td>Chain of command</td>
-                      </tr>
-                      <tr>
-                        <td>Ranks</td>
-                      </tr>
-                      <tr>
-                      </tr>
-                </table>
-            </div>
-            <div class="btn">Events</div>
-            <div class="btn">Teams
-                <table class="dropdown">
-                    <tr>
-                        <td>Drill</td>
-                      </tr>
-                      <tr>
-                        <td>Academic</td>
-                      </tr>
-                      <tr>
-                        <td>Rifle</td>
-                      </tr>
-                      <tr>
-                        <td>Color Gaurd</td>
-                      </tr>
-                </table>
-            </div>
-            <div class="btn">Fundraising</div>
-            <div class="btn">Instructors</div>
-            <div class="btn">Pictures</div>
-            <div class="btn">Links</div>
-        </div>
-    </header>
-    
-    <div id="main">
-        <img id="bgimg" src="./images/Cadets.jpg">
-        <div id="mainBox">
-            
-            <div style="font-size: 4vw; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Parlier High School</div>
-            <hr>
-            <div style="font-size: 1.5vw; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Naval Junior Reserve Officers Training Corps</div>
-        </div>
-    </div>
-    <div style="padding: 5vmin; padding-left: 20vmin; padding-right: 20vmin;  position: relative; background-color: rgb(0, 0, 90); height: 100vh;">
-        <u><bold><h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">About the N.J.R.O.T.C</h1></bold></u>
-        <div class="image" style="position: absolute; top:15vh;"> <img src="./images/Cheif&Cadet.jpg" style="width: 35vmin;"> Cheif Killian and Former Cadet Mendoza <br> Air Rifle Championship 2020</div>
-        <div style="font-size: 2vmin; position: absolute; top:15vh; left: 50vw;">Lead by former navy personel the Parlier High School Naval Junior Reserve Officers Training Corps or <u>NJROTC</u> molds our students into better citizens for the future</div>
-    </div>
+    <div id="topbar"></div>
+    <img src="images/Cadets.jpg" style=" opacity: 0.5; width: 100vw; position: absolute; z-index: -1;">
+    <img class="center" src="images/PHS.png" style="margin-top: 2vw; width: 35vw; top:10vw;">
+    <h1 class="center" style="font-family: 'Times New Roman', Times, serif; margin-top: 2vw;">N.J.R.O.T.C. Unit</h1>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script> $("#topbar").load("header/header.html");  </script>
 </body>
 
 </html>
