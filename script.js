@@ -29,6 +29,7 @@ return !(rect1.right < rect2.left ||
 }
 
 
+
 let fade = true
 
 function animatebar(){

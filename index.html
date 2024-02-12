@@ -10,17 +10,20 @@
 </head>
 
 <body>
+    <!-- header is requried by every webpage-->
     <header id="topbar"> 
         <img class="icon" src="./images/NJROTC-Seal.svg"> 
         <span class="title">Parlier NJROTC</span> 
-        <img id="home" class="icon" title="Home" onclick="window.location.href='#top'" src="./images/home.svg"> 
+        <img id="home" class="icon" title="Home" onclick="window.scrollTo(0,0)" src="./images/home.svg"> 
         <div id="buttons">
             <div class="btn">
                 Tutorials
                 <table class="dropdown">
-                    <tr>
-                        <td>How to iron uniform</td>
-                      </tr>
+                    <a href="./Subpages/Knowledge/Orders/index.html" onclick="location.href">
+                        <tr>
+                            <td>How to iron uniform</td>
+                        </tr>
+                    </a>
                       <tr>
                         <td>How to shine your shoes</td>
                       </tr>
@@ -36,7 +39,7 @@
                 General Knowledge
                 <table class="dropdown">
                     <tr>
-                        <td style="text-align: center;">General Orders</td>
+                        <td onclikc="">General Orders</td>
                       </tr>
                       <tr>
                         <td>Chain of command</td>
