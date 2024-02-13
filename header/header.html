@@ -112,24 +112,18 @@ font-size: 6vmin;
     <img id="home" class="icon" title="Home" onclick="location.href = 'index.html' " src="images/home.svg"> 
     <div id="buttons">
         <div class="btn">
-            Tutorials
+          <div onclick="window.location = 'Subpages/Knowledge/index.html'">Tutorials</div>
             <table class="dropdown">
-              <tr>
+              <tr onclick="window.location = 'Subpages/Knowledge/Iron/index.html'">
                 <td>How to iron uniform</td>
               </tr>
               <tr>
-                <td>How to shine your shoes</td>
-              </tr>
-              <tr>
-                <td>How to something</td>
-              </tr>
-              <tr>
-                <td>How to make dropdown menu</td>
+                <td onclick="window.location = 'Subpages/Knowledge/Polish/index.html'">How to shine your shoes</td>
               </tr>
             </table>
         </div>
         <div class="btn">
-            General Knowledge
+          <div onclick="window.location = 'Subpages/Knowledge/index.html'">General Knowledge</div>
             <table class="dropdown">
                 <tr>
                     <td onclick="window.location = 'Subpages/Knowledge/Orders/index.html'">General Orders</td>
@@ -145,35 +139,70 @@ font-size: 6vmin;
             </table>
         </div>
         <div class="btn">Events</div>
-        <div class="btn">Teams
+        <div class="btn">
+          <div onclick="window.location = 'Subpages/Teams/index.html'">Teams</div>
             <table class="dropdown">
                 <tr>
-                    <td>Drill</td>
+                    <td onclick="window.location = 'Subpages/Teams/Drill/index.html'">Drill</td>
                   </tr>
                   <tr>
-                    <td>Academic</td>
+                    <td onclick="window.location = 'Subpages/Teams/Academic/index.html'">Academic</td>
                   </tr>
                   <tr>
-                    <td>Rifle</td>
+                    <td onclick="window.location = 'Subpages/Teams/Rifle/index.html'">Rifle</td>
                   </tr>
                   <tr>
-                    <td>Color Gaurd</td>
+                    <td onclick="window.location = 'Subpages/Teams/Color/index.html'">Color Gaurd</td>
                   </tr>
             </table>
         </div>
-        <div class="btn">Fundraising</div>
-        <div class="btn">Instructors</div>
-        <div class="btn">Pictures</div>
-        <div class="btn">Links</div>
+        <div class="btn">
+          <div onclick="window.location = 'Subpages/Fundraising/index.html'">Fundraising</div>
+          <table class="dropdown">
+            <tr>
+              <td onclick="window.location = 'Subpages/Fundraising/Midway/index.html'">Midway Foundation</td>
+            </tr>
+            <tr>
+              <td onclick="window.location = 'Subpages/Fundraising/Donate/index.html'">Donate</td>
+            </tr>
+        </table>
+        </div>
+        <div class="btn">
+          <div onclick="window.location = 'Subpages/Instructor/index.html'">Instructors</div>
+          <table class="dropdown">
+            <tr>
+              <td onclick="window.location = 'Subpages/Instructors/Cheif/index.html'">Cheif Killian</td>
+            </tr>
+            <tr>
+              <!-- I feel bad including him, should I include him or not?-->
+              <td onclick="window.location = 'Subpages/Instructors/Warrant/index.html'">Former Chief Warrant Officer Mark Bristol. (Do I include or not?)</td>
+            </tr>
+        </table>
+        </div>
+        <div class="btn">
+          <div onclick="window.location = 'Subpages/Pictures/index.html'">Pictures</div>
+        </div>
+        <div class="btn">
+          <div onclick="window.location = 'Subpages/Links/index.html'">Links</div>
+          <table class="dropdown">
+            <tr>
+              <td onclick='window.location.href = "https:/"+"/phs.parlierunified.org/"'>Parlier High School</td>
+            </tr>
+            <tr>
+              <td onclick=' window.location.href = "https:/"+"/www.bk.com/store-locator/store/10836/13609-east-manning-avenue--parlier--california--93648-9743"'>Burger King</td>
+            </tr>
+          </table>
+        </div>
+        </div>
     </div>
 </header>
 <script>let btn =  document.getElementsByClassName("btn")
     for (let i = 0; i < btn.length; i++) {
-        if(btn[i].children[0]){
-            btn[i].onmouseleave = ()=>{btn[i].children[0].style.display = "none"}
+        if(btn[i].children[1]){
+            btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
         }
-        if(btn[i].children[0]){
-            btn[i].onmouseover = ()=>{btn[i].children[0].style.display = "block"}
+        if(btn[i].children[1]){
+            btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
         }
     }
     
