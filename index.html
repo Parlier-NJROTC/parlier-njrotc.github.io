@@ -13,13 +13,10 @@
     <div id="topbar"></div>
     <img src="images/Cadets.jpg" style=" opacity: 0.5; width: 100vw; position: absolute; z-index: -1;">
 
-    <div style="position: relative; display: flex; align-items: center; padding-top: 1vw;">
+    <div style="position: relative; align-items: center; padding-top: 1vw;">
       <img class="center" src="images/Phs.png" style="margin-top: 2vw; height: 24vw; top:10vw;">
-      <div style="border: 0.5vmin solid; height: 30vw;"></div>
-      <h1 class="center" style="font-size: 2vw; padding: 2vw; margin-top: 2vw; border: 1vmin solid; width: 30vw;">N.J.R.O.T.C. Unit</h1>
+      <h1 class="center" style="font-size: 2vw; padding: 2vw 6vw 2vw 6vw;  margin-top: 2vw; border: 1vmin solid; width: 45vw; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Naval Junior Reserve Officers Training Corps</h1>
     </div>
-
-
     <div class="center" id="about">
       <h1 class="center" style="margin-left: 30vw;"><b><u>About the Unit</u></b></h1>
       <div style="position: relative; display: flex; align-items: center;">
@@ -50,7 +47,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <script> $("#topbar").load("header/header.html");  </script>
+    <script>
+      var were = "Home"
+      $("#topbar").load("header/header.html");  
+    </script>
 </body>
 
 </html>
