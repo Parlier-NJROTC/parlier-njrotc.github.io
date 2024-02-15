@@ -205,7 +205,7 @@ font-size: 6vmin;
     let btn =  document.getElementsByClassName("btn")
     for (let i = 0; i < btn.length; i++) {
         if(btn[i].children[1]){
-            //btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
+            btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
         }
         if(btn[i].children[1]){
             btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
