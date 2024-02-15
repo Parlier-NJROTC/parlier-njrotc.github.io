@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../../">
-  <title>PHS NJROTC | Tutorials</title>
+  <base href="../../../">
+  <title>PHS NJROTC | Ironing</title>
 </head>
 <body>
   <div id="topbar"></div>
-  How do stuff, here be vid
+  
+  <div style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); color: Blue; font-size: 20px;" class="text">How to Iron Your Navy Uniform</div>
 
-
-
+  </div>
+  <style>
+    iframe {
+      border: 4px solid blue;
+      position: relative;
+    }
+  </style>
+  
+  <iframe width="700" height="500" 
+    src="<iframe width="560" height="315" src="https://www.youtube.com/embed/QzC2GY-AAA0?si=B2x2YfPVJFlSsTLD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  </iframe>
   
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");  </script>
+  <script> 
+    let wKeyCount = 0;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'w') {
+        wKeyCount++;
+        if (wKeyCount === 3) {
+          wKeyCount = 0;
+          document.body.style.filter = "invert(100%)";
+        }
+      }
+    });
+  </script>
 </body>
 </html>

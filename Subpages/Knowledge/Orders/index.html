@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="topbar"></div>
-  <img style="position: absolute; z-index: -1; width: 100vw; top: -10vw; opacity: 0.5;" src="images/boats.jpg">
+  <img style="position: absolute; z-index: -1; width: 100vw; top: -10vw; opacity: 0.5;" src="images/Boats.jpeg">
   <div style="font-size: 1.5vw; padding: 2vw; margin: 0px 1vw 0px 1vw; border: 1vmin solid; width: 75vw;">
     <h1 style="margin-right: 30vw; color: lightblue; ">United States Navy</h1>
     <br>
@@ -70,6 +70,18 @@
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");  </script>
+  <script> $("#topbar").load("header/header.html"); 
+    let wKeyCount = 0;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'w') {
+        wKeyCount++;
+        if (wKeyCount === 3) {
+          wKeyCount = 0;
+          document.body.style.filter = "invert(100%)";
+        }
+      }
+    });
+
+  </script>
 </body>
 </html>
