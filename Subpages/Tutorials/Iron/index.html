@@ -5,28 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="../../../">
   <title>PHS NJROTC | Ironing</title>
+  <style>
+    body {
+      background-color: darkblue;
+      height: 150vh;
+    }
+  </style>
 </head>
 <body>
   <div id="topbar"></div>
   
-  <div style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); color: black; font-size: 20px;" class="text">How to Iron Your Navy Uniform</div>
+  <div style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px;" class="text">How to Iron Your Navy Uniform</div>
 
   </div>
   <style>
     iframe {
-      border: 4px solid blue;
+      border: 4px solid black;
       position: relative;
     }
   </style>
   
   <iframe width="700" height="500" 
-    src="https://www.youtube.com/embed/_1ImyjaUjSk?si=GJU3a7Xvid4uN4gr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    src="https://www.youtube.com/embed/_1ImyjaUjSk?si=GJU3a7Xvid4uN4gr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);">
   </iframe>
   
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> 
-    let wKeyCount = 0;
+  <script> $("#topbar").load("header/header.html");</script>
+  <script> let wKeyCount = 0;
     document.addEventListener('keydown', function(event) {
       if (event.key === 'w') {
         wKeyCount++;
