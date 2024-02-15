@@ -1,26 +1,24 @@
 <style>
-    *, html {
+*, html {
     scroll-behavior: smooth !important;
     max-width: 100%;
-    }
+}
     
-    body{
+body{
     max-width: 100%;
     overflow-x: hidden;
     margin: 0;
-    padding: 0;
     background-color: rgb(0, 0, 80);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.2vw;
     color: white;
-    }
+}
     
     h1{
     margin: 0;
     }
     
     header{
-    position:fixed;
     top:0;
     z-index: 99;
     padding: 5vmin;
@@ -209,7 +207,7 @@
         let btn =  document.getElementsByClassName("btn")
         for (let i = 0; i < btn.length; i++) {
             if(btn[i].children[1]){
-                //btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
+                btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
             }
             if(btn[i].children[1]){
                 btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
