@@ -100,159 +100,180 @@ font-size: 6vmin;
 </style>
 
 
-<header id="topbar"> 
-    <img class="icon" src="images/NJROTC-Seal.svg"> 
-    <span class="title">Parlier NJROTC</span> 
-    <div id="buttons">
+<style>
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  .image-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+  }
+  .image-container:hover .image-text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+</style>
+    <header id="topbar">
+      <a href="index.html">
+        <img class="icon" src="images/NJROTC-Seal.svg">
+      </a>
+      <span class="title" onclick="window.location = 'index.html'">Parlier NJROTC</span>
+      <div id="buttons">
+
       <div class="btn">
-        <div id="bHome" onclick="window.location = 'index.html'">Home</div>
-      </div>
-        <div class="btn">
-          <div id="bTutorials" onclick="window.location = 'Subpages/Tutorials/index.html'">Tutorials</div>
-            <table class="dropdown">
-              <tr onclick="window.location = 'Subpages/Tutorials/Iron/index.html'">
-                <td>How to iron uniform</td>
-              </tr>
-              <tr>
-                <td onclick="window.location = 'Subpages/Tutorials/Polish/index.html'">How to shine your shoes</td>
-              </tr>
-            </table>
-        </div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Knowledge/index.html'">General Knowledge</div>
-            <table class="dropdown">
-                <tr>
-                    <td onclick="window.location = 'Subpages/Knowledge/Orders/index.html'">General Orders</td>
-                  </tr>
-                  <tr>
-                    <td onclick="window.location = 'Subpages/Knowledge/Chain/index.html'">Chain of command</td>
-                  </tr>
-                  <tr>
-                    <td onclick="window.location = 'Subpages/Knowledge/Ranks/index.html'">Ranks</td>
-                  </tr>
-                  <tr>
-                  </tr>
-            </table>
-        </div>
-        <div class="btn">Events</div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Teams/index.html'">Teams</div>
-            <table class="dropdown">
-                <tr>
-                    <td onclick="window.location = 'Subpages/Teams/Drill/index.html'">Drill</td>
-                  </tr>
-                  <tr>
-                    <td onclick="window.location = 'Subpages/Teams/Academic/index.html'">Academic</td>
-                  </tr>
-                  <tr>
-                    <td onclick="window.location = 'Subpages/Teams/Rifle/index.html'">Rifle</td>
-                  </tr>
-                  <tr>
-                    <td onclick="window.location = 'Subpages/Teams/Color/index.html'">Color Gaurd</td>
-                  </tr>
-            </table>
-        </div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Fundraising/index.html'">Fundraising</div>
+        <div id="bTutorials" onclick="window.location = 'Subpages/Tutorials/index.html'">Tutorials</div>
           <table class="dropdown">
-            <tr>
-              <td onclick="window.location = 'Subpages/Fundraising/Midway/index.html'">Midway Foundation</td>
+            <tr onclick="window.location = 'Subpages/Tutorials/Iron/index.html'">
+              <td>How to iron uniform</td>
             </tr>
             <tr>
-              <td onclick="window.location = 'Subpages/Fundraising/Donate/index.html'">Donate</td>
-            </tr>
-        </table>
-        </div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Instructor/index.html'">Instructors</div>
-          <table class="dropdown">
-            <tr>
-              <td onclick="window.location = 'Subpages/Instructors/Cheif/index.html'">Cheif Killian</td>
-            </tr>
-        </table>
-        </div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Pictures/index.html'">Pictures</div>
-        </div>
-        <div class="btn">
-          <div onclick="window.location = 'Subpages/Links/index.html'">Links</div>
-          <table class="dropdown">
-            <tr>
-              <td onclick='window.location.href = "https:/"+"/phs.parlierunified.org/"'>Parlier High School</td>
-            </tr>
-            <tr>
-              <td onclick='window.location.href = "https:/"+"/www.netc.navy.mil/Portals/46/NSTC/NJROTC/docs/CFM%2011th%20Edition%20revised.pdf"'>Cadet Field Manuel (B.O.B.)<br>.pdf</td>
-            </tr>
-            <tr>
-              <td onclick=' window.location.href = "https:/"+"/github.com/Cyborgnetical/Parlier-NJROTC-Website/issues"'>Current Website Issues</td>
-            </tr>
-            <tr>
-              <td onclick=' window.location.href = "https:/"+"/discord.gg/AEwgZhgfCb"'> Unoffical Discord (have any ideas, suggestions, or problems, tell me plz)</td>
+              <td onclick="window.location = 'Subpages/Tutorials/Polish/index.html'">How to shine your shoes</td>
             </tr>
           </table>
-        </div>
-        </div>
-    </div>
+      </div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Knowledge/index.html'">General Knowledge</div>
+          <table class="dropdown">
+              <tr>
+                  <td onclick="window.location = 'Subpages/Knowledge/Orders/index.html'">General Orders</td>
+                </tr>
+                <tr>
+                  <td onclick="window.location = 'Subpages/Knowledge/Chain/index.html'">Chain of command</td>
+                </tr>
+                <tr>
+                  <td onclick="window.location = 'Subpages/Knowledge/Ranks/index.html'">Ranks</td>
+                </tr>
+                <tr>
+                </tr>
+          </table>
+      </div>
+      <div class="btn">Events</div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Teams/index.html'">Teams</div>
+          <table class="dropdown">
+              <tr>
+                  <td onclick="window.location = 'Subpages/Teams/Drill/index.html'">Drill</td>
+                </tr>
+                <tr>
+                  <td onclick="window.location = 'Subpages/Teams/Academic/index.html'">Academic</td>
+                </tr>
+                <tr>
+                  <td onclick="window.location = 'Subpages/Teams/Rifle/index.html'">Rifle</td>
+                </tr>
+                <tr>
+                  <td onclick="window.location = 'Subpages/Teams/Color/index.html'">Color Gaurd</td>
+                </tr>
+          </table>
+      </div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Fundraising/index.html'">Fundraising</div>
+        <table class="dropdown">
+          <tr>
+            <td onclick="window.location = 'Subpages/Fundraising/Midway/index.html'">Midway Foundation</td>
+          </tr>
+          <tr>
+            <td onclick="window.location = 'Subpages/Fundraising/Donate/index.html'">Donate</td>
+          </tr>
+      </table>
+      </div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Instructor/index.html'">Instructors</div>
+        <table class="dropdown">
+          <tr>
+            <td onclick="window.location = 'Subpages/Instructors/Cheif/index.html'">Cheif Killian</td>
+          </tr>
+      </table>
+      </div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Pictures/index.html'">Pictures</div>
+      </div>
+      <div class="btn">
+        <div onclick="window.location = 'Subpages/Links/index.html'">Links</div>
+        <table class="dropdown">
+          <tr>
+            <td onclick='window.location.href = "https:/"+"/phs.parlierunified.org/"'>Parlier High School</td>
+          </tr>
+          <tr>
+            <td onclick=' window.location.href = "https:/"+"/github.com/Cyborgnetical/Parlier-NJROTC-Website/issues"'>Current Website Issues</td>
+          </tr>
+        </table>
+      </div>
+      </div>
+  </div>
 </header>
 <script defer>
-  if(were){
-    document.getElementById(`b${were}`).style.fontWeight = "bold"
-    document.getElementById(`b${were}`).style.textDecoration = "underline"
-  }else{
-    console.log("oi 404 not found")
+if(document.getElementById(`b${were}`)){
+  document.getElementById(`b${were}`).style.fontWeight = "bold"
+  document.getElementById(`b${were}`).style.textDecoration = "underline"
+}else{
+  console.log("oi 404 not found")
+}
+
+  let btn =  document.getElementsByClassName("btn")
+  for (let i = 0; i < btn.length; i++) {
+      if(btn[i].children[1]){
+          btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
+      }
+      if(btn[i].children[1]){
+          btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
+      }
   }
 
-    let btn =  document.getElementsByClassName("btn")
-    for (let i = 0; i < btn.length; i++) {
-        if(btn[i].children[1]){
-            btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
-        }
-        if(btn[i].children[1]){
-            btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
-        }
-    }
-    
-    // open source code (modified) found on js fiddle
-    // https://jsfiddle.net/m8ndw8gj/1/
-    
-    function pos(el) {
-        return el.getBoundingClientRect();
-    }
-    
-    function CoveredElement(el1, el2) {
-    var rect1 = pos(el1);
-    var rect2 = pos(el2);
-    return !(rect1.right < rect2.left ||  
-        rect1.left > rect2.right ||  
-        rect1.bottom < rect2.top ||  
-        rect1.top > rect2.bottom); 
-    }
-    console.log(location.href)
-    
-    /*
-    let fade = true
-    
-    function animatebar(){
-    
-        if(($(document).scrollTop()/ $(window).height())*100>5 && !fade){
-    
-            $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 1)"},100)
-            fade = true
-        }
-        if(($(document).scrollTop()/ $(window).height())*100<5 && fade){
-            $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 0.5)"},100)
-            let drops = $(".dropdown")
-            fade = false
-        }
-            
-         
-    }
-    window.onscroll = animatebar
-    
-    window.onscrollend = () =>{
-        animatebar()
-        console.log("end")
-    }*/
-    
-    
-    </script>
+  // open source code (modified) found on js fiddle
+  // https://jsfiddle.net/m8ndw8gj/1/
+
+  function pos(el) {
+      return el.getBoundingClientRect();
+  }
+
+  function CoveredElement(el1, el2) {
+  var rect1 = pos(el1);
+  var rect2 = pos(el2);
+  return !(rect1.right < rect2.left ||  
+      rect1.left > rect2.right ||  
+      rect1.bottom < rect2.top ||  
+      rect1.top > rect2.bottom); 
+  }
+  console.log(location.href)
+
+  /*
+  let fade = true
+
+  function animatebar(){
+
+      if(($(document).scrollTop()/ $(window).height())*100>5 && !fade){
+
+          $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 1)"},100)
+          fade = true
+      }
+      if(($(document).scrollTop()/ $(window).height())*100<5 && fade){
+          $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 0.5)"},100)
+          let drops = $(".dropdown")
+          fade = false
+      }
+
+
+  }
+  window.onscroll = animatebar
+
+  window.onscrollend = () =>{
+      animatebar()
+      console.log("end")
+  }*/
+
+
+  </script>

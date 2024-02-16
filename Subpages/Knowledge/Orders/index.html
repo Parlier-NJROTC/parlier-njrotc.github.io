@@ -10,7 +10,7 @@
 </head>
 <body>
   <div id="topbar"></div>
-  <img style="position: absolute; z-index: -1; width: 100vw; top: -10vw; opacity: 0.5;" src="images/boats.jpg">
+  <img style="position: absolute; z-index: -1; width: 100vw; top: -10vw; opacity: 0.5;" src="images/Boats.jpeg">
   <div id="title" class="center">
     <h1 class="subtitle" style="color: navy; background-color: rgba(255, 217, 0, 0.8); text-align: left;">⚓️ United States Navy ⚓️</h1>
     <h1 class="subtitle" style="color: gold; background-color: rgba(0, 0, 128, 0.8); text-align: right;">
@@ -58,6 +58,18 @@
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");  </script>
+  <script> $("#topbar").load("header/header.html"); 
+    let wKeyCount = 0;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'w') {
+        wKeyCount++;
+        if (wKeyCount === 3) {
+          wKeyCount = 0;
+          document.body.style.filter = "invert(100%)";
+        }
+      }
+    });
+
+  </script>
 </body>
 </html>
