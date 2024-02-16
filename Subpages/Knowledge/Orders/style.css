@@ -1,0 +1,36 @@
+#title{
+    position: relative;
+    margin: 20vw;
+    margin-top: 15vw;
+    margin-bottom: 5vw;
+    border: 0.5vw solid white;
+}
+.subtitle{
+    padding: 2vw;
+}
+
+#orders{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 5vw;
+}
+#orders tr td{
+    text-align: center;
+    font-family: Noto Sans,Helvetica Neue,Helvetica,Arial,Liberation Sans,Roboto,Noto,sans-serif;
+    border: solid;
+}
+ol li{
+    padding: 0.5vw;
+    
+}
+#info{
+    position: relative; 
+    background: rgb(0, 0, 55);
+    background-attachment: fixed;
+    color: cadetblue; 
+    padding-left: 5vw; 
+    padding-right: 5vw; 
+    padding-top: 5vw; 
+    padding-bottom: 50vw;
+    
+}
