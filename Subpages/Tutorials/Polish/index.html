@@ -1,80 +1,87 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../../">
-  <title>PHS NJROTC | Tutorials</title>
-  <html>
-  <head>
-    <style>
-        .button {
-            background-color: #000000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #535454;
-        }
-       .button:hover + .info-box {
-        opacity: 1;
-        transition: opacity 0.5s;
-       }
-       .info-box {
-        position: absolute;
-        left: 150px;
-        top: 0;
-        background-color: white;
-        padding: 10px;
-        opacity: 0;
-      }
-    </style>
-
-
-  </head>
-  <body>
+  <base href="../../../">
+  <title>PHS NJROTC | Polishing</title>
+<style>
+  body {
+    background-color: rgb(0, 0, 80);
+    height: 130vh;
+  }
+</style>
+<body>
   <div id="topbar"></div>
-  <img style="position: absolute; z-index: -1; width: 150vw; top: 10vw; opacity: 0.5;" src="images/USS-John-Finn.jpeg
-">
+  
 
-      <div id="title" class="center" style="text-align: center;">
-          <h1 class="subtitle" style="color: navy; background-color: rgba(255, 217, 0, 0.8);">⚓️ Tutorial ⚓️</h1>
-          <h1 class="subtitle" style="color: gold; background-color: rgba(0, 0, 128, 0.8); text-align: center;">
-            <img src="images/Shoe.png" style="height: 2vw; filter: invert(1);">
-            What are you do You want to learn?
-            <img src="images/Shoe.png" style="height: 2vw; filter: invert(1);">
-        </div>
+ 
+  <img style="position: absolute; z-index: -1; width: 100vw; top: 18.5vw; opacity: 0.5;" src="images/Bigboat.jpeg">
+  <div id="title" class="center">
+    <h1 class="subtitle" style="color: rgb(0, 0, 80); background-color: rgba(255, 217, 0); text-align: left;">⚓️ Tutorial ⚓️
+      </h1>
+      <h1 class="subtitle" style="color: gold; background-color: rgb(0, 0, 80); text-align: right; animation: move 10s infinite;">
+          <img src="images/Shoe.png" style="height: 2vw; filter: invert(1);">
+        How to Polish Your Shoes
+          <img src="images/Shoe.png" style="height: 2vw; filter: invert(1);">
+      </h1>
 
-     <div style="text-align: center; margin-top: 14vw;">
-        <a href="Subpages/Tutorials/Iron"><button class="button">Uniform Ironing Tutorial</button></a>
-        <a href="Subpages/Tutorials/Polish"><button class="button">Shoe Polishing Tutorial</button></a>
-    </div>
+      <style>
+          @keyframes move {
+              0% {
+                  transform: translateX(0);
+              }
+              50% {
+                  transform: translateX(-150px);
+              }
+              100% {
+                  transform: translateX(0);
+              }
+          }
+      </style>
+        
+      </style>
+  </div>
+  <style>
+    iframe {
+      border: 4px solid black;
+      position: relative;
+    }
+  </style>
 
-    <p style="position: absolute; top: 130%; left: 50%; transform: translate(-50%, -50%); font-size: 15px; animation: color-change 5s infinite;">Made by Cadet Sanchez</p>
-    <style>
-        @keyframes color-change {
-            33.33% {
-                color: Black;
-            }
-            66.66% {
-                color: blue;
-            }
-            100% {
-                color: yellow;
-            }
-        }
-    </style>
-
+  <iframe width="700" height="500" src="https://www.youtube.com/embed/QzC2GY-AAA0?si=B2x2YfPVJFlSsTLD"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);">
+    ></iframe>
+  <p style="position: absolute; top: 150%; left: 50%; transform: translate(-50%, -50%); font-size: 15px;" color: white;">P.S. This is the best Video I can find</p>
+  <p style="position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; animation: color-change 5s infinite;">Made by Cadet Sanchez</p>
+  <style>
+      @keyframes color-change {
+          33.33% {
+              color: Black;
+          }
+          66.66% {
+              color: blue;
+          }
+          100% {
+              color: yellow;
+          }
+      }
+  </style>
+  
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");  </script>
+  <script> $("#topbar").load("header/header.html");</script>
+  <script> let wKeyCount = 0;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'w') {
+        wKeyCount++;
+        if (wKeyCount === 3) {
+          wKeyCount = 0;
+          document.body.style.filter = "invert(100%)";
+        }
+      }
+    });
+  </script>
 </body>
 </html>
