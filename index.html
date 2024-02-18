@@ -7,10 +7,12 @@
     <title>Parlier High School | NJROTC</title>
     <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
-    <div id="topbar"></div>
+  <header id="header"></header>
+  <div id="menus"></div>
     <div id="main">
       <div id="maintitle">
         <div id="phs">
@@ -21,8 +23,21 @@
         </div>
       </div>
     </div>
-
-
+    
+    <div id="about">
+      <h1 id="us"><u>About us</u></h1>
+      <div>
+        <img class="img" src="images/Cheif&Cadet.jpg">
+        <p>
+          Led by retired Navy personnel 
+          the Parlier High School Navy Junior Reserve Officer Training Corps or <u>NJROTC</u> was established in 1995.
+          Our goal is to mold our students into better citizens by <u>teaching them real-life skills</u> for a better future.
+          Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence,
+          Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching.
+        </p>
+      </div>
+    </div>
+    
 
     <!--
     <div style="position: absolute;">*keep in mid, altho it looks good, its insanely buggy <br> if anything breaks add an issue to the github repository, should be under links</div>
@@ -62,9 +77,11 @@
     -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-    <script>
-      var were = "Home"
-      $("#topbar").load("header/header.html");  
+    <script id="script"></script>
+    <script defer>
+      $("#header").load("header/header.html");  
+      $("#menus").load("header/navi.html");  
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
 </body>
 
