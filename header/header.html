@@ -1,279 +1,151 @@
 <style>
-*, html {
-scroll-behavior: smooth !important;
-max-width: 100%;
-}
-
-body{
-max-width: 100%;
-overflow-x: hidden;
-margin: 0;
-margin-top: 23vmin;
-padding: 0;
-background-color: rgb(0, 0, 80);
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 1.2vw;
-color: white;
-}
-
-h1{
-margin: 0;
-}
-
-header{
-position:fixed;
-top:0;
-z-index: 99;
-padding: 5vmin;
-width: 100vw;
-color:white;
-background-color: rgba(20,20,20,1);
-}
-#buttons{
-position: relative;
-left: -5vmin;
-top:5vmin;
-width: 100vw;
-display: flex;
-justify-content: space-around;
-}
-#buttons div{
-text-align: center;
-}
-#buttons div a{
-position: absolute;
-left:0;
-display: flex;
-width:12.5vw;
-background-color: grey;
-}
-.btn{
-width: 100%;
-height: 6vmin;
-background-color: rgba(0,0,0,0);
-color:white;
-border: none;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-font-size: 2vmin;
-}
-
-.btn:hover{
-text-decoration: underline;
-}
-.dropdown{
-position: absolute;
-top:6vmin;
-width: 12.5vw;
-background-color: darkslategrey;
-display: none;
-text-align: center;
-justify-content: center;
-transition: color 0.5s linear;
-}
-.dropdown tr td{
-width: 12.5vw;
-padding-top: 1vmin;
-padding-bottom: 1vmin;
-}
-.dropdown tr td:hover{
-text-decoration: underline;
-}
-.icon{
-height: 5vmin;
-vertical-align:middle;
-}
-.title{
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-vertical-align:middle;
-font-size: 6vmin;
-}
-.center{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.sub{
-  color: lightgray;
-  font-size: 1vw;
-}
-</style>
-
-
-<style>
-  .image-container {
-    position: relative;
-    display: inline-block;
+  body{
+    margin: 0;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
   }
-  .image-text {
-    visibility: hidden;
-    width: 200px;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    position: absolute;
+  #blur{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(5px);
     z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -100px;
+    background-color: white;
+    display: none;
     opacity: 0;
-    transition: opacity 0.5s, visibility 0s 0.5s;
+    margin: -5px;
   }
-  .image-container:hover .image-text {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.5s;
+
+  #header{
+    position: sticky;
+    background-color: black;
+    top: 0px;
+    color: white;
+    display: flex;
+    padding: 5vmin;
+    align-items: center;
+  }
+  #title{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 6vmin;
+  }
+
+  #seal{
+    height:5vmin;
+  }
+
+  #menuBtn{
+    margin-left: auto;
+    width: 5vw;
+    height: 5vw;
+  }
+  #menuBtn:hover{
+    cursor: pointer;
+  }
+  #close:hover{
+    cursor: pointer;
+  }
+
+  #menus{
+    filter: blur(0px);
+    position: absolute;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: gray;
+    right: 0px;
+    top:0px;
+    width:0vmin;
+    height: 100%;
+    color:white;
+    background-color: rgb(0, 0, 64);
+    transition: width 250ms;
+    z-index: 2;
+  }
+  #menus header{
+    display: flex;
+    background-color: navy;
+    padding: 5vmin;
+    font-size: 25px;
+  }
+
+  #navigation{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  #navigation a{
+    position: relative;
+    text-align: right;
+    z-index: 1;
+    padding: 3vmin;
+    color: white;
+    transition: padding-right 250ms;
+  }
+  #navigation a::before{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    background-color: rgb(0, 28, 128);
+    width: 0%;
+    height: 100%;
+    left: 100%;
+    top:0%;
+    opacity: 0.5;
+  }
+  #navigation a:hover::before{
+    width: 100%;
+    left: 0%;
+    top:0%;
+  }
+  #navigation a:hover{
+    padding-right: 5vmin;
+    transition: 250ms;
+  }
+
+
+  .by{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    padding: 1vmin;
+    width: 96%;
+    text-align: center;
+    bottom:0%;
   }
 </style>
-    <header id="topbar">
-      <a href="index.html">
-        <img class="icon" src="images/NJROTC-Seal.svg">
-      </a>
-      <span class="title" onclick="window.location = 'index.html'">Parlier NJROTC</span>
-      <div id="buttons">
 
-      <div class="btn">
-        <div id="bTutorials" onclick="window.location = 'Subpages/Tutorials/index.html'">Tutorials</div>
-          <table class="dropdown">
-            <tr onclick="window.location = 'Subpages/Tutorials/Iron/index.html'">
-              <td>How to iron uniform</td>
-            </tr>
-            <tr>
-              <td onclick="window.location = 'Subpages/Tutorials/Polish/index.html'">How to shine your shoes</td>
-            </tr>
-          </table>
-      </div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Knowledge/index.html'">General Knowledge</div>
-          <table class="dropdown">
-              <tr>
-                  <td onclick="window.location = 'Subpages/Knowledge/Orders/index.html'">General Orders</td>
-                </tr>
-                <tr>
-                  <td onclick="window.location = 'Subpages/Knowledge/Chain/index.html'">Chain of command</td>
-                </tr>
-                <tr>
-                  <td onclick="window.location = 'Subpages/Knowledge/Ranks/index.html'">Ranks</td>
-                </tr>
-                <tr>
-                </tr>
-          </table>
-      </div>
-      <div class="btn">Events</div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Teams/index.html'">Teams</div>
-          <table class="dropdown">
-              <tr>
-                  <td onclick="window.location = 'Subpages/Teams/Drill/index.html'">Drill</td>
-                </tr>
-                <tr>
-                  <td onclick="window.location = 'Subpages/Teams/Academic/index.html'">Academic</td>
-                </tr>
-                <tr>
-                  <td onclick="window.location = 'Subpages/Teams/Rifle/index.html'">Rifle</td>
-                </tr>
-                <tr>
-                  <td onclick="window.location = 'Subpages/Teams/Color/index.html'">Color Gaurd</td>
-                </tr>
-          </table>
-      </div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Fundraising/index.html'">Fundraising</div>
-        <table class="dropdown">
-          <tr>
-            <td onclick="window.location = 'Subpages/Fundraising/Midway/index.html'">Midway Foundation</td>
-          </tr>
-          <tr>
-            <td onclick="window.location = 'Subpages/Fundraising/Donate/index.html'">Donate</td>
-          </tr>
-      </table>
-      </div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Instructor/index.html'">Instructors</div>
-        <table class="dropdown">
-          <tr>
-            <td onclick="window.location = 'Subpages/Instructors/Cheif/index.html'">Cheif Killian</td>
-          </tr>
-      </table>
-      </div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Pictures/index.html'">Pictures</div>
-      </div>
-      <div class="btn">
-        <div onclick="window.location = 'Subpages/Links/index.html'">Links</div>
-        <table class="dropdown">
-          <tr>
-            <td onclick='window.location.href = "https:/"+"/phs.parlierunified.org/"'>Parlier High School</td>
-          </tr>
-          <tr>
-            <td onclick=' window.location.href = "https:/"+"/github.com/Cyborgnetical/Parlier-NJROTC-Website/issues"'>Current Website Issues</td>
-          </tr>
-        </table>
-      </div>
-      </div>
-  </div>
+
+
+<div id="blur"></div>
+<header id="header">
+  <div id="title"> <img id="seal" src="images/NJROTC-Seal.svg">Parlier NJROTC</div>
+  <img id="menuBtn" src="images/menu.svg">
 </header>
-<script defer>
-if(document.getElementById(`b${were}`)){
-  document.getElementById(`b${were}`).style.fontWeight = "bold"
-  document.getElementById(`b${were}`).style.textDecoration = "underline"
-}else{
-  console.log("oi 404 not found")
+<div id="menus">
+  <header><div id="close">></div> <div style="margin-left: auto;">Menus</div></header>
+  <nav id="navigation">
+    <a>Home</a>
+    <a>Tutorials</a>
+    <a>Knowledge</a>
+    <a>Teams</a>
+    <a>Events</a>
+    <a>Instructors</a>
+    <a>Fundrasing</a>
+    <a>Pictures</a>
+    <a>Links</a>
+  </nav>
+<div class="by">Header and Menus by Cadet Ibarra</div>
+</div>
+
+<script>
+  document.getElementById("menuBtn").onclick = ()=>{
+    document.getElementById("menus").style.width = "50vmin"
+    document.getElementById("blur").style.display = "block"
+    document.getElementById("blur").style.opacity = "0.5"
 }
-
-  let btn =  document.getElementsByClassName("btn")
-  for (let i = 0; i < btn.length; i++) {
-      if(btn[i].children[1]){
-          btn[i].onmouseleave = ()=>{btn[i].children[1].style.display = "none"}
-      }
-      if(btn[i].children[1]){
-          btn[i].onmouseover = ()=>{btn[i].children[1].style.display = "block"}
-      }
-  }
-
-  // open source code (modified) found on js fiddle
-  // https://jsfiddle.net/m8ndw8gj/1/
-
-  function pos(el) {
-      return el.getBoundingClientRect();
-  }
-
-  function CoveredElement(el1, el2) {
-  var rect1 = pos(el1);
-  var rect2 = pos(el2);
-  return !(rect1.right < rect2.left ||  
-      rect1.left > rect2.right ||  
-      rect1.bottom < rect2.top ||  
-      rect1.top > rect2.bottom); 
-  }
-  console.log(location.href)
-
-  /*
-  let fade = true
-
-  function animatebar(){
-
-      if(($(document).scrollTop()/ $(window).height())*100>5 && !fade){
-
-          $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 1)"},100)
-          fade = true
-      }
-      if(($(document).scrollTop()/ $(window).height())*100<5 && fade){
-          $("#topbar").animate({backgroundColor: "rgba(0, 0, 128, 0.5)"},100)
-          let drops = $(".dropdown")
-          fade = false
-      }
-
-
-  }
-  window.onscroll = animatebar
-
-  window.onscrollend = () =>{
-      animatebar()
-      console.log("end")
-  }*/
-
-
-  </script>
+document.getElementById("close").onclick = ()=>{
+    document.getElementById("menus").style.width = "0vmin"   
+    document.getElementById("blur").style.display = "none"
+    document.getElementById("blur").style.opacity = 0
+}
+</script>

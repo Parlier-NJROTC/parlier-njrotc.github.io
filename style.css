@@ -1,6 +1,37 @@
+#main{
+    background-image: url("images/Cadets.jpg"), url("paper.gif");
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    height:400px;
+    display: flex;
+}
+#maintitle{
+    width: 50vw;
+    max-width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#about{
-    margin-top: 5vw; 
-    background-color: rgba(27,27,27,1); 
-    padding: 10vw;
+#phs{
+    font-size: 24px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 25px;
+}
+#phs  h1,h4{
+    position: relative;
+    padding: 2vmin;
+    margin: 0;
+}
+
+@keyframes slide {
+    from{
+        left: -100vw;
+    }
+
+    to{
+        left:0vw;
+    }
 }
