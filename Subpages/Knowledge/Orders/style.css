@@ -1,0 +1,42 @@
+#mainTitle{
+    height: 300px;
+    width: 100vw;
+    background-image: url("/images/Boats.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+#mainTitle div h1{
+    width: 100vw;
+    height: 150px;
+    margin: 0;
+    animation: close 2s ease-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main {
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 50);
+    display: grid;
+    justify-content: center;
+    justify-items: left;
+    padding: 5vmin;
+}
+
+@keyframes close {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 150px;
+    }
+}
