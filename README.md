@@ -10,6 +10,7 @@ References:
 
 - Good looking website: https://www.centnjrotclvl.org/
 - Current Website: https://parliernjrotc.wixsite.com/parlier old boi n incompleto
+- Development website: https://cyborgnetical.github.io/Parlier-NJROTC-Website/
 
 
 Blurt of notes:
