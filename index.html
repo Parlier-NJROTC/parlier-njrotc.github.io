@@ -7,10 +7,53 @@
     <title>Parlier High School | NJROTC</title>
     <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    
 </head>
-
 <body>
-    <div id="topbar"></div>
+  <header id="header"></header>
+  <div id="menus"></div>
+    <div id="main">
+      <div id="maintitle">
+        <div id="phs">
+          <h1 style="color:blue;">Parlier</h1>
+          <h2 style="color:black;">High School</h2>
+          <hr>
+          <h4 id="NJ" style="color:navy; ">Naval Junior Reserve Officers Training Corps</h4>
+        </div>
+      </div>
+    </div>
+    
+    <div id="about">
+      <h1 id="us"><u>About the Unit</u></h1>
+      <div>
+        <img class="img" src="images/Cheif&Cadet.jpg">
+        <p class="txt">
+          Led by retired Navy personnel 
+          the Parlier High School Navy Junior Reserve Officer Training Corps or <u>NJROTC</u> was established in 1995.
+          Our goal is to mold our students into better citizens by <u>teaching them real-life skills</u> for a better future.
+          Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence,
+          Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching.
+        </p>
+      </div>
+      <div>
+        <p class="txt">
+          Cadets have many opportunities to be involved through our Academic, Air Rifle, Color Guard, and Drill Teams. 
+          Cadets also have an opportunity to be part of the Unit Staff and are able to be promoted in rank by completing the advanced requirements.
+        </p>
+        <img class="img" src="images/Rifle.jpg">
+      </div>
+      <div>
+        <img class="img" src="images/colorguard.jpg">
+        <p class="txt">
+          Our Unit is active in our local community through various activities including parades, service projects, and providing held during many of our community's activities.  
+          We strive to make both our campus and our community a better place
+        </p>
+       
+      </div>
+    </div>
+    
+
+    <!--
     <div style="position: absolute;">*keep in mid, altho it looks good, its insanely buggy <br> if anything breaks add an issue to the github repository, should be under links</div>
     <img src="images/Cadets.jpg" style=" opacity: 0.5; width: 100vw; position: absolute; z-index: -1;">
 
@@ -45,12 +88,14 @@
         </p>
       </div>
     </div>
+    -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-    <script>
-      var were = "Home"
-      $("#topbar").load("header/header.html");  
+    <script id="script"></script>
+    <script defer>
+      $("#header").load("header/header.html");  
+      $("#menus").load("header/navi.html");  
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
 </body>
 
