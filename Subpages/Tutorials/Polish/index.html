@@ -11,7 +11,9 @@
   }
 </style>
 <body>
-  <div id="topbar"></div>
+  <!--The header and menus-->
+  <header id="header"></header>
+  <div id="menus"></div>
   
 
  
@@ -69,19 +71,14 @@
       }
   </style>
   
+  <!--Code to load header, menus and their styles-->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");</script>
-  <script> let wKeyCount = 0;
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'w') {
-        wKeyCount++;
-        if (wKeyCount === 3) {
-          wKeyCount = 0;
-          document.body.style.filter = "invert(100%)";
-        }
-      }
-    });
+  <script id="script"></script>
+  <script defer>
+    $("#header").load("header/header.html");  
+    $("#menus").load("header/navi.html");  
+    $("head").append($('<link rel="stylesheet" href="header/style.css">'))
   </script>
 </body>
 </html>

@@ -29,9 +29,10 @@
 
   </head>
   <body>
-  <div id="topbar"></div>
-  <img style="position: absolute; z-index: -1; width: 150vw; top: 10vw; opacity: 0.5;" src="images/USS-John-Finn.jpeg
-">
+    <!--The header and menus-->
+    <header id="header"></header>
+    <div id="menus"></div>
+  <img style="position: absolute; z-index: -1; width: 150vw; top: 10vw; opacity: 0.5;" src="images/USS-John-Finn.jpeg">
 
       <div id="title" class="center" style="text-align: center;">
           <h1 class="subtitle" style="color: rgb(0, 0, 80); background-color: rgba(255, 217, 0, 0.8);">⚓️ Tutorial ⚓️</h1>
@@ -62,8 +63,14 @@
     </style>
 
     
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script> $("#topbar").load("header/header.html");  </script>
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer>
+    $("#header").load("header/header.html");  
+    $("#menus").load("header/navi.html");  
+    $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+    </script>
 </body>
 </html>
