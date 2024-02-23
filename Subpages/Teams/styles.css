@@ -1,0 +1,78 @@
+#mainTitle{
+    color: black;
+    width: 50vw;
+    text-align: center;
+    text-shadow: rgb(0, 0, 100) 1px 0 15px;
+    border: solid 5px;
+    border-left: none;
+    border-right: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+}
+
+#mainTitle div{
+    margin: auto;
+    font-size: 50px;
+    font-weight: 500;
+}
+#mainBg{
+    display: flex;
+    padding-left: 5vw;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 400px;
+    background-color: white;
+    align-items: center;
+    background-image: url("images/placeholder.png");
+}
+
+#teams{
+    display: grid;
+    row-gap: 20px;
+    background-color: #E0DDCF;
+}
+#teams>*{
+    padding: 5vw;
+
+}
+
+#Drill{
+    background-color: #534B52;
+}
+#Guard{
+    background-color: #2D23;
+}
+#Rifle{
+    background-color: #2D232E;
+}
+#Academic{
+    background-color: #F1F0EA;
+    color: black;
+}
+.info{
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    column-gap: 2vw;
+}
+.info p{
+    flex:3;
+}
+
+.img{
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+}
+.sup{
+    font-size: 40px;
+   
+}
+
+@media (max-width:700px) {
+    .info{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
