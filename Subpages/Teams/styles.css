@@ -1,3 +1,8 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
 #mainTitle{
     color: black;
     width: 50vw;
@@ -50,24 +55,23 @@
     background-color: #F1F0EA;
     color: black;
 }
-.info{
-    display: flex;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    column-gap: 2vw;
-}
-.info p{
-    flex:3;
-}
 
 .img{
     height: 300px;
     width: 400px;
     object-fit: cover;
+    padding: 1vw;
 }
 .sup{
     font-size: 40px;
    
+}
+.team{
+    display: flex;
+    justify-content: space-between;
+}
+.team div{
+    width: 40vw;
 }
 
 @media (max-width:700px) {
