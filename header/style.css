@@ -8,7 +8,9 @@ body{
 
 #Hheader{
     position: sticky;
-    background-color: black;
+    background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
+    box-sizing: border-box;
+    border-bottom: 1px solid lemonchiffon;
     top: 0px;
     color: white;
     display: flex;
@@ -16,6 +18,7 @@ body{
     z-index: 1;
     align-items: center;
 }
+/*#474448 2D232E EDDDCF 534B52 F1F0EA */
 #Htitle{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 6vmin;
