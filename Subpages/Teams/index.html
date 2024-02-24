@@ -10,8 +10,8 @@
 </head>
 <body>
     <!--The header and menus-->
-    <header id="header"></header>
-    <div id="menus"></div>
+    <header id="Hheader"></header>
+    <div id="Mmenus"></div>
 
     <div id="mainBg">
       
@@ -23,72 +23,62 @@
       </div>
     </div>
     <div id="teams">
-      <div id="Drill">
-        <div class="sup">Drill Team</div>
-        <div class="info">
-          <p>
-            Our Drill team is more focused on the execution of drill commands correctly and accurately. Cadets spend hours
-            practicing and perfecting a large range of drill commands. These are most likely the cadets to get ahead of thier
-            peers and guide them before AMI
-            <br><br>
-            Team Leader: Luis<br>
-            Member Count: 9? If i remember correctly
-            <br><br><br>
-            <button>Drill Team Page --- > </button>
-          </p>
-          <img class="img" src="images/cadetsInRanks.webp">
+      <div id="Drill" class="team">
+        <div>
+          <div class="sup">Drill Team</div>
+          Our Drill team is more focused on the execution of drill commands correctly and accurately. Cadets spend hours
+          practicing and perfecting a large range of drill commands. These are most likely the cadets to get ahead of thier
+          peers and guide them before AMI.
+          <br><br>
+          Team Leader: Luis<br>
+          Member Count: 9? If i remember correctly
+          <br><br><br>
+          <button>Drill Team Page --- > </button>
+        </div>
+        <img class="img" src="images/cadetsInRanks.webp">
+      </div>
+      <div id="Guard" class="team">
+        <img class="img" src="images/colorguard.jpg">
+        <div>
+          <div class="sup">Color Guard</div>
+          The Color Guard Team is the most active team within local events. You will most likely see them, in parades,
+          city gatherings, graduation, football games, and many more important events. Within the color guard you will
+          see our cadets marching with flags surrounded by rifles, hence the name color guard.
+          <br><br>
+          Team Leader: Unkwon<br>
+          Member Count: N/A
+          <br><br><br>
+          <button>Color Guard Page --- > </button>
         </div>
       </div>
-      <div id="Guard">
-        <div class="sup">Color Guard</div>
-        <div class="info">
-          <p>
-            The Color Guard Team is the most active team within local events. You will most likely see them, in parades,
-            city gatherings, graduation, football games, and many more important events. Within the color guard you will
-            see our cadets marching with flags surrounded by rifles, hence the name color guard.
-            <br><br>
-            Team Leader: Unkwon<br>
-            Member Count: N/A
-            <br><br><br>
-            <button>Color Guard Page --- > </button>
-          </p>
-          <img class="img" src="images/colorguard.jpg">
+      <div id="Rifle" class="team">
+        <div>
+          <div class="sup">Rifle Team</div>
+          The Rifle Team is one of our most intense and best teams. Not only do cadets have to learn how to operate an
+          air rifle, they also have to remain consistent and disciplined through out thier journey as this team
+          requires intense commiment and dedication. Cadets will devote multiple hours in physical and mental Training.
+          If you are up to the challange then make sure to come prepared, Good luck. 
+          <br><br>
+          Team Leader: Paula<br>
+          Member Count: 11
+          <br><br><br>
+          <button>Rifle Team Page --- > </button>
         </div>
+        <img class="img" src="images/Rifle.jpg">
       </div>
-      <div id="Rifle">
-        <div class="sup">Rifle Team</div>
-        <div class="info">
-          <p>
-            The Rifle Team is one of our most intense and best teams. Not only do cadets have to learn how to operate an
-            air rifle, they also have to remain consistent and disciplined through out thier journey as this team
-            requires intense commiment and dedication. Cadets will devote multiple hours in physical and mental Training.
-            If you are up to the challange then make sure to come prepared, Good luck. 
-            <br><br>
-            Team Leader: Paula<br>
-            Member Count: 11
-            <br><br><br>
-            <button>Rifle Team Page --- > </button>
-          </p>
-          <img class="img" src="images/Rifle.jpg">
+      <div id="Academic" class="team">
+        <img class="img" src="images/cadetsInRanks.webp">
+        <div>
+          <div class="sup">Academics Team</div>
+          The academic team is on top of their grades, on focused on getting the best score
+          <br>
+          I really don't know much about the academic team - Cadet Ibarra
+          <br><br>
+          Team Leader: Unknown<br>
+          Member Count: N/A
+          <br><br><br>
+          <button>Academics Team Page --- > </button>
         </div>
-      </div>
-      <div id="Academic">
-        <div class="sup">Academics Team</div>
-        <div class="info">
-          <p>
-            The academic team is on top of their grades, on focused on getting the best score
-            <br>
-            I really don't know much about the academic team - Cadet Ibarra
-            <br><br>
-            Team Leader: Unknown<br>
-            Member Count: N/A
-            <br><br><br>
-            <button>Academics Team Page --- > </button>
-
-          </p>
-          <img class="img" src="images/cadetsInRanks.webp">
-        </div>
-      </div>
     </div>
     
 
@@ -97,8 +87,8 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer>
-      $("#header").load("header/header.html");  
-      $("#menus").load("header/navi.html");  
+      $("#Hheader").load("header/header.html");  
+      $("#Mmenus").load("header/navi.html");  
       $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
 </body>

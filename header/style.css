@@ -3,14 +3,12 @@
 
 body{
     margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
     color: white;
-    background-color: navy;
-
 }
 
 
-#header{
+#Hheader{
     position: sticky;
     background-color: black;
     top: 0px;
@@ -20,29 +18,29 @@ body{
     z-index: 1;
     align-items: center;
 }
-#title{
+#Htitle{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 6vmin;
 }
 
-#seal{
+#Hseal{
     height:5vmin;
     width: 10vmin;
 }
 
-#menuBtn{
+#HmenuBtn{
     margin-left: auto;
     width: 2vw;
     height: 2vw;
 }
-#menuBtn:hover{
+#HmenuBtn:hover{
     cursor: pointer;
 }
-#close:hover{
+#mclose:hover{
     cursor: pointer;
 }
 
-#menus{
+#Mmenus{
     filter: blur(0px);
     position: fixed;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -56,19 +54,19 @@ body{
     transition: width 250ms;
     z-index: 2;
 }
-#menus header{
+#Mmenus header{
     display: flex;
     background-color: navy;
     padding: 5vmin;
     font-size: 25px;
 }
 
-#navigation{
+#Mnavigation{
     position: relative;
     display: flex;
     flex-direction: column;
 }
-#navigation a{
+#Mnavigation a{
     position: relative;
     text-align: right;
     z-index: 1;
@@ -76,7 +74,7 @@ body{
     color: white;
     transition: padding-right 250ms;
 }
-#navigation a::before{
+#Mnavigation a::before{
     content: '';
     z-index: -1;
     position: absolute;
@@ -87,12 +85,12 @@ body{
     top:0%;
     opacity: 0.5;
 }
-#navigation a:hover::before{
+#Mnavigation a:hover::before{
     width: 100%;
     left: 0%;
     top:0%;
 }
-#navigation a:hover{
+#Mnavigation a:hover{
     padding-right: 5vmin;
     transition: 250ms;
 }
@@ -111,8 +109,4 @@ body{
 a{
     color: inherit;
     text-decoration: none;
-}
-h1{
-    margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
