@@ -1,7 +1,5 @@
-#title{
-    position: relative;
-    margin: 20vw;
-    margin-top: 15vw;
-    margin-bottom: 5vw;
-    border: 0.5vw solid white;
-}
+
+  body {
+    background-color: rgb(0, 0,128);
+    height: 130vh;
+  }
