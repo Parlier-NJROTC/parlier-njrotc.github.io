@@ -3,51 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../../">
-  <title>PHS NJROTC | Tutorials</title>
-  <html>
-  <head>
-    <style>
-        .button {
-            background-color: #000000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #535454;
-        }
-    </style>
+  <title>NJROTC | Tutorials</title>
+  <base href="../../../">
+  <link rel="stylesheet" href="Subpages/Tutorials/style.css">
+</head>
+<body>
+  <!--The header and menus-->
+  <header id="Hheader"></header>
+  <div id="Mmenus"></div>
 
 
-  </head>
-  <body>
-    <!--The header and menus-->
-    <header id="Hheader"></header>
-    <div id="Mmenus"></div>
-  <img style="position: absolute; z-index: -1; width: 150vw; top: 10vw; opacity: 0.5;" src="images/USS-John-Finn.jpeg">
-
-      <div id="title" class="center" style="text-align: center;">
-          <h1 class="subtitle" style="color: rgb(0, 0, 80); background-color: rgba(255, 217, 0, 0.8);">⚓️ Tutorial ⚓️</h1>
-          <h1 class="subtitle" style="color: gold; background-color: rgba(0, 0, 80); text-align: center;">
-            <img src="images/Shoe.png" style="height: 2vw; filter: invert(1);">
-            What are you do You want to learn?
-            <img src="images/Ironboard.png" style="height: 2vw; filter: invert(50);">
-        </div>
-
-     <div style="text-align: center; margin-top: 14vw;">
-        <a href="Subpages/Tutorials/Iron"><button class="button">Uniform Ironing Tutorial</button></a>
-        <a href="Subpages/Tutorials/Polish"><button class="button">Shoe Polishing Tutorial</button></a>
-    </div>
-
-    <p style="position: absolute; top: 130%; left: 50%; transform: translate(-50%, -50%); font-size: 15px; animation: color-change 5s infinite;">Made by Cadet Sanchez</p>
+  <img style="position: absolute; z-index: -1; width: 110vw;left: -10vw; top: 10vw; opacity: 0.8;" src="images/USS-Leyte-Gulf.jpeg">
+  <main>
+    <h1 style="font-size: 31px; text-align: center;">NJROTC Tutorials</h1>
+    <p style="position: absolute; left: 2%; top: 12vw;font-size: 20px; text-align: center;background-color: rgba(0, 0, 128, 06);width: 96vw;height: 1.45vw; color: white;">
+    Welcome to the NJROTC tutorials page! Here, you'll find a variety of tutorials to help you learn more about NJROTC and related 
+    topics.</p>
+    <section>
+      <h2 style=" font-size: 40px;">Getting Started</h2>
+      <p>If you're new to NJROTC, start here! These tutorials will help you get started with the basics of NJROTC and set you up for 
+        success.</p>
+      <ul>
+        <br><a href="Subpages/Tutorials/Iron/index.html"><button class="button">Uniform Ironing Tutorial</button></a>
+        <br><a href="Subpages/Tutorials/Polish/index.html"><button class="button">Shoe Polishing Tutorial</button></a>
+        <br><a href="Subpages/Tutorials/getting-started/uniform/index.html"><button class="button">How to Wear Your Uniform</button></a>
+        <br><a href="Subpages/Tutorials/getting-started/drill/index.html"><button class="button">Basic Drill Movements</button></a>
+      </ul>
+    </section>
+    <section>
+      <h2 style="font-size: 40px;">Advanced Topics</h2>
+      <p>Once you've mastered the basics, check out these tutorials for more advanced topics in NJROTC.</p>
+      <ul>
+        <br><a href="/tutorials/advanced/leadership"><button class="button">Leadership Skills</button></a>
+        <br><a href="/tutorials/advanced/physical-fitness"><button class="button">Physical Fitness Training</button></a>
+        <br><a href="/tutorials/advanced/citizenship"><button class="button">Citizenship and Community Service</button></a>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p style="position: absolute; top: 140%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; animation: color-change 5s infinite;">Made by Cadet Sachez</p>
     <style>
         @keyframes color-change {
             33.33% {
@@ -60,10 +54,8 @@
                 color: yellow;
             }
         }
-    </style>
-
-    
-    <!--Code to load header, menus and their styles-->
+      </style>
+    <!--Code to load styles and jquery-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
@@ -72,5 +64,6 @@
       $("#Mmenus").load("header/navi.html");  
       $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
+  </footer>
 </body>
 </html>
