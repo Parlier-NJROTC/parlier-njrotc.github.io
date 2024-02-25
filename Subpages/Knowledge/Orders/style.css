@@ -1,92 +1,115 @@
-#mainTitle{
-    height: 300px;
-    width: 100vw;
-    background-image: url("/images/Boats.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat, repeat;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x:hidden;
+    
 }
 
-#mainTitle div h1{
-    width: 100vw;
-    height: 150px;
-    margin: 0;
-   
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+#background{
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-image: url("/images/Boats.jpeg");
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    
+}
+#title{
+    position: relative;
+    color: white;
+    padding-inline: 5px;
+    font-size: 50px;
+    display: grid;
+    row-gap: 50px;
+    padding: 10px;
+}
+#title :nth-child(1){
+    position: relative;
+    left: -5vw;
+    background-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0px 0px 10px 10px rgba(255, 215, 0, 0.4);
+    padding: 5px;
+    
+}
+#title :nth-child(2){
+    position: relative;
+    right: -5vw;
+
+    background-color: rgba(0, 0, 125, 0.4);
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 125, 0.4);
+    padding: 5px;
+}
+#title::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -7vw;
+    width: 50%;
+    height: 5px;
+    background-color: gold;
+}
+#title::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -7vw;
+    width: 50%;
+    height: 5px;
+    background-color: navy;
+}
+#info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    background-color:burlywood;
 }
 
 #options{
-    border: none;
-    color: white;
-    width: 20vmin;
-    height: 5vmin;
-    background-color: rgb(0, 154, 237);
-}
-.opt button{
-    border: none;
-    color: white;
-    width: 100%;
-    height: 5vmin;
-    background-color: rgb(0, 40, 255);
-    position: relative;
-}
-
-#opts:hover .opt{
     display: flex;
-    height: 5vmin;
-}
-.opt{
-    display: none;
-    transition: 1s;
-}
-.opt div{
-    position: absolute;
-    box-sizing: border-box;
-    left: 20vmin;
-    width: 30vmin;
-    height: 5vmin;
-    font-size: 2vmin;
-    display: none;
-}
-.opt:hover div{
-    display: grid;
-}
-.opt div a{
-    background-color: rgb(0, 0, 155);
-    width: 100%;
-    height: 5vmin;
-    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    column-gap: 1vw;
+    background-color:  #EDDDCF;
     justify-content: center;
     align-items: center;
+    
 }
-
-main {
-    box-sizing: border-box;
-    background-color: rgb(0, 0, 50);
-    display: grid;
+#options a{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #474448;
+    color: white;
     justify-content: center;
-    justify-items: left;
-    padding: 5vmin;
+    align-items: center;
+    border-radius: 5px;
+    width: 275px;
+    height: 175px;
+    margin-bottom: 20px;
 }
 
-img{
-    width: 10vmin;
-    transition: 1s;
+.gridTitle{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100vw;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    
 }
 
-@keyframes close {
-    from{
-        height: 0px;
-    }
-    to{
-        height: 150px;
-    }
+.sup{
+    font-size: 26px;
+    padding-block: 10px;
+}
+.img{
+    object-fit:contain;
+    
+    width:200px;
+    height: 100px;
+    padding-block: 20px;
 }

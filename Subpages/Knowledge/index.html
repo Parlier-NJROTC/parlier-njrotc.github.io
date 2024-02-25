@@ -3,44 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parlier High School | Knowledge</title>
+    <title>PHS NJROTC | Knowledge</title>
     <base href="../../">
     <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="Subpages/Knowledge/styles.css">
 </head>
 <body>
-    <!--Basic header and menu-->
-    <header id="header"></header>
-    <div id="menus"></div>
+  <!--The header and menus-->
+  <header id="Hheader"></header>
+  <div id="Mmenus"></div>
+  
+    <div id="background">
+      <div id="title">Cadet Knowledge</div>
+      Important information needed for all your years in NJ,<br>
+      Also something is missing, then let one of us know
+    </div>
+    <div id="years">
+      <div id="freshman" class="year">
+        <div class="sup">Freshman - NS1</div>
+        <div class="material">
+          <a class="study" href="Subpages/Knowledge/Orders/index.html">General Orders<br>"The rules you follow while being in the NJROTC"</a>
+          <a class="study" href="Subpages/Knowledge/Chain/index.html">Chain of Command<br>"Who is incharge of what"</a>
+        </div>
+      </div>
+      <div id="sophomore" class="year">
+        <div class="sup">sophomore - NS2</div>
+        <div class="material">
+          <a class="study" href="Subpages/Knowledge/Ranks/index.html">Ranks<br>"How experienced are you"</a>
+          <a class="study" href="Subpages/Knowledge/Alphabet/index.html">Military Alphabet<br>"X Y and Z now I know my ABCs."</a>
+        </div>
+      </div>
+      <div id="junior" class="year">
+        <div class="sup">Junior - NS3</div>
+        <div class="material">
+           no idea 
+        </div>
+      </div>
+      <div id="senior" class="year">
+        <div class="sup">Senior - NS4</div>
+        <div class="material">
+          everything ig?
+        </div>
+      </div>
+    </div>
 
-    <div id="mainTitle">
-      <u><h1>Cadet General Knowledge</h1></u>
-      Knowledge usually known by freshman year, needed for annual military inspection
-    </div>
-    <div id="items">
-      <div>
-        <span><h1>The 11 Navy general orders of the sentry</h1><br>"11 rules of the NJ"</span>
-        <a href="Subpages/Knowledge/Orders/index.html"><button><p>Orders</p></button></a>
-        
-      </div>
-      <div>
-        <span><h1>Navy Chain of Command</h1><br>"Who is incharge of what"</span>
-        <button> <p>Chain of Command</p> </button>
-      </div>
-      <div>
-        <span><h1>Navy Ranks</h1><br>"Who has more expertise"</span>
-        <button> <p>Ranks</p> </button>
-        
-      </div>
-    </div>
 
     <!--Code to load styles-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer>
-      $("#header").load("header/header.html");  
-      $("#menus").load("header/navi.html");  
+      $("#Hheader").load("header/header.html");  
+      $("#Mmenus").load("header/navi.html");  
       $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
 </body>

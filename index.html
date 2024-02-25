@@ -7,25 +7,48 @@
     <title>Parlier High School | NJROTC</title>
     <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 <body>
-  <header id="header"></header>
-  <div id="menus"></div>
+  <!--The header and menus-->
+  <header id="Hheader"></header>
+  <div id="Mmenus"></div>
+  
     <div id="main">
-      <div id="maintitle">
-        <div id="phs">
-          <h1 style="color:blue;">Parlier</h1>
-          <h2 style="color:black;">High School</h2>
-          <hr>
-          <h4 id="NJ" style="color:navy; ">Naval Junior Reserve Officers Training Corps</h4>
+      <div id="phs">
+        <div style="font-size: 60px; font-weight: 600;">
+          Parlier High School
+        </div>
+        <br>
+        Naval Junior Reserve Officers Training Corps
+        <br>
+        Unit
+      </div>
+    </div>
+    <div id="quickLinks">
+      <span style="font-size: 45px; font-weight: 600;">Quick Links<span>
+      <div id="options">
+        <div>
+          <div class="linkImg" style="background-image:url('images/Swords.JPG');"></div>
+          <span class="sup">Cadet Knowledge</span>
+          <span class="sub">Study everything a good cadet needs to know!</span>
+        </div>
+        <div>
+          <div class="linkImg" style="background-image:url('images/Midway Field Trip/group.webp');"></div>
+          <span class="sup">Calendar</span>
+          <span class="sub">Important events and fun field trips :D</span>
+        </div>
+        <div>
+          <div class="linkImg" style="background-image:url('images/colorguard.jpg');"></div>
+          <span class="sup">Teams</span>
+          <span class="sub">Our cool and amazing teams to join ;&#41</span>
         </div>
       </div>
     </div>
-    
     <div id="about">
-      <h1 id="us"><u>About the Unit</u></h1>
+      <span id="us"><u>About the Unit</u></span>
       <div>
+        
         <img class="img" src="images/Cheif&Cadet.jpg">
         <p class="txt">
           Led by retired Navy personnel 
@@ -93,8 +116,8 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer>
-      $("#header").load("header/header.html");  
-      $("#menus").load("header/navi.html");  
+      $("#Hheader").load("header/header.html");  
+      $("#Mmenus").load("header/navi.html");  
       $("head").append($('<link rel="stylesheet" href="header/style.css">'))
     </script>
 </body>
