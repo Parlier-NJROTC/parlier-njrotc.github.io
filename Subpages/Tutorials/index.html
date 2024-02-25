@@ -4,21 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NJROTC | Tutorials</title>
-  <base href="../../">
+  <base href="../../../">
   <link rel="stylesheet" href="Subpages/Tutorials/style.css">
 </head>
 <body>
-  <img style="position: absolute; z-index: -1; width: 110vw;left: -10vw; top: 7vw; opacity: 1;" src="images/USS-Leyte-Gulf.jpeg
+  <!--Basic header and menu-->
+  <header id="header"></header>
+  <div id="menus"></div>
+
+
+  <img style="position: absolute; z-index: -1; width: 110vw;left: -10vw; top: 10vw; opacity: 0.8;" src="images/USS-Leyte-Gulf.jpeg
 ">
-  <div id="title" class="center">
   <main>
-    <h1 style="text-align: center;">NJROTC Tutorials</h1>
-    <p style="font-size: 20px; text-align: center;background-color: rgba(0, 0, 128);height: 1.45vw; color: white;">
-      Welcome to the NJROTC tutorials page! Here, you'll find a variety of tutorials to help you learn more about NJROTC and related 
-      topics.</p>
+    <h1 style="font-size: 31px; text-align: center;">NJROTC Tutorials</h1>
+    <p style="position: absolute; left: 2%; top: 12vw;font-size: 20px; text-align: center;background-color: rgba(0, 0, 128, 06);width: 96vw;height: 1.45vw; color: white;">
+    Welcome to the NJROTC tutorials page! Here, you'll find a variety of tutorials to help you learn more about NJROTC and related 
+    topics.</p>
 
     <section>
-      <h2 style="font-size: 40px;">Getting Started</h2>
+      <h2 style=" font-size: 40px;">Getting Started</h2>
       <p>If you're new to NJROTC, start here! These tutorials will help you get started with the basics of NJROTC and set you up for 
         success.</p>
       <ul>
@@ -52,7 +56,16 @@
                 color: yellow;
             }
         }
-    </style>
+      </style>
+    <!--Code to load styles and jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer>
+      $("#header").load("header/header.html");  
+      $("#menus").load("header/navi.html");  
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+    </script>
   </footer>
 </body>
 </html>
