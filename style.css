@@ -76,7 +76,7 @@ body{
     color: black;
     flex-wrap: wrap;
 }
-#options div{
+#options a{
     display: grid;
     text-align: left;
     row-gap: 10px;
