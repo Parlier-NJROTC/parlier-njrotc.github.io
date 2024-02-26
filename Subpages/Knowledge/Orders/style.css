@@ -13,7 +13,6 @@ body{
     align-items: center;
     justify-content: center;
     height: 400px;
-    background-image: url("/images/Boats.jpeg");
     background-position: center;
     background-repeat: no-repeat, repeat;
     background-size: cover;
