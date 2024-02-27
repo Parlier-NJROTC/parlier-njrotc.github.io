@@ -1,11 +1,6 @@
-body,html{
-    padding: 0;
-    margin: 0;
-    height: 100%;
-}
-
 #Ffooter{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -72,6 +67,15 @@ body,html{
 #Fby{
     grid-area: by;
     text-align: center;
-    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
     margin-block: 10px;
+}
+#Fmadepage{
+    background-color: antiquewhite;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    text-align: center;
+    padding-bottom: 5px;
 }

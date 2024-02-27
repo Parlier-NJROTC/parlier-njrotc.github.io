@@ -1,3 +1,7 @@
+body{
+    overflow-x: scroll;
+}
+
 #mainTitle{
     height: 300px;
     width: 100vw;
