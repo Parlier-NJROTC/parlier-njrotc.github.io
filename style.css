@@ -7,9 +7,10 @@ body{
 
 
 #main{
-    background-image: url("images/Cadets.jpg"), url("paper.gif");
+    background-image: url("images/NJ Images/IMG_1834.png"), url("paper.gif");
     background-position: center;
     background-repeat: no-repeat, repeat;
+    background-size: cover;
     height:600px;
     display: flex;
     box-sizing: border-box;

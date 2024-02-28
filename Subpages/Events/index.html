@@ -19,23 +19,32 @@
         <div>Events</div>
       </div>
     </header>
-    <aside id="calendars">
-      <div>2023 - 2024 School Year<a><u>Calendar</u></a></div>
-      <div>2022 - 2023 School Year</div>
+    <article>
+      This is where all important info on past events and future events will be. 
+      All neat and tidy in a nice google calendar.
+      If you need to check more details click the event and follow the "more details" links.
+      Expect this calendar to be updated as we go
+    </article>
+    <aside id="calendar">
+      <div style="font-size: 26px; margin-block: 20px;">Current Calendar</div>
+      <iframe id="iframe" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&bgcolor=%23ffffff&title=Parlier%20NJROTC%20Events&src=bmpyb3RjcGFybGllckBnbWFpbC5jb20&src=ZDQxZDFjMWVlMzkyZDUzOTRiNmFmNWFiY2NmMDdmMTAwYzhjYmUxNzA0NzA5MWYzZTg0Mzc3YWM3NjRkZGI5ZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Njk5ZWMyNjYwMmYyMTViNTVlZTAzMmY0YWY5ZjcxZjUwMjM1NzU0Zjc5ZmQxYTViY2ExY2M5M2VjNjY5OTVlNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%233F51B5&color=%23A79B8E" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </aside>
   </main>
 
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Calendar Page by Cadet Ibarra - NS1</div>
 
-  
-  
-  <!--Code to load header, menus and their styles-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script id="script"></script>
-  <script defer async="false">
-    $("#Hheader").load("header/header.html");  
-    $("#Mmenus").load("header/navi.html");  
-    $("head").append($('<link rel="stylesheet" href="header/style.css">'))
-  </script>
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+      $("#Hheader").load("header/header.html");  
+      $("#Mmenus").load("header/navi.html");  
+      $("#Ffooter").load("footer/footer.html");
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+      $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
+    </script>
 </body>
 </html>
