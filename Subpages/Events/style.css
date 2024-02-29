@@ -17,7 +17,7 @@ main{
 iframe{
     margin-block: 20px;
     width: 40vw;
-    height: 30vw;
+    height: 50vmin;
 }
 
 article{
