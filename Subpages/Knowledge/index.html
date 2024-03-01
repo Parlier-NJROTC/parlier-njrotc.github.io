@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,58 +9,72 @@
     <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="Subpages/Knowledge/styles.css">
 </head>
+
 <body>
-  <!--The header and menus-->
-  <header id="Hheader"></header>
-  <div id="Mmenus"></div>
-  
+    <!--The header and menus-->
+    <header id="Hheader"></header>
+    <div id="Mmenus"></div>
+
     <div id="background">
-      <div id="title">Cadet Knowledge</div>
-      Important information needed for all your years in NJ,<br>
-      Also something is missing, then let one of us know
+        <div id="title">Cadet Knowledge</div>
+        Important information needed for all your years in NJ,<br>
+        Also something is missing, then let one of us know
     </div>
     <div id="years">
-      <div id="freshman" class="year">
-        <div class="sup">Freshman - NS1</div>
-        <div class="material">
-          <a class="study" href="Subpages/Knowledge/Orders/index.html">General Orders<br>"The rules you follow while being in the NJROTC"</a>
-          <a class="study" href="Subpages/Knowledge/Chain/index.html">Chain of Command<br>"Who is incharge of what"</a>
+        <div id="freshman" class="year">
+            <div class="sup">Freshman - NS1</div>
+            <div class="material">
+                <a class="study" href="Subpages/Knowledge/Orders/index.html">General Orders<br>"The rules you follow
+                    while being in the NJROTC"</a>
+                <a class="study" href="Subpages/Knowledge/Chain/index.html">Chain of Command<br>"Who is incharge of
+                    what"</a>
+            </div>
         </div>
-      </div>
-      <div id="Sophomore" class="year">
-        <div class="sup">sophomore - NS2</div>
-        <div class="material">
-          <a class="study" href="Subpages/Knowledge/Ranks/index.html">Navy Ranks<br>"How experienced are you"</a>
-          <a class="study" href="Subpages/Knowledge/Alphabet/index.html">Military Alphabet<br>"X Y and Z now I know my ABCs."</a>
-          <a class="study">AMI Uniform Questions <br> "How you should be dressed"</a>
-          <span>+ Chain of command <br> + General orders</span>
+        <div id="Sophomore" class="year">
+            <div class="sup">sophomore - NS2</div>
+            <div class="material">
+                <a class="study" href="Subpages/Knowledge/Ranks/index.html">Navy Ranks<br>"How experienced are you"</a>
+                <a class="study" href="Subpages/Knowledge/Alphabet/index.html">Military Alphabet<br>"X Y and Z now I
+                    know my ABCs."</a>
+                <a class="study">AMI Uniform Questions <br> "How you should be dressed"</a>
+                <span>+ Chain of command <br> + General orders</span>
+            </div>
         </div>
-      </div>
-      <div id="junior" class="year">
-        <div class="sup">Junior - NS3</div>
-        <div class="material">
-           <a class="study">AMI Questions <br> "Bunch of stuff we need to know" </a>
-           <span>+ Navy Ranks <br> + Military Alphabet <br> + AMI uniform questions <br>+ Chain of command <br> + General orders</span>
+        <div id="junior" class="year">
+            <div class="sup">Junior - NS3</div>
+            <div class="material">
+                <a class="study">AMI Questions <br> "Bunch of stuff we need to know" </a>
+                <span>+ Navy Ranks <br> + Military Alphabet <br> + AMI uniform questions <br>+ Chain of command <br> +
+                    General orders</span>
+            </div>
         </div>
-      </div>
-      <div id="senior" class="year">
-        <div class="sup">Senior - NS4</div>
-        <div class="material">
-          <a class="study">Current Events<br>"Time to get out of that rock"</a>
-          <div>+ Everything from previous years </div>
+        <div id="senior" class="year">
+            <div class="sup">Senior - NS4</div>
+            <div class="material">
+                <a class="study">Current Events<br>"Time to get out of that rock"</a>
+                <div>+ Everything from previous years </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
-    <!--Code to load styles-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Knowledge Page by Cadet Ibarra - NS1</div>
+
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer async="false">
-      $("#Hheader").load("header/header.html");  
-      $("#Mmenus").load("header/navi.html");  
-      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+        $("#Hheader").load("header/header.html");
+        $("#Mmenus").load("header/navi.html");
+        $("#Ffooter").load("footer/footer.html");
+        $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+        $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
     </script>
 </body>
+
 </html>

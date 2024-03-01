@@ -1,10 +1,10 @@
-body *{
+body * {
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#background{
+#background {
     width: 100vw;
     text-align: center;
     display: flex;
@@ -13,14 +13,16 @@ body *{
     justify-content: center;
     height: 400px;
 }
-#title{
+
+#title {
     position: relative;
     font-size: 50px;
     background-color: whitesmoke;
     text-shadow: rgb(0, 65, 156) 1px 0 15px;
     padding: 50px;
 }
-#title::before{
+
+#title::before {
     content: "";
     position: absolute;
     left: -5px;
@@ -30,7 +32,8 @@ body *{
     background-color: gold;
     z-index: -1;
 }
-#title::after{
+
+#title::after {
     content: "";
     position: absolute;
     right: -5px;
@@ -41,10 +44,89 @@ body *{
     z-index: -1;
 }
 
-.tab h1{
-    font-family: 'Josefin sans';
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: gainsboro;
+    padding-block: 20px;
+    padding-inline: 5vw;
 }
 
-.img{
-    width: 25vw;
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: stretch;
+}
+
+aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+
+}
+
+aside img {
+    width: 300px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+aside h1 {
+    width: 75%;
+}
+
+aside hr {
+    width: 100%;
+    position: relative;
+    margin-block: 20px;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px;
+    font-size: 18px;
+}
+
+article button {
+    width: 200px;
+    height: 30px;
+    background-color: aliceblue;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid gainsboro;
+}
+
+button::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(210, 235, 255);
+}
+button:hover::after{
+    height: 100%;
+}
+
+@media (width < 800px) {
+    .option {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    aside {
+        align-items: center;
+        order: 0;
+    }
+
+    article {
+        order: 1;
+    }
 }

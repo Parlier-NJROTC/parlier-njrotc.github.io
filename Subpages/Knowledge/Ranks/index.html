@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../../../">
-  <title>PHS NJROTC | Navy Ranks</title>
-</head>
-<body>
-  <!--The header and menus-->
-  <header id="Hheader"></header>
-  <div id="Mmenus"></div>
-  
-  <!-- Your code goes here, in between -->
 
-  <!--Code to load header, menus and their styles-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script id="script"></script>
-  <script defer>
-    $("#Hheader").load("header/header.html");  
-    $("#Mmenus").load("header/navi.html");  
-    $("head").append($('<link rel="stylesheet" href="header/style.css">'))
-  </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../../">
+    <title>PHS NJROTC | Navy Ranks</title>
+</head>
+
+<body>
+    <!--The header and menus-->
+    <header id="Hheader"></header>
+    <div id="Mmenus"></div>
+
+    <!-- Your code goes here, in between -->
+
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Ranks Page by Cadet {last name} - NS{year}</div>
+
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+        $("#Hheader").load("header/header.html");
+        $("#Mmenus").load("header/navi.html");
+        $("#Ffooter").load("footer/footer.html");
+        $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+        $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
+    </script>
 </body>
+
 </html>

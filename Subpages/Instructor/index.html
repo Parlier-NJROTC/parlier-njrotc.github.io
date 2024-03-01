@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../../">
     <title>PHS NJROTC | Cheif Killian</title>
+    <link rel="stylesheet" href="Subpages/Instructor/style.css">
 </head>
 
 <body>
     <!--The header and menus-->
     <header id="Hheader"></header>
     <div id="Mmenus"></div>
-    We only have cheif Killian
 
+    <div id="profile">
+        <div id="cheif">
+            <img src="Subpages/Instructor/cheif.jpeg">
+            <h3>"A quote of this picture would go here"</h3>
+        </div>
+    </div>
 
-
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Instructor Page by Cadet Ibarra - NS1</div>
 
     <!--Code to load header, menus and their styles-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -26,7 +34,9 @@
     <script defer async="false">
         $("#Hheader").load("header/header.html");
         $("#Mmenus").load("header/navi.html");
+        $("#Ffooter").load("footer/footer.html");
         $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+        $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
     </script>
 </body>
 
