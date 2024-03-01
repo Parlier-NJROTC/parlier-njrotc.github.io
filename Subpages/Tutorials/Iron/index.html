@@ -1,82 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="../../../">
   <title>PHS NJROTC | Ironing</title>
-  <link rel="stylesheet" href="Subpages/Tutorials/Iron/style.css"
-  
-</head>
+  <link rel="stylesheet" href="Subpages/Tutorials/Iron/style.css" </head>
+
 <body>
   <!--The header and menus-->
   <header id="Hheader"></header>
   <div id="Mmenus"></div>
-  
 
- 
+
+  <!-- <Background/Two Main Subtitles> -->
   <img style="position: absolute; z-index: -1; top: 16%; width: 110vw;left: -10vw;" src="images/BigBoat.jpeg">
-    <h1 class="subtitle" style="color: rgb(0, 0, 128); width: 100vw; position: absolute; top: 13.5%;font-family:'Gill Sans'; background-color: rgba(255, 217, 0); text-align: center; font-size: 40px; height: 3.5vw;">⚓️ Tutorial ⚓️</h1>
-      <h1 class="subtitle" style="color: gold; background-color: rgb(0, 0, 128, 0.7);font-family:'Gill Sans'; text-align: center; animation: move 35s infinite; height: 3.5vw; font-size: 40px; position: absolute; width: 200vw; top: 20%;">
-          <img src="images/iron.png" style="height: 2vw; filter: invert(1);">
-          How to Iron Your NJROTC Uniform
-          <img src="images/iron.png" style="height: 2vw; filter: invert(1);">
-      </h1>
 
-      <style>
-          @keyframes move {
-              0% {
-                  transform: translateX(-50vw);
-              }
-              25% {
-                  transform: translateX(-72vw);
-              }
-              50%{
-                  transform: translateX(-50vw);
-              }
-              75% {
-                  transform: translateX(-28vw);
-              }
-              100% {
-                  transform: translateX(-50vw);
-              }
-          }
-      </style>
+  <h1 class="subtitle"
+    style="color: rgb(0, 0, 128); width: 100vw; position: absolute; top: 13.5%;font-family:'Gill Sans'; background-color: rgba(255, 217, 0); text-align: center; font-size: 40px; height: 3.5vw;">
+    ⚓️ Tutorial ⚓️</h1>
 
+  <h1 class="subtitle"
+    style="color: gold; background-color: rgb(0, 0, 128, 0.7);font-family:'Gill Sans'; text-align: center; animation: move 35s infinite; height: 3.4vw; font-size: 40px;left: 18vw; position: absolute; width: 65vw; top: 10.57vw; z-index:0;">
+    <img src="images/iron.png" style="height: 2vw; filter: invert(1);">
+    How to Iron Your NJROTC Uniform
+    <img src="images/iron.png" style="height: 2vw; filter: invert(1);">
+  </h1>
+
+  <!-- <Bottom Subtitle Box> -->
+  <div id="rectangle"></div>
+
+  <!-- <Move thing> -->
+  <style>
+    @keyframes move {
+      16% {
+        transform: translateX(-260px);
+      }
+
+      32% {
+        transform: translateX(250px);
+      }
+
+      48% {
+        transform: translateX(-260px);
+      }
+
+      64% {
+        transform: translateX(250px);
+      }
+
+      80% {
+        transform: translateX(-260px);
+      }
+
+      96% {
+        transform: translateX(0px);
+      }
+    }
+  </style>
   </div>
+  <!-- <YT vid and its Border> -->
   <style>
     iframe {
       border: 4px solid black;
       position: relative;
     }
   </style>
-  
-  <iframe width="700" height="500" 
-    src="https://www.youtube.com/embed/_1ImyjaUjSk?si=GJU3a7Xvid4uN4gr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);">
+
+  <iframe width="700" height="500" src="https://www.youtube.com/embed/_1ImyjaUjSk?si=GJU3a7Xvid4uN4gr"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);">
   </iframe>
-  <p style="position: absolute; top: 140%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; animation: color-change 5s infinite;">Made by Cadet Sachez</p>
+
+  <!-- <Credits and colour changing Text> -->
+  <p
+    style="position: absolute; top: 140%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; animation: color-change 5s infinite;">
+    Made by Cadet Sachez</p>
   <style>
-      @keyframes color-change {
-          33.33% {
-              color: Black;
-          }
-          66.66% {
-              color: blue;
-          }
-          100% {
-              color: yellow;
-          }
+    @keyframes color-change {
+      33.33% {
+        color: Black;
       }
+
+      66.66% {
+        color: blue;
+      }
+
+      100% {
+        color: yellow;
+      }
+    }
   </style>
-  
+
   <!--Code to load header, menus and their styles-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
   <script id="script"></script>
   <script defer async="false">
-    $("#Hheader").load("header/header.html");  
-    $("#Mmenus").load("header/navi.html");  
+    $("#Hheader").load("header/header.html");
+    $("#Mmenus").load("header/navi.html");
     $("head").append($('<link rel="stylesheet" href="header/style.css">'))
   </script>
 </body>
+
 </html>
+<!-- ReWork ReWork ReWork!!!!!! --!>

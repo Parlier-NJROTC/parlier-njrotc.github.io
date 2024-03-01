@@ -1,5 +1,14 @@
-
-  body {
+body {
     background-color: rgb(153, 188, 219);
     height: 130vh;
-  }
+}
+#rectangle {
+    width: 100%;
+    height: 3.51vw;
+    background: #000080;
+    position: absolute;
+    top: 12.41vw;
+    left: 0;
+    z-index: -1;
+  
+}
