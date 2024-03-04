@@ -15,13 +15,15 @@
 </nav>
 <div class="by">Header and Menus by Cadet Ibarra</div>
 <script type="text/javascript" defer async="false">
-    $(document).ready(() => {
-        document.getElementById("HmenuBtn").onclick = () => {
-            document.getElementById("Mmenus").style.width = "25vw"
-        }
-        document.getElementById("Mclose").onclick = () => {
-            document.getElementById("Mmenus").style.width = "0vw"
-        }
+    document.onload(() => {
+        $(document).ready(() => {
+            document.getElementById("HmenuBtn").onclick = () => {
+                document.getElementById("Mmenus").style.width = "25vw"
+            }
+            document.getElementById("Mclose").onclick = () => {
+                document.getElementById("Mmenus").style.width = "0vw"
+            }
+        })
     })
     console.log("If you are seeing this and know how this works, then come on help us out!")
     console.log("Just send an email to us or tell cheif")
