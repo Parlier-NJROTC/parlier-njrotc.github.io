@@ -20,22 +20,26 @@ body{
     padding: 40px;
     z-index: 9999999999999999999999999;
     align-items: center;
+    justify-content: center;
 }
 /*#474448 2D232E EDDDCF 534B52 F1F0EA */
 #Htitle{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #Hseal{
-    height:5vmin;
-    width: 10vmin;
+    height:45px;
+    width: 6vw;
 }
 
 #HmenuBtn{
     margin-left: auto;
-    width: 2vw;
-    height: 2vw;
+    width: 30px;
+    height: 30px;
 }
 #HmenuBtn:hover{
     cursor: pointer;
@@ -74,7 +78,8 @@ body{
     position: relative;
     text-align: right;
     z-index: 1;
-    padding: 3vmin;
+    padding-inline: 2vmin;
+    padding-block: 2vh;
     color: white;
     transition: padding-right 250ms;
 }
