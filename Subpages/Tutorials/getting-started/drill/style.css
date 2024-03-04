@@ -10,6 +10,8 @@ body{
 #background{
   position:absolute;
   width: 100vw;
+  height: 1000px;
+  object-fit: cover;
   z-index: -1;
 }
 #videoWrapper{
@@ -21,7 +23,7 @@ body{
   text-align: center;
 }
 #video{
-  border: 50px solid black;
+  border: 5px solid black;
 }
 
 .titleText{
