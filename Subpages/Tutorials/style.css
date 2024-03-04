@@ -1,30 +1,30 @@
-body *{
+body * {
     margin: 0;
     padding: 0;
-    
 }
-body{
+
+body {
     margin: 0;
 }
 
-#title{
-    display: flex; /* Set the display to flexible that way you can manipulate items at will */
-    flex-direction: column; /* instead of items pilling up in a row they will go to the next line like a column, could replace flex-wrap*/
-    align-items: center; /* align items to middle on x-axis */
-    justify-content: center; /* align items to middle on y-axis */
+#title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-position: center;
     background-repeat: no-repeat, repeat;
     background-size: cover;
     height:300px;
 }
 
-#title h1{
+#title h1 {
     font-family: 'Josefin sans';
-    font-size: 36px;
-    padding-block: 20px;
+    font-size: 36px; /* responsive font size */
+    padding-block: 2vh; /* responsive padding */
     color: whitesmoke;
     text-decoration: underline;
-    
+
 }
 
 #title p {
@@ -35,27 +35,26 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-sizing: border-box;
     padding-inline: 5vw;
-    padding-block: 20px;
-
+    padding-block: 2vh;
 }
 
-#extraStuff{
+#extraStuff {
     width: 100vw;
     background-color: azure;
     text-align: center;
 }
 
-#subjects{
+#subjects {
     width: 100vw;
     display: flex;
     justify-content: center;
     text-align: center;
     font-family: 'Josefin sans';
-    padding-block: 20px;
+    padding-block: 2vh;
     background-color: azure;
 }
 
-.subject{
+.subject {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
@@ -63,27 +62,27 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10px;
-    
+    row-gap: 1vh;
+
 }
-.subject hr{
-    width: 80%;
-}
-.subject a{
+
+.subject a {
     background-color: #000000;
     color: #ffffff;
-    padding: 2vmin;
+    padding: 2vh;
     border-radius: 1vmin;
     transition: background-color 250ms;
+    width: 8vw; /* responsive width */
 }
-.subject a:hover{
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.8);
+
+.subject hr {
+    width: 80%;
 }
-ul{
+
+ul {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 3vh;
     text-align: left;
 }
 
