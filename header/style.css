@@ -81,7 +81,7 @@ body{
     z-index: 1;
     padding-inline: 2vmin;
     padding-block: 2vh;
-    color: white;
+    color: rgb(249, 249, 249);
     transition: padding-right 250ms;
 }
 #Mnavigation a::before{
