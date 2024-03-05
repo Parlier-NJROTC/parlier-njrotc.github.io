@@ -62,7 +62,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 1vh;
+    row-gap: 2vh;
 
 }
 
@@ -78,6 +78,9 @@ body {
 .subject hr {
     width: 80%;
 }
+.subject a:hover {
+background-color: #535454;
+  }
 
 ul {
     display: flex;
