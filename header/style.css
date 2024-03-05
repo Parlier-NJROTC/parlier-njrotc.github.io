@@ -40,6 +40,7 @@ body{
     margin-left: auto;
     width: 30px;
     height: 30px;
+    filter: invert(1);
 }
 #HmenuBtn:hover{
     cursor: pointer;
