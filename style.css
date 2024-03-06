@@ -1,6 +1,7 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
+    overflow-x: hidden;
 }
 
 
@@ -143,9 +144,7 @@ body{
     font-size: 12px;
 }
 
-hr{
-    margin: 0;
-}
+
 
 
 .txt{
