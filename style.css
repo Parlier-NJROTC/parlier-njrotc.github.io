@@ -1,6 +1,7 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
+    overflow-x: hidden;
 }
 
 
@@ -83,6 +84,24 @@ body{
     row-gap: 10px;
     padding: 20px;
 }
+#mission{
+    color: black;
+    background-color: azure;
+    display: grid;
+    width: 100%;
+    text-align: center;
+    justify-items: center;
+    
+}
+#mission h1{
+    font-family: "Josefin sans";
+    
+
+}
+#mission p{
+    width:80vw;
+}
+
 .sub{
     font-size: 12px;
 }
@@ -125,9 +144,7 @@ body{
     font-size: 12px;
 }
 
-hr{
-    margin: 0;
-}
+
 
 
 .txt{

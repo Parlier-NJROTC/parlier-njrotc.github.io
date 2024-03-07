@@ -9,29 +9,31 @@
   <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
 </head>
 <body>
-  <footer id="Ffooter">
-    <div id="Ftitle"><img id="Fseal" src="images/NJROTC-Seal.svg">  Parlier NJROTC</div>
-    <div id="Fsocials">
-      <a style="background-image: url('images/logos/github-mark.svg');"></a>
-      <a style="background-image: url('images/logos/Instagram.svg');"></a>
-    </div>
-    <hr id="Fhr">
-    <div id="Fcontactnj" class="Fcontact">
-      <div>NJROTC</div>
-      <span>njrotcparlier@outlook.com - Primary Website and Development Email</span>
-      <span>parliernavyjrotc@gmail.com - Secondary Email (Google disable njrotcparlier@gmail.com)</span>
-      <span>jaycee.killian@parlierunified.org - Cheif Killian</span>
-      <span>Room 53 - NJ</span>
-    </div>
-    <div id="Fcontactphs" class="Fcontact">
-      <div>Parlier High School</div>
-      <span>Address: 601 3rd St, Parlier, CA 93648</span>
-      <span>Phone:(559) 646-3573</span>
-    </div>
-    <div id="Fby">
-      Footer by Cadet Ibarra
-    </div>
-  </footer>
-  <script src="isolated testing/Jose/script.js"></script>
+    <!--The header and menus-->
+    <header id="Hheader"></header>
+    <div id="Mmenus"></div>
+
+    <a href="isolated testing/Jose/#menus">
+        <button>Menu test</button>
+    </a>
+
+    <div id="menus"></div>
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Isolated test page of Cadet Ibarra - Hello World!</div>
+  
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+      integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+      $("#Hheader").load("header/header.html");
+      $("#Mmenus").load("header/navi.html");
+      $("#Ffooter").load("footer/footer.html");
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+      $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
+    </script>
 </body>
 </html>
