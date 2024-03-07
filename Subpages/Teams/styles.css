@@ -5,16 +5,16 @@ body{
 
 
 #mainTitle{
-    color: whitesmoke;
+    color: black;
     width: 50vw;
     text-align: center;
     text-shadow: rgb(0, 0, 100) 1px 0 15px;
-    border: solid 5px lightskyblue;
+    border: solid 5px;
     border-left: none;
     border-right: none;
     padding-top: 40px;
     padding-bottom: 40px;
-   
+    
 }
 
 #mainTitle div{
@@ -30,10 +30,7 @@ body{
     height: 400px;
     background-color: white;
     align-items: center;
-    background-image: url('pictures/FullSizeRender-2 Large.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    background-image: url("images/placeholder.png");
 }
 
 #teams{

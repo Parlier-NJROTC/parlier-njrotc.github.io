@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
     <title>PHS NJROTC | Cheif Killian</title>
-    <link rel="icon" href="/images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="Subpages/Instructor/style.css">
 </head>
 
 <body>
@@ -14,21 +15,13 @@
     <header id="Hheader"></header>
     <div id="Mmenus"></div>
 
-    <div id="title">
-        <hr style="border-color: gold;">
-        <h1>Naval Science Instructor</h1>
-        <p>Whom taught us everything</p>
-        <hr style="border-color: navy;">
-    </div>
     <div id="profile">
-        <h1 id="name">
-            Cheif Killian
-            <hr>
-        </h1>
-        <img id="cheif"src="cheif.jpeg">
-        <p id="sub">Cheif killian taking a picture during an event (lower right)</p>
-       <p id="description">Cheif killian has been our Naval Science Instructor for 5 years. She has served 20 years in the navy. She taught us all the tricks and tips she knows. Shes so good she made the class self sufficent for a while.</p>
+        <div id="cheif">
+            <img src="Subpages/Instructor/cheif.jpeg">
+            <h3>"A quote of this picture would go here"</h3>
+        </div>
     </div>
+
     <!-- Header and Credit -->
     <footer id="Ffooter"></footer>
     <div id="Fmadepage">Instructor Page by Cadet Ibarra - NS1</div>
@@ -40,11 +33,11 @@
         integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer async="false">
-        $("#Hheader").load("/header/header.html");
-        $("#Mmenus").load("/header/navi.html");
-        $("#Ffooter").load("/footer/footer.html");
-        $("head").append($('<link rel="stylesheet" href="/header/style.css">'))
-        $("head").append($('<link rel="stylesheet" href="/footer/style.css">'))
+        $("#Hheader").load("header/header.html");
+        $("#Mmenus").load("header/navi.html");
+        $("#Ffooter").load("footer/footer.html");
+        $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+        $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
     </script>
 </body>
 

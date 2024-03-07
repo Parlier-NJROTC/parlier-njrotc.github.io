@@ -19,12 +19,14 @@
 #Fseal {
     width: 35px;
     height: 35px;
+    padding-right: 1vw;
 }
 
 #Ftitle {
     padding: 24px;
     font-size: 36px;
     grid-area: title;
+    display: flex;
     justify-self: start;
     align-self: center;
     align-items: center;
@@ -47,8 +49,8 @@
 
 .Fcontact {
     display: grid;
-    justify-items: center;
-    
+    justify-self: center;
+    align-self: center;
     text-align: center;
     row-gap: 5px;
 }
@@ -59,14 +61,11 @@
 
 #Fcontactnj {
     grid-area: njrotc;
-    margin-left: 2vw;
 }
 
 #Fcontactphs {
     grid-area: parlier;
-    margin-right: 2vw;
 }
-
 
 #Fhr {
     grid-area: hr;
@@ -89,8 +88,4 @@
     font-size: 8px;
     text-align: center;
     padding-bottom: 5px;
-}
-.hr{
-    width: 90%;
-   height: 0px;
 }

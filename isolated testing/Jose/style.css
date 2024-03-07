@@ -4,8 +4,74 @@ body,html{
     height: 100%;
 }
 
-#menus:target{
-    width: 20px;
-    height: 20px;
-    background-color: red;
+#Ffooter{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto,200px);
+    grid-template-areas: 
+    "title socials"
+    "hr hr"
+    "njrotc parlier"
+    "by by"
+    ;
+    
+    column-gap: 5vw;
+    background-color: antiquewhite;
+    
+}
+#Fseal{
+    width: 35px;
+    height: 35px;
+}
+#Ftitle{
+    padding: 24px;
+    font-size: 36px;
+    grid-area: title;
+    justify-self: start;
+    align-self: center;
+    align-items:center;
+}
+
+#Fsocials{
+    grid-area: socials;
+    justify-self: end;
+    align-self: center;
+    padding-right: 5vw;
+}
+#Fsocials a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-inline: 5px;
+    background-size: 100% 100%;
+}
+.Fcontact{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    row-gap: 5px;
+}
+.Fcontact div{
+    font-size: 24px;
+}
+
+#Fcontactnj{
+    grid-area: njrotc;
+}
+#Fcontactphs{
+    grid-area: parlier;
+}
+#Fhr{
+    grid-area: hr;
+    margin-inline:2vw;
+    margin-bottom: 1vw;
+}
+#Fby{
+    grid-area: by;
+    text-align: center;
+    font-size: 10px;
+    margin-block: 10px;
 }

@@ -49,8 +49,20 @@ body{
     border-color: #534B52;
 }
 .img{
+  object-position: center;
+    position: relative;
     padding: 2vw;
     height: 150px;
+    transition: 100ms ease-in-out;
+  transform-origin: center;
 }
+.img:hover{
+    transform: scale(1.05);
+    transform-origin: center;
+    cursor: pointer;
+}
+.link:hover {
+    background-color: #675c65;
+      }
 
 /*#474448 2D232E EDDDCF 534B52 F1F0EA */

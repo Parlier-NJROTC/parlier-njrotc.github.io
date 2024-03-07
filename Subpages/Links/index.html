@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHS NJROTC | Links</title>
-    <link rel="icon" href="/images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
+    <base href="../../">
+    <link rel="stylesheet" href="Subpages/Links/style.css">
 </head>
 <body>
   <!--The header and menus-->
@@ -17,32 +18,24 @@
         All important websites and related external content
     </div>
     <div id="links">
-        <a href="https://phs.parlierunified.org/" class="link">Parlier High School <img class="img" src="/images/Phs.png"></a>
-        <a href="https://www.instagram.com/parlierhsnjrotc/?hl=en" class="link">Parlier NJROTC Instagram <img class="img" src="/images/logos/instagram.svg"> </a>
-        <a href="https://www.parlierunified.org/" class="link">Parlier Unified School District <img class="img" src="/images/logos/PUSD.gif"></a>
-        <a href="https://www.midwayusafoundation.org/" class="link">The Midway Foundation <img class="img" src="/images/logos/midway.png"></a>
-        <a href="https://github.com/Parlier-NJROTC/website" class="link">Github repository <img class="img" src="/images/logos/github-mark.svg"></a>
+        <a href="https://phs.parlierunified.org/" class="link"style="transform: scale(1.02);">Parlier High School <img class="img" src="images/Phs.png"></a>
+        <a href="https://www.instagram.com/parlierhsnjrotc/?hl=en" class="link">Parlier NJROTC Instagram <img class="img" src="images/logos/instagram.svg"> </a>
+        <a href="https://www.parlierunified.org/" class="link">Parlier Unified School District <img class="img" src="images/logos/PUSD.gif"></a>
+        <a href="https://www.midwayusafoundation.org/" class="link">The Midway Foundation <img class="img" src="images/logos/midway.png"></a>
+        <a href="https://github.com/Parlier-NJROTC/website" class="link">Github repository <img class="img" src="images/logos/github-mark.svg"></a>
         <a href="https://discord.gg/AEwgZhgfCb" class="link">Unoffical Discord Server<img class="img" src="https://www.svgrepo.com/show/343548/discord-communication-interaction-message-network.svg"></a>
-        <a href="/Subpages/Credits/index.html" class="link">Credits <img class="img" src="/images/logos/people.svg"></a>
+        <a href="Subpages/Credits/index.html" class="link">Credits <img class="img" src="images/logos/people.svg"></a>
     </div>
 
 
-  <!-- Header and Credit -->
-  <footer id="Ffooter"></footer>
-  <div id="Fmadepage">Links page by Cadet Ibarra - NS1</div>
-
-  <!--Code to load header, menus and their styles-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-  <script id="script"></script>
-  <script defer async="false">
-    $("#Hheader").load("/header/header.html");
-    $("#Mmenus").load("/header/navi.html");
-    $("#Ffooter").load("/footer/footer.html");
-    $("head").append($('<link rel="stylesheet" href="/header/style.css">'))
-    $("head").append($('<link rel="stylesheet" href="/footer/style.css">'))
-  </script>
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+      $("#Hheader").load("header/header.html");  
+      $("#Mmenus").load("header/navi.html");  
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+    </script>
 </body>
 </html>
