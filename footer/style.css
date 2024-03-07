@@ -19,12 +19,14 @@
 #Fseal {
     width: 35px;
     height: 35px;
+    padding-right: 1vw;
 }
 
 #Ftitle {
     padding: 24px;
     font-size: 36px;
     grid-area: title;
+    display: flex;
     justify-self: start;
     align-self: center;
     align-items: center;
