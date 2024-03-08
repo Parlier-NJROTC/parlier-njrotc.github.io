@@ -47,8 +47,7 @@
 
 .Fcontact {
     display: grid;
-    justify-items: center;
-    
+    align-content: center;
     text-align: center;
     row-gap: 5px;
 }
