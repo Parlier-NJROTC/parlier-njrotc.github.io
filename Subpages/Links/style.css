@@ -56,7 +56,7 @@ body{
     transition: 100ms ease-in-out;
   transform-origin: center;
 }
-.img:hover{
+.link:hover img{
     transform: scale(1.05);
     transform-origin: center;
     cursor: pointer;
