@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../../">
-  <link rel="stylesheet" href="Subpages/Pictures/styles.css">
+  <link rel="stylesheet" href="/Subpages/Pictures/styles.css">
   <title>PHS NJROTC | Pictures</title>
 <style>
 
@@ -22,36 +21,40 @@
 </div>
 
 <!-- The Photo columns -->
+
 <div class="row">
   <div class="column">
-    <img src="images/Midway Field Trip/group.webp" alt="Cadets Taking photo with LT PHIL (Cowboy) NAPIERSKIE" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/Midway Field Trip/group.webp" alt="Cadets Taking photo with LT PHIL (Cowboy) NAPIERSKIE" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Midway Field Trip/helicopter.webp" alt="Two Cadets near the H-34 SEABAT & SH-2 SEASPRITE" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/Midway Field Trip/helicopter.webp" alt="Two Cadets near the H-34 SEABAT & SH-2 SEASPRITE" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Cadets.jpg" alt="IDK" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/placeholder.png" alt="IDK" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Cheif&Cadet.jpg" alt="Cheif with Cadet (IDK HER NAME SORRRY)" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/Cheif&Cadet.jpg" alt="Cheif with Cadet (IDK HER NAME SORRRY)" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/NJ Images/IMG_1834.png" alt="2023 Christmas Parade" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/NJ Images/IMG_1834 Large.jpeg" alt="2023 Christmas Parade" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/colorguard.jpg" alt="Color Guard on the Football field" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/placeholder.png" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Rifle.jpg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/Rifle.jpg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Swords.JPG" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/Swords.JPG" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/NJ Images/IMG_0927 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/NJ Images/IMG_1558-1 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/NJ Images/IMG_1355 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+    <img src="/images/NJ Images/IMG_1600 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="/Subpages/Tutorials/teaching.jpeg" alt="Daisy Martinez explaining What She Has done After PHS to NS1" style="width:100%" onclick="myFunction(this);">
   </div>
 </div>
 
@@ -105,25 +108,11 @@
       integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script id="script"></script>
     <script defer async="false">
-      $("#Hheader").load("header/header.html");
-      $("#Mmenus").load("header/navi.html");
-      $("#Ffooter").load("footer/footer.html");
-      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
-      $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
-    
-    // Load the Google Drive API
-    gapi.load('client', initClient);
-    function initClient() {
-      gapi.client.init({
-        'apiKey': 'YOUR_API_KEY',
-        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
-      }).then(function() {
-        console.log('Google Drive API loaded');
-        // You can make calls to the Google Drive API here
-      }, function(error) {
-        console.error('Error loading Google Drive API:', error);
-      });
-    }
+      $("#Hheader").load("/header/header.html");
+      $("#Mmenus").load("/header/navi.html");
+      $("#Ffooter").load("/footer/footer.html");
+      $("head").append($('<link rel="stylesheet" href="/header/style.css">'))
+      $("head").append($('<link rel="stylesheet" href="/footer/style.css">'))
 </script>
 
 </body>

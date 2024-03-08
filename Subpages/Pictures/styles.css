@@ -114,12 +114,8 @@ ul {
 * {
   box-sizing: border-box;
 }
-
-body {
-  margin: 0;
-  font-family: Arial;
-}
   .row {
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
   }
