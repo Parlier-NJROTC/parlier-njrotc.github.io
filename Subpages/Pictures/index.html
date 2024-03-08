@@ -7,67 +7,7 @@
   <link rel="stylesheet" href="Subpages/Pictures/styles.css">
   <title>PHS NJROTC | Pictures</title>
 <style>
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: Arial;
-}
-
-/* The grid: Four equal columns that floats next to each other */
-.column {
-  float: left;
-    width: 25%; 
-    padding: 5px;
-  }
-
-/* Style the images inside the grid */
-.column img {
-  opacity: 1; 
-  cursor: pointer; 
-}
-
-.column img:hover {
-  opacity: 0.8;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The expanding image container */
-.container {
-  position: relative;
-  display: none;
-}
-
-/* Expanding image text */
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  text-decoration: overline underline;
-  text-decoration-color: black;
-  text-decoration-thickness: 10%;
-  text-shadow: 2px 2px 5px black;
-  color: white;
-  font-size: 25px;
-}
-
-/* Closable button inside the expanded image */
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
 </style>
 </head>
 <body>
@@ -120,7 +60,10 @@ body {
     <img id="expandedImg" style="width:100%">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">X</span>
     <div id="imgtext"></div>
-    <span onclick="this.parentElement.style.display='none'" class="escapebtn"></span>
+    <a onclick="openFullScreen()" class="fullscreen-btn">Full Screen</a>
+  </div>
+  </div>
+  </div>
   </div>
 
   <!-- Alert -->
@@ -137,6 +80,19 @@ body {
     imgText.innerHTML = imgs.alt;
     expandImg.parentElement.style.display = "block";
   }
+    function openFullScreen() {
+      var elem = document.getElementById("expandedImg");
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
   </script>
     <!-- Header and Credit -->
     <footer id="Ffooter"></footer>
