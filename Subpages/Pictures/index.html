@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="../../">
+  <link rel="stylesheet" href="Subpages/Pictures/styles.css">
+  <title>PHS NJROTC | Pictures</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+    width: 25%; 
+    padding: 5px;
+  }
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 1; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 0.8;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  text-decoration: overline underline;
+  text-decoration-color: black;
+  text-decoration-thickness: 10%;
+  text-shadow: 2px 2px 5px black;
+  color: white;
+  font-size: 25px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <!-- The header and menus -->
+  <header id="Hheader"></header>
+  <div id="Mmenus"></div>
+
+  <div id="title" style="background-image: url('/Subpages/Tutorials/teaching.jpeg');">
+    <h1>NJROTC Pictures</h1>
+    <p>Welcome to the Pictures tutorials page! Here, you'll find a variety of Pictures to help you learn more about
+        NJROTC</p>
+</div>
+
+<!-- The Photo columns -->
+<div class="row">
+  <div class="column">
+    <img src="images/Midway Field Trip/group.webp" alt="Cadets Taking photo with LT PHIL (Cowboy) NAPIERSKIE" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Midway Field Trip/helicopter.webp" alt="Two Cadets near the H-34 SEABAT & SH-2 SEASPRITE" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Cadets.jpg" alt="IDK" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Cheif&Cadet.jpg" alt="Cheif with Cadet (IDK HER NAME SORRRY)" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/NJ Images/IMG_1834.png" alt="2023 Christmas Parade" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/colorguard.jpg" alt="Color Guard on the Football field" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Rifle.jpg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Swords.JPG" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/NJ Images/IMG_0927 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/NJ Images/IMG_1355 Large.jpeg" alt="{NAME}" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+  <!-- The expanding image container -->
+  <div class="container">
+    <img id="expandedImg" style="width:100%">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">X</span>
+    <div id="imgtext"></div>
+    <span onclick="this.parentElement.style.display='none'" class="escapebtn"></span>
+  </div>
+
+  <!-- Alert -->
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    Please note that this Page is Under-development.
+  </div>
+
+  <script>
+  function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+  </script>
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Photo page by Cadet Sanchez - NS1</div>
+
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+      integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+      $("#Hheader").load("header/header.html");
+      $("#Mmenus").load("header/navi.html");
+      $("#Ffooter").load("footer/footer.html");
+      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
+      $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
+    
+    // Load the Google Drive API
+    gapi.load('client', initClient);
+    function initClient() {
+      gapi.client.init({
+        'apiKey': 'YOUR_API_KEY',
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+      }).then(function() {
+        console.log('Google Drive API loaded');
+        // You can make calls to the Google Drive API here
+      }, function(error) {
+        console.error('Error loading Google Drive API:', error);
+      });
+    }
+</script>
+
+</body>
+</html>
