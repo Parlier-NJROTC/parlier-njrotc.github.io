@@ -63,23 +63,24 @@ body {
     flex-direction: column;
     align-items: center;
     row-gap: 2vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 
 .subject a {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 2vh;
+    color: #000000;
+    padding: 1vh;
     border-radius: 1vmin;
     transition: background-color 250ms;
-    width: 8vw; /* responsive width */
+    width: 35vw; /* responsive width */
 }
 
 .subject hr {
     width: 80%;
 }
 .subject a:hover {
-background-color: #535454;
+background-color: #b8b8b8;
   }
 
 ul {
