@@ -107,6 +107,10 @@ body{
     transition: 250ms;
 }
 
+.Mdropdown{
+    display: grid;
+}
+
 
 .by{
     position: absolute;

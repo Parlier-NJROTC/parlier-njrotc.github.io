@@ -4,36 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHS NJRTOC | Jose's Testing</title>
-  <base href="../../../">
-  <link rel="stylesheet" href="isolated testing/Jose/style.css">
-  <link rel="icon" href="images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
 </head>
 <body>
-    <!--The header and menus-->
-    <header id="Hheader"></header>
-    <div id="Mmenus"></div>
+    <!-- Alright this code looks like a mess so let me break it down-->
 
-    <a href="isolated testing/Jose/#menus">
-        <button>Menu test</button>
-    </a>
+    <!-- Main Header, stores stuff-->
+    <header id="Hheader">
+        <!-- title, links back home-->
+        <a id="Htitle" href="/">
+             <img id="Hseal" src="/images/NJROTC-Seal.svg">
+             <span>Parlier NJROTC</span>
+        </a>
 
-    <div id="menus"></div>
-    <!-- Header and Credit -->
-    <footer id="Ffooter"></footer>
-    <div id="Fmadepage">Isolated test page of Cadet Ibarra - Hello World!</div>
-  
-    <!--Code to load header, menus and their styles-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-      integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-    <script id="script"></script>
-    <script defer async="false">
-      $("#Hheader").load("header/header.html");
-      $("#Mmenus").load("header/navi.html");
-      $("#Ffooter").load("footer/footer.html");
-      $("head").append($('<link rel="stylesheet" href="header/style.css">'))
-      $("head").append($('<link rel="stylesheet" href="footer/style.css">'))
-    </script>
+        <input type="checkbox" id="Mcheck">
+        <label for="Mcheck" id="Mtoggles">
+            <button class="Mtoggle">Open</button>
+            <button class="Mtoggle">Close</button>
+        </label>
+
+        <div id="Mmenus">
+            <header>
+                <h1>Menus</h1>
+            </header>
+            <section>
+                <div>
+                    <h2>Cadets</h2>
+                    <a>Knowledge</a>
+                    <a>Tutorials</a>
+                    <a>Benefits</a>
+                    <a>Scholarships</a>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Teams</h2>
+                    <a>Drill</a>
+                    <a>Rifle</a>
+                    <a>Color Guard</a>
+                    <a>Academic</a>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Events</h2>
+                    <a>Calendar</a>
+                    <a>Fundraising</a>
+                    <a>Photos</a>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>More</h2>
+                    <a>Instructor - Cheif Killian</a>
+                    <a>Links</a>
+                </div>
+            </section>
+        </div>
+
+    </header>
+
+        <!--side menu button-->
+       
+
+
+            <!--
+                <a>
+                Naval Science Classes
+                <div class="Mdropdown">
+                    <a>NS1</a>
+                </div>
+            </a>
+            <a>Cadet's Scholarships </a>
+            <a>NJROTC Benefits</a>
+            <a>Teams</a>
+            <a>Events</a>
+            <a>Instructor - Cheif Killian</a>
+            <a>Fundrasing</a>
+            <a>Pictures</a>
+            <a>Links</a>
+            -->
 </body>
 </html>
