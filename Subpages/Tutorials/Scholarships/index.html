@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHS NJROTC | Knowledge</title>
+    <link rel="icon" href="/images/NJROTC-Seal.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--The header and menus-->
+    <header id="Hheader"></header>
+    <div id="Mmenus"></div>
+
+    <div id="background">
+        <div id="title">Scholarship</div>
+        "If you're looking for scholarship opportunities through NJROTC" <br>
+        you'll be pleased to know that This is a comprehensive list of all possible scholarships online.<br>
+        P.S.  keep in mind that there may be additional scholarships available that are not included in the  list, so be sure to tell me
+    </div>
+    <div id="years">
+        <div id="freshman" class="year">
+            <div class="supl">Scholarships</div>
+            <div class="material">
+                <div id="teams">
+                    <div id="One" class="team">
+                        <div>
+                            <div class="sup">Naval Education and Training Command</div>
+                            To start college, you must be between 17-23 years old by Sept. 1 and meet Navy's physical/medical standards. Additionally, you should have no criminal records. 
+                            <br><br>
+                            Team Leader: Luis & Cruz<br>
+                            Member Count: 30
+                        </div>
+                        <a href="https://phs.parlierunified.org/"><img  class="img" src="/images/logos/NETC.png"></a>
+                    </div>
+
+                    <div id="Two" class="team">
+                        <img class="img" src="pictures/IMG_2637 Large.jpeg">
+                        <div>
+                            <div class="sup">Color Guard</div>
+                            The Color Guard Team is the most active team within local events. You will most likely see them, in
+                            parades,
+                            city gatherings, graduation, football games, and many more important events. Within the color guard you
+                            will
+                            see our cadets marching with flags surrounded by rifles, hence the name color guard.
+                            <br><br>
+                            Team Leader: Jenny Garcia<br>
+                            Member Count: 4 
+                        </div>
+                    </div>
+                    <div id="Three" class="team">
+                        <div>
+                            <div class="sup">Rifle Team</div>
+                            The Rifle Team is one of our most intense and best teams. Not only do cadets have to learn how to
+                            operate an
+                            air rifle, they also have to remain consistent and disciplined through out thier journey as this team
+                            requires intense commiment and dedication. Cadets will devote multiple hours in physical and mental
+                            Training.
+                            If you are up to the challange then make sure to come prepared, Good luck.
+                            <br><br>
+                            Team Leader: Paula<br>
+                            Member Count: 11
+                        </div>
+                        <img class="img" src="pictures/IMG_8428 Large.jpeg">
+                    </div>
+                    <div id="Four" class="team">
+                        <img class="img" src="pictures/IMG_1711 Large.jpeg">
+                        <div>
+                            <div class="sup">Academics Team</div>
+                            The academics team is made up of the entire unit. No one leads the academic team. Our goal is to get our best grades that we can. Who knows one of us might end up valorvictorian. 
+                            <br><br>
+                            Team Leader: Nobody<br>
+                            Members: (Entire unit)<br> NS1 4st period, NS1 6th Period, NS2 5th period, NS3 3rd period, NS4 2nd period, Leadership 7th Period
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Header and Credit -->
+    <footer id="Ffooter"></footer>
+    <div id="Fmadepage">Knowledge Page by Cadet Ibarra - NS1</div>
+
+    <!--Code to load header, menus and their styles-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script id="script"></script>
+    <script defer async="false">
+        $("#Hheader").load("/header/header.html");
+        $("#Mmenus").load("/header/navi.html");
+        $("#Ffooter").load("/footer/footer.html");
+        $("head").append($('<link rel="stylesheet" href="/header/style.css">'))
+        $("head").append($('<link rel="stylesheet" href="/footer/style.css">'))
+    </script>
+</body>
+
+</html>

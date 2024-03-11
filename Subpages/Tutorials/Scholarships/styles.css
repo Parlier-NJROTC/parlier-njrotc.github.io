@@ -1,0 +1,160 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height:100%;
+}
+
+
+#background{
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+#title{
+    color: black;
+    border: 5px solid gold;
+    border-top:none;
+    border-bottom: none;
+    padding-inline: 5px;
+    font-size: 50px;
+    padding-block: 10px;
+    margin-bottom: 10px;
+}
+#years{
+    display: grid;
+    row-gap: 20px;
+    width: 100vw;
+}
+#freshman{
+    background-color: rgb(206, 224, 230);
+}
+#sophomore{
+    background-color:  lightblue;
+}
+#junior{
+    background-color: cornflowerblue;
+}
+#senior{
+    background-color: navy;
+    color: white;
+}
+.year{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.material{
+    margin-top: 20px;
+    display: grid;
+    row-gap: 20px;
+
+}
+/*#474448 2D232E EDDDCF 534B52 F1F0EA */
+.supl{
+    padding: 5px;
+    border: 1px solid lightgoldenrodyellow;
+    width: 50vw;
+    border-radius: 25px;
+    font-size: 20px;
+    background-color: aliceblue;
+    color: black;
+    
+}
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+
+#mainTitle{
+    color: whitesmoke;
+    width: 50vw;
+    text-align: center;
+    text-shadow: rgb(0, 0, 100) 1px 0 15px;
+    border: solid 5px lightskyblue;
+    border-left: none;
+    border-right: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
+   
+}
+
+#mainTitle div{
+    margin: auto;
+    font-size: 50px;
+    font-weight: 500;
+}
+#mainBg{
+    display: flex;
+    padding-left: 5vw;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 400px;
+    background-color: white;
+    align-items: center;
+    background-image: url('pictures/FullSizeRender-2 Large.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#teams{
+    display: grid;
+    row-gap: 20px;
+    background-color: #E0DDCF;
+}
+#teams>*{
+    padding: 5vw;
+
+}
+
+#One{
+    background-color: #534B52;
+}
+#Two{
+    background-color: #2D23;
+}
+#Three{
+    background-color: #2D232E;
+}
+#Four{
+    background-color: #F1F0EA;
+    color: black;
+}
+.img{
+    height: 300px;
+    width: 500px;
+    object-fit: contain;
+    padding: 1vw;
+}
+.img:hover{
+    background-color: rgb(208, 209, 209);
+    transition: 0.3s;
+    border-radius: 5px
+  }
+  
+.sup{
+    font-size: 40px;
+   
+}
+.team{
+    display: flex;
+    justify-content: space-between;
+}
+.team div{
+    width: 40vw;
+}
+
+@media (max-width:700px) {
+    .info{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+  
+  
+  
