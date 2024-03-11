@@ -92,27 +92,28 @@ article {
     align-content: space-between;
     flex-wrap: wrap;
     padding: 40px;
-    font-size: 18px;
+    font-size: 21px;
 }
 
 article button {
-    width: 200px;
-    height: 30px;
-    background-color: aliceblue;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: 2px solid gainsboro;
-}
-
-button::after{
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    background-color: rgb(210, 235, 255);
-}
-button:hover::after{
-    height: 100%;
-}
+    background-color: #000000;
+    color: #ffffff;
+    width: 25vw;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+} 
+  article button:hover {
+    background-color: #808080;
+    font-size: 18px;
+    padding: 11px
+  }
 
 @media (width < 800px) {
     .option {
