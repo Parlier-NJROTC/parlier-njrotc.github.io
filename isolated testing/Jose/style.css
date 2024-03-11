@@ -42,29 +42,74 @@ body,html{
     column-gap: 1vw;
 }
 
-#Mcheck{
-    display: none;
-}
-
-#Mtoggles{
-    justify-self: end;
-    z-index: 9999;
-}
-.Mtoggle{
-    width: 60px;
-    height: 60px;
-    box-sizing: border-box;
-}
 #Mmenus{
     position: absolute;
     right: 0px;
     top: 0px;
-    width: 300px;
+    width: 0;
     height: 100vh;
 
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(auto-fill,1fr);
-
+    display: flex;
+    flex-direction: column;
+    
+    row-gap: 0px;
     z-index: 9;
+
+    transition: width 250ms;
+    background-color: navy;
+    overflow-y: hidden;
+}
+
+#Mmenus header{
+    height: 135px;
+}
+#Mmenus section *{
+    display: grid;
+    height: 1fr;
+}
+#Mmenus section{
+    flex: 1;
+}
+
+
+/* hides checkbox but still is able to use*/
+#Mcheck{
+    display: none;
+}
+
+/* the ~ tells css to change that element when something happens*/
+
+/* event ~ element {properties: values} */
+
+/* when checkbox is check the menus expands */
+#Mcheck:checked ~ #Mmenus{
+    width: 300px;
+}
+/*hides X SVG */
+#Mtoggle img:nth-of-type(2){
+    display: none;
+}
+/* when checked hides menu SVG*/
+#Mcheck:checked ~ #Mtoggle img:nth-of-type(1){
+    display: none;
+}
+/* when checked this shows X SVG*/
+#Mcheck:checked ~ #Mtoggle img:nth-of-type(2){
+    display: block;
+}
+
+#Mtoggle{
+    justify-self: end;
+    position: relative;
+    margin-top: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 9999;
+}
+#Mtoggle img{
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
 }
