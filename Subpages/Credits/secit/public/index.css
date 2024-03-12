@@ -184,7 +184,6 @@ body {
 
 #preview .doom.one {
   background-image: url('img/doom1.jpg');
-  object-fit: fill;
   left: 0;
 }
 #preview .doom.one:hover{
@@ -196,7 +195,6 @@ body {
 #preview .doom.two {
   background-image: url('img/doom2.jpg');
   right: 0;
-  padding: 0px;
 }
 #preview .doom.two:hover{
 scale: 1.05;

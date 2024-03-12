@@ -27,10 +27,10 @@
   <p>
     <div style="text-align:center">
       <div class="subject">
-  <a href="https://phs.parlierunified.org/" id="Ibarra" >Cadet Ibarra - Main Programer</a><br> 
-  <a href="/Subpages/Credits/Saul/index.html" id="Sanchez">Cadet Sanchez - Secondly Programer</a><br>
-  <a href="https://phs.parlierunified.org/" id="Hernandez">Cadent Hernandez - Thanks for the color pallette insparation</a><br>
-  <a href="https://phs.parlierunified.org/" id="Espinosa">Cadent Espinosa - Thanks for making the blookets</a>
+  <a id="Ibarra" >Cadet Ibarra - Main Programer</a><br> 
+  <a id="Sanchez">Cadet Sanchez - Secondly Programer</a><br>
+  <a id="Hernandez">Cadent Hernandez - Thanks for the color pallette insparation</a><br>
+  <a id="Espinosa">Cadent Espinosa - Thanks for making the blookets</a>
     </div>
 </p>
   <!-- Header and Credit -->
@@ -50,6 +50,24 @@
     $("head").append($('<link rel="stylesheet" href="/header/style.css">'))
     $("head").append($('<link rel="stylesheet" href="/footer/style.css">'))
   </script>
+  <script>
+    let ibarraClicks = 0;
+    let sanchezClicks = 0;
+    
+    document.getElementById('Ibarra').addEventListener('click', function() {
+      ibarraClicks++;
+      if (ibarraClicks === 2 && sanchezClicks === 2) {
+        window.location.href = '/Subpages/Credits/secit/public/index.html';
+      }
+    });
+    
+    document.getElementById('Sanchez').addEventListener('click', function() {
+      sanchezClicks++;
+      if (ibarraClicks === 2 && sanchezClicks === 2) {
+        window.location.href = '/Subpages/Credits/secit/public/index.html';
+      }
+    });
+    </script>
 </body>
 
 </html>
