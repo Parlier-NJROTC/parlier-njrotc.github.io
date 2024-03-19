@@ -10,7 +10,7 @@ body{
 
 
 #Hheader{
-    position: sticky;
+    position: relative;
     background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
     box-sizing: border-box;
     border-bottom: 1px solid lemonchiffon;
@@ -49,7 +49,7 @@ body{
 
 #Mmenus{
     filter: blur(0px);
-    position: fixed;
+    position: absolute;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: gray;
     right: 0px;

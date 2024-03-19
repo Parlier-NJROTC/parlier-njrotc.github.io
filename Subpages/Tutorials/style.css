@@ -3,8 +3,32 @@ body * {
     padding: 0;
 }
 
+/* Default styles */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Styles for smaller screens */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    section {
+        margin-bottom: 10px;
+    }
 }
 
 #title {
@@ -25,6 +49,11 @@ body {
     color: whitesmoke;
     text-decoration: underline;
 
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+        font-size: 24px;
+        padding-block: 1vh;
+    }
 }
 
 #title p {
@@ -36,12 +65,24 @@ body {
     box-sizing: border-box;
     padding-inline: 5vw;
     padding-block: 2vh;
+
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+        font-size: 10px;
+        padding-inline: 2vw;
+        padding-block: 1vh;
+    }
 }
 
 #extraStuff {
     width: 100vw;
     background-color: azure;
     text-align: center;
+
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
 }
 
 #subjects {
@@ -52,6 +93,7 @@ body {
     font-family: 'Josefin sans';
     padding-block: 2vh;
     background-color: azure;
+    height: auto;
 }
 
 .subject {
@@ -72,52 +114,23 @@ body {
     padding: 2vh;
     border-radius: 1vmin;
     transition: background-color 250ms;
-    width: 8vw; /* responsive width */
+    max-width: 10vw;
+    margin: 0 auto;
+    padding: 15px;
+    }
 }
 
 .subject hr {
     width: 80%;
 }
+
 .subject a:hover {
-background-color: #535454;
-  }
+    background-color: #535454;
+}
 
 ul {
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
     text-align: left;
-}
-
-
-
-/*
-#SubIntro{
-  margin-left:5vw; /* moves it to the left*
-  width:90vw; /* update width to 90 percent of screen*
-  text-align:center; /* align text to middle *
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   /* colors *
-  background-color:navy;
-  color:white;
-}
-
-.button {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 10px;
-  text-align: left;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #535454;
-  font-size: 18px;
-  padding: 15px;
 }
