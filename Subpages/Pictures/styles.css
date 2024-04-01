@@ -124,6 +124,7 @@ ul {
   float: left;
     width: 25%; 
     padding: 5px;
+    z-index: 0;
   }
 
 /* Style the images inside the grid */
@@ -146,10 +147,6 @@ ul {
 }
 
 /* The expanding image container */
-.container {
-  position: relative;
-  display: none;
-}
 .lightbox {
   position: fixed;
   width: 100%;
@@ -157,20 +154,32 @@ ul {
   text-align: center;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.80);
+  z-index: 19999999999999999999999999;
   opacity: 0;
   pointer-events: none;
 }
-.container:target {
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  position: relative;
+  top: -100%;
+  z-index: 19999999999999999999999999;
+}
+
+.lightbox:target {
   outline: none;
   top: 0;
   opacity: 1;
   pointer-events: auto;
+  z-index: 2;
+  overflow = "none";
 }
 
-.container:target img {
+.lightbox:target img {
   top: 0;
+  z-index: 19999999999999999999999999;
   top: 50%;
   transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -178,3 +187,4 @@ ul {
   -o-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }
+</div>
