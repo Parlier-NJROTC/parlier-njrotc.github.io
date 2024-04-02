@@ -10,7 +10,7 @@ body{
 
 
 #Hheader{
-    position: sticky;
+    position: relative;
     background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
     box-sizing: border-box;
     border-bottom: 1px solid lemonchiffon;
