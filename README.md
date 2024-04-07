@@ -1,48 +1,47 @@
-# Parlier-NJROTC-Website
+# Astro Starter Kit: Minimal
 
-This is going to be the official website for the parlier high school NJROTC unit.
+```sh
+npm create astro@latest -- --template minimal
+```
 
-Notes to self:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-## DEADLINES
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-- February 15, 2024 ~ Shell due, HTML and CSS
-- February 28, 2024 ~ Website completetion due
-- March     6, 2024 ~ Full Completion
+## 🚀 Project Structure
 
-## References
+Inside of your Astro project, you'll see the following folders and files:
 
-- Good looking website: <https://www.centnjrotclvl.org/>
-- Current Website: <https://parliernjrotc.wixsite.com/parlier> old boi n incompleto
-- Development website: <https://parlier-njrotc.github.io/website/>
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-Blurt of notes:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-- Take out cyberpatriot
+Any static assets, like images, can be placed in the `public/` directory.
 
-- Remove current events replace with gernal knowledge     - chain of command, general orders etc
-- Remove calendar
-- Copy events add picture, chief will supply pictures
-- Add a slide of random pictures
-- Remove stem projects
-- Add chief as naval science instructor
-- Keep team change the same, have separate categories for teams, picture focused
-- Keep fundraising
-- Add pictures of fundraising
-- Use ear for ribbons
-- Get rid of misc tab
-- Links
-  - No cyberpatrito
-  - Add phs link
-  - Add Fresno county link
-  - In cadet
-- In cadet info add official message
-- Add chain of command, modern one not gramps one
-- Add bulit my cadet {me last name}
-  - add banner
-- Add video tan
-  - Upload videos of ironing and stuff
-- No red
+## 🧞 Commands
 
-Only thing missing is adding info and pictures
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

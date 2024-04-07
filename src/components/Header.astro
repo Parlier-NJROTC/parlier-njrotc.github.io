@@ -1,0 +1,156 @@
+<header>
+    <a id="title" href="/" style="color:white; text-decoration: none;"> 
+        <img id="Seal" src="/public/NJROTC-Seal.svg">
+        Parlier NJROTC
+    </a>
+    <nav id="navigation">
+        <span>
+            <a>Home</a>
+        </span>
+        <span>
+            <a>Cadets Info</a>
+            <div>
+                <a>Tutorials</a>
+                <a>Knowledge</a>
+            </div>
+        </span>
+        <span>
+            <a>Teams</a>
+            <div>
+                <a>Drill Team</a>
+                <a>Color Guard</a>
+                <a>Rifl Team</a>
+                <a>Cyberpatriot Team</a>
+                <a>Academics Team</a>
+            </div>
+        </span>
+        <span>
+            <a>Classes</a>
+            <div>
+                <a>NS1 - 4nd Period</a>
+                <a>NS1 - 6th Period</a>
+                <a>NS2 - 5th Period</a>
+                <a>NS3 - 3rd Period</a>
+                <a>NS4 - 2nd Period</a>
+                <a>Leadership - 7th Period</a>
+            </div>
+        </span>
+        <span>
+            <a>Instructor</a>
+        </span>
+        <span>
+            <a>Events</a>
+            <div>
+                <a>Calendar</a>
+                <a>Fundraising</a>
+            </div>
+        </span>
+        <span>
+            <a>Gallery</a>
+        </span>
+        <span>
+            <a>Links</a>
+            <div>
+                <a>Parlier High School</a>
+                <a>Instagram</a>
+                <a>Parlier Unifed School District</a>
+                <a>Midway Foundation</a>
+                <a>Github</a>
+                <a>Discod</a>
+                <a>Credits</a>
+            </div>
+        </span>
+
+    </nav>
+</header>
+
+<!-- very nice  -->
+
+<!-- This style only applies here and no where else, no more worrying about id name :) -->
+<style>
+
+    header{
+        position: relative;
+        left: 0;
+        top:0;
+        width: 100vw;
+        height: 130px;
+
+        display: grid;
+        grid-template-columns: 40px 350px 1fr;
+        
+        align-items: center;
+        justify-items: stretch;
+
+        border-block: 1px solid lemonchiffon;
+        background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
+    }
+
+    #Seal{
+        width: 50px;
+    }
+    #title{
+        display: flex;
+        align-items:center;
+        justify-content: space-evenly;
+
+        grid-column: 2/2;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 40px;
+    }
+
+    #navigation{
+        position: relative;
+        display: flex;
+        justify-content:space-evenly;
+        column-gap: 20px;
+        color: white;
+        
+    }
+    #navigation span{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: relative;
+    }
+    #navigation span::before{
+        content: "";
+        position: absolute;
+
+        bottom:0px;
+        left:0px;
+        width: 50%;
+        height: 2px;
+
+        background-color: red;
+    }
+    #navigation span::after{
+        content: "";
+        position: absolute;
+
+        bottom:0px;
+        right:0px;
+        width: 50%;
+        height: 2px;
+        
+        background-color: red;
+    }
+    #navigation span:hover ::before{
+        content: "";
+
+    }
+    #navigation span > a{
+        display: flex;
+        height: 30px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    #navigation span:hover div{
+        display: grid;
+    }
+    #navigation span div{
+        display: none;
+        position: absolute;
+        width: auto;
+        background-color: cyan;
+    }
+</style>
