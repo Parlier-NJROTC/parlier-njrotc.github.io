@@ -4,7 +4,9 @@ interface Props {
 	title: string;
 }
 const { title } = Astro.props;
-import Header from '../components/Header.astro';
+import Header from '../components/Required/Header.astro';
+import Menus from '../components/Required/Menus.astro';
+import Footer from '../components/Required/Footer.astro';
 ---
 
 <!-- Default layout for all webpages -->
@@ -14,13 +16,18 @@ import Header from '../components/Header.astro';
     <head>
         <meta charset="UTF-8" />
 		<meta name="description" content=" The portfolio of Cyborgnetical." />
-		<meta name="viewport" content="width=device-width" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link rel="icon" type="image/svg+xml" href="/public/NJROTC-Seal.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Parlier NJROTC | {title}</title>
     </head>
     <body style="margin:0px; p">
         <Header client:load></Header>
+        <Menus client:visible></Menus>
+        <slot id="title" name="title"/>
+
         <slot />
+        <Footer client:visible></Footer>
+
     </body>
 </html>

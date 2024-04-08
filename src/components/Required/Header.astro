@@ -1,0 +1,51 @@
+<header>
+    <a id="title" href="/" style="color:white; text-decoration: none;"> 
+        <img id="Seal" src="/NJROTC-Seal.svg">
+        Parlier NJROTC
+    </a>
+    <!--Despite this being here, it still triggers the menus, clever -->
+    <label for="box" id="open">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
+</header>
+
+<!-- very nice  -->
+
+<!-- This style only applies here and no where else, no more worrying about id name :) -->
+<style>
+
+    header{
+        position: relative;
+        left: 0;
+        top:0;
+        width: 100vw;
+        height: 130px;
+
+        display: grid;
+        grid-template-columns: 40px 350px 1fr;
+        
+        align-items: center;
+        justify-items: stretch;
+
+        border-block: 1px solid lemonchiffon;
+        background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
+    }
+
+    #Seal{
+        width: 50px;
+    }
+    #title{
+        display: flex;
+        align-items:center;
+        justify-content: space-evenly;
+
+        grid-column: 2/2;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 40px;
+    }
+    #open{
+        justify-self: end;
+        z-index:1;
+        font-size: 50px;
+        color: white;
+        margin-right: 30px;
+    }
+</style>

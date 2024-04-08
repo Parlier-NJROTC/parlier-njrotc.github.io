@@ -1,0 +1,102 @@
+<input type="checkbox" id="box">
+<nav id="navigation">
+    <header>
+        <label for="box" id="close">&gt; <!--This is the > (greater than) character, DO NOT DELETE pls  --></label>
+    </header>
+    <span>
+        <a>Home</a>
+    </span>
+    <span>
+        <a>Cadets Info</a>
+        <div>
+            <a>Tutorials</a>
+            <a>Knowledge</a>
+        </div>
+    </span>
+    <span>
+        <a>Teams</a>
+        <div>
+            <a>Drill Team</a>
+            <a>Color Guard</a>
+            <a>Rifle Team</a>
+            <a>Cyberpatriot Team</a>
+            <a>Academics Team</a>
+        </div>
+    </span>
+    <span>
+        <a>Classes</a>
+        <div>
+            <a>NS1 - 4nd Period</a>
+            <a>NS1 - 6th Period</a>
+            <a>NS2 - 5th Period</a>
+            <a>NS3 - 3rd Period</a>
+            <a>NS4 - 2nd Period</a>
+            <a>Leadership - 7th Period</a>
+        </div>
+    </span>
+    <span>
+        <a>Instructor</a>
+    </span>
+    <span>
+        <a>Events</a>
+        <div>
+            <a>Calendar</a>
+            <a>Fundraising</a>
+        </div>
+    </span>
+    <span>
+        <a>Gallery</a>
+    </span>
+    <span>
+        <a>Links</a>
+        <div>
+            <a>Parlier High School</a>
+            <a>Instagram</a>
+            <a>Parlier Unifed School District</a>
+            <a>Midway Foundation</a>
+            <a>Github</a>
+            <a>Discod</a>
+            <a>Credits</a>
+        </div>
+    </span>
+</nav>
+<style>
+    nav{
+        position: fixed;
+        overflow-x: hidden;
+        background-color: blue;
+        top:0px;
+        right: 0px;
+    }
+    #box{
+        display: none;
+    }
+
+
+    @media (orientation: portrait) {
+        nav{
+            width: 100vw;
+            max-height: 0vh;
+            transition: max-height 250ms;
+        }
+        #box:checked ~ nav{
+            max-height: 100vh;
+            height: 100vh;
+            transition: max-height 250ms;
+        }
+    }
+    @media (orientation: landscape){
+        nav{
+            max-width: 0px;
+            height: 100vh;
+            transition: max-width 200ms;
+        }
+        #box:checked ~ nav{
+            max-width: 250px; 
+            width:250px;
+            transition: max-width 250ms;
+        }
+        
+
+    }
+</style>
