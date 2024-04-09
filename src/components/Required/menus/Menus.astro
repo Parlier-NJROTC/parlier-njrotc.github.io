@@ -1,13 +1,16 @@
+---
+    import Link from "./link.astro"
+---
+
+
 <input type="checkbox" id="box">
 <nav id="menus">
     <header>
         <h2>Menus</h2>
-        <label for="box" id="close">X <!-- this is the close button charater, DON'T DELETE --></label>
+        <label for="box" id="close"> X <!-- this is the close button charater, DON'T DELETE --></label>
     </header>
     <nav id="navi">
-        <span>
-            <a>Home</a>
-        </span>
+        <Link title="Home" link=""/>
         <span>
             <a>Cadets Info</a>
             <div>
@@ -36,9 +39,7 @@
                 <a>Leadership - 7th Period</a>
             </div>
         </span>
-        <span>
-            <a>Instructor</a>
-        </span>
+        <Link title="Instructor" />
         <span>
             <a>Events</a>
             <div>
@@ -46,9 +47,7 @@
                 <a>Fundraising</a>
             </div>
         </span>
-        <span>
-            <a>Gallery</a>
-        </span>
+        <Link title="Gallery" />
         <span>
             <a>Links</a>
             <div>
@@ -134,6 +133,7 @@
     @media (orientation: landscape){
         #menus{
             max-width: 0px;
+            width: 300px;
             height: 100vh;
             transition: max-width 200ms;
         }

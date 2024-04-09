@@ -5,7 +5,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import Header from '../components/Required/Header.astro';
-import Menus from '../components/Required/Menus.astro';
+import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
 ---
 
@@ -22,12 +22,10 @@ import Footer from '../components/Required/Footer.astro';
 		<title>Parlier NJROTC | {title}</title>
     </head>
     <body style="margin:0px; p">
-        <Header client:load></Header>
-        <Menus client:visible></Menus>
-        <slot id="title" name="title"/>
-
+        <Header></Header>
+        <Menus></Menus>
         <slot />
-        <Footer client:visible></Footer>
+        <Footer></Footer>
 
     </body>
 </html>
