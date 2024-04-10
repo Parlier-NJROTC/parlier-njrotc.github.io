@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Somebody edit the .md file
 
 ```sh
 npm create astro@latest -- --template minimal

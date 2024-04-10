@@ -1,4 +1,5 @@
 ---
+    import Dropdown from "./dropdown.astro"
     import Link from "./link.astro"
 ---
 
@@ -11,61 +12,30 @@
     </header>
     <nav id="navi">
         <Link title="Home" link=""/>
-        <span>
-            <a>Cadets Info</a>
-            <div>
-                <a>Tutorials</a>
-                <a>Knowledge</a>
-            </div>
-        </span>
-        <span>
-            <a>Teams</a>
-            <div>
-                <a>Drill Team</a>
-                <a>Color Guard</a>
-                <a>Rifle Team</a>
-                <a>Cyberpatriot Team</a>
-                <a>Academics Team</a>
-            </div>
-        </span>
-        <span>
-            <a>Classes</a>
-            <div>
-                <a>NS1 - 4nd Period</a>
-                <a>NS1 - 6th Period</a>
-                <a>NS2 - 5th Period</a>
-                <a>NS3 - 3rd Period</a>
-                <a>NS4 - 2nd Period</a>
-                <a>Leadership - 7th Period</a>
-            </div>
-        </span>
+        <Dropdown title="Cadet Resources" link="Resources" id="SideMenus-Dropdown1"> 
+        </Dropdown>
+        <Dropdown title="Teams" id="SideMenus-Dropdown2">
+        </Dropdown>
         <Link title="Instructor" />
-        <span>
-            <a>Events</a>
-            <div>
-                <a>Calendar</a>
-                <a>Fundraising</a>
-            </div>
-        </span>
+        <Dropdown title="events" id="SideMenus-Dropdown3">
+        </Dropdown>
         <Link title="Gallery" />
-        <span>
-            <a>Links</a>
-            <div>
-                <a>Parlier High School</a>
-                <a>Instagram</a>
-                <a>Parlier Unifed School District</a>
-                <a>Midway Foundation</a>
-                <a>Github</a>
-                <a>Discod</a>
-                <a>Credits</a>
-            </div>
-        </span>
+        <Dropdown title="links" id="SideMenus-Dropdown4">
+            <a href="https://phs.parlierunified.org/">Palier High School</a>
+            <a>Parlier Unified School District</a>
+            <a>Midway Foundation</a>
+            <a>Instagram</a>
+            <a>Github</a>
+            <a>Discord</a>
+            <a>Credits</a>
+        </Dropdown>
     </nav>
 </nav>
 <style>
     #menus{
         position: fixed;
         overflow-x: hidden;
+        overflow-y: scroll;
         background-color: navy;
         top:0px;
         right: 0px;
@@ -116,6 +86,9 @@
     #navi > span > div{
         display: none;
         position: absolute;
+    }
+    #close{
+        font-weight: normal;
     }
 
     @media (orientation: portrait) {

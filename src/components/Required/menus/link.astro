@@ -4,19 +4,42 @@ interface Props {
     link?: string,
 }
 
-const { title ,link = title, } = Astro.props
+const { title ,link = title} = Astro.props
 
 
 ---
+
+
+<!-- I am going to self destruct -->
+
+<script>
+    
+
+</script>
 
 <span>
     <a href=`/${link}`> {title} </a>
 </span>
 
-<style>
-    span a{
-        display: inline-block;
 
+
+<script>
+    // @ts-check
+
+
+    
+</script>
+
+<style>
+    span{
+        display: grid;
+        position: relative;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        justify-content: space-between;
+        align-items:center ;
+    }
+    span a{
         position: relative;
 
         display: flex;

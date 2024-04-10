@@ -1,7 +1,93 @@
 ---
-    import Layout from '../layouts/MainLayout.astro';
+import Layout from "../layouts/MainLayout.astro";
 ---
 
 <Layout title="404">
-    404 error, not found
+    <div id="screen">
+        <h1>Error 404 not found</h1>
+        <hr />
+        <p>Webpage not found, it might have been moved to or removed</p>
+        <img id="cat" src="">
+        <p id="quote"></p>
+    </div>
 </Layout>
+
+
+<style>
+    #screen {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        padding-top: 25px;
+        grid-template-columns: 90vw;
+        grid-template-rows: 30px 50px 10px 300px 120px;
+        padding-inline: 5vw;
+        max-width: 100vw;
+        height: 100vh;
+        
+        background-color: rgba(0, 125, 255, 0.09);
+    }
+    #screen h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 0px;
+        margin: 0px;
+    }
+    #screen hr {
+        height: 2px;
+        width: 90%;
+        background-color: grey;
+    }
+    #cat{
+        height: 200px;
+    }
+    #quote{
+        align-self: end;
+    }
+</style>
+
+<script>
+    let quotes = [
+        `"whomp whop" - Cadet Sanchez`,
+        `"oops"`,
+        `"trust me, I know what im doing"`,
+        `"haha, thats not supposed to happen"`,
+        `"this is fine"`,
+        `"Ah, a dead end. Well time to head home"`,
+        `"don't touch my code, its fragile"`,
+        `"We looked and we didn't find it"`,
+        `"I know whats wrong with it! Ain't got no gas init"`,
+        `"3 hours later..."`,
+        `"don't blame me"`,
+        `tell us some quotes to put down here either in person or email`,
+        `"the past is a memory and the futre is a mistery but now is a gift, thats why its called the present" - Master Oogway`,
+        `"Do not worry about your struggles in Mathematics, I can asure you mine ar greater" - Albert Einstien`,
+        `"Ah"`,
+        `"Oh"`,
+        `"Oh no"`,
+        `"Sorry my cat roll on my keybosZdxbh ugfde såÍ´∂rfgh"`,
+        `"5 coffee mugs, 15 documents, and 8 hours later..."`,
+        `"Do your homework its much more important"`,
+        `"Those would have been terrible last words"`,
+        `"GERONIOOOO!!!!"`,
+        `"ALLONS- Y!!!"`,
+        `"Oh for gosh sakes"`,
+        `"Oh Snicker Doodle" - Cadet Moreira`,
+        `"Whoopsie Daisy"`,
+        `"Don't be lasanga"`,
+        `"I don't like it"`,
+        `"Ooooo... how does this work?" it's a mess, trust me`,
+        `"Computers are bad at random"`,
+        `"Anything that appers like magic can be explained with math, that why they both begin with 'ma'" - Cadet Ibarra`,
+        `"Hmm... yes indeed, that is very odd"`,
+    ];
+    let cats = [
+        "https://c.tenor.com/oS5SFKhlWYwAAAAC/tenor.gif",
+        "https://c.tenor.com/6fQtF5aqiicAAAAC/tenor.gif",
+        "https://c.tenor.com/8nkvuog5-zMAAAAC/tenor.gif",
+        "https://c.tenor.com/tlWYGpkm7v0AAAAC/tenor.gif"
+    ]
+    // @ts-ignore
+    document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    // @ts-ignore
+    document.getElementById("cat").src = cats[Math.floor(Math.random() * cats.length)];
+</script>

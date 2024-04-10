@@ -1,13 +1,15 @@
-// astro.config.ts
-import { defineConfig } from "astro/config";
-import { defaultLayout } from "astro-default-layout";
+// astro.config.mjs
+import astroLayouts from "astro-layouts";
+import mdx from "@astrojs/mdx";
 
-// https://astro.build/config
-export default defineConfig(
-    {
-        site:"https://parlier-njrotc.github.io",
-        markdown:{
-            remarkPlugins: [defaultLayout]
-        }
-    }
-)
+const layoutOptions = {
+  "pages/**/*": '/src/layouts/MainLayout.astro',
+  "pages/*": "/src/layouts/Layout.astro"
+};
+
+export default defineConfig({
+  integrations: [mdx()],
+  markdown: {
+    remarkPlugins: [[astroLayouts, layoutOptions]],
+  },
+});

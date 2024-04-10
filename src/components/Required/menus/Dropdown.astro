@@ -2,32 +2,36 @@
 interface Props {
     title: string,
     link?: string,
-    titles:string[],
-    links?:string[] 
+    id:string
 }
 
-const { title ,link = title, titles, links = titles} = Astro.props
-
-
+const { title ,link = title, id} = Astro.props
 
 ---
 
-<span>
+
+<!-- I am going to self destruct -->
+<span id="whywontthiswork">
+    <input type="checkbox" id={id}> </input>
+    <label for={id}> <img src="/icons/arrow.svg"> </label>
     <a href=`/${link}`> {title} </a>
     <div>
-
+        <slot />
     </div>
 </span>
 
-<script is:inline>
-    
-    
-</script>
 
 <style>
-    span a{
-        display: inline-block;
+    span{
+        display: grid;
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        justify-content: space-between;
+        align-items:center ;
 
+    }
+    span a{
         position: relative;
 
         display: flex;
@@ -41,4 +45,30 @@ const { title ,link = title, titles, links = titles} = Astro.props
 
         color: white;
     }
+    span input{
+        display: none;
+    }
+    span label{
+        color: white;
+    }
+    span label img{
+        width: 24px;
+        filter: invert(1);
+        transition: transform 250ms;
+        margin-left: 20px;
+    }
+    span div{
+        max-height: 0px;
+        overflow: hidden;
+    }
+    span input:checked ~ div{
+        max-height: 99999px;
+    }
+    span input:checked ~ label img{
+        transform: scaleY(-1);
+    }
+    
+    
+
+    
 </style>
