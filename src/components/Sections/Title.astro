@@ -2,19 +2,24 @@
 interface Props {
     title:string;
     backgroundColor?:string;
+    color?:string;
+    decor?:string;
 }
-    const {title , backgroundColor = "azure"} = Astro.props
+    const {title , backgroundColor = "azure", color = "black", decor = "none"} = Astro.props
 ---
 
 
 <section>
     <h1>{title}</h1>
-    <p>
+    <span>
         <slot />
-    </p>
+    </span>
 </section>
 
-<style define:vars={{backgroundColor}}>
+<style define:vars={{backgroundColor, color, decor}}>
+    section *{
+        color: var(--color);
+    }
     @font-face {
         font-family: "Josefin Sans"; /** Look its me */
         src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
@@ -26,12 +31,9 @@ interface Props {
         padding-inline: 10%;
         background-color: var(--backgroundColor);
     }
-    p{
-        color: black;
-    }
+
     h1{
-        font-size: 36px;
-        font-family: "Josefin sans";
-        color: black;
+        text-decoration: var(--decor);
     }
+
 </style>

@@ -2,12 +2,17 @@
     import Layout from '../layouts/GlobalLayout.astro';
     import TextImg from '../components/Sections/TextImg.astro';
     import Title from '../components/Sections/Title.astro';
+
+    interface myVar{
+        SectionColor:string;
+    }
+    const { SectionColor } = {"SectionColor":"rgb(0, 0, 100)"}
 ---
 
 <Layout title="Home">
     <div id="title">
         <img id="main-img"
-        src="Gallery/Christmas Parade Group Photo.png" 
+        src="/Gallery/Christmas Parade Group Photo.jpeg" 
         decoding="async"
         loading="lazy"
         alt="Christmas Parade"
@@ -22,14 +27,16 @@
             <br>
             Unit
         </div>
+        
     </div>
-    <TextImg image="/Gallery/Cheif Killian & Cadet Mendoza.jpg" altTxt='National NJROTC Championships 2019' order={1}>
+    <Title title='About The Unit' backgroundColor={SectionColor} color='White' decor="underline"></Title>
+    <TextImg image="/Gallery/Cheif Killian & Cadet Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
         Led by retired Navy personnel the Parlier High School Navy Junior Reserve Officer Training Corps or NJROTC was established in 1995. Our goal is to mold our students into better citizens by teaching them real-life skills for a better future. Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence, Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching. 
     </TextImg>
-    <TextImg image="/Gallery/Cool Swords and Color Gaurd.jpeg" altTxt="Dress Blues and named Flags" desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
+    <TextImg image="/Gallery/Cool Swords and Color Gaurd.jpeg" altTxt="Dress Blues and named Flags" backgroundColor={SectionColor} desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
         Cadets have many opportunities to be involved through our Academic, Air Rifle, Color Guard, and Drill Teams. Cadets also have an opportunity to be part of the Unit Staff and are able to be promoted in rank by completing the advanced requirements. 
     </TextImg>
-    <TextImg image="/Gallery/Graffiti Clean Up Crew 2023.jpeg" order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
+    <TextImg image="/Gallery/Graffiti Clean Up Crew 2023.jpeg" backgroundColor={SectionColor} order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
         Our Unit is active in our local community through various activities including parades, service projects, and providing held during many of our community's activities. We strive to make both our campus and our community a better place 
     </TextImg>
     <Title title="Our Mission">
@@ -58,6 +65,7 @@
 
     z-index: 0;
 }
+
 #phs{
     font-size: 3vmin;
     padding: 20px;

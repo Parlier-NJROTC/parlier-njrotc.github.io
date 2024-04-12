@@ -5,41 +5,52 @@ interface Props {
     altTxt:string;
     desc?:string;
     order?:number;
+    align?:string;
+    margin?:string;
+    color?:string;
 }
 
-const { image , backgroundColor = "navy", altTxt, desc = altTxt, order = 0 } = Astro.props
+const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt, order = 0, align = "center", margin = "0px"} = Astro.props
 
 ---
 
 <div>
-    <p style="order:1;">
+    <span style="order:1;">
+
         <slot />
-    </p>
+
+    </span>
     <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
 </div>
 
-<style define:vars={{backgroundColor, order}} >
+<style define:vars={{backgroundColor, order, align, margin, color}} >
+    div *{
+        color: var(--color);
+    }
+    
     div{
         position: relative;
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: auto auto;
         align-items: center;
-        justify-items: center;
-        text-align: center;
+        justify-items: var(--align);
+        text-align: var(--align);
         column-gap: 24px;
 
         padding-block: 40px;
         padding-inline: 5vw;
-        
+        margin: var(--margin);
+
         width: 100vw  100vw;
         background-color: var(--backgroundColor);
     }
     img{
         border-radius: 5%;
         height: 300px;
-        
+        width: 100%;
         order: var(--order);
     }
+
     @media (orientation: portrait) {
         div{
             grid-template-columns: 1fr;

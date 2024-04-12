@@ -1,0 +1,54 @@
+---
+interface Props {
+    image?:string;
+    altTxt?:string;
+    desc?:string;
+    backgroundColor?:string;
+    align?:string;
+    
+}
+
+const { image, altTxt , desc , align = "center"} = Astro.props
+
+
+---
+
+
+<div>
+    <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
+    <span>
+        <slot />
+    </span>
+</div>
+
+<style define:vars={{align}}>
+    div{
+        display: flex; 
+        box-sizing: border-box;
+        justify-content: var(--align);
+        align-items: center;
+        position: relative;
+        padding-inline: 5vw;
+        height: 500px;
+        border-block: 1px solid black;
+    }
+    div *{
+        text-align:  center;
+    }
+    div > span{
+        z-index: 1;
+    }
+    img{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        
+        width: 100%;
+        height: 100%;
+        image-rendering: optimizeSpeed;
+        object-fit: cover;
+
+        z-index: 0;
+    }
+</style>
+
