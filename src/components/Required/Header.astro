@@ -1,15 +1,15 @@
 <header>
-    <a id="title" href="/" style="color:white; text-decoration: none;"> 
-        <img id="Seal" src="/NJROTC-Seal.svg">
+    <a href="/" style="color:white; text-decoration: none;"> 
+        <img src="/NJROTC-Seal.svg">
         Parlier NJROTC
     </a>
     <!--Despite this being here, it still triggers the menus, clever -->
-    <label for="box" id="open">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
+    <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
 </header>
 
 <!-- very nice  -->
 
-<!-- This style only applies here and no where else, no more worrying about id name :) -->
+<!-- This style only applies here and no where else, still you can only use 1 id per item-->
 <style>
 
     header{
@@ -29,10 +29,10 @@
         background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
     }
 
-    #Seal{
+    header a img{
         width: 50px;
     }
-    #title{
+    header a{
         display: flex;
         align-items:center;
         justify-content: space-evenly;
@@ -41,7 +41,7 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 40px;
     }
-    #open{
+    header label{
         justify-self: end;
         font-size: 50px;
         color: white;

@@ -1,17 +1,20 @@
+<!-- Tada! no ids used  -->
+<!-- -1 headaches now  -->
+<!-- +999 headahces later -->
 <footer>
-    <div id="title">
+    <div>
         <h1> 
-            <img id="Seal" src="/NJROTC-Seal.svg" style="width: 40px; margin-inline: 5px;"> 
+            <img src="/NJROTC-Seal.svg" style="width: 40px; margin-inline: 5px;"> 
             Parlier NJROTC
         </h1>
-        <div id="socials">
+        <div>
             <a style="background-image: url(/icons/Octocat.svg)"></a>
             <a style="background-image: url(/icons/Instagram.svg);"></a>
         </div>
     </div>
     <hr>
-    <div id="contacts">
-        <span id="NJ">
+    <div>
+        <span>
             <h2>NJROTC</h2>
             <span>
                 njrotcparlier@gmail.com - Cyberpatriot Email & Feedback <br>
@@ -21,7 +24,7 @@
                 Room 53 - NJROTC <br>
             </span>
         </span>
-        <span id="HS">
+        <span>
             <h2>Parlier High School</h2>
             <span>
                 Address: 601 3rd St, Parlier, CA 93648 <br>Phone: (559) 646-3573
@@ -35,35 +38,39 @@
         padding-inline: 30px;
         padding-bottom: 15px;
     }
-    #title{
+    footer > div:nth-child(1){
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
     }
     h1{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: normal;
         display: flex;
         align-items: center;
+        color:black;
     }
     h2{
         font-weight: normal;
+        color:black;
     }
-    #socials a{
+    footer > div:nth-child(1) div a{
         display: inline-block;
         background-size: 100% 100%;
         width: 35px;
         height: 35px;
         margin-inline: 5px;
     }
-    #contacts{
+    footer div:nth-child(3){
         display: grid;
         width: 100%;
         grid-template-columns: 1fr 1fr;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
-    #contacts span{
+    footer div:nth-child(3) span{
         text-align: center;
+        color:black;
     }
 
 </style>

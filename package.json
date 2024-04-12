@@ -1,5 +1,5 @@
 {
-  "name": "parlier-njrotc-website",
+  "name": "experiment",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.5.16",
-    "astro-default-layout": "^2.0.2"
+    "astro": "^4.5.18"
   }
 }

@@ -1,0 +1,37 @@
+---
+interface Props {
+    title:string;
+    backgroundColor?:string;
+}
+    const {title , backgroundColor = "azure"} = Astro.props
+---
+
+
+<section>
+    <h1>{title}</h1>
+    <p>
+        <slot />
+    </p>
+</section>
+
+<style define:vars={{backgroundColor}}>
+    @font-face {
+        font-family: "Josefin Sans"; /** Look its me */
+        src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
+    }
+    section{
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        padding-inline: 10%;
+        background-color: var(--backgroundColor);
+    }
+    p{
+        color: black;
+    }
+    h1{
+        font-size: 36px;
+        font-family: "Josefin sans";
+        color: black;
+    }
+</style>

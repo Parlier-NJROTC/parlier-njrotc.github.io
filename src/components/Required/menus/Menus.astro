@@ -12,23 +12,18 @@
     </header>
     <nav id="navi">
         <Link title="Home" link=""/>
-        <Dropdown title="Cadet Resources" link="Resources" id="SideMenus-Dropdown1"> 
+        <Dropdown title="Cadet Resources" link="Resources" id="SideMenus-Dropdown1">
+            <a>Tutorials</a> 
+            <a>Knowledge</a>
         </Dropdown>
-        <Dropdown title="Teams" id="SideMenus-Dropdown2">
-        </Dropdown>
+        <Link title="Teams">
+        </Link>
         <Link title="Instructor" />
-        <Dropdown title="events" id="SideMenus-Dropdown3">
-        </Dropdown>
+        <Link title="events">
+        </Link>
         <Link title="Gallery" />
-        <Dropdown title="links" id="SideMenus-Dropdown4">
-            <a href="https://phs.parlierunified.org/">Palier High School</a>
-            <a>Parlier Unified School District</a>
-            <a>Midway Foundation</a>
-            <a>Instagram</a>
-            <a>Github</a>
-            <a>Discord</a>
-            <a>Credits</a>
-        </Dropdown>
+        <Link title="links">
+        </Link>
     </nav>
 </nav>
 <style>
@@ -39,6 +34,7 @@
         background-color: navy;
         top:0px;
         right: 0px;
+        z-index: 99;
     }
     #box{
         display: none;
@@ -57,39 +53,24 @@
         font-size: 30px;
         margin-inline:35px;
     }
-
+    /** I swear if its two lines to fix I am going to obliterate my self */
     #navi{
-        display: grid;
+        
         position: relative;
+        overflow-y: scroll;
+        
         height: calc(100vh - 130px);
     }
-    #navi > span > a{
-        display: inline-block;
-
-        position: relative;
-
+    a{
         display: flex;
-        align-items: center;
         justify-content: right;
+        align-items: center;
+        padding-right: 60px;
+        text-align: right;
+        overflow: hidden;
+        grid-row: 1 / -1;
+    }
 
-        margin: 0px;
-        padding-right: 25px;
-
-        
-        height: 100%;
-
-        color: white;
-    }
-    #navi > span{
-        padding: 0px;
-    }
-    #navi > span > div{
-        display: none;
-        position: absolute;
-    }
-    #close{
-        font-weight: normal;
-    }
 
     @media (orientation: portrait) {
         #menus{

@@ -1,15 +1,4 @@
-// astro.config.mjs
-import astroLayouts from "astro-layouts";
-import mdx from "@astrojs/mdx";
+import { defineConfig } from 'astro/config';
 
-const layoutOptions = {
-  "pages/**/*": '/src/layouts/MainLayout.astro',
-  "pages/*": "/src/layouts/Layout.astro"
-};
-
-export default defineConfig({
-  integrations: [mdx()],
-  markdown: {
-    remarkPlugins: [[astroLayouts, layoutOptions]],
-  },
-});
+// https://astro.build/config
+export default defineConfig({});

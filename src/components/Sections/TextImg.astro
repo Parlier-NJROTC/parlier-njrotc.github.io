@@ -1,0 +1,55 @@
+---
+interface Props {
+    image: string;
+    backgroundColor?:string;
+    altTxt:string;
+    desc?:string;
+    order?:number;
+}
+
+const { image , backgroundColor = "navy", altTxt, desc = altTxt, order = 0 } = Astro.props
+
+---
+
+<div>
+    <p style="order:1;">
+        <slot />
+    </p>
+    <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
+</div>
+
+<style define:vars={{backgroundColor, order}} >
+    div{
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        column-gap: 24px;
+
+        padding-block: 40px;
+        padding-inline: 5vw;
+        
+        width: 100vw  100vw;
+        background-color: var(--backgroundColor);
+    }
+    img{
+        border-radius: 5%;
+        height: 300px;
+        
+        order: var(--order);
+    }
+    @media (orientation: portrait) {
+        div{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+        }
+        img{
+            width: 75%;
+            height: auto;
+            order: 1;
+        }
+    }
+
+</style>
