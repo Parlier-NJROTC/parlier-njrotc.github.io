@@ -1,0 +1,64 @@
+---
+    import Layout from "../../layouts/GlobalHTMLLayout.astro";
+---
+<Layout name="Cadet Resources">
+    <div id="tabs">
+        <a href="/Resources/Knowledge">
+            <h1>Knowledge</h1>
+            <img src="https://www.svgrepo.com/show/428731/creative-knowledge-lightbulb.svg">
+            <p>All knowledge needed to study for tests and AMI</p>
+        </a>
+        <a href="/Resources/Tutorials">
+            <h1>Tutorials</h1>
+            <img src="https://www.svgrepo.com/show/520494/video-course.svg">
+            <p>Vidoes on how to do stuff</p>
+        </a>
+        <a href="/Resources/Ribbon Builder">
+            <h1>Ribbon Builder</h1>
+            <p>Ribbon builder creatd by Cadet Sanchez</p>
+        </a>
+
+    </div>
+</Layout>
+
+<style>
+    #tabs{
+        display: grid;
+
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 25px;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+
+        box-sizing: border-box;
+        padding: 25px;
+        height: calc(100vh - 135px);
+    }
+    #tabs *{
+        color: black;
+    }
+
+    #tabs a{
+        position: relative;
+        width: 100%;
+
+        border: 2px inset grey;
+        border-radius: 5px;
+        height: calc(85vh - 135px);
+        box-shadow: 0px 0px 5px 2px grey;
+        text-decoration: none;
+
+        transition: 250ms;
+    }
+    #tabs a:hover{
+        width: 110%;
+        height: calc(90vh - 135px);
+        background-color: aliceblue;
+        
+    }
+    img{
+        height: 20vh;
+    }
+    
+</style>
