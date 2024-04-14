@@ -1,10 +1,10 @@
 ---
 
 interface Props {
-	title: string;
+	name: string;
     frontmatter?
 }
-const { frontmatter , title = frontmatter.title  } = Astro.props;
+const { frontmatter , name = frontmatter.name  } = Astro.props;
 
 import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
@@ -17,17 +17,15 @@ import Footer from '../components/Required/Footer.astro';
 <html>
     <head>
         <meta charset="UTF-8" />
-		<meta name="description" content=" The portfolio of Cyborgnetical." />
+		<meta name="description" content="NJRO" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Parlier NJROTC | {title}</title>
+		<title>Parlier NJROTC | {name}</title>
     </head>
     <body style="margin:0px; p">
         <Header></Header>
         <Menus></Menus>
-        <slot name="maintitle"/>
-        <slot />
+        <slot></slot>
         <Footer></Footer>
         <style is:global>
             body *{
@@ -38,12 +36,12 @@ import Footer from '../components/Required/Footer.astro';
                 display: none;
             }
             h1,h2,h3,h4,h5,h6{
-                font-weight: normal;
+                font-weight: 600;
             }
             h1{
-                font-size: 2.5em;
+                font-size: 3em;
                 font-family: "Josefin sans";
-                font-weight: bold;
+                
             }
             h2{
                 font-size: 2em;

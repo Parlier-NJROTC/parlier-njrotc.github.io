@@ -1,0 +1,182 @@
+---
+    import Layout from "../../../layouts/GlobalHTMLLayout.astro";
+    import Top from "../../../components/Sections/Top.astro";
+---
+
+<Layout name="Fundraising">
+    <Top>
+        <div id="title">
+            Fundraising
+            <br>
+            <span style="font-size: 12px;">"Funds for fun"</span>
+        </div>
+    </Top>
+    
+    
+      <main>
+        <div class="option">
+            <aside style="text-align: left;">
+                <h1 style="object-fit:  cover;">Midway Foundation</h1>
+                <hr>
+                <img src="https://www.midwayusafoundation.org/wp-content/uploads/2018/06/midwayUSA-foundation-logo2x-2.png">
+            </aside>
+            <article>
+                <p>
+                    Any donations made through the midway foundation supports our rifle team, allowing us to train and grow. 
+                Our goal is raise $500,000.00. This button will take you directly to the parlier NJROTC Midway website to deposit a donation.
+                </p>
+                <a href="https://www.midwayusafoundation.org/team-profile/?id=R44763"><button>Donate</button></a>
+            </article>
+        </div>
+        <div class="option">
+            <article>
+                <p>
+                    If you would like to make a donation to the Unit simply write a check payable to Parlier NJROTC  and mail it to: Parlier HS NJROTC, 603 3rd St, Parlier, CA 93648. 
+                </p>
+            </article>
+            <aside style="text-align: right;">
+                <h1>Check book</h1>
+                <hr>
+                <img src="https://png.pngtree.com/png-vector/20221002/ourmid/pngtree-checkbook-fountain-pen-account-personal-blue-vector-png-image_14911154.png">
+            </aside>
+        </div>
+    </main>
+    
+</Layout>
+<style>
+    body * {
+    color: black;
+}
+
+#background {
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+
+#title {
+    position: relative;
+    font-size: 50px;
+    background-color: whitesmoke;
+    text-shadow: rgb(0, 65, 156) 1px 0 15px;
+    padding: 50px;
+    color: black;
+}
+#title *{
+    color: black;
+}
+
+#title::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 50%;
+    height: 50%;
+    background-color: gold;
+    z-index: -1;
+}
+
+#title::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 50%;
+    height: 50%;
+    background-color: blue;
+    z-index: -1;
+}
+
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: gainsboro;
+    padding-block: 20px;
+    padding-inline: 5vw;
+}
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: stretch;
+}
+
+aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+
+}
+
+aside img {
+    width: 300px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+aside h1 {
+    width: 75%;
+}
+
+aside hr {
+    width: 100%;
+    position: relative;
+    margin-block: 20px;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px;
+    font-size: 21px;
+}
+
+article button {
+    background-color: #000000;
+    color: #ffffff;
+    width: 25vw;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+} 
+  article button:hover {
+    background-color: #808080;
+    font-size: 18px;
+    padding: 11px
+  }
+
+@media (width < 800px) {
+    .option {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    aside {
+        align-items: center;
+        order: 0;
+    }
+
+    article {
+        order: 1;
+    }
+}
+</style>

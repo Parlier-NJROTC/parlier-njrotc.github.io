@@ -1,0 +1,85 @@
+---
+    import Layout from "../../layouts/GlobalHTMLLayout.astro";
+---
+
+<Layout name="links">
+    <div id="title">
+        <div>Links</div>
+        All important websites and related external content
+    </div>
+    <div id="links">
+        <a href="https://phs.parlierunified.org/" class="link"style="transform: scale(1.02);">Parlier High School <img class="img" src="/icons/PHS AI enhanced logo because for some reason the one the school uses is PIXELATED.png"></a>
+        <a href="https://www.instagram.com/parlierhsnjrotc/?hl=en" class="link">Parlier NJROTC Instagram <img class="img" src="https://www.svgrepo.com/show/111199/instagram.svg"> </a>
+        <a href="https://www.parlierunified.org/" class="link">Parlier Unified School District <img class="img" src="https://www.parlierunified.org/pics/header_logo.png"></a>
+        <a href="https://www.midwayusafoundation.org/" class="link">The Midway Foundation <img class="img" src="https://www.midwayusafoundation.org/wp-content/uploads/2018/06/midwayUSA-foundation-logo2x-2.png"></a>
+        <a href="https://github.com/Parlier-NJROTC/website" class="link">Github repository <img class="img" src="/icons/I would have used a url if the png was transparent.svg"></a>
+        <a href="https://discord.gg/AEwgZhgfCb" class="link">Unoffical Discord Server<img class="img" src="https://www.svgrepo.com/show/343548/discord-communication-interaction-message-network.svg"></a>
+        <a href="/Credits" class="link">Credits <img class="img" src="https://www.svgrepo.com/show/495575/people.svg"></a>
+    </div>    
+</Layout>
+
+<style>
+#title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 200px;
+    background-color: #EDDDCF;
+}
+#title div{
+    border: black solid 5px;
+    border-left: none;
+    border-right: none;
+    font-size: 50px;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+#links{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-evenly;
+    row-gap: 20px;
+    padding-top: 20px;
+    background-color: #F1F0EA;
+
+}
+.link{
+    border: solid;
+    border-radius: 20px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color:#534B52;
+    padding: 1vw;
+    color: wheat;
+    border-color: #534B52;
+}
+.img{
+  object-position: center;
+    position: relative;
+    padding: 2vw;
+    height: 150px;
+    transition: 100ms ease-in-out;
+  transform-origin: center;
+}
+.link:hover img{
+    transform: scale(1.2);
+    transform-origin: center;
+    cursor: pointer;
+}
+.link:hover {
+    background-color: #675c65;
+      }
+
+/*#474448 2D232E EDDDCF 534B52 F1F0EA */
+</style>

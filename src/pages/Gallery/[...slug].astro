@@ -1,0 +1,134 @@
+---
+
+import Layout from '../../layouts/GlobalHTMLLayout.astro';
+import Top from '../../components/Sections/Top.astro';
+import data from '../../data/gallery.json'
+
+// but look, this is cool
+// makes all the gallery pages, 
+export async function getStaticPaths() {
+  const pages = data
+  return pages.map(({ slug, pageNumber, images }) => {
+    return {
+        // for some reason it has to be named slug. 
+        // don't complain to me, complain here: https://docs.astro.build/en/guides/routing/#dynamic-routes
+      params: { slug }, 
+      props: { pageNumber, images },
+    };
+  });
+}
+
+const { pageNumber, images } = Astro.props;
+---
+<Layout name=`Gallery ${pageNumber}`>
+    <Top image="/Gallery/teaching.jpeg">
+        <h1><u>Photo Gallery</u></h1>
+        <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;" id="quote">
+           
+        </div>
+    </Top>
+    <main id="photos">
+
+    </main>
+
+    <nav id="navBar">
+        <a href="/Gallery" class="navBtn">Home</a>
+    </nav>
+</Layout>
+<script define:vars={{images}}>
+
+    let p = document.getElementById("photos")
+    for(let i=0;i<images.length;i++){
+        let img = document.createElement("img")
+        img.src = images[i]
+        img.className = "Gallery-Image"
+        p.appendChild(img)
+    }
+
+</script>
+
+<script define:vars={{data}}>
+
+    let quotes = [
+        `“The best thing about a picture is that it never changes, even when the people in it do.” - Andy Warhol`,
+        `Pictures!`,
+        `"Nothing is pleasanter than exploring a library." - Walter Savage Landor `,
+        `"The only thing that you absolutely have to know, is the location of the library." - Albert Einstein`,
+        `The internet! Biggest library and gallery of cat photos`,
+        `Where is the photo?`,
+        `If we tried fitting this in a book, it would be about as tall as a wedding cake.`,
+        `It's 30 images per page`
+    ]
+    document.getElementById("quote").innerText = quotes[Math.floor(Math.random()*quotes.length)]
+
+
+    for(let i=0;i<data.length;i++){
+        let button = document.createElement("a")
+        button.innerText = data[i].pageNumber
+        button.href = `Page-${data[i].pageNumber}`
+        button.className = "navBtn"
+        
+        // I could have applied a class, but that doesn't work in astro
+        // Astro isolates styles, elements made in js arn't part of that isolation
+        // So even if I where to apply the class name, it won't work
+        button.style.fontFamily = 'Times'
+        button.style.backgroundColor = "rgb(0, 0, 151)"
+        button.style.borderRadius = "5px"
+
+        button.style.display = "flex"
+        button.style.justifyContent = "center"
+        button.style.alignItems = "center"
+
+
+        document.getElementById("navBar").appendChild(button)
+    }
+</script>
+
+<style is:global>
+    .Gallery-Image{
+        height: 280px;
+        border-radius: 5px;
+        transition: 250ms;
+        
+    }
+    .Gallery-Image:hover{
+        height: 300px;
+    }
+    
+</style>
+
+<style>
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.0rem;
+        justify-content: center;
+        padding-block: 50px;
+    }
+    .navBtn{
+        font-family: 'Times New Roman', Times, serif;
+        background-color: rgb(0, 0, 151);
+        border-radius: 5px;
+        padding-inline: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        
+    }
+    #navBar{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 50px;
+        grid-auto-columns: 40px;
+        grid-auto-rows: 35px;
+        column-gap: 10px;
+
+        align-items: stretch;
+        justify-items: stretch;
+
+        padding: 10px;
+        border-block: 10px double black;
+    }
+</style>

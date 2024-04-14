@@ -1,0 +1,36 @@
+---
+// Import the list of images for this page
+const { images, currentPage, totalPages } = Astro.props;
+
+// Define the path to your images
+const imagePath = '/gallery/';
+---
+
+<div class="gallery-page">
+ <h1>Gallery Page {currentPage} of {totalPages}</h1>
+ <div class="image-gallery">
+   {images.map(image => (
+      <figure>
+        <img src={`${imagePath}${image}`} alt={image} />
+        <figcaption>{image}</figcaption>
+      </figure>
+    ))}
+ </div>
+</div>
+
+<style>
+.gallery-page {
+ text-align: center;
+}
+
+.image-gallery {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ justify-content: center;
+}
+
+.image-gallery figure {
+ margin: 0;
+}
+</style>

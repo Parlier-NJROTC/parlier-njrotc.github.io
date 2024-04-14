@@ -8,11 +8,10 @@ interface Props {
     
 }
 
-const { image, altTxt , desc , align = "center"} = Astro.props
+const { image, altTxt , desc , backgroundColor = "white", align = "center"} = Astro.props
 
 
 ---
-
 
 <div>
     <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
@@ -21,7 +20,7 @@ const { image, altTxt , desc , align = "center"} = Astro.props
     </span>
 </div>
 
-<style define:vars={{align}}>
+<style define:vars={{align,backgroundColor}}>
     div{
         display: flex; 
         box-sizing: border-box;
@@ -30,6 +29,7 @@ const { image, altTxt , desc , align = "center"} = Astro.props
         position: relative;
         padding-inline: 5vw;
         height: 500px;
+        background-color: var(--backgroundColor);
         border-block: 1px solid black;
     }
     div *{
