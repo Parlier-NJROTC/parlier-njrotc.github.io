@@ -1,0 +1,175 @@
+---
+    import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
+    import Top from "../../../../components/Sections/Top.astro";
+---
+
+<Layout name="General Orders">
+
+    <Top>
+      <div id="title">
+        <div>United States Navy</div>
+        <div>General Orders</div>
+      </div>
+    </Top>
+    <div id="options">
+      <div class="gridTitle">Study Options</div>
+      <a href="https://play.blooket.com/solo?id=65d4f8a78a408800b644aea8">
+        <img class="img" src="https://1000logos.net/wp-content/uploads/2022/05/Blooket-Emblem.png">
+        Blooket - By Cadet Espinoza</a>
+      <a href="https://quizlet.com/886688400/11-navy-general-orders-ns1-flash-cards/?i=5p81a4&x=1qqt">
+        <img class="img" src="https://logovectorseek.com/wp-content/uploads/2019/08/quizlet-inc-logo-vector.png">
+        Quizlet - By Cadet Ibarra</a>
+      <a href="https://youtube.com/playlist?list=PLjMD4fR1UJNcsiiVBZpgIvna71vVloQGB&si=jAwMHLYszYWqBH3r">
+        <img class="img" src="https://www.svgrepo.com/show/303271/youtube-2-logo.svg" style="background-color: white; border-radius: 5px;">
+        Youtube Videos</a>
+    </div>
+
+
+    <div id="info">
+      <ol>
+        <div class="sup">11 Navy General Orders</div>
+        <li>To take charge of this post and all government property in view.</li>
+        <li>To walk my post in a military manner, keeping always on the alert and obversing everything that takes place within sight or hearing.</li>
+        <li>To report all violations of orders I am instructed to enforce.</li>
+        <li>To reapet all calls more distant from the guard house than my own.</li>
+        <li>To quit my post only when properly relived</li>
+        <li>To recieve obey and pass on the sentry who relives me, all orders from the commanding officer, command duty officer, officer of the deck, and officers, and petty officers of the watch only.</li>
+        <li>To talk to no one except in the line of duty.</li>
+        <li>To give the alarm in case of fire or disorder.</li>
+        <li>To call the officer of the deck in any case not covered by instruction.</li>
+        <li>To salute all officer and colors and standards not cased.</li>
+        <li>To be especially watchfull at night and during times of challenging to challenge all people on or near my post, and to allow no one to pass without proper athority</li>
+      </ol>
+      <ol>
+        <div class="sup">Simplified Orders</div>
+        <li>Gaurd your building, a.k.a. the classroom or your home.</li>
+        <li>See everything happening around you, not letting your guard down.</li>
+        <li>If some one breaks rules, then report it.</li>
+        <li>If someone tells you that something happen, relay it to your instructor</li>
+        <li>Leave when allowed</li>
+        <li>If a higher officer gives you orders, then pass em on to the next person taking care of your post</li>
+        <li>No converations allowed while on watch</li>
+        <li>If you see a shooter or fire, SCREAM, WHAT ARE YOU DOING!?!?!!</li>
+        <li>Not sure what to do? Ask your instructor</li>
+        <li>Salute your fellow officers, colors, and purple heart awardies</li>
+        <li>If you see someone breaking in, WACK EM.</li>
+      </ol>
+    </div>
+</Layout>
+
+<style>
+    body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x:hidden;
+    
+}
+
+
+#background{
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    
+}
+#title{
+    position: relative;
+    color: white;
+    padding-inline: 5px;
+    font-size: 50px;
+    display: grid;
+    row-gap: 50px;
+    padding: 10px;
+}
+#title :nth-child(1){
+    position: relative;
+    left: -5vw;
+    background-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0px 0px 10px 10px rgba(255, 215, 0, 0.4);
+    padding: 5px;
+    
+}
+#title :nth-child(2){
+    position: relative;
+    right: -5vw;
+
+    background-color: rgba(0, 0, 125, 0.4);
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 125, 0.4);
+    padding: 5px;
+}
+#title::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -7vw;
+    width: 50%;
+    height: 5px;
+    background-color: gold;
+}
+#title::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -7vw;
+    width: 50%;
+    height: 5px;
+    background-color: navy;
+}
+#info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    background-color:burlywood;
+}
+
+#options{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    column-gap: 1vw;
+    background-color:  #EDDDCF;
+    justify-content: center;
+    align-items: center;
+    
+}
+#options a{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #474448;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 275px;
+    height: 175px;
+    margin-bottom: 20px;
+}
+
+.gridTitle{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100vw;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    
+}
+
+.sup{
+    font-size: 26px;
+    padding-block: 10px;
+}
+.img{
+    object-fit:contain;
+    
+    width:200px;
+    height: 100px;
+    padding-block: 20px;
+}
+</style>

@@ -5,10 +5,11 @@ interface Props {
     desc?:string;
     backgroundColor?:string;
     align?:string;
+    imagePos?:string;
     
 }
 
-const { image, altTxt , desc , backgroundColor = "white", align = "center"} = Astro.props
+const { image, altTxt , desc , backgroundColor = "white", align = "center", imagePos = "50% 50%"} = Astro.props
 
 
 ---
@@ -20,7 +21,7 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center"} = As
     </span>
 </div>
 
-<style define:vars={{align,backgroundColor}}>
+<style define:vars={{align,backgroundColor,imagePos}}>
     div{
         display: flex; 
         box-sizing: border-box;
@@ -47,6 +48,7 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center"} = As
         height: 100%;
         image-rendering: optimizeSpeed;
         object-fit: cover;
+        object-position: var(--imagePos);
 
         z-index: 0;
     }

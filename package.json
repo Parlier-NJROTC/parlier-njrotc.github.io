@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "node generate-image-list.js && astro dev",
-    "start": "astro dev && node generate-image-list.js",
-    "build": "astro build",
+    "start": "node generate-image-list.js && astro dev",
+    "build": "node generate-image-list.js && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/ts-plugin": "^1.6.1",
     "astro": "^4.5.18"
   }
 }
