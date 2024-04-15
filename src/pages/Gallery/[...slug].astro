@@ -30,7 +30,12 @@ const { pageNumber, images } = Astro.props;
     <main id="photos">
 
     </main>
-
+    <dialog id="showPhoto">
+        <img id="mainPhoto">
+        <form method="dialog">
+            <button style="color: black;">Close</button>
+        </form>
+    </dialog>
     <nav id="navBar">
         <a href="/Gallery" class="navBtn">Home</a>
     </nav>
@@ -42,8 +47,15 @@ const { pageNumber, images } = Astro.props;
         let img = document.createElement("img")
         img.src = images[i]
         img.className = "Gallery-Image"
+        img.onclick = ()=>{
+            let display = document.getElementById("showPhoto")
+            display.showModal()
+            document.getElementById("mainPhoto").src = images[i]
+            console.log()
+        }
         p.appendChild(img)
     }
+    
 
 </script>
 
@@ -117,6 +129,10 @@ const { pageNumber, images } = Astro.props;
 
         
     }
+    #mainPhoto{
+        height: 70vmin;
+    }
+
     #navBar{
         display: grid;
         grid-auto-flow: column;
