@@ -23,7 +23,7 @@ import Footer from '../components/Required/Footer.astro';
         <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
 		<title>Parlier NJROTC | {name}</title>
     </head>
-    <body style="margin:0px; p">
+    <body style="margin:0px; overflow-x:hidden;">
         <Header></Header>
         <Menus></Menus>
         <slot></slot>
@@ -32,6 +32,7 @@ import Footer from '../components/Required/Footer.astro';
             body *{
                 color: white;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                
             }
             .page-title{
                 display: none;

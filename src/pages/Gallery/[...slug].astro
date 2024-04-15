@@ -42,18 +42,24 @@ const { pageNumber, images } = Astro.props;
 </Layout>
 <script define:vars={{images}}>
 
+
     let p = document.getElementById("photos")
     for(let i=0;i<images.length;i++){
         let img = document.createElement("img")
         img.src = images[i]
         img.className = "Gallery-Image"
+        let ratio = img.width/img.height // what you need to 
+        console.log(300*ratio)
         img.onclick = ()=>{
+
             let display = document.getElementById("showPhoto")
             display.showModal()
             document.getElementById("mainPhoto").src = images[i]
-            console.log()
+            
         }
+        
         p.appendChild(img)
+        
     }
     
 
@@ -102,21 +108,31 @@ const { pageNumber, images } = Astro.props;
         border-radius: 5px;
         transition: 250ms;
         
+        
     }
     .Gallery-Image:hover{
         height: 300px;
+        
+       
     }
     
 </style>
 
 <style>
-    main{
+   
+    #photos{
         display: flex;
         flex-wrap: wrap;
+        position: relative;
+        transition: 250ms;
+        
         gap: 1.0rem;
         justify-content: center;
         padding-block: 50px;
+        
+
     }
+    
     .navBtn{
         font-family: 'Times New Roman', Times, serif;
         background-color: rgb(0, 0, 151);
