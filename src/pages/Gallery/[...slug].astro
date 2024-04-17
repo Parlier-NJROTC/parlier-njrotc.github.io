@@ -56,7 +56,7 @@ const { pageNumber, images } = Astro.props;
 
             let display = document.getElementById("showPhoto")
             display.showModal()
-            document.getElementById("mainPhoto").src = images[i]
+            document.getElementById("mainPhoto").src = `/Gallery/${images[i]}`
             
         }
         
