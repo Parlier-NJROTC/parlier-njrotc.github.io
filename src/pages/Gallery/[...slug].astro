@@ -47,9 +47,11 @@ const { pageNumber, images } = Astro.props;
     let p = document.getElementById("photos")
     for(let i=0;i<images.length;i++){
         let img = document.createElement("img")
-        img.src = `/Gallery/${images[i]}`
+        img.src = images[i]
         console.log(img.src)
         img.className = "Gallery-Image"
+        img.decoding = "async"
+        img.loading = "lazy"
         let ratio = img.width/img.height // what you need to 
         console.log(300*ratio)
         img.onclick = ()=>{
