@@ -14,4 +14,43 @@
     <iframe src="https://ustymukhman.github.io/webDOOM/public/index.html" loading="eager" allowfullscreen="true" height=725 width=98% style="position: absolute; left: 1%;"></iframe>
 </body>
 
+<style>
+html,  {
+  background-color: #fff;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: 'Noticia Text';
+  text-align: center;
+  background: linear-gradient(180deg,#281130 0,#0f0021);
+  height: 100%;
+  margin: 8px;
+  min-height: 500px;
+  
+  &:before,
+  &:after {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+  }
+
+  &:before {
+      background-color: #00ffff;
+      z-index: -1;
+      animation: glitchy 0.3s ease 0.3s infinite;
+
+  }
+
+  &:after {
+      background-color: #ff00ff;
+      z-index: -2;
+      animation: glitchy 0.3s ease infinite reverse;
+  }
+}</style>
+
 </html>
