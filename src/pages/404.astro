@@ -5,7 +5,7 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
 
 <Layout name="404">
     <div id="screen">
-        <h1>Error 404 not found</h1>
+        <h1 class="text-link" >Error 404 not found</h1>
         <hr />
         <p>Webpage not found, it might have been moved to or removed</p>
         <img id="cat" src="">
@@ -46,6 +46,60 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
     #quote{
         align-self: end;
     }
+    .text-link {
+    position: relative;
+    display: inline-block;
+    font-size: 45px;
+    text-decoration: none;
+    z-index: 1;
+    
+    &:before,
+    &:after {
+        content:attr(data-content);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    &:before {
+        color: #00ffff;
+        z-index: -1;
+    }
+
+    &:after {
+        color: #ff00ff;
+        z-index: -2;
+    }
+
+    
+    &:hover {
+        &:before {
+            animation: glitchy 0.3s ease 0.3s infinite;
+        }
+        
+        &:after {
+            animation: glitchy 0.3s ease infinite reverse;
+        }
+    }
+}
+
+@keyframes glitchy {
+    0%   {transform: translate(-2px, 2px);}
+    25%  {transform: translate(-2px, -2px);}
+    50%  {transform: translate(2px, 2px);}
+    75%  {transform: translate(2px, -2px);}
+    100%  {transform: translate(-2px, 2px);}
+}
+
+@keyframes line-glitchy {
+    0%   {transform: translate(-1px, 1px);}
+    25%  {transform: translate(-1px, -1px);}
+    50%  {transform: translate(1px, 1px);}
+    75%  {transform: translate(1px, -1px);}
+    100%  {transform: translate(-1px, 1px);}
+}
 </style>
 
 <script>
@@ -56,8 +110,10 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
         `"haha, thats not supposed to happen"`,
         `"this is fine"`,
         `"Ah, a dead end. Well time to head home"`,
-        `"don't touch my code, its fragile"`,
+        `"don't touch my code, its fragile" - Cadet Sanchez`,
+        `"Trust me It Worked on my side"`,
         `"We looked and we didn't find it"`,
+        `"Have You Tried turning Off and On your Hands"`,
         `"I know whats wrong with it! Ain't got no gas init"`,
         // Increase for more time wasted, and it can't be zero
         `"${Math.floor(Math.random()*23)+1} hour(s) later..."`,
@@ -77,8 +133,13 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
         `"Oh for gosh sakes"`,
         `"Oh Snicker Doodle" - Cadet Moreira`,
         `"Whoopsie Daisy"`,
+        `"Heyy!! Wheres My Page!!!"`,
+        `"We found your lost sock but Not this Page"`,
+        `"Error 4:04 a.m. Sleep not found, please stop debugging the website J o s e"`,
         `"Don't be lasanga"`,
         `"I don't like it"`,
+        `"Not my Fault."`,
+        `"Congratulations, you broke this website, please self destruct."`,
         `"Ooooo... how does this work?" it's a mess, trust me`,
         `"Computers are bad at random"`,
         `"Anything that appers like magic can be explained with math, that why they both begin with 'ma' " - Cadet Ibarra`,
