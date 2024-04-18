@@ -1,47 +1,21 @@
-# Astro Starter Kit: Minimal
+# Parlier NJROTC Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Hello, this is our units offical website made by the cyberpatriot team.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Developer Notes
+- The Gallery folder will now be used for the website top parts aka the webpage titles
+- We will slowly be moving to the Gallery Reposetory
+- You are allowed to use different frameworks like React, Angular, Vue.js, Sevelt. But if you do you are respondsible for mataining those compotents.
+- You can add any dependancys, but you are respondsible for mainting those.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Knowledge
+- If we are missing something let us know
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## How to contribute
+- If you want to learn go on youtube, look up "bro code". Watch is HTML & CSS tutorial and mabye Javascirpt
+- Learn astro too [https://docs.astro.build/en/getting-started/] or Youtube
+- Suggest changes to make it look nicer
+- Mabye become our UI/UX designer (Basically how it looks), don't worry you make it look nice, we worry about the code.
+- Ideas to add features
+- Look for mistakes on our spel ing 
+- Add images at [https://github.com/Parlier-NJROTC/Gallery]
