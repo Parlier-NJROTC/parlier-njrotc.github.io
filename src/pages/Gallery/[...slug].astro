@@ -12,6 +12,7 @@ export async function getStaticPaths() {
     return {
         // for some reason it has to be named slug. 
         // don't complain to me, complain here: https://docs.astro.build/en/guides/routing/#dynamic-routes
+        // -Saul but it sounds like a ammo
       params: { slug }, 
       props: { pageNumber, images },
     };
@@ -33,7 +34,7 @@ const { pageNumber, images } = Astro.props;
     <dialog id="showPhoto">
         <img id="mainPhoto">
         <form method="dialog">
-            <button style="color: black;">Close</button>
+            <button style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
     <nav id="navBar">
@@ -46,7 +47,8 @@ const { pageNumber, images } = Astro.props;
     let p = document.getElementById("photos")
     for(let i=0;i<images.length;i++){
         let img = document.createElement("img")
-        img.src = images[i]
+        img.src = `/Gallery/${images[i]}`
+        console.log(img.src)
         img.className = "Gallery-Image"
         img.decoding = "async"
         img.loading = "lazy"
@@ -77,8 +79,13 @@ const { pageNumber, images } = Astro.props;
         `The internet! Biggest library and gallery of cat photos`,
         `Where is the photo?`,
         `If we tried fitting this in a book, it would be about as tall as a wedding cake.`,
-        `It's 30 images per page`
-    ]
+        `It's 30 images per page`,
+        `Some of the Photos here was Found by Stalking Chief instagram`,
+        `Photos Maybe be Dots on a Screen but they contain the Past....I Think`,
+        `Wow that very Cool! How do you do that!`,
+        `We Are Supposed to add 1200+ Photos! That sounds Fun Right?`,
+        `It takes 30 min to fully download All the Photos and We are Supposed to add them!`
+        ]
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random()*quotes.length)]
 
 
