@@ -55,11 +55,16 @@ async function generateImageList() {
  }));
   */
 
- fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2));
+ fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2), err => {
+   if (err) {
+     console.error('Ah what the heck:', err);
+   } else {
+     console.log(`Whoo hooo, we didn't spontaniously fail `);
+   }
+});
 }
 
 generateImageList().catch(console.error);
-console.log("works")
 
 
 /*
