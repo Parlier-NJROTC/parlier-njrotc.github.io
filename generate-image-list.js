@@ -44,14 +44,23 @@ async function generateImageList() {
     };
     galleryData.push(pageData);
  }
+ // no idea why it didn't log
+ let failed = false
 
  fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2), err => {
    if (err) {
-     console.error('Ah what the heck:', err);
+     console.error('Failure due to:', err);
+     failed = true
+     
    } else {
-     console.log(`Whoo hooo, we didn't spontaniously fail `);
+     failed = false
    }
-});
+  });
+  if(!failed){
+    console.log("Gallery JSON generated successfully")
+  }
 }
 
-generateImageList().catch(console.error);
+generateImageList().catch((reason)=>{
+    console.log(`This thing failed because: ${reason}`);
+});
