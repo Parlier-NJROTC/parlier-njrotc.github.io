@@ -56,6 +56,8 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
 </style>
 
 <script>
+import { imageConfig } from "astro:assets";
+
     let quotes = [
         `"whomp whop" - Cadet Sanchez`,
         `"oops"`,
@@ -108,4 +110,7 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
     // @ts-ignore
     document.getElementById("cat").src = cats[Math.floor(Math.random() * cats.length)];
+
+
+    // imagestuff.src = `http//:theurl.com/images/image-${ Math.floor( Math.random * 3)+1 }.png`
 </script>
