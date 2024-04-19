@@ -1,25 +1,29 @@
-
-// Ensure you have node-fetch installed 
-// sudo npm install node-fetch
 import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
 const outputFile = path.join(process.cwd(), 'src', 'data', 'gallery.json');
 
-
 const owner = 'Parlier-NJROTC';
 const repo = 'Gallery';
 
-async function fetchFiles(owner, repo) {
- const url = `https://api.github.com/repos/${owner}/${repo}/contents`;
+async function fetchFiles(owner, repo, path = '') {
+ const url = `https://api.github.com/repos/${owner}/${repo}/contents/Image`;
  const response = await fetch(url);
  const data = await response.json();
- return data.map(file => file.name);
+
+ let files = [];
+ for (const item of data) {
+    if (item.type === 'dir') {
+      const subFiles = await fetchFiles(owner, repo, item.path);
+      files = files.concat(subFiles);
+      console.log(`Image Folder Found! `);
+    } else if (item.type === 'file') {
+      files.push(item.path); 
+    }
+ }
+ return files;
 }
-
-
-
 
 async function generateImageList() {
  const files = await fetchFiles(owner, repo);
@@ -29,12 +33,11 @@ async function generateImageList() {
 
  const galleryData = [];
 
-
  for (let i = 0; i < numberOfPages; i++) {
     const start = i * pageSize;
     const end = start + pageSize;
     const pageImages = images.slice(start, end);
-    for(let o = 0;o < pageImages.length;o++){
+    for(let o = 0; o < pageImages.length; o++){
       pageImages[o] = `https://raw.githubusercontent.com/${owner}/${repo}/main/${pageImages[o]}`
     }
     const pageData = {
@@ -45,13 +48,12 @@ async function generateImageList() {
     galleryData.push(pageData);
  }
 
- fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2), err => {
-   if (err) {
-     console.error('Ah what the heck:', err);
-   } else {
-     console.log(`Whoo hooo, we didn't spontaniously fail `);
-   }
-});
+ try {
+    fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2));
+    console.log(`Whoo hooo, we didn't spontaniously fail `);
+ } catch (err) {
+    console.error('Ah what the heck:', err);
+ }
 }
 
 generateImageList().catch(console.error);
