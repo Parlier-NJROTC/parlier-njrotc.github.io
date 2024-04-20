@@ -2,19 +2,13 @@
     import Layout from '../layouts/GlobalHTMLLayout.astro';
     import TextImg from '../components/Sections/TextImg.astro';
     import Title from '../components/Sections/Title.astro';
+    import Top from '../components/Sections/Top.astro';
 
     const { SectionColor } = {"SectionColor":"rgb(0, 0, 100)"}
 ---
 
 <Layout name="Home">
-    <div id="title">
-        <img id="main-img"
-        src="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Christmas Parade Group Photo.jpeg" 
-        decoding="async"
-        loading="lazy"
-        alt="Christmas Parade"
-        title="Christmas Parde Event, 2023. I look silly"
-        />
+    <Top image='https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Christmas%20Parade%20Group%20Photo.jpeg'>
         <div id="phs">
             <div style="font-size: 60px; font-weight: 600;">
             Parlier High School
@@ -25,16 +19,16 @@
             Unit
         </div>
         
-    </div>
+    </Top>
     
     <Title title='About The Unit' backgroundColor={SectionColor} color='White' decor="underline"></Title>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Cheif Killian & Cadet Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cheif%20Killian%20%26%20Cadet%20Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
         Led by retired Navy personnel the Parlier High School Navy Junior Reserve Officer Training Corps or NJROTC was established in 1995. Our goal is to mold our students into better citizens by teaching them real-life skills for a better future. Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence, Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching. 
     </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Cool Swords and Color Gaurd.jpeg" altTxt="Dress Blues and named Flags" backgroundColor={SectionColor} desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cool%20Swords%20and%20Color%20Gaurd.jpeg" altTxt="Dress Blues and named Flags" backgroundColor={SectionColor} desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
         Cadets have many opportunities to be involved through our Academic, Air Rifle, Color Guard, and Drill Teams. Cadets also have an opportunity to be part of the Unit Staff and are able to be promoted in rank by completing the advanced requirements. 
     </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Graffiti Clean Up Crew 2023.jpeg" backgroundColor={SectionColor} order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Graffiti%20Clean%20Up%20Crew%202023.jpeg" backgroundColor={SectionColor} order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
         Our Unit is active in our local community through various activities including parades, service projects, and providing held during many of our community's activities. We strive to make both our campus and our community a better place 
     </TextImg>
     <Title title="Our Mission">
