@@ -92,7 +92,7 @@ const { pageNumber, images } = Astro.props;
     for(let i=0;i<data.length;i++){
         let button = document.createElement("a")
         button.innerText = data[i].pageNumber
-        button.href = `Page-${data[i].pageNumber}`
+        button.href = `/Gallery/Page-${data[i].pageNumber}`
         button.className = "navBtn"
         
         // I could have applied a class, but that doesn't work in astro
