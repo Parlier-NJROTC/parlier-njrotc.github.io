@@ -1,0 +1,118 @@
+---
+interface Props {
+    name: string;
+    frontmatter?;
+}
+const { frontmatter, name = frontmatter.name } = Astro.props;
+
+import Header from "../components/Required/Header.astro";
+import Menus from "../components/Required/menus/Menus.astro";
+import Footer from "../components/Required/Footer.astro";
+---
+
+<!-- Default layout for all .md files --><!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="NJRO" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
+        <meta
+            name="google-site-verification"
+            content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0"
+        />
+        <title>Parlier NJROTC | {name}</title>
+    </head>
+    <body style="margin:0px; overflow-x:hidden;">
+        <Header />
+        <Menus />
+        <div id="tabs">
+            <slot />
+        </div>
+        <Footer />
+
+        <style is:global>
+            #tabs {
+                display: grid;
+
+                grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+                column-gap: 25px;
+                justify-items: center;
+                align-items: center;
+
+                text-align: center;
+
+                box-sizing: border-box;
+                padding: 25px;
+                min-height: calc(100vh - 135px);
+            }
+
+            #tabs * {
+                color: black;
+            }
+
+            #tabs a {
+                position: relative;
+                width: 100%;
+
+                border: 2px inset grey;
+                border-radius: 5px;
+                height: calc(85vh - 135px);
+                box-shadow: 0px 0px 5px 2px grey;
+                text-decoration: none;
+
+                transition: 250ms;
+            }
+            #tabs a:hover {
+                width: 105%;
+                height: calc(90vh - 135px);
+                background-color: aliceblue;
+            }
+            #tabs img {
+                height: 30vmin;
+            }
+            @media (orientation: portrait) {
+                #tabs{
+                    grid-template-columns: repeat(auto-fit,100%);
+                }
+                #tabs a{
+                    height: calc(70vh - 135px);
+                }
+                #tabs a:hover {
+                    width: 105%;
+                    height: calc(75vh - 135px);
+                    background-color: aliceblue;
+                }
+            }
+
+            body * {
+                color: white;
+                font-family: "Gill Sans", "Gill Sans MT", Calibri,
+                    "Trebuchet MS", sans-serif;
+            }
+            .page-title {
+                display: none;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-weight: 600;
+            }
+            h1 {
+                font-size: 3em;
+                font-size: 6vmin;
+                font-family: "Josefin sans";
+            }
+            h2 {
+                font-size: 2em;
+            }
+            @font-face {
+                font-family: "Josefin Sans"; /** Look its me */
+                src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
+            }
+        </style>
+    </body>
+</html>

@@ -1,66 +1,21 @@
 ---
-    import Layout from "../../layouts/GlobalHTMLLayout.astro";
+    import SelectionColumns from "../../layouts/SelectionColumns.astro";
 ---
 
-<Layout name="Resources">
-    <div id="tabs">
-        <a href="/Resources/Knowledge">
-            <h1>Knowledge</h1>
-            <img src="https://www.svgrepo.com/show/428731/creative-knowledge-lightbulb.svg">
-            <p>Knowledge needed to study for AMI and to rank up</p>
-        </a>
-        <a href="/Resources/Tutorials">
-            <h1>Tutorials</h1>
-            <img src="https://www.svgrepo.com/show/520509/video-courses.svg">
-            <p>Video Tutorials showing how to do stuff</p>
-        </a>
-        <a href="/Resources/Extra" style="">
-            <h1>Extras</h1>
-            <img src="https://www.svgrepo.com/show/74265/extra-discounts-interface-commercial-symbol-of-a-label-with-plus-sign.svg">
-            <p>Knowledge we aren't sure where to put</p>
-        </a>
-
-    </div>
-</Layout>
-
-<style>
-    #tabs{
-        display: grid;
-
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 25px;
-        justify-items: center;
-        align-items: center;
-        text-align: center;
-
-        box-sizing: border-box;
-        padding: 25px;
-        height: calc(100vh - 135px);
-    }
-    #tabs *{
-        color: black;
-    }
-
-    #tabs a{
-        position: relative;
-        width: 100%;
-
-        border: 2px inset grey;
-        border-radius: 5px;
-        height: calc(85vh - 135px);
-        box-shadow: 0px 0px 5px 2px grey;
-        text-decoration: none;
-
-        transition: 250ms;
-    }
-    #tabs a:hover{
-        width: 105%;
-        height: calc(90vh - 135px);
-        background-color: aliceblue;
-        
-    }
-    img{
-        height: 20vh;
-    }
-    
-</style>
+<SelectionColumns name="Resources">
+    <a href="/Resources/Knowledge">
+        <h1>Knowledge</h1>
+        <img src="https://www.svgrepo.com/show/428731/creative-knowledge-lightbulb.svg" decoding="async" loading="lazy">
+        <p>Knowledge needed to study for AMI and to rank up</p>
+    </a>
+    <a href="/Resources/Tutorials">
+        <h1>Tutorials</h1>
+        <img src="https://www.svgrepo.com/show/520509/video-courses.svg" decoding="async" loading="lazy">
+        <p>Video Tutorials showing how to do stuff</p>
+    </a>
+    <a href="/Resources/Extra" style="">
+        <h1>Extras</h1>
+        <img src="https://www.svgrepo.com/show/74265/extra-discounts-interface-commercial-symbol-of-a-label-with-plus-sign.svg" decoding="async" loading="lazy">
+        <p>Knowledge we aren't sure where to put</p>
+    </a>
+</SelectionColumns>
