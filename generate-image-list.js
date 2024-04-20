@@ -23,7 +23,8 @@ async function fetchFiles(owner, repo) {
 
 async function generateImageList() {
  const files = await fetchFiles(owner, repo);
- const images = files.filter(file => file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.jpeg')); // Adjust the filter as needed
+ // of course its case sensative
+ const images = files.filter(file => file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.jpeg') || file.endsWith('.JPG') || file.endsWith('.PNG') || file.endsWith('.JPEG')); // Adjust the filter as needed
  const pageSize = 30; // adjust
  const numberOfPages = Math.ceil(images.length / pageSize);
 
