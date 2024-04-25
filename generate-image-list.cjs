@@ -42,67 +42,14 @@ async function CreatePage(token = null) {
       PageNumber++
    }
    if (response.data.nextPageToken) {
-      return response.data.nextPageToken;
+      await CreatePage(response.data.nextPageToken)
    }
    
 }
 
 
 async function main(){
-   let token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
-   token = await CreatePage();
-   await CreatePage(token);
+   await CreatePage();
 
    
 
