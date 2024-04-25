@@ -10,47 +10,102 @@ const path =  require('path');
 let fileConfig = {
    q: `'${folderId}' in parents`,
    pageSize: 30,
+   key: apiKey
 };
 
+let currentPageToken = null;
+let previousPageTokens = [];
 let PageNumber = 0
 let GalleryData = [
 
 ]
 
-async function CreatePage() {
+async function CreatePage(token = null) {
+
    let page = {
       slug: `Page-${PageNumber + 1}`,
       page: PageNumber + 1,
       images: []
    }
-
-
+   if(token){
+      fileConfig.pageToken = token
+   }
    const response = await drive.files.list(fileConfig);
+   
    const files = response.data.files;
    if (files.length) { 
       files.forEach(file => {
-         if (file.mimeType.startsWith('image/')) {
             // has to be in this format: https://lh3.googleusercontent.com/d/${file.id}
             page.images.push(`https://lh3.googleusercontent.com/d/${file.id}`)
-         }
       });
       GalleryData.push(page)
       PageNumber++
    }
-
    if (response.data.nextPageToken) {
-      fileConfig.pageToken = response.data.nextPageToken;
-      CreatePage()
-   } else{
-      return;
+      return response.data.nextPageToken;
    }
    
 }
 
 
 async function main(){
-   await CreatePage();
-   console.log(GalleryData)
+   let token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+   token = await CreatePage();
+   await CreatePage(token);
+
+   
+
    fs.writeFileSync(path.join(process.cwd(), 'src', 'data', 'gallery.json'), JSON.stringify(GalleryData, null, 2), err => {
       if (err) {
         console.error('Failure due to:', err);
