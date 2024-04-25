@@ -42,6 +42,7 @@ const { page, images } = Astro.props;
             <button style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
+    * Some images not appear. <br>| Give it a day or two and eventually they will load. I encountered this error before and now it works. <br>| Don't ask me why they don't pop up at first, im just as lost as you.
     <nav id="navBar">
         <a href="/Gallery" class="navBtn">Home</a>
     </nav>
@@ -92,6 +93,7 @@ const { page, images } = Astro.props;
         `It takes 30 min to fully download All the Photos and We are Supposed to add them!`
         ]
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random()*quotes.length)]
+    
 
 
     for(let i=0;i<data.length;i++){

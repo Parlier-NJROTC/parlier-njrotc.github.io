@@ -29,8 +29,10 @@ async function CreatePage() {
    const files = response.data.files;
    if (files.length) { 
       files.forEach(file => {
-         // has to be in this format: https://lh3.googleusercontent.com/d/${file.id}
-         page.images.push(`https://lh3.googleusercontent.com/d/${file.id}`)
+         if (file.mimeType.startsWith('image/')) {
+            // has to be in this format: https://lh3.googleusercontent.com/d/${file.id}
+            page.images.push(`https://lh3.googleusercontent.com/d/${file.id}`)
+         }
       });
       GalleryData.push(page)
       PageNumber++
