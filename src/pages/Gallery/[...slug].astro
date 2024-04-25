@@ -8,20 +8,25 @@ import data from '../../data/gallery.json'
 // makes all the gallery pages, 
 export async function getStaticPaths() {
   const pages = data
-  return pages.map(({ slug, pageNumber, images }) => {
+  return pages.map(({ slug, page, images }) => {
     return {
         // for some reason it has to be named slug. 
         // don't complain to me, complain here: https://docs.astro.build/en/guides/routing/#dynamic-routes
         // -Saul but it sounds like a ammo
       params: { slug }, 
-      props: { pageNumber, images },
+      props: { page, images },
     };
   });
 }
 
-const { pageNumber, images } = Astro.props;
+const { page, images } = Astro.props;
+
+
+
+
+
 ---
-<Layout name=`Gallery ${pageNumber}`>
+<Layout name=`Gallery ${page}`>
     <Top image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg">
         <h1><u>Photo Gallery</u></h1>
         <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;" id="quote">
@@ -91,8 +96,8 @@ const { pageNumber, images } = Astro.props;
 
     for(let i=0;i<data.length;i++){
         let button = document.createElement("a")
-        button.innerText = data[i].pageNumber
-        button.href = `/Gallery/Page-${data[i].pageNumber}`
+        button.innerText = data[i].page
+        button.href = `/Gallery/Page-${data[i].page}`
         button.className = "navBtn"
         
         // I could have applied a class, but that doesn't work in astro

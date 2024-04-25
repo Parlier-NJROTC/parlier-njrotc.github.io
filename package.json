@@ -3,15 +3,17 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node generate-image-list.js && astro dev",
-    "start": "node generate-image-list.js && astro dev",
-    "build": "node generate-image-list.js && astro build",
+    "node": "node generate-image-list.cjs",
+    "dev": "node generate-image-list.cjs && astro dev",
+    "start": "node generate-image-list.cjs && astro dev",
+    "build": "node generate-image-list.cjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/ts-plugin": "^1.6.1",
     "astro": "^4.6.2",
+    "googleapis": "^39.2.0",
     "node-fetch": "^3.3.2"
   }
 }

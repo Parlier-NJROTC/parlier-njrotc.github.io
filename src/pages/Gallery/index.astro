@@ -10,12 +10,6 @@
         <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;">
             Welcome to the Gallary, our masive picture collection. Here is where our pictures are stored
         </div>
-
-        <div id="topPhoto">
-        <img id="Img_1">
-        <img id="Img_2">
-        <img id="Img_3">
-        </div>
     </Top>
     <nav id="navBar">
         <a href="/Gallery" class="navBtn">Home</a>
@@ -24,8 +18,8 @@
 <script define:vars={{data}}>
         for(let i=0;i<data.length;i++){
         let button = document.createElement("a")
-        button.innerText = data[i].pageNumber
-        button.href = `/Gallery/Page-${data[i].pageNumber}`
+        button.innerText = data[i].page
+        button.href = `/Gallery/Page-${data[i].page}`
         button.className = "navBtn"
         
         // I could have applied a class, but that doesn't work in astro
@@ -83,37 +77,3 @@
         border-block: 10px double black; 
     }
 </style>
-<script>
-    let Img_1 = [
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/70448835609__0975642E-FE3C-4DCD-8FB4-BB73B3F91D5E.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/993580F6-4496-42E7-8F02-1CBB29B42183.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet2.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet3.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet4.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet5.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet6.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet7.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet8.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Boat_Meet9.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/CEDC46EE-FA42-4D72-A491-BA57676EA0DC.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Cheif Killian & Cadet Mendoza.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Christmas Parade Group Photo.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Color Guard Dressed.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Colour_1.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Cool Swords and Color Gaurd.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Drill pad 1.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Graffiti Clean Up Crew 2023.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/I think thats leadership academy.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/IMG_0054.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/NoIdeaWhyThisPictureWantsToBeSideways.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Rifle Team Practice.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/Round Up.jpeg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp2.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp3.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp4.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp5.jpg",
-      "https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Image/drill_Camp6.jpg"
-    ]
-</script>
