@@ -11,10 +11,22 @@
             Welcome to the Gallary, our masive picture collection. Here is where our pictures are stored
         </div>
     </Top>
-    * Some images not appear. <br>| Give it a day or two and eventually they will load. I encountered this error before and now it works. <br>| Don't ask me why they don't pop up at first, im just as lost as you.
+    <h1 style="color: black;">Instructions</h1>
+    <ul style="color: black;">
+        <li style="color: black;">Navigate through pages to see different images</li>
+        <li></li>
+    </ul>
     <nav id="navBar">
         <a href="/Gallery" class="navBtn">Home</a>
     </nav>
+    <script is:inline>
+document.getElementById('stufff').addEventListener('load', function() {
+    var object = this;
+    // Assuming the content provides its dimensions through its naturalWidth and naturalHeight properties
+    object.width = object.naturalWidth;
+    object.height = object.naturalHeight;
+});
+    </script>
 </Layout>
 <script define:vars={{data}}>
         for(let i=0;i<data.length;i++){
@@ -72,6 +84,9 @@
 
         padding: 10px;
         border-block: 10px double black;
+        max-width: 100vw;
+        width: 100vw;
+        overflow-x: scroll;
     }
     #topPhotos{
         padding: 10px;

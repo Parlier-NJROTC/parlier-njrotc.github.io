@@ -37,12 +37,11 @@ const { page, images } = Astro.props;
 
     </main>
     <dialog id="showPhoto">
-        <img id="mainPhoto">
+        <object id="mainPhoto"></object>
         <form method="dialog">
-            <button style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
+            <button id="closeBtn" style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
-    * Some images not appear. <br>| Give it a day or two and eventually they will load. I encountered this error before and now it works. <br>| Don't ask me why they don't pop up at first, im just as lost as you.
     <nav id="navBar">
         <a href="/Gallery" class="navBtn">Home</a>
     </nav>
@@ -53,18 +52,16 @@ const { page, images } = Astro.props;
     let p = document.getElementById("photos")
     for(let i=0;i<images.length;i++){
         let img = document.createElement("img")
-        img.src = images[i]
-        console.log(img.src)
+        img.src = `https://lh3.googleusercontent.com/d/${images[i]}=h280`
         img.className = "Gallery-Image"
         img.decoding = "async"
         img.loading = "lazy"
-        let ratio = img.width/img.height // what you need to 
-        console.log(300*ratio)
+
         img.onclick = ()=>{
 
             let display = document.getElementById("showPhoto")
             display.showModal()
-            document.getElementById("mainPhoto").src = images[i]
+            document.getElementById("mainPhoto").data = `https://drive.google.com/file/d/${images[i]}/preview`
             
         }
         
@@ -164,7 +161,8 @@ const { page, images } = Astro.props;
         
     }
     #mainPhoto{
-        height: 70vmin;
+        height: 56.25vmin;
+        width: 100vmin;
     }
 
     #navBar{
