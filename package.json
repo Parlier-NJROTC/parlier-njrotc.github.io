@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "@astrojs/ts-plugin": "^1.6.1",
-    "astro": "^4.6.2",
-    "googleapis": "^39.2.0",
+    "astro": "^4.8.1",
     "node-fetch": "^3.3.2"
   }
 }
