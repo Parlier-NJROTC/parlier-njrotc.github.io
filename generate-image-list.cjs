@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-const apiKey = 'AIzaSyD4rcSHf8lFy8UPfDqKp4MwoXFA3yPulTI';
+const apiKey = 'redacted';
 const folderId = '1TbB_56Zx-nkAz5-Q-AAYmXCwEjygCNJh';
 const drive = google.drive({ version: 'v3', auth: apiKey });
 
