@@ -1,0 +1,117 @@
+<loading>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <div class="spinner-container">
+        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" alt="Loading"
+            class="spinner" width="40" height="40">
+        <div class="jumping-text">
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </div>
+</loading>
+
+<style >
+        .spinner-container {
+            left: 0;
+            top: 0;
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width:100vw;
+            background-color:white;
+            z-index: 99999999999999999999;
+        }
+
+        .spinner {
+            margin-right: 10px;
+            animation: spin 1.5s linear infinite;
+        }
+
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .jumping-text span {
+            display: inline-block;
+            animation: bounce 0.5s ease-in-out infinite alternate;
+            font-size: 24px;
+            font-family: 'Josefin Sans', sans-serif;
+            color:black
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .jumping-text span:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .jumping-text span:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .jumping-text span:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .jumping-text span:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .jumping-text span:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .jumping-text span:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        .jumping-text span:nth-child(8) {
+            animation-delay: 0.7s;
+        }
+
+        .jumping-text span:nth-child(9) {
+            animation-delay: 0.8s;
+        }
+
+        .jumping-text span:nth-child(10) {
+            animation-delay: 0.9s;
+        }
+    </style>
+    <script lang="js">
+        document.addEventListener('readystatechange', function() {
+    if (document.readyState!== "complete") {
+        document.querySelector(".spinner-container").style.display = "flex";
+    } else {
+        document.querySelector(".spinner-container").style.display = "none";
+        
+    }
+});
+    
+    </script>

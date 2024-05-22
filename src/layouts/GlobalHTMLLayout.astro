@@ -9,6 +9,7 @@ const { frontmatter , name = frontmatter.name  } = Astro.props;
 import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
+import Loading from '../components/Required/Loading.astro'
 ---
 
 <!-- Default layout for all .md files -->
@@ -24,10 +25,6 @@ import Footer from '../components/Required/Footer.astro';
 		<title>Parlier NJROTC | {name}</title>
     </head>
     <body style="margin:0px; overflow-x:hidden;">
-        <Header></Header>
-        <Menus></Menus>
-        <slot></slot>
-        <Footer></Footer>
         <style is:global>
             body *{
                 color: white;
@@ -53,6 +50,11 @@ import Footer from '../components/Required/Footer.astro';
                 src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
             }
         </style>
+        <Header></Header>
+        <Menus></Menus>
+        <Loading></Loading>
+        <slot></slot>
+        <Footer></Footer>
         
     </body>
 </html>
