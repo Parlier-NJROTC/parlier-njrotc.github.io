@@ -8,8 +8,8 @@
             Parlier NJROTC
         </h1>
         <div>
-            <a style="background-image: url(/icons/Octocat.svg)"></a>
-            <a style="background-image: url(/icons/Instagram.svg);"></a>
+            <a href="https://github.com/Parlier-NJROTC/parlier-njrotc.github.io" style="background-image: url(/icons/Octocat.svg)"></a>
+            <a href="https://www.instagram.com/parlierhsnjrotc/?hl=en" style="background-image: url(/icons/Instagram.svg);"></a>
         </div>
     </div>
     <hr>
@@ -28,11 +28,27 @@
             <h2>Parlier High School</h2>
             <span>
                 Address: 601 3rd St, Parlier, CA 93648 <br>Phone: (559) 646-3573
-            </span>
+            </span><br>
+            <button id="toggleMap">See Where NJROTC</button>
+            <div id="mapContainer" style="display:none;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1601.218982721572!2d-119.526978990213!3d36.61584315782817!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8094fb69109e46d1%3A0x8b7efaca4e4ad12f!2sParlier%20High%20School!5e0!3m2!1sen!2sus!4v1716444559405!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+
         </span>
     </div>
 </footer>
 <style>
+    #toggleMap {
+        color: black; 
+        background-color: white;
+        border-radius: 3px;
+        transition: 350ms;
+    }  
+
+    a:hover{
+        filter: contrast(200%);
+    }
     footer{
         background: antiquewhite;
         padding-inline: 30px;
@@ -74,3 +90,13 @@
     }
 
 </style>
+<script>
+document.getElementById('toggleMap').addEventListener('click', function() {
+    var mapContainer = document.getElementById('mapContainer');
+    if (mapContainer.style.display === 'none') {
+        mapContainer.style.display = 'block';
+    } else {
+        mapContainer.style.display = 'none';
+    }
+});
+</script>
