@@ -16,37 +16,40 @@
     <div>
         <span>
             <h2>NJROTC</h2>
+            <a href="mailto:njrotcparlier@gmail.com">
+                njrotcparlier@gmail.com</a><span>  - Cyberpatriot Email & Feedback <br>
+                </span>
+            <a href="mailto:parliernavyjrotc@gmail.com">
+                parliernavyjrotc@gmail.com</a><span> - Secondary Backup Email <br>
+            </span>
+            <a href="mailto:njrotcparlier@outlook.com">
+                njrotcparlier@outlook.com</a><span> - Tertiary Backup Email <br>
+                </span>
+            <a href="mailto:jaycee.killian@parlierunified.org">
+                jaycee.killian@parlierunified.org</a><span> - Cheif Killian <br>
+                </span>
             <span>
-                njrotcparlier@gmail.com - Cyberpatriot Email & Feedback <br>
-                parliernavyjrotc@gmail.com - Secondary Backup Email <br>
-                njrotcparlier@outlook.com - Tertiary Backup Email <br>
-                jaycee.killian@parlierunified.org - Cheif Killian <br>
                 Room 53 - NJROTC <br>
             </span>
         </span>
         <span>
-            <h2>Parlier High School</h2>
-            <span>
-                Address: 601 3rd St, Parlier, CA 93648 <br>Phone: (559) 646-3573
-            </span><br>
-            <button id="toggleMap">See Where NJROTC</button>
-            <div id="mapContainer" style="display:none;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1601.218982721572!2d-119.526978990213!3d36.61584315782817!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8094fb69109e46d1%3A0x8b7efaca4e4ad12f!2sParlier%20High%20School!5e0!3m2!1sen!2sus!4v1716444559405!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <h2>Parlier High School</h2> <!-- This Looks Nice? -->
+            <a href="https://maps.app.goo.gl/jqcxigmEi427w2TK9">
+                Address: 601 3rd St, Parlier, CA 93648</a> 
+                <span><br>Phone: (559) 646-3573</span>
+            </a>
 
 
         </span>
     </div>
 </footer>
 <style>
-    #toggleMap {
-        color: black; 
-        background-color: white;
-        border-radius: 3px;
-        transition: 350ms;
-    }  
-
+    a{
+        color: rgb(0, 0, 0);
+        transition: ease-in-out 250ms;
+    }
     a:hover{
+        color: rgb(0, 0, 255);
         filter: contrast(200%);
     }
     footer{
@@ -90,13 +93,3 @@
     }
 
 </style>
-<script>
-document.getElementById('toggleMap').addEventListener('click', function() {
-    var mapContainer = document.getElementById('mapContainer');
-    if (mapContainer.style.display === 'none') {
-        mapContainer.style.display = 'block';
-    } else {
-        mapContainer.style.display = 'none';
-    }
-});
-</script>

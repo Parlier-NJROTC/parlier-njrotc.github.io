@@ -11,33 +11,12 @@ lineColor2: rgb(109,80,56)
 ---
 
 
-## Cadet Ball. April 20, 2024 (Mandatory Event)
+## No More Events On Our Calendar - 23 May 2024 
 
+* Work On Other Classes Finals
 
+* Work Hard To Have The Best Final Grade
 
-* 25$ for entry per guest
-* Mandatory Event for NJ cadets
-* Guest must be screened by Chief prior to entry
-* Dresses must be approved by Chief
-* Event is from 6pm to 11pm
-* If you are leaving early, the person who is picking you up must check into chief
+* Cry
 
-
-## DisneyLand trip. April 22, 2024 (Select Event)
-
-
-
-* Departure at 3 a.m.
-* Get here before 2:45 a.m. 
-* If you don’t get here before 2:45 a.m. you will be left behind
-* Don’t bring anything that could be weapon
-* We will be stopping at McDonalds. Order online before we get there, we will not be waiting. Not sure which one specifically. 
-
-
-## Round Up. April 27 ~ 28, 2024 (Mandatory Event)
-
-
-
-* Must sign up for a shift 
-* Extra Credit: Dress up in uniform and march (7th period mandatory)
-
+* Don't "Try" Your Best, Do Your Best!
