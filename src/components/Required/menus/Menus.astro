@@ -3,7 +3,7 @@ import Dropdown from "./Dropdown.astro";
 import Link from "./Link.astro";
 import Mode from "./Mode.astro";
 ---
-
+<div class="NoDark">
 <input type="checkbox" id="box" />
 <nav id="menus">
     <header>
@@ -37,6 +37,7 @@ import Mode from "./Mode.astro";
         <Mode></Mode>
     </nav>
 </nav>
+</div>
 
 </html>
 <style>
@@ -49,6 +50,7 @@ import Mode from "./Mode.astro";
         right: 0px;
         border-left: 1px solid white;
         z-index: 99;
+        
     }
 
     #box {
