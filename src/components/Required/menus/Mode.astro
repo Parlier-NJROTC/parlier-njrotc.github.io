@@ -1,9 +1,9 @@
 <div class="theme-switch-wrapper">
-  <label class="theme-switch" for="checkbox">
+  <label class="theme-switch" for="theme-toggle"> <!-- Updated for attribute -->
     <input type="checkbox" id="theme-toggle" />
     <div class="slider">
       <!-- SVGs for sun and moon icons -->
-      <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+      <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -14,7 +14,7 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+      <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </div>
@@ -22,24 +22,17 @@
 </div>
 
 <style>
-  /* Default light theme */
   html {
     background: white;
     color: black;
   }
-
-  /* Dark mode applied via CSS filter */
   html.dark-mode {
     filter: grayscale(100%);
     color: black;
   }
-
-  /* Ensure images don't become negative when inverted */
   html.dark-mode img {
     filter: grayscale(0%);
   }
-
-  /* Override filter for specific elements */
   nav,
   header,
   footer,
@@ -57,6 +50,21 @@
 #light-icon, #dark-icon {
   filter: grayscale(0%);
 }
+input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: 20px; 
+  height: 20px; 
+  background: id("dark-icon"); 
+  background-size: contain;
+  cursor: pointer;
+  border-radius: 50%; 
+}
+input[type="checkbox"]:checked +.custom-checkbox {
+  background-image: id("dark-icon"); 
+}
 
 </style>
 
@@ -66,34 +74,32 @@
     const htmlElement = document.documentElement;
     const lightIcon = document.getElementById('light-icon');
     const darkIcon = document.getElementById('dark-icon');
-    const darkMode = localStorage.getItem('darkMode') === 'true';
+    const darkModeKey = 'darkMode'; 
+
+    const darkMode = localStorage.getItem(darkModeKey) === 'true';
 
     if (darkMode) {
-      // Apply dark mode if saved
-      htmlElement.classList.add('dark-mode');
-      // Hide light mode icon and show dark mode icon
-      lightIcon.style.display = 'none';
-      darkIcon.style.display = 'block';
+        htmlElement.classList.add('dark-mode');
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'block';
     } else {
-      htmlElement.classList.remove('dark-mode');
-      lightIcon.style.display = 'block';
-      darkIcon.style.display = 'none';
+        htmlElement.classList.remove('dark-mode');
+        lightIcon.style.display = 'block';
+        darkIcon.style.display = 'none';
     }
 
     themeToggle.addEventListener('change', (event) => {
-      if (event.target.checked) {
-        // Enable dark mode
-        htmlElement.classList.add('dark-mode');
-        localStorage.setItem('darkMode', true);
-        lightIcon.style.display = 'none';
-        darkIcon.style.display = 'block';
-      } else {
-        // Disable dark mode
-        htmlElement.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', false); 
-        lightIcon.style.display = 'block';
-        darkIcon.style.display = 'none';
-      }
+        localStorage.setItem(darkModeKey, event.target.checked);
+
+        if (event.target.checked) {
+            htmlElement.classList.add('dark-mode');
+            darkIcon.style.display = 'block';
+            lightIcon.style.display = 'none';
+        } else {
+            htmlElement.classList.remove('dark-mode');
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+        }
     });
-  });
+});
 </script>

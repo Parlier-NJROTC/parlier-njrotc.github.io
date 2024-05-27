@@ -109,9 +109,11 @@
         if (document.readyState!== "complete") {
             document.querySelector(".spinner-container").style.display = "flex";
         } else {
-            document.querySelector(".spinner-container").style.display = "none";
-        }
-    });
+            setTimeout(function() {
+        document.querySelector(".spinner-container").style.display = "none";
+    }, 500); 
+    }
+});
 
     window.addEventListener('error', function(event) {
         console.error("An error occurred:", event.message);
