@@ -30,13 +30,13 @@
 
   /* Dark mode applied via CSS filter */
   html.dark-mode {
-    filter: sepia(100%);
-    color:black;
+    filter: grayscale(100%);
+    color: black;
   }
 
   /* Ensure images don't become negative when inverted */
   html.dark-mode img {
-    filter: sepia(0%);
+    filter: grayscale(0%);
   }
 
   /* Override filter for specific elements */
@@ -45,14 +45,19 @@
   html.dark-mode footer,
   html.dark-mode svg,
   html.dark-mode img {
-    filter: sepia(0%);
+    filter: grayscale(0%);
   }
   .theme-switch-wrapper {
-  display: flex; /* Establish flex container */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-  gap: 10px; /* Maintain spacing between items */
+  display: flex; /* Use flexbox to align children */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  gap: 10px; 
 }
+
+#light-icon, #dark-icon {
+  filter: grayscale(0%);
+}
+
 </style>
 
 <script lang="js">

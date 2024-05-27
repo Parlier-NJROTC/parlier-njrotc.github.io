@@ -105,13 +105,17 @@
         }
     </style>
     <script lang="js">
-        document.addEventListener('readystatechange', function() {
-    if (document.readyState!== "complete") {
-        document.querySelector(".spinner-container").style.display = "flex";
-    } else {
-        document.querySelector(".spinner-container").style.display = "none";
-        
-    }
-});
-    
+    document.addEventListener('readystatechange', function() {
+        if (document.readyState!== "complete") {
+            document.querySelector(".spinner-container").style.display = "flex";
+        } else {
+            document.querySelector(".spinner-container").style.display = "none";
+        }
+    });
+
+    window.addEventListener('error', function(event) {
+        console.error("An error occurred:", event.message);
+    });
+</script>
+
     </script>
