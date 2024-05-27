@@ -40,17 +40,17 @@
   }
 
   /* Override filter for specific elements */
-  html.dark-mode nav,
-  html.dark-mode header,
-  html.dark-mode footer,
-  html.dark-mode svg,
-  html.dark-mode img {
+  nav,
+  header,
+  footer,
+  svg,
+  img {
     filter: grayscale(0%);
   }
   .theme-switch-wrapper {
-  display: flex; /* Use flexbox to align children */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children horizontally */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
   gap: 10px; 
 }
 
@@ -66,8 +66,6 @@
     const htmlElement = document.documentElement;
     const lightIcon = document.getElementById('light-icon');
     const darkIcon = document.getElementById('dark-icon');
-
-    // Check for saved 'darkMode' in localStorage
     const darkMode = localStorage.getItem('darkMode') === 'true';
 
     if (darkMode) {
@@ -77,9 +75,7 @@
       lightIcon.style.display = 'none';
       darkIcon.style.display = 'block';
     } else {
-      // Apply light mode if not saved
       htmlElement.classList.remove('dark-mode');
-      // Show light mode icon and hide dark mode icon
       lightIcon.style.display = 'block';
       darkIcon.style.display = 'none';
     }
@@ -88,15 +84,13 @@
       if (event.target.checked) {
         // Enable dark mode
         htmlElement.classList.add('dark-mode');
-        localStorage.setItem('darkMode', true); // Save preference
-        // Hide light mode icon and show dark mode icon
+        localStorage.setItem('darkMode', true);
         lightIcon.style.display = 'none';
         darkIcon.style.display = 'block';
       } else {
         // Disable dark mode
         htmlElement.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', false); // Save preference
-        // Show light mode icon and hide dark mode icon
+        localStorage.setItem('darkMode', false); 
         lightIcon.style.display = 'block';
         darkIcon.style.display = 'none';
       }
