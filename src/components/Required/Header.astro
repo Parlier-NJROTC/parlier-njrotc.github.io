@@ -1,8 +1,9 @@
 <header>
-    <a href="/" style="color:white; text-decoration: none;"> 
-        <img src="/NJROTC-Seal.svg">
+    <a href="/" style="color:white; text-decoration: none;display: flex;align-items:center;justify-content: space-evenly;grid-column: 2/2;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 40px;"> 
+        <img style="width: 50px;" src="/NJROTC-Seal.svg">
         Parlier NJROTC
     </a>
+    <a href="/Login"><button>Login</button></a>
     <!--Despite this being here, it still triggers the menus, clever -->
     <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
 </header>
@@ -18,9 +19,10 @@
         top:0;
         width: 100vw;
         height: 130px;
+        filter: none; 
 
         display: grid;
-        grid-template-columns: 40px 350px 1fr;
+        grid-template-columns: 40px 350px 1fr 100px;
         
         align-items: center;
         justify-items: stretch;
@@ -28,23 +30,30 @@
         border-block: 1px solid lemonchiffon;
         background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
     }
-
-    header a img{
-        width: 50px;
-    }
-    header a{
-        display: flex;
-        align-items:center;
-        justify-content: space-evenly;
-
-        grid-column: 2/2;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 40px;
-    }
     header label{
         justify-self: end;
         font-size: 50px;
         color: white;
         margin-right: 30px;
     }
+    button {
+    color: #ffffff;
+    background: rgb(0, 0, 0);
+    width: 10vw;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: solid 1px rgb(32, 31, 31);
+    border-radius: 10px;
+    align-self: right; /* This line moves the button to the right */
+    transition: ease-in-out 3s;
+}
+
+    button:hover {
+    background: none;
+    font-size: 18px;
+  }
 </style>

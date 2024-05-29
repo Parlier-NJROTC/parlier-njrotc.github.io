@@ -1,0 +1,102 @@
+<div class="theme-switch-wrapper">
+  <label class="theme-switch" for="theme-toggle"> Demo
+    <input type="checkbox" id="theme-toggle" />
+    <div class="slider">
+      <!-- SVGs for sun and moon icons -->
+      <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </div>
+  </label>
+</div>
+<style>
+  html {
+    background: white;
+    color: black;
+  }
+  html.dark-mode {
+    filter: grayscale(100%);
+  }
+  html.dark-mode img {
+    filter: grayscale(100%);
+  }
+  nav,
+  header,
+  footer,
+  svg,
+  img {
+    filter: grayscale(100%);
+  }
+  .theme-switch-wrapper {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px; 
+}
+
+#light-icon, #dark-icon {
+  filter: grayscale(0%);
+}
+input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: 20px; 
+  height: 20px; 
+  background: id("dark-icon"); 
+  background-size: contain;
+  cursor: pointer;
+  border-radius: 50%; 
+}
+input[type="checkbox"]:checked +.custom-checkbox {
+  background-image: id("dark-icon"); 
+}
+
+</style>
+<script lang="js">
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const lightIcon = document.getElementById('light-icon');
+    const darkIcon = document.getElementById('dark-icon');
+    const darkModeKey = 'darkMode'; 
+
+    const darkMode = localStorage.getItem(darkModeKey) === 'true';
+
+    if (darkMode) {
+        htmlElement.classList.add('dark-mode');
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'block';
+    } else {
+        htmlElement.classList.remove('dark-mode');
+        lightIcon.style.display = 'block';
+        darkIcon.style.display = 'none';
+    }
+
+    themeToggle.addEventListener('change', (event) => {
+        localStorage.setItem(darkModeKey, event.target.checked);
+
+        if (event.target.checked) {
+            htmlElement.classList.add('dark-mode');
+            darkIcon.style.display = 'block';
+            lightIcon.style.display = 'none';
+        } else {
+            htmlElement.classList.remove('dark-mode');
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+        }
+    });
+});
+</script>

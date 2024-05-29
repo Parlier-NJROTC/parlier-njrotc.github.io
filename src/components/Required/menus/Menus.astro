@@ -1,55 +1,45 @@
 ---
 import Dropdown from "./Dropdown.astro";
 import Link from "./Link.astro";
+import Mode from "./Mode.astro";
 ---
-
+<div class="NoDark">
 <input type="checkbox" id="box" />
 <nav id="menus">
     <header>
         <h2>Menus</h2>
         <label for="box" id="close">
-            X <!-- this is the close button charater, DON'T DELETE --></label
-        >
+            X <!-- this is the close button charater, DON'T DELETE --></label>
     </header>
     <nav id="navi">
-        <Link  title="Home" link=""/>
-        <Dropdown
-            title="Cadet Resources"
-            link="Resources"
-            id="SideMenus-Dropdown1"
-        >
-            <a
-                href="/Resources/Tutorials"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;"
-                >Tutorials</a
-            >
-            <a
-                href="/Resources/Knowledge"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;"
-                >Knowledge</a
-            >
-            <a
-                href="/Resources/Extra"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Extra</a
-            >
-            <a
-                href="/Resources/Tool"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Tools</a
-            >
+        <Link title="Home" link="" />
+        <Dropdown title="Cadet Resources" link="Resources" id="SideMenus-Dropdown1">
+            <a href="/Resources/Tutorials"
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Tutorials</a>
+            <a href="/Resources/Knowledge"
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Knowledge</a>
+            <a href="/Resources/Extra"
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Extra</a>
+            <a href="/Resources/Tool"
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Tools</a>
         </Dropdown>
         <Link title="Teams" />
         <Link title="Instructor" />
         <Dropdown title="Events" id="SideMenus-Dropdown-2">
             <a href="/Events/Calendar"
-            style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Calendar</a>
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Calendar</a>
             <a href="/Events/Fundraising"
-            style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Fundraising</a>
+                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Fundraising</a>
         </Dropdown>
         <Link title="Gallery" />
         <Link title="Links" />
         <Link title="Credits" />
+        <Mode></Mode>
     </nav>
 </nav>
+</div>
+
+</html>
 <style>
     #menus {
         position: fixed;
@@ -60,10 +50,13 @@ import Link from "./Link.astro";
         right: 0px;
         border-left: 1px solid white;
         z-index: 99;
+        
     }
+
     #box {
         display: none;
     }
+
     header {
         background-color: darkblue;
         height: 130px;
@@ -72,6 +65,7 @@ import Link from "./Link.astro";
         justify-content: space-between;
         align-items: center;
     }
+
     header h2,
     header label {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -80,6 +74,7 @@ import Link from "./Link.astro";
         font-size: 30px;
         margin-inline: 35px;
     }
+
     /** I swear if its two lines to fix I am going to obliterate my self */
     #navi {
         position: relative;
@@ -87,6 +82,7 @@ import Link from "./Link.astro";
 
         height: calc(100vh - 130px);
     }
+
     a {
         text-decoration: none;
         display: flex;
@@ -98,22 +94,25 @@ import Link from "./Link.astro";
         overflow: hidden;
         grid-row: 1 / -1;
     }
+
     a:visited {
         color: white;
     }
-    
+
     @media (orientation: portrait) {
         #menus {
             width: 100vw;
             max-height: 0vh;
             transition: max-height 250ms;
         }
-        #box:checked ~ #menus {
+
+        #box:checked~#menus {
             max-height: 100vh;
             height: 100vh;
             transition: max-height 250ms;
         }
     }
+
     @media (orientation: landscape) {
         #menus {
             max-width: 0px;
@@ -121,7 +120,8 @@ import Link from "./Link.astro";
             height: 100vh;
             transition: max-width 200ms;
         }
-        #box:checked ~ #menus {
+
+        #box:checked~#menus {
             max-width: 300px;
             width: 300px;
             transition: max-width 250ms;
