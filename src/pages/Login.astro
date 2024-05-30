@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login Form -Demo-</h2>
+
+<form id="loginForm">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+
+
+</body>
+<script lang="JS">
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Assuming the endpoint for login is '/api/login'
+    fetch('/api/login', { // Adjust the URL according to the actual API endpoint
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username, password: password }),
+    })
+   .then(response => response.json())
+   .then(data => {
+        if (data.success) {
+            alert("Login successful!");
+            // Redirect to another page or perform other actions based on successful login
+        } else {
+            alert("Login failed.");
+        }
+    })
+   .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+</script>
+</html>
