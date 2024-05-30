@@ -16,6 +16,11 @@
     <input type="submit" value="Submit">
 </form>
 
+<<<<<<< HEAD
+=======
+
+</body>
+>>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
 <script lang="JS">
     document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
@@ -31,6 +36,7 @@
         },
         body: JSON.stringify({ username: username, password: password }),
     })
+<<<<<<< HEAD
  .then(response => response.json())
  .then(data => {
         if (data.success) {
@@ -38,15 +44,27 @@
             localStorage.setItem('username', username); // Store username
             alert("Login successful!");
             // Optionally, redirect to another page or perform other actions based on successful login
+=======
+   .then(response => response.json())
+   .then(data => {
+        if (data.success) {
+            alert("Login successful!");
+            // Redirect to another page or perform other actions based on successful login
+>>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
         } else {
             alert("Login failed.");
         }
     })
+<<<<<<< HEAD
  .catch((error) => {
+=======
+   .catch((error) => {
+>>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
         console.error('Error:', error);
     });
 });
 
+<<<<<<< HEAD
 // Function to check if the user is logged in
 function isLoggedIn() {
     return localStorage.getItem('loggedIn') === 'true';
@@ -60,4 +78,7 @@ if (!isLoggedIn()) {
 }
 </script>
 </body>
+=======
+</script>
+>>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
 </html>
