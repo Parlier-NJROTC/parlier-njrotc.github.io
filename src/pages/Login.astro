@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login Form -Demo-</h2>
+
+<form id="loginForm">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script lang="JS">
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Assuming the endpoint for login is '/api/login'
+    fetch('/api/login', { // Adjust the URL according to the actual API endpoint
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username, password: password }),
+    })
+ .then(response => response.json())
+ .then(data => {
+        if (data.success) {
+            localStorage.setItem('loggedIn', true); // Store login status
+            localStorage.setItem('username', username); // Store username
+            alert("Login successful!");
+            // Optionally, redirect to another page or perform other actions based on successful login
+        } else {
+            alert("Login failed.");
+        }
+    })
+ .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+// Function to check if the user is logged in
+function isLoggedIn() {
+    return localStorage.getItem('loggedIn') === 'true';
+}
+
+// Example usage: You can call this function before showing the login form to check if the user is already logged in
+if (!isLoggedIn()) {
+    document.getElementById('loginForm').style.display = 'block'; // Show the form if the user is not logged in
+} else {
+    alert("You are already logged in."); // Or redirect to another page
+}
+</script>
+</body>
+</html>
