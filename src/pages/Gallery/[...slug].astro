@@ -2,6 +2,7 @@
 
 import Layout from '../../layouts/GlobalHTMLLayout.astro';
 import Top from '../../components/Sections/Top.astro';
+import ControlBar from "./ControlBar.svelte"
 import data from '../../data/gallery.json'
 
 // but look, this is cool
@@ -42,9 +43,7 @@ const { page, images } = Astro.props;
             <button id="closeBtn" style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
-    <nav id="navBar">
-        <a href="/Gallery" class="navBtn">Home</a>
-    </nav>
+    <ControlBar></ControlBar>
 </Layout>
 <script define:vars={{images}}>
 
