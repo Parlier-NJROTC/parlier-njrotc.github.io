@@ -1,8 +1,11 @@
 const { google } = require('googleapis');
-const apiKey = 'redacted';
+// create a new file, name it ".env", Inside type: GOOGLE_API_KEY="Get the api key from the njrotc account"
+// now you can't say I didn't explain
+const dotenv = require('dotenv'); dotenv.config();
 const folderId = '1TbB_56Zx-nkAz5-Q-AAYmXCwEjygCNJh';
-const drive = google.drive({ version: 'v3', auth: apiKey });
+const drive = google.drive({ version: 'v3', auth: process.env.GOOGLE_API_KEY });
 
+const apiKey = process.env.GOOGLE_API_KEY
 const fs = require('fs');
 const path =  require('path');
 
