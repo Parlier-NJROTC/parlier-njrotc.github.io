@@ -1,84 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta charset="UTF-8" />
+		<meta name="description" content="NJRO" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
+        <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
+		<title>Parlier NJROTC | Login</title>
 </head>
 <body>
 
-<h2>Login Form -Demo-</h2>
-
-<form id="loginForm">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
-    <input type="submit" value="Submit">
-</form>
-
-<<<<<<< HEAD
-=======
-
-</body>
->>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
-<script lang="JS">
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Assuming the endpoint for login is '/api/login'
-    fetch('/api/login', { // Adjust the URL according to the actual API endpoint
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username: username, password: password }),
-    })
-<<<<<<< HEAD
- .then(response => response.json())
- .then(data => {
-        if (data.success) {
-            localStorage.setItem('loggedIn', true); // Store login status
-            localStorage.setItem('username', username); // Store username
-            alert("Login successful!");
-            // Optionally, redirect to another page or perform other actions based on successful login
-=======
-   .then(response => response.json())
-   .then(data => {
-        if (data.success) {
-            alert("Login successful!");
-            // Redirect to another page or perform other actions based on successful login
->>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
-        } else {
-            alert("Login failed.");
+<body>
+    <span>
+        <div id="Login">
+            Login
+        </div>
+        <form>
+            <div class="login-form">
+                <div class="input-group">
+                    <label for="username"></label>
+                    <input placeholder="Saul Sanchez" type="text" id="username" name="username" required aria-required="true" class="input-text-large">
+                </div>
+                <div class="input-group password-container">
+                    <label for="password"></label>
+                    <input placeholder="Parlier1" type="password" id="password" name="password" required aria-required="true" class="input-text-large">
+                </div>            
+                <div class="input-group">
+                    <button type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+    </span>
+    </Layout>
+    <style>
+    body {
+        background-image: url('https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/beach-ocean-waves-aerial-view-scenery-4k-wallpaper-uhdpaper.com-562%400%40i.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: linear-gradient(250deg, #105c69, #3c9d9e, #7db5b6, #c8dae5);
+            border-radius: 5px;
+            position: relative;
+            z-index: 1;
+            transition: background 3s ease;
+            border: 5px whitesmoke double;
         }
-    })
-<<<<<<< HEAD
- .catch((error) => {
-=======
-   .catch((error) => {
->>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
-        console.error('Error:', error);
-    });
-});
+        button:hover{
+            background: linear-gradient(300deg, #105c69, #3c9d9e, #7db5b6, #c8dae5);
+        }
+        #Login {
+            position: relative;
+            font-size: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 99;
+            top: 0%;
+            width: 30%;
+        }
 
-<<<<<<< HEAD
-// Function to check if the user is logged in
-function isLoggedIn() {
-    return localStorage.getItem('loggedIn') === 'true';
-}
+        span {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: whitesmoke;
+            z-index: 99;
+            padding: 10px;
+            color: rgb(0, 0, 0);
+            width: 30%;
+            height: 80%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            border-radius: 5px;
+        }
 
-// Example usage: You can call this function before showing the login form to check if the user is already logged in
-if (!isLoggedIn()) {
-    document.getElementById('loginForm').style.display = 'block'; // Show the form if the user is not logged in
-} else {
-    alert("You are already logged in."); // Or redirect to another page
-}
-</script>
+       .login-form {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+
+       .input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+        }
+        
+       .input-group input[type="text"],
+       .input-group input[type="password"] {
+          width: 100%;
+          height: 40px;
+          outline: none; /* Remove default focus border */
+        }
+
+       .input-text-large {
+            font-size: 24px;
+        }
+        /* Ensures the custom focus style is visible against the background */
+       .input-group input[type="text"],
+       .input-group input[type="password"] {
+          background-color: whitesmoke;
+          border: double;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+        }
+    </style>
+
 </body>
-=======
-</script>
->>>>>>> 33609cb264937f19a80da7acdaf27b2fbef8dddf
+
 </html>
