@@ -1,0 +1,64 @@
+
+@height:65px;
+
+#Control-BackPlate{
+    position: relative;
+
+    border-top: 5px solid navy;
+    /* color mixing is a mess */
+    border-image: linear-gradient(to right,navy,navy,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,cyan,gold,gold) 100% 0;
+
+    display: flex;
+    justify-content: center;
+
+    height: @height*1.5;
+    width: 100vw;
+
+    margin-top: @height;
+
+    background-color: black;
+}
+
+#ControlBar{
+    position: absolute;
+    top: calc( -@height / 2);
+
+    display: flex;
+    align-items: center;
+
+
+    border: 2px solid;
+    border-image: linear-gradient(95deg,rgb(114, 239, 255), rgb(52, 72, 255)) 100% 0 100% 0/2px 0 2px 0;
+    border-radius: 5px;
+
+    width: 80vw;
+    height: @height;
+
+    overflow-x: scroll;
+
+    background-color: #333333;
+
+    @box-size:@height*0.5;
+
+    a{
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 15px;
+
+        padding: 14px;
+        padding-inline: 24px;
+
+        margin-inline: 16px;
+
+        font-size: @height*0.30;
+
+        color: white;
+        background-color: black;
+
+        text-decoration: none;
+    }
+}

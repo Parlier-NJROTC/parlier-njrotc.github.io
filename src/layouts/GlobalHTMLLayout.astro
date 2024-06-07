@@ -9,7 +9,8 @@ const { frontmatter , name = frontmatter.name  } = Astro.props;
 import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
-import Loading from '../components/Required/Loading.astro'
+// disable the loading page in development if u want
+//import Loading from '../components/Required/Loading.astro'
 ---
 
 <!-- Default layout for all .md files -->
@@ -52,7 +53,7 @@ import Loading from '../components/Required/Loading.astro'
         </style>
         <Header></Header>
         <Menus></Menus>
-        <Loading></Loading>
+        <!-- <Loading></Loading> -->
         <slot></slot>
         <Footer></Footer>
         
