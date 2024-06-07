@@ -1,50 +1,54 @@
 ---
-    import Top from "../../components/Sections/Top.astro";
-    import Layout from "../../layouts/GlobalHTMLLayout.astro";
-    import ControlBar from "../../components/ControlBar/ControlBar.svelte"
-    //import data from '../../data/gallery.json'
+import Top from "../../components/Sections/Top.astro";
+import Layout from "../../layouts/GlobalHTMLLayout.astro";
+import ControlBar from "../../components/ControlBar/ControlBar.svelte";
+// import data from '../../data/gallery.json' // Uncomment if you plan to use this data
 ---
 
-<Layout name="hi">
+<Layout name="Gallery Home">
     <Top image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg">
         <h1><u>Photo Gallery</u></h1>
         <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;">
-            Welcome to the Gallary, our masive picture collection. Here is where our pictures are stored
+            Welcome to the Gallery, our massive picture collection. Here is where our pictures are stored.
         </div>
     </Top>
     <h1 style="color: black;">Instructions</h1>
     <ul style="color: black;">
+        <li>
+            <div class="container" style="display: flex; align-items: left;">
+                <button class="btn" onclick="displayRoutine()">How do I Send NJROTC Photos?</button>
+                </li>
+                <div class="Gif">
+                    <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
+                </div>
+            </div>
         <li style="color: black;">Navigate through pages to see different images</li>
         <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif">
         <li></li>
     </ul>
     <ControlBar></ControlBar>
-    <!-- </ControlBar>
-    <nav id="navBar">
-        <a href="/Gallery" class="navBtn">Home</a>
-    </nav>-->
 </Layout>
-<!-- 
-<script define:vars={{data}}>
-        for(let i=0;i<data.length;i++){
-        let button = document.createElement("a")
-        button.innerText = data[i].page
-        button.href = `/Gallery/Page-${data[i].page}`
-        button.className = "navBtn"
-        
-        // I could have applied a class, but that doesn't work in astro
-        // Astro isolates styles, elements made in js arn't part of that isolation
-        // So even if I where to apply the class name, it won't work
-        button.style.fontFamily = 'Times'
-        button.style.backgroundColor = "rgb(0, 0, 151)"
-        button.style.borderRadius = "5px"
 
-        button.style.display = "flex"
-        button.style.justifyContent = "center"
-        button.style.alignItems = "center"
+<style>
+  .container{
+      justify-content: flex-start; 
+      cursor: help;
+    }
+  .btn{
+      color:black;
+      font-size: 17px;
+      background: none;
+      border: none;
+      cursor: help;
+    }
+  .Gif {
+      display: none;
+    }
+</style>
 
-
-        document.getElementById("navBar").appendChild(button)
+<script lang="JS">
+    function displayRoutine() {
+      const gifElement = document.querySelector('.Gif');
+      gifElement.style.display = 'block';
     }
 </script>
--->
