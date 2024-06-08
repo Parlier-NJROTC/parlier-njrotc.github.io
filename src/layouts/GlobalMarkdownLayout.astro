@@ -14,6 +14,8 @@ import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
 import Top from '../components/Sections/Top.astro';
+// Disable the loading page if your Are developing, If You want
+import Loading from '../components/Required/Loading.astro';
 ---
 
 <!-- Default layout for all .md files -->
@@ -31,6 +33,7 @@ import Top from '../components/Sections/Top.astro';
     <body style="margin:0px;">
         <Header></Header>
         <Menus></Menus>
+        <Loading></Loading>
         <Top backgroundColor={bgColor}>
             <h1 id="TopTitle">{frontmatter.title}</h1>
         </Top>

@@ -8,6 +8,8 @@ const { frontmatter, name = frontmatter.name } = Astro.props;
 import Header from "../components/Required/Header.astro";
 import Menus from "../components/Required/menus/Menus.astro";
 import Footer from "../components/Required/Footer.astro";
+// Disable the loading page if your Are developing, If You want
+import Loading from '../components/Required/Loading.astro';
 ---
 
 <!-- Default layout for all .md files --><!doctype html>
@@ -26,6 +28,7 @@ import Footer from "../components/Required/Footer.astro";
     <body style="margin:0px; overflow-x:hidden;">
         <Header />
         <Menus />
+        <Loading></Loading>
         <div id="tabs">
             <slot />
         </div>
