@@ -20,7 +20,11 @@
         </div>
         
     </Top>
-    
+    <div style="background-color: azure;" id="DashBoard">
+        <Title title="DashBoard"></Title> 
+        <br>
+        <button class="DashBoard"><a>Login</a></button>
+    </div>
     <Title title='About The Unit' backgroundColor={SectionColor} color='White' decor="underline"></Title>
     <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cheif%20Killian%20%26%20Cadet%20Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
         Led by retired Navy personnel the Parlier High School Navy Junior Reserve Officer Training Corps or NJROTC was established in 1995. Our goal is to mold our students into better citizens by teaching them real-life skills for a better future. Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence, Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching. 
@@ -68,4 +72,66 @@
     border-right: none;
     z-index: 1;
 }
+#DashBoard{
+    font-size: 3vmin;
+    padding: 20px;
+    text-align: center;
+    border: solid 10px;
+    border-left: none;
+    border-right: none;
+    z-index: -1;
+}
+.DashBoard {
+  font-family: "Josefin sans";
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: grab;
+  position: relative;
+  background-color: #000050;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index:2;
+}
+
+.DashBoard:after {
+  content: "";
+  border: 1px solid #000050 ;
+  background-color: #000080;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.DashBoard:hover:after {
+  border: none;
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .DashBoard {
+    padding: 13px 50px 13px;
+  }
+}
 </style>
+<script lang="JS">
+const dashBoards = document.querySelectorAll('.DashBoard');
+dashBoards.forEach(dashboard => {
+  dashboard.addEventListener('mousedown', function() {
+    this.style.cursor = 'not-allowed';
+  });
+
+  dashboard.addEventListener('mouseup', function() {
+    this.style.cursor = 'grab';
+  });
+});
+</script>
