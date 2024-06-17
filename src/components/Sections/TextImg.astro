@@ -51,6 +51,16 @@ const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt
         order: var(--order);
     }
 
+    img {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+        -ms-user-drag: none;
+    }
+
     @media (orientation: portrait) {
         div{
             grid-template-columns: 1fr;

@@ -35,6 +35,8 @@
     height: @height;
 
     overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     background-color: #333333;
 
@@ -61,4 +63,7 @@
 
         text-decoration: none;
     }
+    #ControlBar::-webkit-scrollbar{
+        height: 0px;
+    } 
 }

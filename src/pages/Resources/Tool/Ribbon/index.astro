@@ -173,6 +173,8 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
       <div class="ribbon-rack"></div>
     </div>
     <hr>
+  </div>
+</Layout>
 
     <style>
       body * {
@@ -228,7 +230,7 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
   display: block;
 }
 
-/* Style the checkmark/indicator */
+
 .checkbox.checkmark:after {
   left: 9px;
   top: 5px;
@@ -246,6 +248,10 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
         width: 100%;
         margin: 0;
         height: 100vw;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
       }
       .ribbon-option {
         display: flex;
@@ -257,6 +263,9 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
         background-color: #f2f2f2;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
       }
       .ribbon-option img {
         width: 100%;
@@ -355,6 +364,16 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
        object-position: center;
        margin: 5px;
       }
+      body {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+        -ms-user-drag: none;
+    }
+
     </style>
     
     <script lang="js">

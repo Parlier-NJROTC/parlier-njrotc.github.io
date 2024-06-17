@@ -51,6 +51,10 @@ import Mode from "./Mode.astro";
         border-left: 1px solid white;
         z-index: 99;
         
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
     #box {
@@ -81,6 +85,11 @@ import Mode from "./Mode.astro";
         overflow-y: scroll;
 
         height: calc(100vh - 130px);
+
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
     a {
