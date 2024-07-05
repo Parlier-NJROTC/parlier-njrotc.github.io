@@ -91,16 +91,18 @@
 
 
 .DashBoard {
-  font-family: "Josefin sans";
+  font-family: Gill Sans MT, Gill Sans, Trebuchet MS, sans-serif;
   font-size: 16px;
   font-weight: 200;
   letter-spacing: 1px;
+
   padding: 13px 20px 13px;
   outline: 0;
   border: 1px solid black;
-  cursor: grab;
   position: relative;
   background-color: #000050;
+
+  cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -125,6 +127,9 @@
   top: 0px;
   left: 0px;
 }
+.DashBoard:active{
+  cursor: no-drop;
+}
 
 @media (min-width: 768px) {
   .DashBoard {
@@ -132,15 +137,3 @@
   }
 }
 </style>
-<script lang="JS">
-const dashBoards = document.querySelectorAll('.DashBoard');
-dashBoards.forEach(dashboard => {
-  dashboard.addEventListener('mousedown', function() {
-    this.style.cursor = 'not-allowed';
-  });
-
-  dashboard.addEventListener('mouseup', function() {
-    this.style.cursor = 'grab';
-  });
-});
-</script>
