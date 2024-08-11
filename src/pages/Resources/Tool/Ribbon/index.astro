@@ -327,19 +327,19 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
         border-left:none;
       }
       .ribbon-rack {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Centers the items horizontally */
-        gap: 0px; /* Adjusts the space between items */
-        max-width: 350px; /* Limits the width of the rack */
-        margin: 0 auto; /* Centers the rack horizontally */
-        transition: ease 5s;
-      }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the items horizontally */
+    gap: 20px; /* Adjusted space between items for better visual separation */
+    max-width: 350px; /* Limits the width of the rack */
+    margin: 0 auto; /* Centers the rack horizontally */
+    transition: ease 5s;
+}
 
-      .ribbon-rack img {
-        max-width: 100px; /* Adjusts the maximum width of the ribbon images */
-        height: auto; /* Maintains aspect ratio */
-      }
+.ribbon-rack img {
+    max-width: 100px; /* Adjusts the maximum width of the ribbon images */
+    height: auto; /* Maintains aspect ratio */
+}
 
       #centered-box {
        position: fixed;
@@ -425,6 +425,7 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
         if (checkedCount > 0) {
           centeredBox.style.transform = 'translate(0, -50%)';
           console.log("More than one checkbox is checked.");
+          alert("THIS IS A DEMO DO NOT FULLY USE THIS A GUIDE TO BUILD YOUR RIBBON RACK. RIGHT NOW IT ONLY SHOWS THE RIGHT RIBBON ORDER");
         } else {
           centeredBox.style.transform = 'translate(100%, -50%)';
           console.log("One or no checkboxes are checked.");
@@ -438,7 +439,6 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
           ribbonOption.classList.remove('checked');
         }
       });
-
 
     </script>
 
