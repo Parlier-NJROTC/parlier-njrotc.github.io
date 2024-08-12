@@ -5,11 +5,11 @@ interface Props {
     desc?:string;
     backgroundColor?:string;
     align?:string;
-    imagePos?:string;
+    /*imagePos?:string; Read Line56*/
     
 }
 
-const { image, altTxt , desc , backgroundColor = "white", align = "center", imagePos = "50% 50%"} = Astro.props
+const { image, altTxt , desc , backgroundColor = "white", align = "center", /*imagePos = "50% 50%" Read Line56*/} = Astro.props
 
 
 ---
@@ -21,7 +21,7 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center", imag
     </span>
 </div>
 
-<style define:vars={{align,backgroundColor,imagePos}}>
+<style define:vars={{align,backgroundColor,/*imagePos Read Line56*/}}>
     div{
         display: flex; 
         box-sizing: border-box;
@@ -30,7 +30,7 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center", imag
         position: relative;
         padding-inline: 5vw;
         height: 600px;
-        background-color: var(--backgroundColor);
+        /*background-color: var(--backgroundColor); Will this Break Something? */
         border-block: 1px solid black;
 
         user-select: none;
@@ -45,7 +45,7 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center", imag
         z-index: 1;
     }
     img{
-        position: absolute;
+        position: fixed;
         top: 0px;
         left: 0px;
         
@@ -53,9 +53,9 @@ const { image, altTxt , desc , backgroundColor = "white", align = "center", imag
         height: 100%;
         image-rendering: optimizeSpeed;
         object-fit: cover;
-        object-position: var(--imagePos);
+        /*object-position: var(--imagePos); Tempily disabling this Cuz I Think it Useless -Saul */
 
-        z-index: 0;
+        z-index: -1;
     }
 
     img {
