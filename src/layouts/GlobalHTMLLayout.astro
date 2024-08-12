@@ -31,6 +31,27 @@ import Loading from '../components/Required/Loading.astro'
                 color: white;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }
+                        /* ===== Scrollbar CSS ===== */
+            /* Firefox */
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: #000080 #ffffff;
+            }
+
+            /* Chrome, Edge, and Safari */
+            *::-webkit-scrollbar {
+                width: 16px;
+            }
+
+            *::-webkit-scrollbar-track {
+                background: none;
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background-color: #000080;
+                border-radius: 15px;
+                border: 3px double #ffffff;
+            }
             .page-title{
                 display: none;
             }
