@@ -12,6 +12,7 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
             Welcome to the Gallery, our massive picture collection. Here is where our pictures are stored.
         </div>
     </Top>
+    <div class="eyehurts"/>
     <h1 style="color: black;">Instructions</h1>
     <ul style="color: black;">
         <li>
@@ -22,24 +23,37 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
                     <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
                 </div>
             </div>
-        <li style="color: black;">Navigate through pages to see different images</li>
-        <li style="color: black;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
+        <li style="color: black; padding-left: 6px;">Navigate through pages to see different images</li>
+        <li style="color: black; padding-left: 6px;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
         <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif">
-        <li></li>
     </ul>
     <ControlBar></ControlBar>
 </Layout>
 
-<style>
+<style>  
+    li{
+        color: #000;
+        font-size: 18px;
+        
+    }
+    .eyehurts{
+        width: 100%;
+        height: 80%;
+        z-index: -1;
+        position: absolute;
+        
+        background-color: white;
+    }
   .container{
       justify-content: flex-start; 
       cursor: help;
+      
     }
   .btn{
       position: relative;
       left: 0px;
       color:rgb(0, 0, 255);
-      font-size: 15px;
+      font-size: 18px;
       background: none;
       border: none;
       cursor: help;

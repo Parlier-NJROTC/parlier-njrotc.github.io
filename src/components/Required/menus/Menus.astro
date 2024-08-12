@@ -50,6 +50,9 @@ import Mode from "./Mode.astro";
         right: 0px;
         border-left: 1px solid white;
         z-index: 99;
+
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
         
         user-select: none;
         -moz-user-select: none;
@@ -90,6 +93,8 @@ import Mode from "./Mode.astro";
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 
     a {
