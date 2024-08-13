@@ -1,31 +1,38 @@
 ---
-    import Layout from "../../layouts/GlobalHTMLLayout.astro";
-    import Top from "../../components/Sections/Top.astro";
+import Layout from "../../layouts/GlobalHTMLLayout.astro";
+import Top from "../../components/Sections/Top.astro";
 ---
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Foldit:wght@100..900&family=Matemasie&family=Sankofa+Display&display=swap" rel="stylesheet">
+</head>
+
 <Layout name="Credits">
     <Top image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg">
         <h1>Website Credit</h1>
-        <p>Welcome to the Wedsite Credit page! Here, you'll see the Wedsite Credits</p>
+        <p>Welcome to the Website Credit page! Here, you'll see the Website Credits</p>
     </Top>
-      <div id="subjects">
+    <div id="subjects">
         <div class="subject">
-            <h2 style=" color: black;">Credits</h2>
+            <h2 id="credits" style="max-height:10px;color: black;">Credits</h2>
                 <hr>
         </div>
     </div> 
-      <!--Names-->
-      <p>
+    <div class="eyehurts"></div>
+    <!-- Names -->
+    <p>
         <div style="text-align:center">
           <div class="subject">
-      <a id="Ibarra" >Cadet Ibarra - First Programer</a><br> 
-      <a id="Sanchez">Cadet Sanchez - Second Programer</a><br>
-      <a id="Pena">Cadet Pena - Thrid Programmer</a><br>
-      <a id="Hernandez">Cadent Hernandez - Thanks for the color pallette insparation</a><br>
-      <a id="Espinosa">Cadent Espinosa - Thanks for making the blookets</a><br>
-        </div>
-    </p>
+              <a id="Ibarra">Cadet Ibarra - First Programmer</a><br> 
+              <a id="Sanchez">Cadet Sanchez - Second Programmer</a><br>
+              <a id="Pena">Cadet Pena - Third Programmer</a><br>
+              <a id="Hernandez">Cadet Hernandez - Thanks for the color palette inspiration</a><br>
+              <a id="Espinosa">Cadet Espinosa - Thanks for making the booklets</a><br>
+          </div>
+      </p>
 </Layout>
-
 
 <script>
     let ibarraClicks = 0;
@@ -44,95 +51,139 @@
         window.location.href = '/Credits/secit/';
       }
     });
-    </script>
 
+    const fonts = ['Sankofa Display', 'Matemasie', 'Foldit', 'Edu VIC WA NT Beginner', 'Bebas Neue'];
+
+    function setRandomFont(elementId, fonts) {
+        const element = document.getElementById(elementId);
+        const randomIndex = Math.floor(Math.random() * fonts.length);
+        element.style.fontFamily = fonts[randomIndex];
+    }
+
+    window.onload = function() {
+        setRandomFont('credits', fonts);
+    };
+
+    setInterval(function() {
+        setRandomFont('credits', fonts);
+    }, 1000);
+</script>
 <style>
+    body {
+        margin: 0;
+    }
 
-body {
-    margin: 0;
-}
+    #title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        background-repeat: no-repeat, repeat;
+        background-size: cover;
+        height:300px;
+    }
 
-#title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-repeat: no-repeat, repeat;
-    background-size: cover;
-    height:300px;
-}
+    #title h1 {
+        font-family: 'Josefin sans';
+        font-size: 36px; 
+        padding-block: 10px;
+        color: whitesmoke;
+        text-decoration: underline;
+    }
 
-#title h1 {
-    font-family: 'Josefin sans';
-    font-size: 36px; 
-    padding-block: 10px;
-    color: whitesmoke;
-    text-decoration: underline;
+    #title p {
+        width: 90vw;
+        background-color: navy;
+        color: white;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
+        padding-inline: 5vw;
+        padding-block: 2vh;
+    }
 
-}
+    #extraStuff {
+        width: 100vw;
+        background-color: azure;
+        text-align: center;
+    }
 
-#title p {
-    width: 90vw;
-    background-color: navy;
-    color: white;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    box-sizing: border-box;
-    padding-inline: 5vw;
-    padding-block: 2vh;
-}
+    #subjects {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Josefin sans';
+        padding-block: 2vh;
+        background-color: azure;
+    }
 
-#extraStuff {
-    width: 100vw;
-    background-color: azure;
-    text-align: center;
-}
+    .subject {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2vh;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-#subjects {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Josefin sans';
-    padding-block: 2vh;
-    background-color: azure;
-}
+    .subject a::before,
+    .subject a::after {
+        content: "";
+        position: relative;
+        opacity: 0;
+        transition: opacity 150ms 0;
+    }
 
-.subject {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 2vh;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    .subject a::before {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
 
-}
+    .subject a::after {
+        bottom: 50%;
+        right: 0;
+        transform: translateY(50%);
+    }
 
-.subject a {
-    color: #000000;
-    padding: 1vh;
-    border-radius: 1vmin;
-    transition: background-color 250ms;
-    width: 35vw; /* responsive width */
-}
+    .subject a:hover::before,
+    .subject a:hover::after {
+        content: " ❤ ";
+        opacity: 1;
+    }
 
-.subject hr {
-    width: 80%;
-}
-.subject a:hover {
-    transform: scale(1.2);
-background-color: #b8b8b8;
-  }
+    .subject a {
+        color: #000000;
+        padding: 1vh;
+        border-radius: 1vmin;
+        transition:  250ms;
+        width: 35vw; 
+    }
 
-ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: 3vh;
-    text-align: left;
-}
+    .subject a:hover {
+        transform: scale(1.8);
+        background-color: #b8b8b8;
+    }
+    .subject hr {
+        width: 80%;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        text-align: left;
+    }
+    .eyehurts{
+        width: 100%;
+        height: 80%;
+        z-index: -1;
+        position: absolute;
+        background-color: white;
+    }
 </style>
