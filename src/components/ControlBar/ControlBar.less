@@ -36,7 +36,8 @@
 
     overflow-x: scroll;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-color: #ffffff #ffffff;
+
 
     background-color: #333333;
 
@@ -65,5 +66,18 @@
     }
     #ControlBar::-webkit-scrollbar{
         height: 0px;
+        width: 0px;
     } 
+    #ControlBar::-webkit-scrollbar-thumb {
+        background-color: #ffffff;
+        border-radius: 0px;
+        border: 0px none #ffffff;
+    }
+    #ControlBar::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+    #ControlBar{
+        scrollbar-width: none;
+        scrollbar-color: #ffffff #ffffff;
+    }
 }
