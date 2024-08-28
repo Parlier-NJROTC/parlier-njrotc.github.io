@@ -37,8 +37,9 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
         
     }
     .eyehurts{
+        overflow-y: hidden;
         width: 100%;
-        height: 80%;
+        height: 130%;
         z-index: -1;
         position: absolute;
         
@@ -60,25 +61,6 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
     }
   .Gif {
       display: none;
-    }
-    ControlBar{
-    scrollbar-width: none;
-    scrollbar-color: #ffffff #ffffff;
-  }
-
-    /* Chrome, Edge, and Safari */
-    ControlBar::-webkit-scrollbar {
-        width: 0px;
-    }
-
-    ControlBar::-webkit-scrollbar-track {
-        background: #ffffff;
-    }
-
-    ControlBar::-webkit-scrollbar-thumb {
-        background-color: #ffffff;
-        border-radius: 0px;
-        border: 0px none #ffffff;
     }
 </style>
 

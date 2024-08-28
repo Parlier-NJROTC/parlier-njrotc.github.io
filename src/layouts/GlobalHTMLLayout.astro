@@ -33,21 +33,21 @@ import Loading from '../components/Required/Loading.astro'
             }
             /* ===== Scrollbar CSS ===== */
             /* Firefox */
-            * {
+            body {
                 scrollbar-width: thin;
                 scrollbar-color: #000080 #fcfcfc;
             }
 
             /* Chrome, Edge, and Safari */
-            *::-webkit-scrollbar {
+            body::-webkit-scrollbar {
                 width: 5px;
             }
 
-            *::-webkit-scrollbar-track {
+            body::-webkit-scrollbar-track {
                 background: #fcfcfc;
             }
 
-            *::-webkit-scrollbar-thumb {
+            body::-webkit-scrollbar-thumb {
                 background-color: #000080;
                 border-radius: 2px;
                 border: 5px none #000050;
