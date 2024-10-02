@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
+import Boxess from "../../../../components/Sections/Ribbon.astro"
 
 ---
 
@@ -10,162 +11,33 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
   <hr>
   <div id="ribbon-selection">
     <div class="ribbon-selection"
-      style="border: 1px solid rgb(255, 255, 255);border-left: none;border-right:none;width: 50%;margin: 0;height: 100%;border-width:100%;">
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/meritorious_achievement_ribbon.png" alt="Ribbon 14">
-        <label for="ribbon14">Meritorious Achievement Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon14" name="ribbon14">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_unit_ribbon.png" alt="Ribbon 8">
-        <label for="ribbon8">Distinguished unit Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon8" name="ribbon8">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_cadet_ribbon.png" alt="Ribbon 7">
-        <label for="ribbon7">Distinguished Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon7" name="ribbon7">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/honor_cadet_ribbon.png" alt="Ribbon 12">
-        <label for="ribbon12">Honor Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon12" name="ribbon12">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/cadet_achievement_ribbon.png" alt="Ribbon 4">
-        <label for="ribbon4">Cadet Achievement Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon4" name="ribbon4">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/unit_achievement_ribbon.png" alt="Ribbon 25">
-        <label for="ribbon25">Unit Achievement Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon25" name="ribbon25">
-      </div>
-      
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/aptitude_ribbon.png" alt="Ribbon 2">
-        <label for="ribbon2">Aptitude Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon2" name="ribbon2">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_iv_outstanding_cadet_ribbon.png" alt="Ribbon 18">
-        <label for="ribbon18">Naval Science IV Outstanding Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon18" name="ribbon18">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_iii_outstanding_cadet_ribbon.png" alt="Ribbon 17">
-        <label for="ribbon17">Naval Science III Outstanding Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon17" name="ribbon17">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_ii_outstanding_cadet_ribbon.png" alt="Ribbon 16">
-        <label for="ribbon16">Naval Science II Outstanding Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon16" name="ribbon16">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_i_outstanding_cadet_ribbon.png" alt="Ribbon 15">
-        <label for="ribbon15">Naval Science I Outstanding Cadet Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon15" name="ribbon15">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/exemplary_conduct_ribbon.png" alt="Ribbon 10">
-        <label for="ribbon10">Exemplary Conduct Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon10" name="ribbon10">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/exemplary_personal_appearance_ribbon.png" alt="Ribbon 11">
-        <label for="ribbon11">Exemplary Personal Appearance Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon11" name="ribbon11">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/physical_fitness_ribbon.png" alt="Ribbon 21">
-        <label for="ribbon21">Physical Fitness Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon21" name="ribbon21">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/participation_ribbon.png" alt="Ribbon 20">
-        <label for="ribbon20">Participation Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon20" name="ribbon20">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/unit_service_ribbon.png" alt="Ribbon 26">
-        <label for="ribbon26">Unit Service Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon26" name="ribbon26">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/community_service_ribbon.png" alt="Ribbon 6">
-        <label for="ribbon6">Community Service Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon6" name="ribbon6">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/academic_award_ribbon.png" alt="Ribbon 1">
-        <label for="ribbon1">Academic Award Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon1" name="ribbon1">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/drill_team_ribbon.png" alt="Ribbon 9">
-        <label for="ribbon9">Drill Team Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon9" name="ribbon9">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/color_guard_ribbon.png" alt="Ribbon 5">
-        <label for="ribbon5">Color Guard Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon5" name="ribbon5">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/rifle_team_ribbon.png" alt="Ribbon 23">
-        <label for="ribbon23">Rifle Team Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon23" name="ribbon23">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/orienteering_ribbon.png" alt="Ribbon 19">
-        <label for="ribbon19">Orienteering Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon19" name="ribbon19">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/inter_service_competition_ribbon.png" alt="Ribbon 13">
-        <label for="ribbon13">Inter Service Competition Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon13" name="ribbon13">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/recruiting_ribbon.png" alt="Ribbon 22">
-        <label for="ribbon22">Recruiting Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon22" name="ribbon22">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/basic_leadership_training_ribbon.png" alt="Ribbon 3">
-        <label for="ribbon3">Basic Leadership Training Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon3" name="ribbon3">
-      </div>
-
-      <div class="ribbon-option">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/sea_cruise_ribbon.png" alt="Ribbon 24">
-        <label for="ribbon24">Sea Cruise Ribbon</label>
-        <input type="checkbox" class="checkSwitch" id="ribbon24" name="ribbon24">
-      </div>
+      style="border: 1px solid rgb(255, 255, 255);border-left: none;border-right:none;width: 50%;margin: 0;height: 100%;border-width:100%;display: flex;flex-wrap: wrap;">
+      <Boxess numberR="ribbon1" namelink="Meritorious Achievement Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/meritorious_achievement_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon2" namelink="Distinguished Unit Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_unit_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon3" namelink="Distinguished Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon4" namelink="Honor Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/honor_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon5" namelink="Cadet Achievement Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/cadet_achievement_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon6" namelink="Unit Achievement Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/unit_achievement_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon7" namelink="Aptitude Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/aptitude_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon8" namelink="Naval Science IV Outstanding Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_iv_outstanding_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon9" namelink="Naval Science III Outstanding Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_iii_outstanding_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon10" namelink="Naval Science II Outstanding Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_ii_outstanding_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon11" namelink="Naval Science I Outstanding Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/naval_science_i_outstanding_cadet_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon12" namelink="Exemplary Conduct Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/exemplary_conduct_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon13" namelink="Exemplary Personal Appearance Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/exemplary_personal_appearance_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon14" namelink="Physical Fitness Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/physical_fitness_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon15" namelink="Participation Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/participation_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon16" namelink="Unit Service Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/unit_service_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon17" namelink="Community Service Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/community_service_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon18" namelink="Academic Award Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/academic_award_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon19" namelink="Drill Team Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/drill_team_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon20" namelink="Color Guard Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/color_guard_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon21" namelink="Rifle Team Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/rifle_team_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon22" namelink="Orienteering Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/orienteering_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon23" namelink="Inter Service Competition Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/inter_service_competition_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon24" namelink="Recruiting Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/recruiting_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon25" namelink="Basic Leadership Training Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/basic_leadership_training_ribbon.png"></Boxess>
+      <Boxess numberR="ribbon26" namelink="Sea Cruise Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/sea_cruise_ribbon.png"></Boxess>
 
       <!-- Add more ribbons as needed -->
     </div>
@@ -182,124 +54,7 @@ import Layout from "../../../../layouts/GlobalHTMLLayout.astro";
         color: black;
         text-align: center;
       }
-.checkbox input {
-  height: 0;
-  width: 0;
-  opacity: 0;
-  cursor: cell;
-}
 
-.checkbox {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  font-size: 22px;
-  user-select: none;
-}
-
-.checkbox.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border: 1px solid #ddd;
-}
-
-.checkbox:hover input ~.checkmark {
-  background-color: #ccc;
-}
-
-.checkbox input:checked ~.checkmark {
-  background-color: #2196F3;
-}
-
-
-.checkbox.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-
-.checkbox input:checked ~.checkmark:after {
-  display: block;
-}
-
-
-.checkbox.checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-      .ribbon-selection {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -10px;
-        width: 100%;
-        margin: 0;
-        height: 100vw;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-      }
-      .ribbon-option {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: calc(33.333% - 20px);
-        margin: 10px;
-        padding: 10px;
-        background-color: #f2f2f2;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-      }
-      .ribbon-option img {
-        width: 100%;
-        max-width: 100px;
-        margin-bottom: 10px;
-      }
-      .ribbon-option button {
-        font-size: 15px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 5px;
-      }
-      .ribbon-option:hover {
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      }
-      .ribbon-option input[type="checkbox"] {
-        margin-bottom: 10px;
-      }
-      input[type="submit"], input[type="reset"] {
-       border: 1px solid #AAA;
-       border-radius: 3px;
-        color: #FFF;
-      padding : 2px;
-      font-weight : bold;
-      font-size : 18px;
-      background-image: linear-gradient(to bottom, #3BA3FF 0%, #173DBD 100%);
-      }
-      input[type="submit"]:hover, input[type="reset"]:hover {
-       border: 1px solid #FF0000;
-       border-radius: 3px;
-        color: #FF0000;
-      padding : 2px;
-      font-weight : bold;
-      font-size : 18px;
-      background-image: linear-gradient(to top, #3BA3FF 0%, #173DBD 100%);
-      }
       .box-text{
         position: absolute;
         width: 90%;
