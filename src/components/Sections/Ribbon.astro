@@ -2,7 +2,7 @@
 interface Props {
     rlink:string;
     namelink:string;
-    numberR:string;
+    numberR:string
 }
 const {rlink , namelink , numberR}= Astro.props
 ---
@@ -14,11 +14,11 @@ const {rlink , namelink , numberR}= Astro.props
   </div>
 
 <style>
-    body * {
-        color: black;
-        text-align: center;
-      }
-    .checkbox input {
+body * {
+    color: black;
+    text-align: center;
+}
+.checkbox input {
   height: 0;
   width: 0;
   opacity: 0;
@@ -86,6 +86,8 @@ const {rlink , namelink , numberR}= Astro.props
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+
+        background-color: white;
       }
       .ribbon-option {
         display: flex;

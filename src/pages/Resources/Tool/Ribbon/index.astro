@@ -8,8 +8,8 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
 <Layout name="Ribbon Rack Builder">
   <h1 style="color: black;">  <img src="/NJROTC-Seal.svg" style="width: 50px;  margin: -9px;"> NJROTC Ribbon Rack Builder  <img src="/NJROTC-Seal.svg" style="width: 50px; margin: -9px;"></h1>
   <h2 style="color: black;"><div>AD FREE RIBBON RACK BUILDER</h2>
-  <hr>
-  <div id="ribbon-selection">
+  <hr style="background: white;">
+  <div id="ribbon-selection" style="background: white;">
     <div class="ribbon-selection"
       style="border: 1px solid rgb(255, 255, 255);border-left: none;border-right:none;width: 50%;margin: 0;height: 100%;border-width:100%;display: flex;flex-wrap: wrap;">
       <Boxess numberR="ribbon1" namelink="Meritorious Achievement Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/meritorious_achievement_ribbon.png"></Boxess>
@@ -38,7 +38,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
       <Boxess numberR="ribbon24" namelink="Recruiting Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/recruiting_ribbon.png"></Boxess>
       <Boxess numberR="ribbon25" namelink="Basic Leadership Training Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/basic_leadership_training_ribbon.png"></Boxess>
       <Boxess numberR="ribbon26" namelink="Sea Cruise Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/sea_cruise_ribbon.png"></Boxess>
-
       <!-- Add more ribbons as needed -->
     </div>
     <div class="none" id="centered-box" >
@@ -103,8 +102,14 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
        right: 0%;
        width: 40%;
        height: 300px;
-       background-color: #f2f2f2;
-       border: 2px solid gray;
+       
+       box-shadow: 0 0 1rem #0003;
+       background-color: #ffffff26;
+       backdrop-filter: blur(5px);
+       border-radius: 10px;
+
+       border:solid 5px #ffffff26;
+
        display: flex;
        justify-content: center;
        align-items: center;
@@ -129,7 +134,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
       const ribbonSelection = document.querySelector('.ribbon-selection');
       const ribbonRack = document.querySelector('.ribbon-rack');
       const selectedRibbons = new Set();
-      const displayOrder = ['Meritorious Achievement Ribbon', 'Distinguished unit Ribbon', 'Distinguished Cadet Ribbon', 'Honor Cadet Ribbon', 'Cadet Achievement Ribbon', 'Unit Achievement Ribbon', 'Aptitude Ribbon', 'Naval Science IV Outstanding Cadet Ribbon', 'Naval Science III Outstanding Cadet Ribbon', 'Naval Science II Outstanding Cadet Ribbon', 'Naval Science I Outstanding Cadet Ribbon', 'Exemplary Conduct Ribbon', 'Exemplary Personal Appearance Ribbon', 'Physical Fitness Ribbon', 'Participation Ribbon', 'Unit Service Ribbon', 'Community Service Ribbon', 'Academic Award Ribbon', 'Drill Team Ribbon', 'Color Guard Ribbon', 'Rifle Team Ribbon', 'Orienteering Ribbon', 'Inter Service Competition Ribbon', 'Recruiting Ribbon', 'Basic Leadership Training Ribbon', 'Sea Cruise Ribbon']; // Define the display order here
+      const displayOrder = ['Meritorious Achievement Ribbon', 'Distinguished Unit Ribbon', 'Distinguished Cadet Ribbon', 'Honor Cadet Ribbon', 'Cadet Achievement Ribbon', 'Unit Achievement Ribbon', 'Aptitude Ribbon', 'Naval Science IV Outstanding Cadet Ribbon', 'Naval Science III Outstanding Cadet Ribbon', 'Naval Science II Outstanding Cadet Ribbon', 'Naval Science I Outstanding Cadet Ribbon', 'Exemplary Conduct Ribbon', 'Exemplary Personal Appearance Ribbon', 'Physical Fitness Ribbon', 'Participation Ribbon', 'Unit Service Ribbon', 'Community Service Ribbon', 'Academic Award Ribbon', 'Drill Team Ribbon', 'Color Guard Ribbon', 'Rifle Team Ribbon', 'Orienteering Ribbon', 'Inter Service Competition Ribbon', 'Recruiting Ribbon', 'Basic Leadership Training Ribbon', 'Sea Cruise Ribbon']; // Define the display order here
 
       ribbonSelection.addEventListener('change', (event) => {
         const ribbon = event.target.closest('.ribbon-option');
