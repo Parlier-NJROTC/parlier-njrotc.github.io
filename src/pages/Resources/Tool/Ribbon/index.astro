@@ -144,7 +144,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
           if (!selectedRibbons.has(ribbonImage.src)) {
             const newRibbonImage = document.createElement('img');
             newRibbonImage.src = ribbonImage.src;
-            newRibbonImage.style = "transform: rotate(180deg)"
+            newRibbonImage.style = "transform: rotate(180deg);user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; -webkit-user-drag: none; -moz-user-drag: none; -ms-user-drag: none;"
             newRibbonImage.alt = ribbon.querySelector('label').textContent;
             selectedRibbons.add(ribbonImage.src);
 
@@ -160,8 +160,8 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
           if (selectedRibbons.has(ribbonImage.src)) {
             const ribbonImages = Array.from(ribbonRack.getElementsByTagName('img'));
             const imgToRemove = ribbonImages.find(img => img.src === ribbonImage.src);
-            ribbonRack.removeChild(imgToRemove);
             selectedRibbons.delete(ribbonImage.src);
+            ribbonRack.removeChild(imgToRemove);
           }
         }
 
