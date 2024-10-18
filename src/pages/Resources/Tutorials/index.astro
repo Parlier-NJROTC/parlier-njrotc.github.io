@@ -69,7 +69,11 @@ section {
         margin-bottom: 10px;
     }
 }
-
+@media (orientation: portrait) {
+    #subjects{
+        flex-wrap: wrap;
+    }
+}
 #title {
     display: flex;
     flex-direction: column;
@@ -106,7 +110,7 @@ section {
     padding-block: 2vh;
 
     /* Media Query for smaller screens */
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
         font-size: 10px;
         padding-inline: 2vw;
         padding-block: 1vh;

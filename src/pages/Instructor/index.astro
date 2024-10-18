@@ -94,4 +94,21 @@ body * {
 #sub{
     grid-area: subt;
 }
+@media (orientation: portrait) {
+    #description{
+    grid-area: none;
+    margin-left: 4%;
+    position: absolute;
+    font-size: 24px;
+    bottom: -208px;
+    }
+    #profile{
+        height: 200vw;
+        grid-template-rows: 100px 1fr 325px;
+        grid-template-columns: 6fr 1fr 5fr 1fr;
+    }
+    #name{
+        translate: 5% 0%;
+    }
+}
 </style>

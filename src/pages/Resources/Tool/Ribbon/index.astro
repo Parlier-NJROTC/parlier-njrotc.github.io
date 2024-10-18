@@ -10,8 +10,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
   <h2 style="color: black;"><div>AD FREE RIBBON RACK BUILDER</h2>
   <hr style="background: white;">
   <div id="ribbon-selection" style="background: white;">
-    <div class="ribbon-selection"
-      style="border: 1px solid rgb(255, 255, 255);border-left: none;border-right:none;width: 50%;margin: 0;height: 100%;border-width:100%;display: flex;flex-wrap: wrap;">
+    <div class="ribbon-selection">
       <Boxess numberR="ribbon1" namelink="Meritorious Achievement Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/meritorious_achievement_ribbon.png"></Boxess>
       <Boxess numberR="ribbon2" namelink="Distinguished Unit Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_unit_ribbon.png"></Boxess>
       <Boxess numberR="ribbon3" namelink="Distinguished Cadet Ribbon" rlink="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Ribbon/distinguished_cadet_ribbon.png"></Boxess>
@@ -127,6 +126,28 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
         -moz-user-drag: none;
         -ms-user-drag: none;
     }
+    .ribbon-selection{
+      border: 1px solid rgb(255, 255, 255);
+      border-left: none;
+      border-right:none;
+
+      width: 50%;
+      margin: 0;
+      height: 100%;
+      border-width:100%;
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @media (orientation: portrait) {
+      #centered-box{
+        width: 80%;
+      }
+      .ribbon-selection{
+        width: 100%;
+      }
+    } 
+
 
     </style>
     
