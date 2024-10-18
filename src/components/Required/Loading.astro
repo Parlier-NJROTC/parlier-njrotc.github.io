@@ -124,10 +124,15 @@
             document.querySelector(".spinner-container").style.display = "flex";
         } else {
             setTimeout(function() {
-        document.querySelector(".spinner-container").style.display = "none";
-    }, 500); 
-    }
-});
+                document.querySelector(".spinner-container").style.display = "none";
+            }, 500); 
+        }   
+    });
+
+    // fail safe because some how something acts werid
+    setTimeout(function() {
+                document.querySelector(".spinner-container").style.display = "none";
+    }, 3500); 
 
     window.addEventListener('error', function(event) {
         console.error("An error occurred:", event.message);
