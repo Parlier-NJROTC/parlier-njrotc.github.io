@@ -34,6 +34,7 @@ const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt
         grid-template-columns: auto auto;
         align-items: center;
         justify-items: var(--align);
+
         text-align: var(--align);
         column-gap: 24px;
 
@@ -67,10 +68,30 @@ const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt
             grid-template-columns: 1fr;
             grid-template-rows: auto 1fr;
         }
+        div{
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-items: var(--align);
+
+        text-align: var(--align);
+        column-gap: 24px;
+        padding-block: 40px;
+        padding-inline: 0vw;
+        margin: var(--margin);
+
+        width: 100%;
+        overflow-x: hidden;
+        background-color: var(--backgroundColor);
+    }
         img{
             width: 75%;
             height: auto;
             order: 1;
+        }
+        html{
+                width: 100%;
         }
     }
 
