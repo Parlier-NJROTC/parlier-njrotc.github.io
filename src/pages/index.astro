@@ -33,10 +33,9 @@
         <h2 style='color:black; margin:0; text-align: center; font-family:"Josefin sans";'>Common Resources</h2>
         <div >
             <a href="/Resources/PDFs">  <img src="https://www.svgrepo.com/show/428743/book-education-study.svg"> <h3>Cadet Books</h3><br> B.O.B., Textbooks, etc</a>
-            |
             <!-- you can tell I love svg repo -->
             <a href="/Resources/Knowledge"> <img src="https://www.svgrepo.com/show/428731/creative-knowledge-lightbulb.svg"> <h3>Knowledge</h3><br>General Orders, Chain of Command, etc.</a>
-            |
+            
             <a href="Resources/Tool/Ribbon" > <img src="https://www.svgrepo.com/show/405775/hammer-and-wrench.svg" style=""><h3>Ribbon Builder</h3><br>More tools comming soon</a>
     
         </div>
@@ -155,6 +154,16 @@
     padding: 13px 50px 13px;
   }
 }
+@media (max-width: 375px;) {
+
+    div{
+        margin-left: 35px;
+    }
+    header{
+        width:110%;
+    }
+    
+}
 @media (orientation: portrait) {
     #mResources div{
         padding: 30px;
@@ -163,7 +172,7 @@
         justify-content: center;
         column-gap: 35px;
         
-        height: 690px;
+        height: 800px;
         flex-wrap: wrap;
     }
 }
@@ -182,6 +191,8 @@
         padding: 5px;
         border-radius: 10px;
         transition: 250ms;
+
+        width: 300pc;
     }
     #mResources a:hover{
         box-shadow: 0px 0px 10px navy;
