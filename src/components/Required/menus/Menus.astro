@@ -98,7 +98,23 @@ import Mode from "./Mode.astro";
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
-
+    #close:hover{
+        animation: infinite scarid 300ms ease-in-out;
+    }
+    @keyframes scarid{
+        25%{
+            transform: rotate(5deg);
+        }
+        50%{
+            transform: rotate(0deg);
+        }
+        75%{
+            transform: rotate(-5deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
     a {
         text-decoration: none;
         display: flex;
