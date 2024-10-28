@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Recognition and Highlighting</title>
+</head>
+<body>
+    <div id="RESULTS"></div>
+    <div id="sentence-container">
+        <h1>Say the Sentence</h1>
+        <p id="USER_SEES">First General Orders</p>
+        <h2 id="sentence" style="display: none;">to take charge of this post and all government property in view</h2>
+        <p id="transcript-view"></p>
+        <button id="recognition-button">Start Speaking</button>
+    </div>
+
+    <style>
+        .correct {
+            color: Navy;
+        }
+        #USER_SEES,
+        #sentence-container h1{
+            font-size: 40px;
+            margin: 0px;
+        }
+        #USER_SEES{
+            margin-bottom: 30px;
+        }
+        #RESULTS{
+            position: absolute;
+            display: flex;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 3vw;
+            background-color: navy;
+
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+        #sentence-container {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -30%);
+            background-color: white;
+            border: solid black 1px;
+            border-radius: 5px;
+            height: 30vw;
+            width: 30vw;
+            overflow: hidden;
+        }
+        #transcript-view{
+            width: 85%;
+            height: 19px;
+            border: 1px solid black;
+            border-radius: 5px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            text-align: center;
+        }
+    </style>
+
+    <script lang="js">
+        const sentenceElement = document.getElementById('sentence');
+        const userSeesElement = document.getElementById('USER_SEES');
+        const transcriptView = document.getElementById('transcript-view');
+        const recognitionButton = document.getElementById('recognition-button');
+        const resultsElement = document.getElementById('RESULTS');
+        let recognition;
+        let isListening = false;
+
+        function startRecognition() {
+            if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+                alert('Sorry, your browser does not support speech recognition.');
+                return;
+            }
+
+            if (isListening) {
+                stopRecognition();
+                return;
+            }
+
+            recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new recognition();
+
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+            recognition.maxAlternatives = 1;
+
+            recognition.onstart = () => {
+                console.log('Speech recognition started');
+                isListening = true;
+                recognitionButton.textContent = 'Stop Speaking';
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                console.log('Transcript:', transcript);
+
+                transcriptView.textContent = transcript;
+
+                const cleanedTranscript = cleanText(transcript);
+                const cleanedSentence = cleanText(sentenceElement.textContent.toLowerCase());
+
+                if (event.results[event.results.length - 1].isFinal) {
+                    if (cleanedTranscript === cleanedSentence) {
+                        updateUserFeedback(true, 'Correct! You spoke the sentence correctly.');
+                    } else {
+                        updateUserFeedback(false, `Incorrect. You said: "${transcript}". Try again.`);
+                    }
+                }
+            };
+
+            recognition.onend = function() {
+                console.log('Speech recognition finished');
+                stopRecognition();
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Error occurred:', event.error);
+                stopRecognition();
+                updateUserFeedback(false, 'An error occurred. Please try again.');
+            };
+
+            recognition.start();
+        }
+
+        function stopRecognition() {
+            if (recognition) {
+                recognition.stop();
+            }
+            isListening = false;
+            recognitionButton.textContent = 'Start Speaking';
+        }
+
+        function cleanText(text) {
+            return text.replace(/(\s*2\s*)|(\s*and\s*)|\s+/g, ' ').trim();
+        }
+
+        function updateUserFeedback(isCorrect, message) {
+            resultsElement.textContent = message;
+            resultsElement.style.display = 'block';
+            
+            if (isCorrect) {
+                userSeesElement.classList.add('correct');
+            } else {
+                userSeesElement.classList.remove('correct');
+            }
+
+            setTimeout(() => {
+                resultsElement.style.display = 'none';
+                userSeesElement.classList.remove('correct');
+            }, 3000);
+        }
+
+        recognitionButton.addEventListener('click', startRecognition);
+
+    </script>
+</body>
+</html>
