@@ -8,11 +8,58 @@
     <!--Despite this being here, it still triggers the menus, clever -->
     <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
 </header>
-
+<div id="Importment">
+<span>Test 
+  <a>Link</a>
+  <div style="position: fixed; right:20px;top:10px; color:black;">X</div>
+</span>
+</div>
 <!-- very nice  -->
 
 <!-- This style only applies here and no where else, still you can only use 1 id per item-->
 <style>
+    #Importment span{
+      width: 99.25%;
+      height: 5vw;
+      top: 0px;
+
+      position: fixed;
+      display: none;
+
+      background-color: whitesmoke;
+
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+
+      color: black;
+      font-size: 30px;
+      gap: 8px;
+
+      border: double black 5px;
+
+    }
+    #Importment span a{
+      animation: Span-a-Color 2s infinite;
+      font-size: 30px;
+      gap: 8px;
+
+      text-decoration: ;
+    }
+    @keyframes Span-a-Color{
+      25%{
+        color:dodgerblue;
+      }
+      50%{
+        color:rgb(87, 160, 233);
+      }
+      75%{
+        color:rgb(156, 199, 242);
+      }
+      100%{
+        color:white;
+      }
+    }
 
     header{
         position: relative;
@@ -89,8 +136,8 @@
     var end = +new Date();
 
     if (isNaN(start) || isNaN(end) || end - start > allow) {
-      console.log("DevTools detected!");
-      console.log(`Hey don't Copy and Paste text in the console. you can join our Cyber-Patriot team`);
+      console.warn("DevTools detected!");
+      console.warn(`Hey don't Copy and Paste text in the console. you can join our Cyber-Patriot team`);
 
     }
   }
@@ -106,6 +153,34 @@
       setTimeout(arguments.callee, 0);
     }
   } else {
+    console.log(`
+██████╗░░█████╗░██████╗░██╗░░░░░██╗███████╗██████╗░
+██╔══██╗██╔══██╗██╔══██╗██║░░░░░██║██╔════╝██╔══██╗
+██████╔╝███████║██████╔╝██║░░░░░██║█████╗░░██████╔╝
+██╔═══╝░██╔══██║██╔══██╗██║░░░░░██║██╔══╝░░██╔══██╗
+██║░░░░░██║░░██║██║░░██║███████╗██║███████╗██║░░██║
+╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝╚══════╝╚═╝░░╚═╝`)
+      console.log(`███╗░░██╗░░░░░██╗██████╗░░█████╗░████████╗░█████╗░
+████╗░██║░░░░░██║██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██╔██╗██║░░░░░██║██████╔╝██║░░██║░░░██║░░░██║░░╚═╝
+██║╚████║██╗░░██║██╔══██╗██║░░██║░░░██║░░░██║░░██╗
+██║░╚███║╚█████╔╝██║░░██║╚█████╔╝░░░██║░░░╚█████╔╝
+╚═╝░░╚══╝░╚════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░╚════╝░
+`)
+      console.log(`
+░░░░░██╗░█████╗░██╗███╗░░██╗  ░█████╗░██╗░░░██╗██████╗░███████╗██████╗░░░░░░░
+░░░░░██║██╔══██╗██║████╗░██║  ██╔══██╗╚██╗░██╔╝██╔══██╗██╔════╝██╔══██╗░░░░░░
+░░░░░██║██║░░██║██║██╔██╗██║  ██║░░╚═╝░╚████╔╝░██████╦╝█████╗░░██████╔╝█████╗
+██╗░░██║██║░░██║██║██║╚████║  ██║░░██╗░░╚██╔╝░░██╔══██╗██╔══╝░░██╔══██╗╚════╝
+╚█████╔╝╚█████╔╝██║██║░╚███║  ╚█████╔╝░░░██║░░░██████╦╝███████╗██║░░██║░░░░░░
+░╚════╝░░╚════╝░╚═╝╚═╝░░╚══╝  ░╚════╝░░░░╚═╝░░░╚═════╝░╚══════╝╚═╝░░╚═╝░░░░░░
+
+██████╗░░█████╗░████████╗██████╗░██╗░█████╗░████████╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██║██╔══██╗╚══██╔══╝
+██████╔╝███████║░░░██║░░░██████╔╝██║██║░░██║░░░██║░░░
+██╔═══╝░██╔══██║░░░██║░░░██╔══██╗██║██║░░██║░░░██║░░░
+██║░░░░░██║░░██║░░░██║░░░██║░░██║██║╚█████╔╝░░░██║░░░
+╚═╝░░░░░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝░╚════╝░░░░╚═╝░░░`)
     window.addEventListener('load', detectDevTools);
     window.addEventListener('resize', detectDevTools);
     window.addEventListener('mousemove', detectDevTools);
