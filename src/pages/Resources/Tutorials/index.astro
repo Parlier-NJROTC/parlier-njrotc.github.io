@@ -11,26 +11,32 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
     </Top>
     <div id="subjects">
         <div class="subject">
-            <h2>Uniform</h2>
-            <a href="https://www.youtube.com/watch?v=_1ImyjaUjSk&t">Ironing</a>
-            <a href="https://www.youtube.com/watch?v=gKgQCH9HHjg">How to Wear Uniform Males</a>
-            <a href="https://www.youtube.com/watch?v=KbHut3z_lt8">How to Wear Uniform Females</a>
-            <a href="https://www.youtube.com/shorts/4_gpK2USYI8">Belt Buckle</a>
-            <a href="https://www.youtube.com/shorts/Ocu_wCTBUig">Belt</a>
-            <a href="https://www.youtube.com/shorts/aPVo_ke4rMA">Shoe laces</a>
-            <a href=" https://youtu.be/QzC2GY-AAA0?si=Z5TcVxyxqM4eT7jr">Shoe Polishing</a>
-            <a href="https://youtu.be/rll0HxGnxqE?si=4pu3Na7f31eLa4Cp">Hair Bun</a>
+            <h2 class="toggle">Uniform</h2>
+            <ul class="links">
+                <li><a href="https://www.youtube.com/watch?v=_1ImyjaUjSk&t">Ironing</a></li>
+                <li><a href="https://www.youtube.com/watch?v=gKgQCH9HHjg">How to Wear Uniform Males</a></li>
+                <li><a href="https://www.youtube.com/watch?v=KbHut3z_lt8">How to Wear Uniform Females</a></li>
+                <li><a href="https://www.youtube.com/shorts/4_gpK2USYI8">Belt Buckle</a></li>
+                <li><a href="https://www.youtube.com/shorts/Ocu_wCTBUig">Belt</a></li>
+                <li><a href="https://www.youtube.com/shorts/aPVo_ke4rMA">Shoe laces</a></li>
+                <li><a href="https://youtu.be/QzC2GY-AAA0?si=Z5TcVxyxqM4eT7jr">Shoe Polishing</a></li>
+                <li><a href="https://youtu.be/rll0HxGnxqE?si=4pu3Na7f31eLa4Cp">Hair Bun</a></li>
+            </ul>
         </div>
         <div class="subject">
-            <h2>Drill</h2>
-            <a href="https://youtu.be/MEL5Wga1hlI?si=dVdPY1qdCt9sfQ0m">Drill movements</a>
+            <h2 class="toggle">Drill</h2>
+            <ul class="links">
+                <li><a href="https://youtu.be/MEL5Wga1hlI?si=dVdPY1qdCt9sfQ0m">Drill movements</a></li>
+            </ul>
         </div>
         <div class="subject">
-            <h2>Physical Training</h2>
-            <a href="https://youtu.be/P42PSmFK5ek?si=g2ZVo_LSQvxrB-Tl">Running</a>
-            <a href="https://youtu.be/KTSKEYp8WpM?si=rDlXfPazhGKBSgFZ">Planks</a>
-            <a href="https://youtu.be/PTwnTUPsG2E?si=PWGU14XDxVkZxJKY">Push up Pratice</a>
-            <a href="https://youtu.be/Get-JgZvI0A?si=VcqVP7iOPVaWngab">Push up Training</a>
+            <h2 class="toggle">Physical Training</h2>
+            <ul class="links">
+                <li><a href="https://youtu.be/P42PSmFK5ek?si=g2ZVo_LSQvxrB-Tl">Running</a></li>
+                <li><a href="https://youtu.be/KTSKEYp8WpM?si=rDlXfPazhGKBSgFZ">Planks</a></li>
+                <li><a href="https://youtu.be/PTwnTUPsG2E?si=PWGU14XDxVkZxJKY">Push up Pratice</a></li>
+                <li><a href="https://youtu.be/Get-JgZvI0A?si=VcqVP7iOPVaWngab">Push up Training</a></li>
+            </ul>
         </div>
     </div>
     <p id="extraStuff">TBA* To be added, or worked on at a later date </p>
@@ -50,7 +56,6 @@ body {
 }
 
 .container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -198,4 +203,92 @@ ul {
     row-gap: 3vh;
     text-align: left;
 }
+
+    .subject h2 {
+        border: solid 3px black;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        cursor: pointer;
+    }
+
+    .subject ul {
+        display: none;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .subject ul.hidden {
+        display: block;
+        opacity: 1;
+    }
+
+    .subject ul li {
+        margin-bottom: 10px;
+    }
+
+    .subject h2 {
+        border: solid 3px black;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        cursor: pointer;
+    }
+
+    .subject ul {
+        display: none;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        max-height: var(--max-height-); 
+        opacity: 0;
+    }
+
+    .subject ul.hidden {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        animation: Grow 500ms linear;
+        opacity: 1;
+    }
+    @keyframes Grow{
+        0%{
+            max-height: 0%; 
+        }
+        25%{
+            max-height: 25%; 
+        }
+        50%{
+            max-height: 50%; 
+        }
+        75%{
+            max-height: 75%; 
+        }
+        100%{
+            max-height: 100%; 
+            --max-height-:100%;
+        }
+    }
+
+    .subject ul li {
+        margin-bottom: 10px;
+    }
 </style>
+<script lang="js">
+    document.addEventListener('DOMContentLoaded', function() {
+        const subjects = document.querySelectorAll('.subject');
+        subjects.forEach(subject => {
+            const toggleButton = subject.querySelector('.toggle');
+            const linksList = subject.querySelector('.links');
+
+            toggleButton.addEventListener('click', function() {
+                linksList.classList.toggle('hidden');
+            });
+        });
+    });
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+        });
+    });
+</script>
