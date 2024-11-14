@@ -161,6 +161,10 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
       
       document.querySelectorAll('#ribbon-option').forEach(option => {
         option.addEventListener('click', handleRibbonOptionClick);
+        const label = option.querySelector('label');
+        if (label) {
+          label.addEventListener('click', handleLabelClick);
+        }
       });
     
       function handleRibbonChange(event) {
@@ -182,6 +186,16 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
         const checkbox = event.currentTarget.querySelector('input[type="checkbox"]');
         if (checkbox) {
           checkbox.click();
+        }
+      }
+    
+      function handleLabelClick(event) {
+        const ribbonOption = event.target.closest('#ribbon-option');
+        if (ribbonOption) {
+          const checkbox = ribbonOption.querySelector('input[type="checkbox"]');
+          if (checkbox) {
+            checkbox.click();
+          }
         }
       }
     
@@ -239,6 +253,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
           ribbonOption.classList.remove('checked');
         }
       });
-    </script>
+    </script>    
     
 </Layout>
