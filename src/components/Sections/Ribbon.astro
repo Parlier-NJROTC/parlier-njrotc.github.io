@@ -7,7 +7,7 @@ interface Props {
 const {rlink , namelink , numberR}= Astro.props
 ---
 
-<div class="ribbon-option">
+<div class="ribbon-option" id="ribbon-option">
     <img src={rlink} alt={numberR}>
     <label for={numberR}>{namelink}</label>
     <input type="checkbox" class="checkSwitch" id={numberR} name={numberR}>

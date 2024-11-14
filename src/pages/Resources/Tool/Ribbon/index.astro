@@ -155,48 +155,73 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
       const ribbonSelection = document.querySelector('.ribbon-selection');
       const ribbonRack = document.querySelector('.ribbon-rack');
       const selectedRibbons = new Set();
-      const displayOrder = ['Meritorious Achievement Ribbon', 'Distinguished Unit Ribbon', 'Distinguished Cadet Ribbon', 'Honor Cadet Ribbon', 'Cadet Achievement Ribbon', 'Unit Achievement Ribbon', 'Aptitude Ribbon', 'Naval Science IV Outstanding Cadet Ribbon', 'Naval Science III Outstanding Cadet Ribbon', 'Naval Science II Outstanding Cadet Ribbon', 'Naval Science I Outstanding Cadet Ribbon', 'Exemplary Conduct Ribbon', 'Exemplary Personal Appearance Ribbon', 'Physical Fitness Ribbon', 'Participation Ribbon', 'Unit Service Ribbon', 'Community Service Ribbon', 'Academic Award Ribbon', 'Drill Team Ribbon', 'Color Guard Ribbon', 'Rifle Team Ribbon', 'Orienteering Ribbon', 'Inter Service Competition Ribbon', 'Recruiting Ribbon', 'Basic Leadership Training Ribbon', 'Sea Cruise Ribbon']; // Define the display order here
-
-      ribbonSelection.addEventListener('change', (event) => {
+      const displayOrder = ['Meritorious Achievement Ribbon', 'Distinguished Unit Ribbon', 'Distinguished Cadet Ribbon', 'Honor Cadet Ribbon', 'Cadet Achievement Ribbon', 'Unit Achievement Ribbon', 'Aptitude Ribbon', 'Naval Science IV Outstanding Cadet Ribbon', 'Naval Science III Outstanding Cadet Ribbon', 'Naval Science II Outstanding Cadet Ribbon', 'Naval Science I Outstanding Cadet Ribbon', 'Exemplary Conduct Ribbon', 'Exemplary Personal Appearance Ribbon', 'Physical Fitness Ribbon', 'Participation Ribbon', 'Unit Service Ribbon', 'Community Service Ribbon', 'Academic Award Ribbon', 'Drill Team Ribbon', 'Color Guard Ribbon', 'Rifle Team Ribbon', 'Orienteering Ribbon', 'Inter Service Competition Ribbon', 'Recruiting Ribbon', 'Basic Leadership Training Ribbon', 'Sea Cruise Ribbon'];
+    
+      ribbonSelection.addEventListener('change', handleRibbonChange);
+      
+      document.querySelectorAll('#ribbon-option').forEach(option => {
+        option.addEventListener('click', handleRibbonOptionClick);
+      });
+    
+      function handleRibbonChange(event) {
         const ribbon = event.target.closest('.ribbon-option');
         const ribbonImage = ribbon.querySelector('img');
-
+    
         if (event.target.checked) {
           if (!selectedRibbons.has(ribbonImage.src)) {
-            const newRibbonImage = document.createElement('img');
-            newRibbonImage.src = ribbonImage.src;
-            newRibbonImage.style = "transform: rotate(180deg);user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; -webkit-user-drag: none; -moz-user-drag: none; -ms-user-drag: none;"
-            newRibbonImage.alt = ribbon.querySelector('label').textContent;
-            selectedRibbons.add(ribbonImage.src);
-
-            const displayedImages = [...ribbonRack.getElementsByTagName('img')];
-            displayedImages.push(newRibbonImage);
-
-            displayedImages.sort((a, b) => displayOrder.indexOf(b.alt) - displayOrder.indexOf(a.alt) );
-
-            ribbonRack.innerHTML = '';
-            displayedImages.forEach(image => ribbonRack.appendChild(image));
+            addRibbon(ribbonImage);
           }
         } else {
-          if (selectedRibbons.has(ribbonImage.src)) {
-            const ribbonImages = Array.from(ribbonRack.getElementsByTagName('img'));
-            const imgToRemove = ribbonImages.find(img => img.src === ribbonImage.src);
-            selectedRibbons.delete(ribbonImage.src);
-            ribbonRack.removeChild(imgToRemove);
-          }
+          removeRibbon(ribbonImage);
         }
-
+    
+        updateCenteredBox();
+      }
+    
+      function handleRibbonOptionClick(event) {
+        const checkbox = event.currentTarget.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+          checkbox.click();
+        }
+      }
+    
+      function addRibbon(ribbonImage) {
+        const newRibbonImage = document.createElement('img');
+        newRibbonImage.src = ribbonImage.src;
+        newRibbonImage.style = "transform: rotate(180deg);user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; -webkit-user-drag: none; -moz-user-drag: none; -ms-user-drag: none;"
+        newRibbonImage.alt = ribbonImage.parentElement.querySelector('label').textContent;
+        selectedRibbons.add(ribbonImage.src);
+    
+        const displayedImages = [...ribbonRack.getElementsByTagName('img')];
+        displayedImages.push(newRibbonImage);
+    
+        displayedImages.sort((a, b) => displayOrder.indexOf(b.alt) - displayOrder.indexOf(a.alt));
+    
+        ribbonRack.innerHTML = '';
+        displayedImages.forEach(image => ribbonRack.appendChild(image));
+      }
+    
+      function removeRibbon(ribbonImage) {
+        if (selectedRibbons.has(ribbonImage.src)) {
+          const ribbonImages = Array.from(ribbonRack.getElementsByTagName('img'));
+          const imgToRemove = ribbonImages.find(img => img.src === ribbonImage.src);
+          selectedRibbons.delete(ribbonImage.src);
+          ribbonRack.removeChild(imgToRemove);
+        }
+      }
+    
+      function updateCenteredBox() {
         let checkboxes = document.querySelectorAll('input[type="checkbox"]');
         let checkedCount = 0;
-
+    
         checkboxes.forEach(checkbox => {
           if (checkbox.checked) {
             checkedCount++;
           }
         });
-
+    
         const centeredBox = document.getElementById('centered-box');
-
+    
         if (checkedCount > 0) {
           centeredBox.style.transform = 'translate(0, -50%)';
           console.log("More than one checkbox is checked.");
@@ -204,7 +229,8 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
           centeredBox.style.transform = 'translate(100%, -50%)';
           console.log("One or no checkboxes are checked.");
         }
-      });
+      }
+    
       document.getElementById('checkbox').addEventListener('change', function() {
         var ribbonOption = this.parentElement;
         if (this.checked) {
@@ -214,4 +240,5 @@ import Boxess from "../../../../components/Sections/Ribbon.astro"
         }
       });
     </script>
+    
 </Layout>
