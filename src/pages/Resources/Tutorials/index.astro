@@ -280,15 +280,12 @@ ul {
             const toggleButton = subject.querySelector('.toggle');
             const linksList = subject.querySelector('.links');
 
-            toggleButton.addEventListener('click', function() {
+            toggleButton.addEventListener('click', function(e) {
+                e.preventDefault();
                 linksList.classList.toggle('hidden');
             });
-        });
-    });
 
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+            linksList.classList.remove('hidden');
         });
     });
 </script>
