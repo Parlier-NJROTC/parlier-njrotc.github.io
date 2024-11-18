@@ -1,39 +1,148 @@
+
 <header>
-    <a href="/" style="color:white; text-decoration: none;display: flex;align-items:center;justify-content: space-evenly;grid-column: 2/2;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 40px;"> 
+    <a href="/"> 
         <img style="width: 50px;" src="/NJROTC-Seal.svg">
-        Parlier NJROTC
+        <img src="/NJROTC.svg" style="width: 250px;" />
     </a>
+    <!--<a href="/Login"><button>Login</button></a> no completo -->
     <!--Despite this being here, it still triggers the menus, clever -->
     <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
 </header>
-
+<div id="Importment">
+<span>Test 
+  <a>Link</a>
+  <div style="position: fixed; right:20px;top:10px; color:black;">X</div>
+</span>
+</div>
 <!-- very nice  -->
 
 <!-- This style only applies here and no where else, still you can only use 1 id per item-->
 <style>
+  :root{
+    --White-Texts-Color: rgb(255, 255, 255);
+    --Black-Texts-Color:Black;
+    --Header-Invert:100%;
+    --Header-Img-Invert:0%;
+  }
+    #Importment span{
+      width: 99.25%;
+      height: 5vw;
+      top: 0px;
+
+      position: fixed;
+      display: none;
+
+      background-color: whitesmoke;
+
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+
+      color: black;
+      font-size: 30px;
+      gap: 8px;
+
+      border: double black 5px;
+
+    }
+    header a {
+      color: var(--White-Texts-Color);
+      text-decoration: none;
+      display: flex;
+      align-items:center;
+      justify-content: space-evenly;
+      
+      grid-column: 2/2;
+      font-family: Gill Sans MT, Gill Sans, Trebuchet MS, sans-serif;
+      font-size: 40px;
+    }
+    #Importment span a{
+      animation: Span-a-Color 2s infinite;
+      font-size: 30px;
+      gap: 8px;
+
+      text-decoration: ;
+    }
+    @keyframes Span-a-Color{
+      25%{
+        color:dodgerblue;
+      }
+      50%{
+        color:rgb(87, 160, 233);
+      }
+      75%{
+        color:rgb(156, 199, 242);
+      }
+      100%{
+        color:white;
+      }
+    }
 
     header{
         position: relative;
         left: 0;
         top:0;
-        width: 100vw;
+        width: 100%;
         height: 130px;
-        filter: none; 
 
         display: grid;
-        grid-template-columns: 40px 350px 1fr 100px;
+        grid-template-columns: 40px 350px 1fr;
         
         align-items: center;
         justify-items: stretch;
 
         border-block: 1px solid lemonchiffon;
+        filter: grayscale(var(--Header-Invert));
         background: linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
+
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+    }
+    header a img{
+      filter: none;
     }
     header label{
         justify-self: end;
         font-size: 50px;
-        color: white;
+        color: var(--White-Texts-Color);
         margin-right: 30px;
     }
-    
+    button {
+    color: var(--White-Texts-Color);
+    background: rgb(0, 0, 0);
+    width: 10vw;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: solid 1px rgb(32, 31, 31);
+    border-radius: 10px;
+    align-self: right; /* This line moves the button to the right */
+    transition: ease-in-out 3s;
+}
+
+    button:hover {
+    background: none;
+    font-size: 18px;
+  }
+
+  img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+}
+@media (orientation: portrait) {
+    header label{
+        margin-right: 17.2%;
+    }
+}
+
 </style>
