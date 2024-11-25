@@ -1,0 +1,77 @@
+---
+    import Layout from "../../../layouts/GlobalHTMLLayout.astro";
+---
+
+<Layout name="Calendar">
+    <div id="CalendarContainer">
+        <button id="CalendarUp">&#x25B2;<br>Backwards 1 Month</button>
+        <div id="CalendarCarusel"> <!-- idk how to spell -->
+            <!-- Will be simple for now -->
+            <img id="CalendarImg" src="/Calendar/November_2024.png">
+        </div>
+        <button id="CalendarDown">Forwads 1 Month<br>&#x25BC;</button>
+    </div>
+    <script>
+        // im too lazy to do it properly
+        let months = ["Janurary","Feburary","March","April","May","June","July","August","September","Octorber","November","December"]
+        let limits = [
+            {Month:10,Year:2024},
+            {Month:7,Year:2025}
+        ]
+        let current = {Month:11,Year:2024}
+
+        let up = document.getElementById("CalendarUp");
+        let down = document.getElementById("CalendarDown");
+        up.onclick = ()=>{
+            current.Month--
+            if(current.Month<=limits[0].Month && current.Year==limits[0].Year){
+                current.Month++
+            }
+            if(current.Month>=13){
+                current.Month=1
+                current.Year++
+            }
+            if(current.Month<=0){
+                current.Month=12
+                current.Year--
+            }
+
+            let img = document.getElementById("CalendarImg") as HTMLImageElement
+            img.src = `/Calendar/${months[current.Month-1]}_${current.Year}.png`
+        }
+        down.onclick = ()=>{
+            current.Month++
+            if(current.Month>=limits[1].Month && current.Year==limits[1].Year){
+                current.Month--
+            }
+            if(current.Month>=13){
+                current.Month=1
+                current.Year++
+            }
+            if(current.Month<=0){
+                current.Month=12
+                current.Year--
+            }
+
+            let img = document.getElementById("CalendarImg") as HTMLImageElement
+            img.src = `/Calendar/${months[current.Month-1]}_${current.Year}.png`
+        }
+    </script>
+    <style>
+        #CalendarContainer{
+            display: grid;
+            align-content: center;
+            justify-content: center;
+        }
+        #CalendarContainer button{
+            width:100%;
+            color:black
+        }
+        #CalendarContainer img{
+            position: relative;
+            width:50%;
+            left: 25%;
+        }
+    </style>
+</Layout>
+
