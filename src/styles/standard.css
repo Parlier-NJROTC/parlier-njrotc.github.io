@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Josefin Sans";
+    src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Tomorrow";
+    src: url("/fonts/Tomorrow-Regular.ttf");
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-VariableFont_opsz\,wght.ttf");
+}
+:root{
+    --font-color:black;
+    --glow-color:rgb(255, 255, 255);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --font-color:white;
+        --glow-color:rgb(0, 89, 255);
+    }
+    body{
+        background-color: #27282b;
+    }
+}
+
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family:"Inter";
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--font-color);
+}
+
+h1{
+    font-family: "Tomorrow";
+    font-size: 5em;
+    text-shadow: var(--glow-color) 0px 0 15px;
+
+    text-align: center;
+}
+h2{
+    font-family: "Tomorrow";
+    font-size: 4em;
+    text-decoration: underline;
+    text-decoration-style:double;
+
+    text-align: center;
+
+}
+h3{
+    font-family: "Space Grotesk";
+    font-size: 3em;
+    text-align: center;
+
+}
+h3:before{
+    content: " | ";
+}
+h3::after{
+    content: " | ";
+}
+
+h4{
+    font-family: "Josefin Sans";
+    font-size: 2.5em;
+    text-decoration: underline;
+    text-decoration-style:dotted;
+    text-align: center;
+
+}
+h5{
+    font-family: "Josefin Sans";
+    text-align: center;
+    font-size: 2em;
+}
+h6{
+    font-family: "Josefin Sans";
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+hr{
+    margin-inline: 5vw;
+}

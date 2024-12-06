@@ -1,225 +1,49 @@
 ---
-    import Layout from '../layouts/GlobalHTMLLayout.astro';
-    import TextImg from '../components/Sections/TextImg.astro';
-    import Title from '../components/Sections/Title.astro';
-    import Top from '../components/Sections/Top.astro';
-
-    const { SectionColor } = {"SectionColor":"rgb(0, 0, 100)"}
+    import "../styles/standard.css"
 ---
 
-<Layout name="Home">
-    <Top image='https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Christmas%20Parade%20Group%20Photo.jpeg'>
-        <div id="phs">
-            <div style="font-size: 60px; font-weight: 600;">
-            Parlier High School
-            </div>
-            <br>
-            Naval Junior Reserve Officers Training Corps
-            <br>
-            Unit
-        </div>
-        
-    </Top>
-    <!-- <div style="background-color: azure;" id="DashBoard">
-        <Title title="DashBoard"></Title> 
-        <br>
-        <button class="DashBoard"><a>Login</a></button> -->
+<!-- the idea is that if you scroll the first panel will become the header -->
+
+<header>
+    <div>
+        <h4>Socials</h4> <!-- Might remove the h4 tag and text in it -->
+        <p>
+            github, insta, discord, youtube, email logos
+        </p>
     </div>
-    <div id="QUICK-LINKS">
-            <div class="QL-BOX"></div>
+    <div>
+        <h1>Parlier High School <br></h1>
+        <h2 id="title-NJROTC">NJROTC</h2>
     </div>
-    <div id="mResources" style="background-color: white; padding:25px;">
-        <hr>
-        <h2 style='color:black; margin:0; text-align: center; font-family:"Josefin sans";'>Common Resources</h2>
-        <div >
-            <a href="/Resources/PDFs">  <img src="https://www.svgrepo.com/show/428743/book-education-study.svg"> <h3>Cadet Books</h3><br> B.O.B., Textbooks, etc</a>
-            <!-- you can tell I love svg repo -->
-            <a href="/Resources/Knowledge"> <img src="https://www.svgrepo.com/show/428731/creative-knowledge-lightbulb.svg"> <h3>Knowledge</h3><br>General Orders, Chain of Command, etc.</a>
-            
-            <a href="Resources/Tool/Ribbon" > <img src="https://www.svgrepo.com/show/405775/hammer-and-wrench.svg" style=""><h3>Ribbon Builder</h3><br>More tools comming soon</a>
-    
+    <div style="display:grid; align-items: center;">
+        <h3>Quick Links</h3>
+        <div style="display:flex; align-items: center; column-gap: 5vw;">
+            <h5>Knowledge </h5>
+            <h5>Books </h5>
+            <h5>Ribbons </h5>
         </div>
-        <hr>
-    
-    </div>    
-    <Title title='About The Unit' backgroundColor={SectionColor} color='White' decor="underline"></Title>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cheif%20Killian%20%26%20Cadet%20Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
-        Led by retired Navy personnel the Parlier High School Navy Junior Reserve Officer Training Corps or NJROTC was established in 1995. Our goal is to mold our students into better citizens by teaching them real-life skills for a better future. Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence, Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching. 
-    </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cool%20Swords%20and%20Color%20Gaurd.jpeg" altTxt="Dress Blues and named Flags" backgroundColor={SectionColor} desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
-        Cadets have many opportunities to be involved through our Academic, Air Rifle, Color Guard, and Drill Teams. Cadets also have an opportunity to be part of the Unit Staff and are able to be promoted in rank by completing the advanced requirements. 
-    </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Graffiti%20Clean%20Up%20Crew%202023.jpeg" backgroundColor={SectionColor} order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
-        Our Unit is active in our local community through various activities including parades, service projects, and providing held during many of our community's activities. We strive to make both our campus and our community a better place 
-    </TextImg>
-    <Title title="Our Mission">
-        Our mission is to instill in students the value of citizenship, service to the United States, personal responsibility and a sense of accomplishment. Our Cadets lead community events and school activities. Our program embeds the Navy Core values of Honor, Courage and Commitment.
-    </Title>
-</Layout>
-<style>
+    </div>
+    <!-- add a down arrow here -->
+</header>
 
-#title{
-    display: flex;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 500px;
-}
-
-#main-img{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    
-    width: 100%;
-    height: 100%;
-    image-rendering: optimizeSpeed;
-    object-fit: cover;
-
-    z-index: 0;
-}
-
-#phs{
-    font-size: 3vmin;
-    padding: 20px;
-    text-align: center;
-    text-shadow: rgb(0, 0, 100) 1px 0 15px;
-    border: solid 10px;
-    border-left: none;
-    border-right: none;
-    z-index: 1;
-}
-#DashBoard{
-    cursor: grab;
-    font-size: 3vmin;
-    padding: 20px;
-    text-align: center;
-    border: solid 10px;
-    border-left: none;
-    border-right: none;
-    z-index: -1;
-}
-#DashBoard {
-    -webkit-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none; 
-}
-
-
-.DashBoard {
-  font-family: Gill Sans MT, Gill Sans, Trebuchet MS, sans-serif;
-  font-size: 16px;
-  font-weight: 200;
-  letter-spacing: 1px;
-
-  padding: 13px 20px 13px;
-  outline: 0;
-  border: 1px solid black;
-  position: relative;
-  background-color: #000050;
-
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  z-index:2;
-}
-
-.DashBoard:after {
-  content: "";
-  border: 1px solid #000050 ;
-  background-color: #000080;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
-}
-
-.DashBoard:hover:after {
-  border: none;
-  top: 0px;
-  left: 0px;
-}
-.DashBoard:active{
-  cursor: no-drop;
-}
-
-@media (min-width: 768px) {
-  .DashBoard {
-    padding: 13px 50px 13px;
-  }
-}
-@media (max-width: 375px;) {
-
-    div{
-        margin-left: 35px;
+<script>
+    let title_NJROTC = document.getElementById("title-NJROTC")
+    title_NJROTC.onmouseover = ()=>{
+        title_NJROTC.innerText = "Naval Junior Reserve Officer Training Corps"
     }
+    title_NJROTC.onmouseleave = ()=>{
+        title_NJROTC.innerText = "NJROTC"
+    }
+</script>
+
+<style>
     header{
-        width:110%;
-    }
-    
-}
-@media (orientation: portrait) {
-    #mResources div{
-        padding: 30px;
-        display: flex;
+        height: 100vh;
+        display:grid;
         align-items: center;
-        justify-content: center;
-        column-gap: 35px;
-        
-        height: 800px;
-        flex-wrap: wrap;
-    }
-}
-</style>
-<style>
-    #mResources *{
-        color:black;
-        margin:0;
-    }
-    #mResources a{
-        padding:none;
-        display: grid;
         justify-items: center;
-
-        box-shadow: 0px 0px 5px black;
-        padding: 5px;
-        border-radius: 10px;
-        transition: 250ms;
-
-        width: 300pc;
     }
-    #mResources a:hover{
-        box-shadow: 0px 0px 10px navy;
-        padding: 5px;
-        border-radius: 10px;
+    *{
+        transition: 100ms;
     }
-    #mResources a:hover img{
-        width:330px;
-    }
-    #mResources img{
-        transition: 300ms;
-        padding-bottom: 5px;
-    }
-    #mResources div{
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 35px;
-
-        height:310px;
-    }
-    #mResources img{
-        width:200px;
-    }
-    #mResources hr{
-        margin: 20px;
-    }
-    
 </style>
