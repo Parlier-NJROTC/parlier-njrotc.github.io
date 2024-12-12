@@ -4,8 +4,8 @@
 <footer>
     <div>
         <h1> 
-            <img id="SPIN2" src="/NJROTC-Seal.svg" style="width: 40px; margin-inline: 5px;"> 
-            <img src="/NJROTC.svg" style="width: 50%;filter: invert(100%);padding-bottom: 10px;" />
+            <img id="SPIN2" src="/NJROTC-Seal.svg" style="width: 40px; margin-inline: 5px;margin-bottom: 6px;"> 
+            <img src="/NJROTC.svg" style="width: 24%;filter: invert(100%);padding-bottom: 0px;" />
         
             
         </h1>
@@ -102,7 +102,15 @@
         transition: transform 2s ease-in-out;
     }
     h1 #SPIN2:hover{
-        transform: rotate(99999915deg);
+        animation: rotole 50s infinite ease;
+    }
+    @keyframes rotole{
+        0%{
+        transform: rotate(0deg) ;
+        }
+        100%{
+        transform: rotate(99999915deg) ;
+        }
     }
 
     h2{

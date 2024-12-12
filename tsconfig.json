@@ -1,5 +1,3 @@
 {
   "extends": "astro/tsconfigs/base",
-  "include": ["src/**/*"],
-  "exclude": ["dist"]
 }
