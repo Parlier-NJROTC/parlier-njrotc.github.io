@@ -17,7 +17,7 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
     <ul style="color: black;">
         <li>
             <div class="container" style="display: flex; align-items: left;">
-                <button class="btn" onclick="displayRoutine()">How do I Send NJROTC Photos?</button>
+                <button id="btn33">How do I Send NJROTC Photos?</button>
                 </li>
                 <div class="Gif">
                     <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
@@ -50,7 +50,7 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
       cursor: help;
       
     }
-  .btn{
+  #btn33{
       position: relative;
       left: 0px;
       color:rgb(0, 0, 255);
@@ -64,9 +64,22 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
     }
 </style>
 
-<script lang="JS">
-    function displayRoutine() {
-      const gifElement = document.querySelector('.Gif');
-      gifElement.style.display = 'block';
+<script lang="js">
+let set = false;
+
+document.getElementById('btn33').addEventListener('click', function() {
+    const astroComponent = document.querySelector('.Gif');
+    
+    if (!set) {
+        astroComponent.style.display = 'block';
+        astroComponent.style.opacity = '1';
+    } else {
+        astroComponent.style.display = 'none';
+        astroComponent.style.opacity = '0';
+
     }
+
+    set = !set;
+});
+
 </script>

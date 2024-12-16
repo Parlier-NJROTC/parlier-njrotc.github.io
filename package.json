@@ -13,9 +13,10 @@
   "dependencies": {
     "@astrojs/svelte": "^5.4.0",
     "@astrojs/ts-plugin": "^1.6.1",
-    "astro": "^4.14.2",
+    "astro": "^4.16.17",
     "dotenv": "^16.4.5",
     "googleapis": "^137.1.0",
+    "i": "^0.3.7",
     "l": "^0.6.0",
     "less": "^4.2.0",
     "node-fetch": "^3.3.2",
