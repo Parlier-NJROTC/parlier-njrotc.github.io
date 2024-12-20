@@ -37,12 +37,41 @@ import Mode from "./Mode.astro";
         <Link title="Links" />
         <Link title="Credits" />
         <Mode></Mode>
+        <span id="Awards">
+            <div id="cR4reRv545"></div>
+            <div id="kRg656gBt4"></div>
+        </span>
     </nav>
 </nav>
 </div>
 
 </html>
 <style>
+    #cR4reRv545,
+    #kRg656gBt4 {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: ease 1s;
+    }
+    #cR4reRv545:hover,
+    #kRg656gBt4:hover {
+        background-color: rgba(0, 0, 0, 0.200);
+        border-radius: 10px;
+    }
+
+    #Awards{
+        margin-top: 70px;
+        display: flex;
+
+        bottom: 0%;
+
+        width: 100%;
+        height: 50px;
+    }
     #menus {
         position: fixed;
         overflow-x: hidden;
@@ -115,6 +144,24 @@ import Mode from "./Mode.astro";
             transform: rotate(0deg);
         }
     }
+    #Sidething4{
+        height: 33px;
+        right: 0px;
+        width: 0%;
+
+        position: absolute;
+        background: white;
+        transition: ease 750ms;
+
+        z-index: -1;
+    }
+    span a:hover{
+        color:  darkblue;
+        #Sidething4{
+            width: 140%;
+        }
+        
+    } 
     a {
         text-decoration: none;
         display: flex;
@@ -160,3 +207,88 @@ import Mode from "./Mode.astro";
         }
     }
 </style>
+<!-- Cool Thing -->
+<script lang="js">
+document.addEventListener('DOMContentLoaded', () => {
+  const cR4reUrl = "https://raw.githubusercontent.com/Parlier-NJROTC/Assets/refs/heads/main/Other/Bam.gif";
+  const cR4reRv545 = document.getElementById('cR4reRv545');
+
+  function cR4reLocalStorage() {
+    return localStorage.getItem('cR4re') === 'true';
+  }
+
+  function Rv545() {
+    if (cR4reLocalStorage()) {
+      const img = new Image();
+      img.src = cR4reUrl;
+      img.alt = "Bam GIF";
+      img.style.height = "40px";
+      img.style.position = "Block";
+      
+      img.addEventListener('load', () => {
+        cR4reRv545.appendChild(img);
+      });
+    }
+  }
+    function cR4reLocalStorage() {
+    return localStorage.getItem('cR4re') === 'true';
+  }
+
+  function Rv545() {
+    if (cR4reLocalStorage()) {
+      const img = new Image();
+      img.src = cR4reUrl;
+      img.alt = "Bam GIF";
+      img.style.height = "40px";
+      img.style.position = "Block";
+      
+      img.addEventListener('load', () => {
+        cR4reRv545.appendChild(img);
+      });
+    }
+  }
+  Rv545();
+});
+</script>
+<script lang="js">
+    document.addEventListener('DOMContentLoaded', () => {
+      const kRg65Url = "https://raw.githubusercontent.com/Parlier-NJROTC/Assets/refs/heads/main/Other/Spin.gif";
+      const kRg656gBt4 = document.getElementById('kRg656gBt4');
+    
+      function kRg65LocalStorage() {
+        return localStorage.getItem('kRg65') === 'true';
+      }
+    
+      function kRg65() {
+        if (kRg65LocalStorage()) {
+          const img2 = new Image();
+          img2.src = kRg65Url;
+          img2.alt = "Spin GIF";
+          img2.style.height = "40px";
+          img2.style.position = "Block";
+          
+          img2.addEventListener('load', () => {
+            kRg656gBt4.appendChild(img2);
+          });
+        }
+      }
+    function kRg65LocalStorage() {
+        return localStorage.getItem('kRg65') === 'true';
+      }
+    
+      function kRg65() {
+        if (kRg65LocalStorage()) {
+          const img2 = new Image();
+          img2.src = kRg65Url;
+          img2.alt = "Spin GIF";
+          img2.style.height = "40px";
+          img2.style.position = "Block";
+          
+          img2.addEventListener('load', () => {
+            kRg656gBt4.appendChild(img2);
+          });
+        }
+      }
+      kRg65();
+    });
+</script>

@@ -1,7 +1,9 @@
+<head>
+    <link rel="preload" href="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" as="image/svg+xml" type="image/svg+xml" />
+</head>
 <div>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <div class="spinner-container">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" alt="Loading" class="spinner" width="40" height="40">
+        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" alt="Loading" class="spinner" style="margin-bottom: 10px;" width="40" height="40">
         <div class="jumping-text">
             <span>L</span>
             <span>o</span>
@@ -18,6 +20,9 @@
 </div>
 
 <style >
+    html{
+        overflow-y: hidden;
+    }
         .spinner-container {
             left: 0;
             top: 0;
@@ -39,7 +44,7 @@
 
         .spinner {
             margin-right: 10px;
-            animation: spin 1.5s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
         img {
@@ -119,16 +124,17 @@
         }
     </style>
     <script lang="js">
-    document.addEventListener('readystatechange', function() {
-        if (document.readyState!== "complete") {
-            document.querySelector(".spinner-container").style.display = "flex";
-        } else {
-            setTimeout(function() {
-                document.querySelector(".spinner-container").style.display = "none";
-            }, 500); 
-        }   
-    });
-
+   document.addEventListener('readystatechange', function() {
+    if (document.readyState !== "complete") {
+        document.querySelector(".spinner-container").style.display = "flex";
+        document.documentElement.style.overflowY = "hidden";
+    } else {
+        setTimeout(function() {
+            document.querySelector(".spinner-container").style.display = "none";
+            document.documentElement.style.overflowY = "scroll";
+        }, 500); 
+    }   
+});
     // fail safe because some how something acts werid
     setTimeout(function() {
                 document.querySelector(".spinner-container").style.display = "none";
@@ -137,6 +143,7 @@
     window.addEventListener('error', function(event) {
         console.error("An error occurred:", event.message);
     });
+
 </script>
 
     </script>

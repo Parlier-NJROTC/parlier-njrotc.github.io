@@ -52,5 +52,19 @@ body {
       animation: glitchy 0.3s ease infinite reverse;
   }
 }</style>
+<script lang="js">
+    function checkAndSetLocalStorage() {
+    const currentPath = window.location.pathname;
+    if (currentPath === '/Credits/secit/') {
+      localStorage.setItem('cR4re', 'true');
+      console.log('cR4re set to true in localStorage');
+    } else {
+      console.log('Current path does not match /Credits/secit/');
+    }
+  }
+
+  window.addEventListener('load', checkAndSetLocalStorage);
+
+</script>
 
 </html>
