@@ -131,6 +131,26 @@ const { page, images } = Astro.props;
 </style>
 
 <style>
+    #closeBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 0 1rem #0003;
+        background-color: #ffffff26;
+        backdrop-filter: blur(5px);
+        border: solid 2px #ffffff26;
+
+        border-radius: 5px;
+        width: 25px;
+
+        font-weight: 600;
+
+        transition: ease 2s;
+    }
+    #closeBtn:hover{
+        border-radius: 100px;
+    }
    
     #photos{
         display: flex;
@@ -161,6 +181,7 @@ const { page, images } = Astro.props;
     #mainPhoto{
         height: 56.25vmin;
         width: 100vmin;
+        border-radius: 5px;
     }
 
     #navBar{
@@ -180,7 +201,14 @@ const { page, images } = Astro.props;
     /* Adds a Backgroud to the Image :O */
     dialog::backdrop {
         background-color: black;
-        opacity: 80%;
+        opacity: 70%;
     }
+    dialog{
+        border-radius: 5px;
 
+        box-shadow: 0 0 1rem #0003;
+        background-color: #ffffff26;
+        backdrop-filter: blur(5px);
+        border: solid 2px #ffffff26;
+    }
 </style>
