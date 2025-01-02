@@ -1,49 +1,8 @@
 ---
-    import "../styles/standard.css"
+    import GlobalHTMLLayout from "../layouts/GlobalHTMLLayout.astro"
 ---
 
-<!-- the idea is that if you scroll the first panel will become the header -->
-
-<header>
-    <div>
-        <h4>Socials</h4> <!-- Might remove the h4 tag and text in it -->
-        <p>
-            github, insta, discord, youtube, email logos
-        </p>
-    </div>
-    <div>
-        <h1>Parlier High School <br></h1>
-        <h2 id="title-NJROTC">NJROTC</h2>
-    </div>
-    <div style="display:grid; align-items: center;">
-        <h3>Quick Links</h3>
-        <div style="display:flex; align-items: center; column-gap: 5vw;">
-            <h5>Knowledge </h5>
-            <h5>Books </h5>
-            <h5>Ribbons </h5>
-        </div>
-    </div>
-    <!-- add a down arrow here -->
-</header>
-
-<script>
-    let title_NJROTC = document.getElementById("title-NJROTC")
-    title_NJROTC.onmouseover = ()=>{
-        title_NJROTC.innerText = "Naval Junior Reserve Officer Training Corps"
-    }
-    title_NJROTC.onmouseleave = ()=>{
-        title_NJROTC.innerText = "NJROTC"
-    }
-</script>
-
-<style>
-    header{
-        height: 100vh;
-        display:grid;
-        align-items: center;
-        justify-items: center;
-    }
-    *{
-        transition: 100ms;
-    }
-</style>
+<GlobalHTMLLayout name="Home">
+    <h1>Parlier High School</h1>
+    <h2>NJROTC</h2>
+</GlobalHTMLLayout>

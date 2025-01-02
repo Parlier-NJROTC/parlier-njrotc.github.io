@@ -1,0 +1,53 @@
+<nav id="Mobile-Nav">
+    <a><img src="/icons-I-Stole-from-elemtaryOS/scanner.svg">Home</a>
+    <a><img src="/icons-I-Stole-from-elemtaryOS/document-page-setup.svg">Resources</a>
+    <a><img src="/icons-I-Stole-from-elemtaryOS/office-calendar.svg">Events</a>
+    <a><img src="/icons-I-Stole-from-elemtaryOS/ibus-setup.svg">Misc</a>        
+</nav>
+<style define:vars>
+    #Mobile-Nav{
+        position:fixed;
+        bottom:0px;
+        left:0px;
+
+        width: 100vw;
+        height: 50px;
+        
+        background-color: black;
+        color:white;
+
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-items: center;
+
+        grid-template-columns: 25vw 25vw 25vw 25vw;
+
+        border-top:1px solid white;
+
+        display: grid;
+    }
+    #Mobile-Nav a{
+        width:100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        font-size: 2.5vmin;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        z-index: 99;
+    }
+    #Mobile-Nav a > img{
+        width: 5vmin;
+    }
+</style>
+<script>
+    import utils from "../../ts/utils";
+    if(utils.isMobile()){
+        document.getElementById("Mobile-Nav").style.display = "grid"
+    }
+</script>

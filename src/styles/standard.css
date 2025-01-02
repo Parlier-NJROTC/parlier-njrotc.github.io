@@ -1,3 +1,7 @@
+/* 
+this new look reminds me of helldivers 2
+D E M O C R A C Y
+*/
 @font-face {
     font-family: "Josefin Sans";
     src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
@@ -12,7 +16,7 @@
 }
 @font-face {
     font-family: "Inter";
-    src: url("/fonts/Inter-VariableFont_opsz\,wght.ttf");
+    src: url("/fonts/Inter-VariableFont_opsz,wght.ttf");
 }
 :root{
     --font-color:black;
@@ -33,7 +37,7 @@ html,body{
     padding: 0;
     margin: 0;
     font-family:"Inter";
-    font-size: 20px;
+    font-size: 2vmin;
     font-weight: 500;
     color: var(--font-color);
 }
@@ -68,25 +72,54 @@ h3::after{
 }
 
 h4{
-    font-family: "Josefin Sans";
+    font-family: "Space Grotesk";
     font-size: 2.5em;
     text-decoration: underline;
     text-decoration-style:dotted;
-    text-align: center;
+    text-align: left;
+
+    margin:0px;
 
 }
 h5{
     font-family: "Josefin Sans";
-    text-align: center;
+    text-align: left;
     font-size: 2em;
+    margin:0px;
 }
 h6{
     font-family: "Josefin Sans";
-    text-align: center;
+    text-align: left;
     font-size: 1.5em;
+    margin:0px;
 }
 
 
 hr{
     margin-inline: 5vw;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #000080 #fcfcfc;
+}
+
+/* Chrome, Edge, and Safari */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #fcfcfc;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #000080;
+    border-radius: 2px;
+    border: 5px none #000050;
+}
+.page-title{
+    display: none;
 }

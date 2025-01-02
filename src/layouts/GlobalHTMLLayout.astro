@@ -8,73 +8,35 @@ const { frontmatter , name = frontmatter.name  } = Astro.props;
 
 import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
+import MobileNav from '../components/Required/MobileNav.astro';
 import Footer from '../components/Required/Footer.astro';
 // disable the loading page in development if u want
-import Loading from '../components/Required/Loading.astro'
----
+// import Loading from '../components/Required/Loading.astro' don't mind if i do
 
-<!-- Default layout for all .md files -->
+import { ViewTransitions } from 'astro:transitions';
+import "../styles/standard.css"
+
+---
 
 <!doctype html>
 <html>
     <head>
+        <ViewTransitions></ViewTransitions>
         <meta charset="UTF-8" />
-		<meta name="description" content="NJRO" />
+		<meta name="description" content="NJROTC" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
         <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
 		<title>Parlier NJROTC | {name}</title>
+
     </head>
     <body style="margin:0px; overflow-x:hidden;">
-        <style is:global>
-            body *{
-                color: white;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            /* ===== Scrollbar CSS ===== */
-            /* Firefox */
-            body {
-                scrollbar-width: thin;
-                scrollbar-color: #000080 #fcfcfc;
-            }
-
-            /* Chrome, Edge, and Safari */
-            body::-webkit-scrollbar {
-                width: 5px;
-            }
-
-            body::-webkit-scrollbar-track {
-                background: #fcfcfc;
-            }
-
-            body::-webkit-scrollbar-thumb {
-                background-color: #000080;
-                border-radius: 2px;
-                border: 5px none #000050;
-            }
-            .page-title{
-                display: none;
-            }
-            h1,h2,h3,h4,h5,h6{
-                font-weight: 600;
-            }
-            h1{
-                font-size: 3em;
-                font-family: "Josefin sans";
-                
-            }
-            h2{
-                font-size: 2em;
-            } 
-            @font-face {
-                font-family: "Josefin Sans"; /** Look its me */
-                src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
-            }
-        </style>
         <Header></Header>
         <Menus></Menus>
-        <Loading></Loading>
-        <slot></slot>
+        <MobileNav></MobileNav>
+        <main id="Main-Content">
+            <slot></slot>
+        </main>
         <Footer></Footer>
         
     </body>

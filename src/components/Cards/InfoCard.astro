@@ -1,0 +1,90 @@
+---
+    import Image from "astro/components/Image.astro";
+    import Picture from "astro/components/Picture.astro";
+    interface Props {
+        alignment?:  "Left" | "Right" | "Top" | "Bottom";
+        title?: string;
+        width?: string;
+        height?: string;
+        img?:string;
+        alt?:string
+    }
+    const { alignment = "Top", title = "", width="auto", height="250px", img = "", alt = ""} = Astro.props;
+
+    var placeHolder = (img != "" ? false : true )
+    
+    var CardFlow = ""
+
+    switch(alignment){
+        case "Top":
+            CardFlow = "column"
+        break;
+        case "Bottom":
+            CardFlow = "column-reverse"
+        break;
+        case "Left":
+            CardFlow = "row"
+        break;
+        case "Right":
+            CardFlow = "row-reverse"
+        break;
+    }
+    import "../../styles/standard.css"
+---
+
+<div id="InfoCard">
+    <div id="InfoImage">
+        <Picture alt="aaa" src="/Calendar/June_2025.png" width="100" height="100"></Picture>
+    </div>
+    <div id="InfoText">
+        <h4>{title}</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis facilis libero doloremque tempora esse aut id cum possimus ipsa! Nisi magni aliquid laudantium laboriosam et tenetur quibusdam, eum aut laborum?</p>    
+    <div>
+
+</div>
+
+<style lang="less" define:vars={{CardFlow,width,height}}>
+    
+
+    #InfoCard{
+        width:var(--width);
+        height:var(--height);
+
+        margin:50px;
+
+        display:flex;
+        flex-direction:var(--CardFlow);
+
+        align-items: center;
+        justify-content: center;
+
+        overflow:hidden;
+
+        border:1px solid white;
+        border-radius: 5px;
+    }
+
+    #InfoImage{
+        width:100%;
+        height:100%;
+        background: linear-gradient(-5deg,rgb(137, 70, 199),rgb(212, 110, 212),rgb(212, 110, 212),rgb(137, 70, 199));
+
+    }
+    #InfoText{
+        width:100%;
+        height:100%;
+        box-sizing: border-box;
+        padding-inline:25px;
+        padding-block:5px;
+
+        display:flex;
+        flex-flow:column;
+        align-items:center;
+        justify-content: center;
+
+        h4{
+            width:100%;
+            text-align:left;
+        }
+    }
+</style>
