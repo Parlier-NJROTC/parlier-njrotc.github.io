@@ -11,6 +11,7 @@ import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
 // disable the loading page in development if u want
 import Loading from '../components/Required/Loading.astro'
+import Sode from '../components/Required/DarkLight.astro';
 ---
 
 <!-- Default layout for all .md files -->
@@ -29,6 +30,7 @@ import Loading from '../components/Required/Loading.astro'
         <style is:global>
             body *{
                 color: white;
+                transition: background-color 0.3s ease;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }
             /* ===== Scrollbar CSS ===== */
@@ -71,11 +73,13 @@ import Loading from '../components/Required/Loading.astro'
                 src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
             }
         </style>
+
         <Header></Header>
+        <Sode></Sode>
         <Menus></Menus>
         <Loading></Loading>
         <slot></slot>
         <Footer></Footer>
-        
+
     </body>
 </html>

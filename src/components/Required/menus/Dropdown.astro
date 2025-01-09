@@ -63,11 +63,10 @@ const { title ,link = title, id} = Astro.props
     span label img{
         width: 24px;
         filter: invert(1);
-        transition: transform 250ms;
+        transition: transform 250ms,filter ease 1s;
         
         margin-left: 20px;
     }
-
     span > div{
         display: grid;
         grid-template-rows: 0fr;
@@ -85,6 +84,14 @@ const { title ,link = title, id} = Astro.props
     
     span input:checked ~ label img{
         transform: scaleY(-1);
+        filter: invert(0);
+    }
+    span input:checked ~ a {
+        color:darkblue;
+        #Sidething{
+           width: 140%; 
+        }
+        
     }
     #Sidething{
         height: 50px;
@@ -103,5 +110,5 @@ const { title ,link = title, id} = Astro.props
             width: 140%;
         }
         
-    }    
+    }
 </style>

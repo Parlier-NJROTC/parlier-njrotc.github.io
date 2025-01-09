@@ -1,0 +1,173 @@
+<body>
+    <div class="container" style="display: none;">
+        <span id="LightSide"></span>
+        <span id="DarkSide">
+            <div id="star-container"></div>
+        </span>
+    </div>
+    <script lang="js">
+        let isDarkSideVisible = false;
+        const lightSide = document.getElementById('LightSide');
+        const darkSide = document.getElementById('DarkSide');
+        let delayTimer = null;
+
+        // My code Doesn't Want to work Hard
+        function toggleColors() {
+            if (delayTimer) {
+                clearTimeout(delayTimer);
+            }
+
+            delayTimer = setTimeout(() => {
+                if (!isDarkSideVisible) {
+                    lightSide.style.top = '-150%';
+                    darkSide.style.top = '-50%';
+                    localStorage.setItem('colorState', 'dark');
+                    isDarkSideVisible = true;
+                } else {
+                    lightSide.style.top = '0%';
+                    darkSide.style.top = '100%';
+                    localStorage.removeItem('colorState');
+                    isDarkSideVisible = false;
+                }
+
+                
+                handleDelayedHide();
+            }, 2000); // 2-second delay
+        }
+
+        function hideContainerWithDelay() {
+            return new Promise((resolve) => {
+                setTimeout(resolve, 2000); // 2-second delay before hiding
+            });
+        }
+
+        async function handleDelayedHide() {
+            await hideContainerWithDelay();
+            const container = document.querySelector('.container');
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+
+        function checkMovementStopped(element) {
+            return new Promise((resolve) => {
+                let lastTop = element.style.top;
+                const intervalId = setInterval(() => {
+                    if (element.style.top !== lastTop) {
+                        lastTop = element.style.top;
+                    } else {
+                        clearInterval(intervalId);
+                        resolve(true);
+                    }
+                }, 50);
+            });
+        }
+
+        function handleTransitionEnd(event) {
+            event.target.removeEventListener(event.type, handleTransitionEnd);
+            if (event.target === lightSide || event.target === darkSide) {
+                checkMovementStopped(lightSide).then(() => {
+                    checkMovementStopped(darkSide).then(async () => {
+                        await handleDelayedHide();
+                    });
+                });
+            }
+        }
+
+        // there is Two just in case my code messes up
+        document.getElementById('APPLY').addEventListener('click', toggleColors);
+
+        window.onload = function() {
+            if (localStorage.getItem('colorState') === 'dark') {
+                lightSide.style.transition = 'none';
+                darkSide.style.transition = 'none';
+                lightSide.style.top = '-150%';
+                darkSide.style.top = '-50%';
+                setTimeout(() => {
+                    lightSide.style.transition = '';
+                    darkSide.style.transition = '';
+                }, 0);
+
+                isDarkSideVisible = true;
+            }
+        };
+
+        lightSide.addEventListener('transitionend', handleTransitionEnd);
+        darkSide.addEventListener('transitionend', handleTransitionEnd);
+    </script>
+
+    <!-- Star Code -->
+    <script lang="js">
+        document.addEventListener('DOMContentLoaded', () => {
+            const starContainer = document.getElementById('star-container');
+
+            function createStar(size) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                const maxX = window.innerWidth - size;
+                const maxY = window.innerHeight - size;
+                star.style.left = `${Math.random() * maxX}px`;
+                star.style.top = `${Math.random() * maxY}px`;
+
+                star.style.opacity = Math.random().toFixed(2);
+
+                return star;
+            }
+
+            const numStars = Math.floor(Math.random() * 9) + 15; 
+            for (let i = 0; i < numStars; i++) {
+                const starSize = Math.floor(Math.random() * 5) + 1; 
+                starContainer.appendChild(createStar(starSize));
+            }
+        });
+    </script>
+    <style>
+        .container {
+            position: absolute;
+            display: none;
+            z-index: 9999999999999;
+
+            width: 100%;
+            height: 200%;
+
+            top: 0%;
+            left: 0%;
+        }
+        #LightSide {
+            background: linear-gradient(to bottom, dodgerblue, skyblue);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            transition: all 0.5s ease-in-out;
+        }
+        #DarkSide {
+            background: linear-gradient(to top, #000033,#000033,skyblue);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+        #star-container {
+            width: 100%;
+            height: 50%;
+            bottom: 0px;
+            position: absolute;
+
+            z-index: 9999999999999;
+        }
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.75), 
+                        0 0 15px rgba(255, 255, 255, 0.5),
+                        0 0 30px rgba(255, 255, 255, 0.25);
+        }
+
+    </style>
+</body>
