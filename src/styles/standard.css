@@ -99,6 +99,11 @@ hr{
     margin-inline: 5vw;
 }
 
+/* Makes website look nice but might lag website*/
+*{
+    transition: 250ms;
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 body {

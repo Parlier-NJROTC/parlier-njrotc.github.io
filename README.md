@@ -1,6 +1,7 @@
 # Parlier NJROTC Website
 
 Hello, this is our units offical website made by the cyberpatriot team.
+I made most of this on the fly lol
 
 ## Developer Notes
 - The Gallery folder will now be used for the website top parts aka the webpage titles

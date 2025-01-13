@@ -1,14 +1,21 @@
 ---
     import GlobalHTMLLayout from "../layouts/GlobalHTMLLayout.astro";
-    import Card from "../components/Card.astro";
-    import InfoCard from "../components/Cards/InfoCard.astro";
+    import InfoCard from "../components/InfoCard.astro";
 ---
 
 <GlobalHTMLLayout name="Components">
     <h2>Cards</h2>
-    <InfoCard alignment="Top"></InfoCard>
-    <InfoCard alignment="Bottom"></InfoCard>
-    <InfoCard alignment="Left"></InfoCard>
-    <InfoCard alignment="Right"></InfoCard>
+    <InfoCard alignment="Top" title="Lorem Ipsum" img="/Calendar/Janurary_2025.png" >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eius ea mollitia hic nihil esse rem qui necessitatibus maiores, libero voluptas harum aliquid, maxime deserunt aliquam provident earum inventore iste!
+    </InfoCard>
+    <InfoCard alignment="Bottom" title="Purem Catsum" >
+        Meow Meow Meow. Long cat, short cat, fat cat, skinny cat. They all goofy
+    </InfoCard>
+    <InfoCard alignment="Left" title="Mexico">
+        im here rn, thats all. 
+    </InfoCard>
+    <InfoCard alignment="Right" title="Why Being sick is bad" img="/Calendar/Janurary_2025.png">
+        Shivering is very bad, am no want no more. but atleast no school
+    </InfoCard>
 
 </GlobalHTMLLayout>

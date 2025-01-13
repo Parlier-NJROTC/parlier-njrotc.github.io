@@ -1,5 +1,5 @@
 ---
-    import Image from "astro/components/Image.astro";
+    import { AstroError } from "astro/errors";
     import Picture from "astro/components/Picture.astro";
     interface Props {
         alignment?:  "Left" | "Right" | "Top" | "Bottom";
@@ -7,43 +7,51 @@
         width?: string;
         height?: string;
         img?:string;
-        alt?:string
+        alt?:string;
+        floating?:boolean;
     }
     const { alignment = "Top", title = "", width="auto", height="250px", img = "", alt = ""} = Astro.props;
 
-    var placeHolder = (img != "" ? false : true )
-    
+    var placeHolder = (img == "" ? "linear-gradient(-5deg,rgb(137, 70, 199),rgb(212, 110, 212),rgb(212, 110, 212),rgb(137, 70, 199))" : "transparent" )
     var CardFlow = ""
+    var SectionHeight = "50%"
 
     switch(alignment){
         case "Top":
             CardFlow = "column"
+            SectionHeight = "50%"
         break;
         case "Bottom":
             CardFlow = "column-reverse"
+            SectionHeight = "50%"
         break;
         case "Left":
             CardFlow = "row"
+            SectionHeight = "100%"
         break;
         case "Right":
             CardFlow = "row-reverse"
+            SectionHeight = "100%"
         break;
     }
-    import "../../styles/standard.css"
+    import "../styles/standard.css"
+import { Image } from "astro:assets";
 ---
 
 <div id="InfoCard">
     <div id="InfoImage">
-        <Picture alt="aaa" src="/Calendar/June_2025.png" width="100" height="100"></Picture>
+        { placeHolder!="transparent" ? "" :  <img src={img} decoding="async" loading="lazy"/> }
     </div>
     <div id="InfoText">
         <h4>{title}</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis facilis libero doloremque tempora esse aut id cum possimus ipsa! Nisi magni aliquid laudantium laboriosam et tenetur quibusdam, eum aut laborum?</p>    
+        <p>
+            <slot></slot>    
+        </p>    
     <div>
 
 </div>
 
-<style lang="less" define:vars={{CardFlow,width,height}}>
+<style lang="less" define:vars={{placeHolder,CardFlow,width,height,SectionHeight}}>
     
 
     #InfoCard{
@@ -56,7 +64,7 @@
         flex-direction:var(--CardFlow);
 
         align-items: center;
-        justify-content: center;
+        justify-content:space-evenly;
 
         overflow:hidden;
 
@@ -66,8 +74,17 @@
 
     #InfoImage{
         width:100%;
-        height:100%;
-        background: linear-gradient(-5deg,rgb(137, 70, 199),rgb(212, 110, 212),rgb(212, 110, 212),rgb(137, 70, 199));
+        height:var(--SectionHeight);
+        background: var(--placeHolder);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            height: 100%;
+        }
+
+        
 
     }
     #InfoText{
@@ -81,10 +98,14 @@
         flex-flow:column;
         align-items:center;
         justify-content: center;
-
+        p{
+            width:100%;
+            text-align:left;
+        }
         h4{
             width:100%;
             text-align:left;
         }
+        
     }
 </style>

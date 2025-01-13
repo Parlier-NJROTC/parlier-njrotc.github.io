@@ -2,16 +2,16 @@
 
 interface Props {
 	name: string;
-    frontmatter?
+    spa?: boolean; // single page app, if true webpage will behave more like an app
 }
-const { frontmatter , name = frontmatter.name  } = Astro.props;
+const { name, spa = false } = Astro.props;
 
 import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
 import MobileNav from '../components/Required/MobileNav.astro';
 import Footer from '../components/Required/Footer.astro';
 // disable the loading page in development if u want
-// import Loading from '../components/Required/Loading.astro' don't mind if i do
+import Loading from '../components/Required/Loading.astro'
 
 import { ViewTransitions } from 'astro:transitions';
 import "../styles/standard.css"
@@ -28,16 +28,24 @@ import "../styles/standard.css"
 		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
         <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
 		<title>Parlier NJROTC | {name}</title>
-
+        <script is:inline>
+            let loaded = false
+        </script>
     </head>
     <body style="margin:0px; overflow-x:hidden;">
-        <Header></Header>
+        <Loading></Loading>
+        <Header transition:persist></Header>
         <Menus></Menus>
-        <MobileNav></MobileNav>
-        <main id="Main-Content">
+        <MobileNav transition:persist></MobileNav>
+        <!-- set z-index to negative else the main content will overlap the menus -->
+        <main id="Main-Content" transition:animate="slide" style="z-index: -999;">
             <slot></slot>
         </main>
-        <Footer></Footer>
+        <Footer  transition:persist></Footer>
+        <script is:inline>
+            loaded = true
+            console.log("loaded")
+        </script>
         
     </body>
 </html>
