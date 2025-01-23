@@ -78,9 +78,14 @@ import Loading from '../components/Required/Loading.astro'
         <slot></slot>
         <Footer></Footer>
         
-        <div itemscope itemtype="https://schema.org/WebSite">
-            <link itemprop="url" href="https://parlier-njrotc.github.io/" />
-            <meta itemprop="name" content="Parlier NJROTC"/>
-        </div>
     </body>
+    <script type="application/ld+json">
+        {
+          "@context" : "https://schema.org",
+          "@type" : "WebSite",
+          "name" : "Parlier NJROTC",
+          "alternateName" : "Parlier-NJROTC",
+          "url" : "https://parlier-njrotc.github.io/"
+        }
+      </script>
 </html>
