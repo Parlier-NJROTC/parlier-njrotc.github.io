@@ -15,23 +15,23 @@ import Mode from "./Mode.astro";
         <Link title="Home" link="" />
         <Dropdown title="Cadet Resources" link="Resources" id="SideMenus-Dropdown1">
             <a href="/Resources/Tutorials"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Tutorials</a>
+                >Tutorials</a>
             <a href="/Resources/Knowledge"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Knowledge</a>
+                >Knowledge</a>
             <a href="/Resources/Extra"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Extra</a>
+                >Extra</a>
             <a href="/Resources/Tool"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Tools</a>
+                >Tools</a>
             <a href="/Resources/PDFs"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">PDFs</a>
+                >PDFs</a>
         </Dropdown>
         <Link title="Teams" />
         <Link title="Instructor" />
         <Dropdown title="Events" id="SideMenus-Dropdown-2">
             <a href="/Events/Calendar"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Calendar</a>
+                >Calendar</a>
             <a href="/Events/Fundraising"
-                style="font-size:20px;border-right: 4px solid white;padding-bottom: 10px;">Fundraising</a>
+                >Fundraising</a>
         </Dropdown>
         <Link title="Gallery" />
         <Link title="Links" />
@@ -47,6 +47,16 @@ import Mode from "./Mode.astro";
 
 </html>
 <style>
+    a{
+        font-size:20px;
+        border-right: 4px solid white;
+        padding: 5px;
+        transition: 250ms ease-in-out;
+    }
+    a:hover{
+        font-size:25px;
+        border-right: 8px solid white;
+    }
     #cR4reRv545,
     #kRg656gBt4 {
         width: 100%;
