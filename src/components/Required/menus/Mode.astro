@@ -1,102 +1,89 @@
-<div class="theme-switch-wrapper">
-  <label class="theme-switch" for="theme-toggle"> Demo
-    <input type="checkbox" id="theme-toggle" />
-    <div class="slider">
-      <!-- SVGs for sun and moon icons -->
-      <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-      <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    </div>
-  </label>
+<div class="toggle-container" style="display: flex;justify-content: center;">
+  <button id="APPLY">
+      <img src="/icons/Moon.svg" id="moonImage" class="moon">
+      <img src="/icons/Sun.svg" id="sunImage" class="sun">
+  </button>
 </div>
+
 <style>
-  html {
-    background: white;
-    color: black;
-  }
-  html.dark-mode {
-    filter: grayscale(100%);
-  }
-  html.dark-mode img {
-    filter: grayscale(100%);
-  }
-  nav,
-  header,
-  footer,
-  svg,
-  img {
-    filter: grayscale(100%);
-  }
-  .theme-switch-wrapper {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  gap: 10px; 
+#toggle-container {
+    text-align: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
 }
-
-#light-icon, #dark-icon {
-  filter: grayscale(0%);
+#APPLY {
+    background: #00000008;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: not-allowed;
+    
 }
-input[type="checkbox"] {
-  display: none;
+#APPLY img {
+    width: 30px;
+    transition: transform 0.3s ease;
 }
-.custom-checkbox {
-  display: inline-block;
-  width: 20px; 
-  height: 20px; 
-  background: id("dark-icon"); 
-  background-size: contain;
-  cursor: pointer;
-  border-radius: 50%; 
+#APPLY img.moon {
+    display: none;
 }
-input[type="checkbox"]:checked +.custom-checkbox {
-  background-image: id("dark-icon"); 
+#APPLY img.sun {
+    display: block;
 }
-
+#APPLY.active img.moon {
+    display: block;
+}
+#APPLY.active img.sun {
+    display: none;
+}
+#astrothing {
+    /* Just in case */
+}
 </style>
+
+<!-- 
 <script lang="js">
-  document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-    const lightIcon = document.getElementById('light-icon');
-    const darkIcon = document.getElementById('dark-icon');
-    const darkModeKey = 'darkMode'; 
+  let isDarkMode = false;
 
-    const darkMode = localStorage.getItem(darkModeKey) === 'true';
+  function toggleDarkMode() {
+      const button = document.getElementById('APPLY');
+      const moonImage = document.getElementById('moonImage');
+      const sunImage = document.getElementById('sunImage');
+      const Sode = document.querySelector(".container")
+      const body = document.body;
 
-    if (darkMode) {
-        htmlElement.classList.add('dark-mode');
-        lightIcon.style.display = 'none';
-        darkIcon.style.display = 'block';
-    } else {
-        htmlElement.classList.remove('dark-mode');
-        lightIcon.style.display = 'block';
-        darkIcon.style.display = 'none';
-    }
+      isDarkMode = !isDarkMode;
 
-    themeToggle.addEventListener('change', (event) => {
-        localStorage.setItem(darkModeKey, event.target.checked);
+      button.classList.toggle('active');
+      moonImage.classList.toggle('active');
+      sunImage.classList.toggle('active');
 
-        if (event.target.checked) {
-            htmlElement.classList.add('dark-mode');
-            darkIcon.style.display = 'block';
-            lightIcon.style.display = 'none';
-        } else {
-            htmlElement.classList.remove('dark-mode');
-            lightIcon.style.display = 'block';
-            darkIcon.style.display = 'none';
-        }
-    });
-});
+      body.classList.toggle('dark-mode');
+
+      //const backgroundColor = isDarkMode ? '#333' : '#f0f0f0';
+      //body.style.backgroundColor = backgroundColor;
+
+      const textColor = isDarkMode ? '#f0f0f0' : '#333';
+      body.style.color = textColor;
+
+      moonImage.style.display = isDarkMode ? 'block' : 'none';
+      sunImage.style.display = isDarkMode ? 'none' : 'block';
+
+      Sode.style.display = 'Block'
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const storedState = localStorage.getItem('colorState');
+      if (storedState === 'dark') {
+          toggleDarkMode();
+      }
+  });
+
+  document.getElementById('APPLY').addEventListener('click', toggleDarkMode);
+
+  // there is Two just in case my code messes up
+  document.getElementById('APPLY').addEventListener('click', toggleColors);
+
 </script>
+-->
+</body>
