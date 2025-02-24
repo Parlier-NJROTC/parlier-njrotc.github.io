@@ -119,14 +119,13 @@ const { page, images } = Astro.props;
     .Gallery-Image{
         height: 280px;
         border-radius: 5px;
-        transition: 250ms;
-        
-        
+        border: 0px solid;
+        transition: ease-in-out 250ms;
+        background-clip: content-box;
     }
     .Gallery-Image:hover{
-        height: 300px;
-        
-       
+        height: 285px;
+        border: 10px solid black;
     }
 </style>
 
