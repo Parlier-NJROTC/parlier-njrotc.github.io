@@ -172,6 +172,9 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       <div class="none" id="centered-box">
         <div class="separator"></div>
         <div class="ribbon-rack"></div>
+        <button id="DOWNLOAD-RACK">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+        </button>
       </div>
       <hr />
     </div>
@@ -277,6 +280,30 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         width: 100%;
       }
     }
+  #DOWNLOAD-RACK{
+    margin-top: 20px;
+    padding: 5px;
+    position: absolute;
+    right: 0px;
+
+    background: white;
+    color: white;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: ease-in-out 250ms;
+  }
+  #DOWNLOAD-RACK:hover{
+    background: rgb(0, 0, 0);
+
+    border: 1px solid rgb(255, 255, 255);
+    svg{
+      filter: invert(1);
+    }
+  }
   </style>
   <script lang="js">
     function copyToClipboard() {
@@ -294,6 +321,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
     }
   </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script lang="js">
     const ribbonSelection = document.querySelector(".ribbon-selection");
     const ribbonRack = document.querySelector(".ribbon-rack");
@@ -319,7 +347,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       "Academic Award Ribbon",
       "Drill Team Ribbon",
       "Color Guard Ribbon",
-      ,
       "S.T.E.M Ribbon",
       "Marksmanship Team Ribbon",
       "Orienteering Ribbon",
@@ -434,5 +461,45 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         ribbonOption.classList.remove("checked");
       }
     });
+  </script>
+<!-- used HTML as Base and Some CORS -->
+<!-- http://developer.mozilla.org/en-US/docs/Web/HTTP/CORS -->
+<!-- https://html2canvas.hertzen.com/configuration -->
+<script lang="js">
+  document.getElementById('DOWNLOAD-RACK').addEventListener('click', async function() {
+    const preloadImages = Array.from(document.querySelectorAll('.ribbon-rack img'))
+      .map(img => {
+        return new Promise((resolve, reject) => {
+          const newImg = new Image();
+          newImg.crossOrigin = 'Anonymous';  
+          newImg.src = img.src;
+          newImg.onload = () => resolve(true);
+          newImg.onerror = () => reject();
+        });
+      });
+  
+    try {
+      await Promise.all(preloadImages);
+      
+      html2canvas(document.querySelector('.ribbon-rack'), {
+        useCORS: true,  
+        backgroundColor: 'none',
+        scale: 2,
+        logging: true,  
+        allowTaint: false
+      }).then(canvas => {
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = 'ribbon-rack.png';
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    } catch (error) {
+      console.error('Error loading images:', error);
+      alert('Error generating image.');
+    }
+  });
   </script>
 </Layout>
