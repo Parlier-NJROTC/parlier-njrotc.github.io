@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+
+.aldrich-regular {
+    font-family: "Aldrich", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#mCountdown-Container{
+    background-color: blue;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+}
