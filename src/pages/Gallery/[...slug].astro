@@ -40,7 +40,7 @@ const { page, images } = Astro.props;
     <dialog id="showPhoto">
         <object id="mainPhoto"></object>
         <form method="dialog">
-            <button id="closeBtn" style="color: black;position: absolute;top: 0;left: 0.5px;">X</button>
+            <button id="closeBtn" style="position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
     <ControlBar></ControlBar>
@@ -119,17 +119,38 @@ const { page, images } = Astro.props;
     .Gallery-Image{
         height: 280px;
         border-radius: 5px;
-        border: 0px solid;
-        transition: ease-in-out 250ms;
-        background-clip: content-box;
+        transition: 250ms;
     }
     .Gallery-Image:hover{
-        height: 285px;
-        border: 10px solid black;
+        height: 290px;
     }
 </style>
 
 <style>
+    #closeBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 0 1rem #0003;
+        background-color: #ffffff26;
+        backdrop-filter: blur(5px);
+        border: solid 2px #ffffff26;
+
+        color: whitesmoke;
+
+        border-radius: 5px;
+        width: 25px;
+
+        font-weight: 600;
+
+        transition: ease 1s;
+    }
+    #closeBtn:hover{
+        border-radius: 10px;
+
+        color: #000000b0;
+    }
    
     #photos{
         display: flex;
@@ -160,6 +181,7 @@ const { page, images } = Astro.props;
     #mainPhoto{
         height: 56.25vmin;
         width: 100vmin;
+        border-radius: 5px;
     }
 
     #navBar{
@@ -179,7 +201,16 @@ const { page, images } = Astro.props;
     /* Adds a Backgroud to the Image :O */
     dialog::backdrop {
         background-color: black;
-        opacity: 80%;
+        opacity: 70%;
     }
+    dialog{
+        border-radius: 5px;
 
+        color: whitesmoke;
+
+        box-shadow: 0 0 1rem #0003;
+        background-color: #ffffff26;
+        backdrop-filter: blur(5px);
+        border: solid 2px #ffffff26;
+    }
 </style>
