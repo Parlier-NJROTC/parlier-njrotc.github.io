@@ -8,8 +8,8 @@
 ---
 
 <Layout name="Home">
-    <Top image='https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Christmas%20Parade%20Group%20Photo.jpeg'>
-        <div id="phs">
+    <Top image='/images/IMG_20250308_143141.png'>
+        <div id="phs" style="justify-content: center;">
             <div style="font-size: 60px; font-weight: 600;">
             Parlier High School
             </div>
@@ -28,9 +28,9 @@
     <div id="QUICK-LINKS">
             <div class="QL-BOX"></div>
     </div>
-    <div id="mResources" style="background-color: white; padding:25px;">
+    <div id="mResources" style="background-color: var(--body-color); padding:25px;">
         <hr>
-        <h2 style='color:black; margin:0; text-align: center; font-family:"Josefin sans";'>Common Resources</h2>
+        <h2 style='color:var(--Text-color); margin:0; text-align: center; font-family:"Josefin sans";'>Common Resources</h2>
         <div >
             <a href="/Resources/PDFs">  <img src="https://www.svgrepo.com/show/428743/book-education-study.svg"> <h3>Cadet Books</h3><br> B.O.B., Textbooks, etc</a>
             <!-- you can tell I love svg repo -->
@@ -42,14 +42,14 @@
         <hr>
     
     </div>    
-    <Title title='About The Unit' backgroundColor={SectionColor} color='White' decor="underline"></Title>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cheif%20Killian%20%26%20Cadet%20Mendoza.jpg" backgroundColor={SectionColor} altTxt='National NJROTC Championships 2019' order={1}>
+    <Title title='About The Unit'  color='White' decor="underline"></Title>
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cheif%20Killian%20%26%20Cadet%20Mendoza.jpg"  altTxt='National NJROTC Championships 2019' order={1}>
         Led by retired Navy personnel the Parlier High School Navy Junior Reserve Officer Training Corps or NJROTC was established in 1995. Our goal is to mold our students into better citizens by teaching them real-life skills for a better future. Our NJROTC program helps cadets with leadership, management, responsibility, discipline, physical training, and confidence, Exposing them to real-world situations. Cadets begin learning self-discipline with basic drills such as the position of attention, parade rest, and marching. 
     </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cool%20Swords%20and%20Color%20Gaurd.jpeg" altTxt="Dress Blues and named Flags" backgroundColor={SectionColor} desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Cool%20Swords%20and%20Color%20Gaurd.jpeg" altTxt="Dress Blues and named Flags"  desc="I think its color Gaurd and our XO holding flags with ther name, along with luis and his gf doing cool sword stuff - Cadet Ibarra">
         Cadets have many opportunities to be involved through our Academic, Air Rifle, Color Guard, and Drill Teams. Cadets also have an opportunity to be part of the Unit Staff and are able to be promoted in rank by completing the advanced requirements. 
     </TextImg>
-    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Graffiti%20Clean%20Up%20Crew%202023.jpeg" backgroundColor={SectionColor} order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
+    <TextImg image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/Graffiti%20Clean%20Up%20Crew%202023.jpeg"  order={1} altTxt="Graffiti clean up with police station" desc="We cleaned up graffiti arond our city with the police department and some leo club members. The burritos where good - Cadet Ibarra"> 
         Our Unit is active in our local community through various activities including parades, service projects, and providing held during many of our community's activities. We strive to make both our campus and our community a better place 
     </TextImg>
     <Title title="Our Mission">
@@ -57,7 +57,9 @@
     </Title>
 </Layout>
 <style>
-
+:root{
+    --align:center;
+}
 #title{
     display: flex;
     box-sizing: border-box;
@@ -82,6 +84,7 @@
 
 #phs{
     font-size: 3vmin;
+    color: white;
     padding: 20px;
     text-align: center;
     text-shadow: rgb(0, 0, 100) 1px 0 15px;
@@ -89,6 +92,9 @@
     border-left: none;
     border-right: none;
     z-index: 1;
+}
+#phs *{
+    color: white;
 }
 #DashBoard{
     cursor: grab;
@@ -179,7 +185,7 @@
 </style>
 <style>
     #mResources *{
-        color:black;
+        color:var(--Text-color);
         margin:0;
     }
     #mResources a{
@@ -187,7 +193,7 @@
         display: grid;
         justify-items: center;
 
-        box-shadow: 0px 0px 5px black;
+        box-shadow: 0px 0px 5px var(--Button-border-color);
         padding: 5px;
         border-radius: 10px;
         transition: 250ms;
@@ -195,7 +201,7 @@
         width: 300pc;
     }
     #mResources a:hover{
-        box-shadow: 0px 0px 10px navy;
+        box-shadow: 0px 0px 10px #000080;
         padding: 1px;
         border-radius: 10px;
     }

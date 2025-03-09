@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/GlobalHTMLLayout.astro";
+import '../styles/Default/main.css'
 ---
 
 
@@ -10,10 +11,6 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
         <p>Webpage not found, it might have been moved to or removed</p>
         <img id="cat" src="">
         <p id="quote"></p>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
     </div>
 </marquee>
 </Layout>
@@ -21,7 +18,7 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
 
 <style>
     body *{
-        color: black;
+        color: var(--Text-color);
     }
     #screen {
         display: grid;
@@ -33,7 +30,7 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
         padding-inline: 5vw;
         max-width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 125, 255, 0.09);
+        background-color: var(--error-BG-color);
 
         -webkit-user-select: none; 
         -moz-user-select: none; 

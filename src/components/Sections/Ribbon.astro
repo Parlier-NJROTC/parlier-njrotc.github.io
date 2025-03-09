@@ -15,7 +15,7 @@ const { rlink, namelink, numberR } = Astro.props;
 
 <style>
   body * {
-    color: black;
+    color: var(--Text-color);
     text-align: center;
   }
   .ribbon-selection {
@@ -30,7 +30,7 @@ const { rlink, namelink, numberR } = Astro.props;
     -webkit-user-select: none;
     -ms-user-select: none;
 
-    background-color: white;
+    background-color: var(--body-color);
   }
   .ribbon-option {
     display: flex;
@@ -39,7 +39,8 @@ const { rlink, namelink, numberR } = Astro.props;
     width: calc(33.333% - 20px);
     margin: 10px;
     padding: 10px;
-    background-color: #f2f2f2;
+    background-color: var(--ribbon-option-BG-color);
+    color: var(--Text-color);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     -moz-user-select: none;
@@ -56,6 +57,7 @@ const { rlink, namelink, numberR } = Astro.props;
     font-weight: bold;
     text-align: center;
     margin-bottom: 5px;
+    color: var(--Text-color);
   }
   .ribbon-option:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);

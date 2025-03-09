@@ -173,7 +173,7 @@
                 <img class="arrow" src="/icons/arrow-down-direction-svgrepo-com.svg">
             </div>
             <div class="person">
-                <img class="portrait" src="https://github.com/Parlier-NJROTC/Assets/blob/main/People/vecteezy_user-profile-vector-flat-illustration-avatar-person-icon_37336395.jpg?raw=true">
+                <img class="portrait" src="https://github.com/Parlier-NJROTC/Assets/blob/main/People/Luis%20Garcia.png?raw=true">
                 <div class="about">
                     <div class="personName"> Unit Cadet Commanding Officer (CO) | Cadet Luis Garcia</div>
                     <hr class="line">
@@ -217,13 +217,16 @@
 </Layout>
 
 <style>
+:root{
+    --align:center;
+}
     body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-x:hidden;
     
 }
 .personAbout a{
-    color:black;
+    color:var(--Text-color);
 }
 
 
@@ -288,7 +291,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
-    background-color:#d7e4ec;
+    background-color:var(--info-BG-color);
     text-align: center;
 }
 #chain{
@@ -302,6 +305,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color:var(--Text-color);
 }
 .about{
     width: 50vw;
@@ -313,14 +317,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color:var(--Text-color);
 }
 .personAbout{
     padding-inline: 2vw;
     width: 50vw;
     font-size: 16px;
     box-sizing: border-box;
-    color: black;
+    color:var(--Text-color);
 }
 .line{
     align-self: start;

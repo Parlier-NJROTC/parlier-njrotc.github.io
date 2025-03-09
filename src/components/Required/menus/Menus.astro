@@ -7,8 +7,8 @@ import Mode from "./Mode.astro";
 <input type="checkbox" id="box" />
 <nav id="menus">
     <header>
-        <h2>Menus</h2>
-        <label for="box" id="close">
+        <h2 style="color: white;">Menus</h2>
+        <label for="box" id="close" style="color: white;">
             X <!-- this is the close button charater, DON'T DELETE --></label>
     </header>
     <nav id="navi">
@@ -86,7 +86,8 @@ import Mode from "./Mode.astro";
         top: 0px;
         right: 0px;
         border-left: 1px solid white;
-        z-index: 99;
+        
+        z-index: 9999999;
 
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
@@ -213,6 +214,54 @@ import Mode from "./Mode.astro";
         }
     }
 </style>
+<!-- 
+<script lang="js">
+     function toggleDarkMode() {
+            const body = document.body;
+            const isDarkMode = body.classList.contains('dark-mode');
+
+            if (isDarkMode) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'true');
+            }
+        }
+
+        function initDarkMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        }
+
+        initDarkMode();
+
+        document.getElementById('darkModeLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleDarkMode();
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const dashboardHeader = document.getElementById('Dashboard-Header','tooltip-container');
+            const Userinfo = document.getElementById('User-Info');
+            const tooltipContainer = document.getElementById('tooltip-container');
+            
+            if (!localStorage.getItem('dashboardClicked')) {
+                
+                dashboardHeader.addEventListener('click', function() {
+                    localStorage.setItem('dashboardClicked', 'true');
+                    tooltipContainer.style.display = 'none';
+                    Userinfo.style.border = 'none';
+                });
+            } else {
+                tooltipContainer.style.display = 'none';
+                Userinfo.style.border = 'none';
+            }
+        });
+
+</script>
+-->
 <!-- Cool Thing -->
 <script lang="js">
 document.addEventListener('DOMContentLoaded', () => {

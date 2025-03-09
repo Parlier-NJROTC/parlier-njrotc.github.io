@@ -43,6 +43,9 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
 </Layout>
 
 <style>
+:root{
+    --align:center;
+}
     body * {
     margin: 0;
     padding: 0;
@@ -95,7 +98,7 @@ section {
     font-size: 36px; /* responsive font size */
     padding-block: 2vh; /* responsive padding */
     color: whitesmoke;
-    text-decoration: underline;
+    text-decoration: underline var(--Text-color);
 
     /* Media Query for smaller screens */
     @media (max-width: 768px) {
@@ -124,7 +127,7 @@ section {
 
 #extraStuff {
     width: 100vw;
-    background-color: azure;
+    background-color: var(--tutorial-BG-color);
     text-align: center;
 
     /* Media Query for smaller screens */
@@ -140,7 +143,7 @@ section {
     text-align: center;
     font-family: 'Josefin sans';
     padding-block: 2vh;
-    background-color: azure;
+    background-color: var(--tutorial-BG-color);
     height: auto;
 }
     .subject h2 {
@@ -186,7 +189,7 @@ section {
     width: 80%;
 }
 .subject h2{
-    color:black;
+    color: var(--Text-color);
 }
 .subject a:hover {
     background-color: #ffffff;
@@ -202,6 +205,7 @@ ul {
     flex-direction: column;
     row-gap: 3vh;
     text-align: left;
+    color: var(--Text-color);
 }
 
     .subject h2 {

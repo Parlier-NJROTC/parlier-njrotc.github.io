@@ -1,0 +1,56 @@
+:root {
+    --body-color: white;
+    --svg-invert: 0%;
+    --links-BG-color:#0e0f15;
+    --ribbon-option-BG-color:#f2f2f2;
+    --tutorial-BG-color:azure;
+    --PDF-name-BG-color:whitesmoke;
+    --fund-BG-color:gainsboro;
+    --order-II:burlywood;
+    --Text-H1-color: white;
+    --a-link: rgb(0, 0, 255);
+    --Text-color: black;
+    --Instructor-BG-color:navajowhite;
+    --info-BG-color:#d7e4ec;
+    --general-orders-BG-color: #EDDDCF;
+    --Button-BG-color: white;
+    --backgroundColor: navy;
+    --Button-border-color: black;
+    --tabs-BG-color: aliceblue;
+    --footer-BG-color: rgb(250, 235, 215);
+    --textimg-BG-color: navy;
+    --azure-color: rgb(240, 255, 255);
+    --freshman-BG-color: rgb(206, 224, 230);
+    --sophomore-BG-color: lightblue;
+    --junior-BG-color: cornflowerblue;
+    --senior-BG-color: navy;
+    --error-BG-color: rgba(0, 125, 255, 0.09);
+}
+
+body.dark-mode {
+    --fund-BG-color:black;
+    --body-color: black;
+    --order-II:#214778;
+    --Instructor-BG-color:black;
+    --ribbon-option-BG-color:#0d0d0d;
+    --PDF-name-BG-color:black;
+    --tutorial-BG-color:black;
+    --info-BG-color:black;
+    --general-orders-BG-color: #122230;
+    --svg-invert: 100%;
+    --Text-H1-color: black;
+    --backgroundColor: black;
+    --a-link: gold;
+    --Text-color: white;
+    --Button-BG-color: black;
+    --textimg-BG-color: #ffff7f;
+    --Button-border-color: white;
+    --tabs-BG-color: black;
+    --footer-BG-color: #051428;
+    --azure-color: #0f0000;
+    --freshman-BG-color: black;
+    --sophomore-BG-color: black;
+    --junior-BG-color: black;
+    --senior-BG-color: black;
+    --error-BG-color: rgba(0, 125, 255, 0.09);
+}

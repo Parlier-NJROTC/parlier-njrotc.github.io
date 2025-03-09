@@ -8,6 +8,7 @@ const { frontmatter, name = frontmatter.name } = Astro.props;
 import Header from "../components/Required/Header.astro";
 import Menus from "../components/Required/menus/Menus.astro";
 import Footer from "../components/Required/Footer.astro";
+import '../styles/Default/main.css'
 // Disable the loading page if your Are developing, If You want
 import Loading from '../components/Required/Loading.astro';
 ---
@@ -35,6 +36,9 @@ import Loading from '../components/Required/Loading.astro';
         <Footer />
 
         <style is:global>
+            body{
+                background-color: var(--body-color);
+            }
             #tabs {
                 display: grid;
 
@@ -51,7 +55,7 @@ import Loading from '../components/Required/Loading.astro';
             }
 
             #tabs * {
-                color: black;
+                color: var(--Text-color);
             }
 
             #tabs a {
@@ -69,7 +73,7 @@ import Loading from '../components/Required/Loading.astro';
             #tabs a:hover {
                 width: 105%;
                 height: calc(90vh - 135px);
-                background-color: aliceblue;
+                background-color: var(--tabs-BG-color);
             }
             #tabs img {
                 height: 30vmin;
@@ -84,7 +88,7 @@ import Loading from '../components/Required/Loading.astro';
                 #tabs a:hover {
                     width: 105%;
                     height: calc(75vh - 135px);
-                    background-color: aliceblue;
+                    background-color: var(--tabs-BG-color);
                 }
             }
 

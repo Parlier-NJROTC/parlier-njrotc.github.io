@@ -9,7 +9,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
 />
 
 <Layout name="Ribbon Rack Builder">
-  <h1 style="color: black;">
+  <h1 style="color: var(--Text-color);">
     <img
       src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/refs/heads/main/Other/Seal_of_the_Navy_Junior_Reserve_Officers_Training_Corps.svg"
       style="width: 50px;  margin: -9px;"
@@ -18,14 +18,14 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       style="width: 50px; margin: -9px;"
     />
   </h1>
-  <h2 style="color: black;">
+  <h2 style="color: var(--Text-color);">
     <div>AD FREE RIBBON RACK BUILDER</div>
     <h3 onclick="copyToClipboard()" style="text-align: left;font-size: 10px;">
       Click for Embed Code. Feel Free to Take this Page and Place it in your
       NJROTC Website
     </h3>
-    <hr style="background: white;" />
-    <div id="ribbon-selection" style="background: white;">
+    <hr style="background:var(--body-color);" />
+    <div id="ribbon-selection" style="background:var(--body-color);">
       <div class="ribbon-selection">
         <Boxess
           numberR="ribbon1"
@@ -182,7 +182,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
 
   <style>
     body * {
-      color: black;
+      color: var(--Text-color);
       text-align: center;
     }
 
@@ -201,7 +201,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       transform: translateX(-50%);
       font-size: 24px;
       padding: 10px;
-      color: black;
+      color: var(--Text-color);
       transition: 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
     .box-text:hover {
@@ -260,7 +260,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       -ms-user-drag: none;
     }
     .ribbon-selection {
-      border: 1px solid rgb(255, 255, 255);
       border-left: none;
       border-right: none;
 
@@ -286,22 +285,26 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
     position: absolute;
     right: 0px;
 
-    background: white;
-    color: white;
+    background:var(--body-color);
+    color: var(--Text-color);
 
-    border: 1px solid black;
+    border: 1px solid var(--Button-border-color);
     border-radius: 5px;
 
     cursor: pointer;
 
+    svg{
+      filter: invert(var(--svg-invert));
+    }
+
     transition: ease-in-out 250ms;
   }
   #DOWNLOAD-RACK:hover{
-    background: rgb(0, 0, 0);
+    background: var(--Button-border-color);
 
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--body-color);
     svg{
-      filter: invert(1);
+      filter: invert(var(--svg-invert));
     }
   }
   </style>
@@ -503,4 +506,5 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
     }
   });
   </script>
+  
 </Layout>

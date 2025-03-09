@@ -33,7 +33,8 @@ import Layout from "../../layouts/GlobalHTMLLayout.astro"
 
 <style>
     body * {
-        color:black;
+        
+    color: var(--Text-color);
     }
 </style>
 
@@ -50,8 +51,8 @@ body * {
     display: grid;
     box-sizing: border-box;
     padding-inline: 5vw;
-    background-color: whitesmoke;
-    color: black;
+    background-color: var(--PDF-name-BG-color);
+    color: var(--Text-color);
 }
 #title hr{
     margin: 25px;
@@ -79,7 +80,7 @@ body * {
     "emty1 pictu descp emty3"
     "emty1 subt emty4 emty4"
     ;
-    background-color: navajowhite;
+    background-color: var(--Instructor-BG-color);
 }
 
 #name{
@@ -88,6 +89,7 @@ body * {
     justify-self: start;
     align-self: center;
     width: 230%;
+    color: var(--Text-color);
     
 }
 #Chief{
@@ -99,9 +101,14 @@ body * {
     grid-area: descp;
     margin-left: 5%;
     font-size: 24px;
+    color: var(--Text-color);
+}
+#description a {
+    color: var(--Text-color);
 }
 #sub{
     grid-area: subt;
+    color: var(--Text-color);
 }
 @media (orientation: portrait) {
     #description{

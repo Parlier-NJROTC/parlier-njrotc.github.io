@@ -5,7 +5,7 @@
     <div>
         <h1> 
             <img id="SPIN2" src="/NJROTC-Seal.svg" style="width: 40px; margin-inline: 5px;margin-bottom: 6px;"> 
-            <img src="/NJROTC.svg" style="width: 24%;padding-bottom: 0px;" />
+            <img src="/NJROTC.svg" style="width: 24%;padding-bottom: 0px;filter: invert(var(--svg-invert));" />
         
             
         </h1>
@@ -17,7 +17,7 @@
     <hr>
     <div>
         <span>
-            <h2> <img src="/Nend.svg" style="width: 120px;" /></h2>
+            <h2> <img src="/Nend.svg" style="width: 120px;filter: invert(var(--svg-invert));" /></h2>
             <a href="mailto:njrotcparlier@gmail.com">
                 <img class="map" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/200px-Gmail_icon_%282020%29.svg.png" style="height: 13px; width: 16px;left: -15%;bottom:0%;" alt="Gmail">
                 njrotcparlier@gmail.com</a><span>  - Cyberpatriot Email & Feedback <br>
@@ -68,15 +68,15 @@
         filter: contrast(50%);
     }
     a{
-        color: rgb(0, 0, 0);
+        color: var(--Text-color);
         transition: ease-in-out 250ms;
     }
     a:hover{
-        color: rgb(0, 0, 255);
+        color: var(--a-link);
         filter: contrast(200%);
     }
     footer{
-        background: antiquewhite;
+        background: var(--footer-BG-color);
         padding-inline: 30px;
         padding-bottom: 15px;
 
@@ -96,7 +96,7 @@
         font-weight: normal;
         display: flex;
         align-items: center;
-        color:black;
+        color:var(--Text-color);
     }
     h1 img{
         transition: transform 2s ease-in-out;
@@ -115,7 +115,7 @@
 
     h2{
         font-weight: normal;
-        color:black;
+        color:var(--Text-color);
     }
     footer > div:nth-child(1) div a{
         display: inline-block;
@@ -132,7 +132,7 @@
     }
     footer div:nth-child(3) span{
         text-align: center;
-        color:black;
+        color:var(--Text-color);
     }
     img {
         user-select: none;

@@ -8,13 +8,13 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
 <Layout name="Gallery Home">
     <Top image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg">
         <h1><u>Photo Gallery</u></h1>
-        <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;">
+        <div style="background-color: var(--backgroundColor);color:var(--Text-color); padding-inline: 5vw; padding-block:10px;">
             Welcome to the Gallery, our massive picture collection. Here is where our pictures are stored.
         </div>
     </Top>
     <div class="eyehurts"/>
-    <h1 style="color: black;">Instructions</h1>
-    <ul style="color: black;">
+    <h1 style="color: var(--Text-color);">Instructions</h1>
+    <ul style="color: var(--Text-color);">
         <li>
             <div class="container" style="display: flex; align-items: left;">
                 <button id="btn33">How do I Send NJROTC Photos?</button>
@@ -23,14 +23,17 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
                     <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
                 </div>
             </div>
-        <li style="color: black; padding-left: 6px;">Navigate through pages to see different images</li>
-        <li style="color: black; padding-left: 6px;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
+        <li style="color: var(--Text-color); padding-left: 6px;">Navigate through pages to see different images</li>
+        <li style="color: var(--Text-color); padding-left: 6px;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
         <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif">
     </ul>
     <ControlBar></ControlBar>
 </Layout>
 
 <style>  
+:root{
+    --align:center;
+}
     li{
         color: #000;
         font-size: 18px;
@@ -43,7 +46,7 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
         z-index: -1;
         position: absolute;
         
-        background-color: white;
+        background-color: var(--body-color);
     }
   .container{
       justify-content: flex-start; 

@@ -1,72 +1,121 @@
 ---
+// Component Frontmatter
 interface Props {
-    image?:string;
-    altTxt?:string;
-    desc?:string;
-    backgroundColor?:string;
-    align?:string;
-    /*imagePos?:string; Read Line56*/
-    
+    image?: string;
+    altTxt?: string;
+    desc?: string;
+    backgroundColor?: string;
+    align?: string;
+    parallaxSpeed?: number;
 }
 
-const { image, altTxt , desc , backgroundColor = "white", align = "center", /*imagePos = "50% 50%" Read Line56*/} = Astro.props
-
-
+const { 
+    image, 
+    altTxt, 
+    desc, 
+    backgroundColor = "white", 
+    align = "center", 
+    parallaxSpeed = 0.5 
+} = Astro.props;
 ---
 
-<div>
-    <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
-    <span>
-        <slot />
-    </span>
+<div class="parallax-container" data-speed={parallaxSpeed}>
+    <div class="image">
+        <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy"class="parallax-image"/>
+    </div>
+    
+    <div class="content">
+        <span>
+            <slot />
+        </span>
+    </div>
 </div>
 
-<style define:vars={{align,backgroundColor,/*imagePos Read Line56*/}}>
-    div{
+<style>
+    .parallax-container {
+        position: relative;
+        height: 600px;
+        overflow: hidden;
+
+        border-block: 1px solid black;
+        perspective: 100px;
+    }
+
+    .image {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        transform-style: preserve-3d;
+        will-change: transform;
+    }
+
+    .parallax-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    .content {
         display: flex; 
         box-sizing: border-box;
         justify-content: var(--align);
         align-items: center;
+
+        text-align: center;
         position: relative;
         padding-inline: 5vw;
         height: 600px;
-        /*background-color: var(--backgroundColor); Will this Break Something? */
         border-block: 1px solid black;
-
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
     }
-    div *{
-        text-align:  center;
-    }
-    div > span{
-        z-index: 1;
-    }
-    img{
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        
-        width: 100%;
-        height: 100%;
-        image-rendering: optimizeSpeed;
-        object-fit: cover;
-        /*object-position: var(--imagePos); Tempily disabling this Cuz I Think it Useless -Saul */
-
-        z-index: -1;
-    }
-
-    img {
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -webkit-user-drag: none;
-        -moz-user-drag: none;
-        -ms-user-drag: none;
-    }
-
 </style>
 
+<script lang="js">
+    (function() {
+        const containers = document.querySelectorAll('.parallax-container');
+        let ticking = false;
+
+        function updateParallax() {
+            containers.forEach(container => {
+                const wrapper = container.querySelector('.image');
+                const speed = parseFloat(container.dataset.speed) || 5;
+                const rect = container.getBoundingClientRect();
+                
+                const viewportCenter = window.innerHeight / 2;
+                const containerCenter = rect.top + (rect.height / 2);
+                const offset = (containerCenter - viewportCenter) * speed;
+
+            
+                wrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
+            });
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+ 
+        updateParallax();
+        
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', updateParallax);
+
+   
+        window.addEventListener('beforeunload', () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', updateParallax);
+        });
+    })();
+</script>

@@ -7,7 +7,7 @@
         <button id="CalendarUp">&#x25B2;<br>Backwards 1 Month</button>
         <div id="CalendarCarusel"> <!-- idk how to spell -->
             <!-- Will be simple for now -->
-            <img id="CalendarImg" src="/Calendar/Feburary_2025.png">
+            <img id="CalendarImg" src="/Calendar/March_2025.png">
         </div>
         <button id="CalendarDown">Forwads 1 Month<br>&#x25BC;</button>
     </div>
@@ -18,7 +18,7 @@
             {Month:10,Year:2024},
             {Month:7,Year:2025}
         ]
-        let current = {Month:2,Year:2025}
+        let current = {Month:3,Year:2025}
 
         let up = document.getElementById("CalendarUp");
         let down = document.getElementById("CalendarDown");
@@ -62,10 +62,13 @@
             display: grid;
             align-content: center;
             justify-content: center;
+            background-color: var(--Button-BG-color);
         }
         #CalendarContainer button{
+
+            background-color: var(--Button-BG-color);
             width:100%;
-            color:black
+            color: var(--Text-color);
         }
         #CalendarContainer img{
             position: relative;
