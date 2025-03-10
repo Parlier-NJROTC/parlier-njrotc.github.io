@@ -1,6 +1,7 @@
 :root {
     --body-color: white;
     --svg-invert: 0%;
+    --Header-BG-Color:linear-gradient(15deg, rgb(0, 0, 80),navy,#6F4E37, gold);
     --links-BG-color:#0e0f15;
     --ribbon-option-BG-color:#f2f2f2;
     --tutorial-BG-color:azure;
@@ -15,6 +16,7 @@
     --general-orders-BG-color: #EDDDCF;
     --Button-BG-color: white;
     --backgroundColor: navy;
+    --Top-Menu-BG-color:darkblue;
     --Button-border-color: black;
     --tabs-BG-color: aliceblue;
     --footer-BG-color: rgb(250, 235, 215);
@@ -28,10 +30,12 @@
 }
 
 body.dark-mode {
+    --Header-BG-Color:linear-gradient(15deg, rgba(0,0,0,1) 40%, rgba(86,86,86,1) 62%, rgba(255,255,255,1) 100%);
     --fund-BG-color:black;
     --body-color: black;
     --order-II:#214778;
     --Instructor-BG-color:black;
+    --Top-Menu-BG-color:rgb(0, 0, 0);
     --ribbon-option-BG-color:#0d0d0d;
     --PDF-name-BG-color:black;
     --tutorial-BG-color:black;

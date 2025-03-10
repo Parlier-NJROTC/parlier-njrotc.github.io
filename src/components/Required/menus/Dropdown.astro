@@ -87,7 +87,7 @@ const { title ,link = title, id} = Astro.props
         filter: invert(0);
     }
     span input:checked ~ a {
-        color:darkblue;
+        color:var(--Top-Menu-BG-color);
         #Sidething{
            width: 140%; 
         }
@@ -105,7 +105,7 @@ const { title ,link = title, id} = Astro.props
         z-index: -1;
     }
     span a:hover{
-        color:  darkblue;
+        color:  var(--Top-Menu-BG-color);
         #Sidething{
             width: 140%;
         }
