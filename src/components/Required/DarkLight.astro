@@ -2,7 +2,7 @@
     <div class="container" style="display: none;">
         <span id="LightSide"></span>
         <span id="DarkSide">
-            <div id="star-container"></div>
+            <div id="star-container">c</div>
         </span>
     </div>
     <!-- Star Code -->
@@ -15,6 +15,12 @@
                 star.className = 'star';
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
+                star.style.position = 'absolute';
+                // fixed stars
+                star.style.borderRadius = '50%';
+                star.style.backgroundColor = 'white';
+                star.style.boxShadow = '0 0 5px rgba(255, 255, 255, 0.75), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.25)';
+
 
                 const maxX = window.innerWidth - size;
                 const maxY = window.innerHeight - size;
