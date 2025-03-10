@@ -1,87 +1,130 @@
-    <div class="toggle-container" style="display: flex;justify-content: center;">
-        <button id="APPLY">
-            <img src="/icons/Moon.svg" id="moonImage" class="moon">
-            <img src="/icons/Sun.svg" id="sunImage" class="sun">
-        </button>
-    </div>
+<div class="toggle-container" style="display: flex;justify-content: center;">
+    <button id="APPLY">
+        <img src="/icons/Moon.svg" id="moonImage" class="moon">
+        <img src="/icons/Sun.svg" id="sunImage" class="sun">
+    </button>
+</div>
 
-    <style>
-      #toggle-container {
-          text-align: center;
-          position: absolute;
-          display: flex;
-          justify-content: center;
-      }
-      #APPLY {
-          background: #00000008;
-          width: 40px;
-          height: 40px;
-          border: none;
-          cursor: pointer;
-          
-      }
-      #APPLY img {
-          width: 30px;
-          transition: transform 0.3s ease;
-      }
-      #APPLY img.moon {
-          display: none;
-      }
-      #APPLY img.sun {
-          display: block;
-      }
-      #APPLY.active img.moon {
-          display: block;
-      }
-      #APPLY.active img.sun {
-          display: none;
-      }
-      #astrothing {
-          /* Just in case */
-      }
-  </style>
+<style>
+    :root {
+        --bg-color: #f0f0f0;
+        --text-color: #333;
+    }
 
-    <script lang="js">
-        let isDarkMode = false;
+    .dark-mode {
+        --bg-color: #333;
+        --text-color: #f0f0f0;
+    }
 
-        function toggleDarkMode() {
-            const button = document.getElementById('APPLY');
-            const moonImage = document.getElementById('moonImage');
-            const sunImage = document.getElementById('sunImage');
-            const Sode = document.querySelector(".container")
-            const body = document.body;
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-            isDarkMode = !isDarkMode;
+    #toggle-container {
+        text-align: center;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
 
-            button.classList.toggle('active');
-            moonImage.classList.toggle('active');
-            sunImage.classList.toggle('active');
+    #APPLY {
+        background: #00000008;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+    }
 
-            body.classList.toggle('dark-mode');
+    #APPLY img {
+        width: 30px;
+        transition: transform 0.3s ease;
+    }
 
-            //const backgroundColor = isDarkMode ? '#333' : '#f0f0f0';
-            //body.style.backgroundColor = backgroundColor;
+    #APPLY img.moon {
+        display: none;
+    }
 
-            const textColor = isDarkMode ? '#f0f0f0' : '#333';
-            body.style.color = textColor;
+    #APPLY img.sun {
+        display: block;
+    }
 
-            moonImage.style.display = isDarkMode ? 'block' : 'none';
-            sunImage.style.display = isDarkMode ? 'none' : 'block';
+    #APPLY.active img.moon {
+        display: block;
+    }
 
-            Sode.style.display = 'Block'
+    #APPLY.active img.sun {
+        display: none;
+    }
+</style>
+
+<script lang="js">
+    let isDarkMode = false;
+    let isDarkSideVisible = false;
+    const lightSide = document.getElementById('LightSide');
+    const darkSide = document.getElementById('DarkSide');
+    let delayTimer = null;
+
+    function toggleDarkMode() {
+        const button = document.getElementById('APPLY');
+        const body = document.body;
+        
+        isDarkMode = !isDarkMode;
+        body.classList.toggle('dark-mode');
+        button.classList.toggle('active');
+        
+        localStorage.setItem('colorState', isDarkMode ? 'dark' : 'light');
+        
+        handleColorTransition();
+    }
+
+    function handleColorTransition() {
+        if (delayTimer) {
+            clearTimeout(delayTimer);
         }
+        const container = document.querySelector('.container');
+        if (container) container.style.display = 'block';
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const storedState = localStorage.getItem('colorState');
-            if (storedState === 'dark') {
-                toggleDarkMode();
+        delayTimer = setTimeout(() => {
+            if (!isDarkSideVisible) {
+                lightSide.style.top = '-150%';
+                darkSide.style.top = '-50%';
+                isDarkSideVisible = true;
+            } else {
+                lightSide.style.top = '0%';
+                darkSide.style.top = '100%';
+                isDarkSideVisible = false;
             }
-        });
+            handleDelayedHide();
+        }, 2000);
+    }
 
-        document.getElementById('APPLY').addEventListener('click', toggleDarkMode);
+    async function handleDelayedHide() {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        const container = document.querySelector('.container');
+        if (container) container.style.display = 'none';
+    }
 
-        // there is Two just in case my code messes up
-        document.getElementById('APPLY').addEventListener('click', toggleColors);
+    document.addEventListener('DOMContentLoaded', () => {
+        const storedState = localStorage.getItem('colorState');
+        if (storedState === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('APPLY').classList.add('active');
+            isDarkMode = true;
+            isDarkSideVisible = true;
+            
+            lightSide.style.transition = 'none';
+            darkSide.style.transition = 'none';
+            lightSide.style.top = '-150%';
+            darkSide.style.top = '-50%';
+            
+            void lightSide.offsetHeight;
+            
+            lightSide.style.transition = '';
+            darkSide.style.transition = '';
+        }
+    });
 
-    </script>
-</body>
+    document.getElementById('APPLY').addEventListener('click', toggleDarkMode);
+</script>
