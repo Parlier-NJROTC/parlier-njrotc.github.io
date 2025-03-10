@@ -11,6 +11,7 @@ import Footer from "../components/Required/Footer.astro";
 import '../styles/Default/main.css'
 // Disable the loading page if your Are developing, If You want
 import Loading from '../components/Required/Loading.astro';
+import Sode from '../components/Required/DarkLight.astro';
 ---
 
 <!-- Default layout for all .md files --><!doctype html>
@@ -29,6 +30,7 @@ import Loading from '../components/Required/Loading.astro';
     <body style="margin:0px; overflow-x:hidden;">
         <Header />
         <Menus />
+        <Sode></Sode>
         <Loading></Loading>
         <div id="tabs">
             <slot />

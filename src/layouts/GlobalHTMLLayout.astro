@@ -11,7 +11,8 @@ import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
 import '../styles/Default/main.css'
 // disable the loading page in development if u want
-import Loading from '../components/Required/Loading.astro'
+import Loading from '../components/Required/Loading.astro';
+import Sode from '../components/Required/DarkLight.astro';
 ---
 
 <!-- Default layout for all .md files -->
@@ -76,6 +77,7 @@ import Loading from '../components/Required/Loading.astro'
             }
         </style>
         <Header></Header>
+        <Sode></Sode>
         <Menus></Menus>
         <Loading></Loading>
         <slot></slot>
