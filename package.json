@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "node": "node generate-image-list.cjs",
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev && node generate-image-list.cjs",
+    "start": "astro dev && node generate-image-list.cjs",
     "build": "node generate-image-list.cjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
