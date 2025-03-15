@@ -6,13 +6,12 @@ import '../styles/Default/main.css'
 
 <Layout name="404">
     <div id="screen">
-        <h1 class="text-link" >Error 404 not found</h1>
+        <h1 class="text-link" >Error&nbsp;<div class="digits-container"><span class="digit">4</span><span class="digit">0</span><span class="digit">4</span></div>&nbsp;not found</h1>
         <hr />
         <p>Webpage not found, it might have been moved to or removed</p>
         <img id="cat" src="">
         <p id="quote"></p>
     </div>
-</marquee>
 </Layout>
 
 
@@ -55,10 +54,22 @@ import '../styles/Default/main.css'
     }
     .text-link {
     position: relative;
-    display: inline-block;
+    display: flex;
     font-size: 45px;
     text-decoration: none;
     z-index: 1;
+    }
+    .digits-container {
+        display: flex;
+    }
+
+    .digit {
+        font-weight: bold;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .flipped {
+        transform: rotateX(180deg);
     }
 </style>
 
@@ -121,3 +132,44 @@ import { imageConfig } from "astro:assets";
 
     // imagestuff.src = `http//:theurl.com/images/image-${ Math.floor( Math.random * 3)+1 }.png`
 </script>
+<script lang="js">
+    const digits = document.querySelectorAll('.digit');
+        let lastFlippedIndex = null;
+        const titles = ["Parlier NJROTC | ‎", "Parlier NJROTC | 404"];
+        // const titles = ["Parlier NJROTC | ‎","Parlier NJROTC | 4","Parlier NJROTC | 40","Parlier NJROTC | 404","Parlier NJROTC | 40","Parlier NJROTC | 4"];
+        let currentIndex = 0;
+        
+        let intervalId;
+
+        function flipRandomDigit() {
+            const availableDigits = Array.from(digits).filter(d => d !== lastFlippedIndex);
+            
+            if (availableDigits.length === 0) {
+                setTimeout(() => {
+                    flipRandomDigit();
+                }, 1000);
+                return;
+            }
+
+            const selectedDigit = availableDigits[Math.floor(Math.random() * availableDigits.length)];
+            selectedDigit.classList.add('flipped');
+
+            setTimeout(() => {
+                selectedDigit.classList.remove('flipped');
+            }, 500);
+
+            lastFlippedIndex = selectedDigit;
+        }
+
+        // Wait before Flipping
+        intervalId = setInterval(flipRandomDigit, 404); 
+
+        // Title
+
+        function updateTitle() {
+            document.title = titles[currentIndex];
+            currentIndex = (currentIndex + 1) % titles.length;
+        }
+
+        setInterval(updateTitle, 500);// 500ms cuz it look cool
+    </script>
