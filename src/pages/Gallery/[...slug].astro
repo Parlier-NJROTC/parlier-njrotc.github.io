@@ -45,6 +45,16 @@ const { page, images } = Astro.props;
     </dialog>
     <ControlBar></ControlBar>
 </Layout>
+<!-- Backdrop Close -->
+<script lang="js">
+    const dialog = document.getElementById('showPhoto');
+    
+    dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+    </script>
 <script define:vars={{images}}>
 
 
@@ -53,8 +63,8 @@ const { page, images } = Astro.props;
         let img = document.createElement("img")
         img.src = `https://lh3.googleusercontent.com/d/${images[i]}=h280`
         img.className = "Gallery-Image"
-        img.decoding = "async"
-        img.loading = "lazy"
+        img.decoding = "sync"
+        img.loading = "eager"
 
         img.onclick = ()=>{
 
@@ -125,7 +135,7 @@ const { page, images } = Astro.props;
         transition: 250ms;
     }
     .Gallery-Image:hover{
-        height: 290px;
+        height: 285px;
     }
 </style>
 
