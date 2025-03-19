@@ -43,7 +43,7 @@ const { page, images } = Astro.props;
             <button id="closeBtn" style="position: absolute;top: 0;left: 0.5px;">X</button>
         </form>
     </dialog>
-    <ControlBar></ControlBar>
+    <ControlBar CurrentPageNum={page}></ControlBar>
 </Layout>
 <!-- Backdrop Close -->
 <script lang="js">
