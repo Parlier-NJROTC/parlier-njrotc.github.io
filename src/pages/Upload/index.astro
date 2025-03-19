@@ -1,0 +1,228 @@
+---
+
+import { API_URL } from 'astro:env/client';
+
+---
+
+<body>
+    <div class="container">
+        <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" multiple accept="image/*">
+            <label for="fileInput" class="upload-btn">Choose Files</label>
+            <p>or drag and drop images here</p>
+            <p>Maximum size: 25 MB</p>
+            <button id="submitBtn" class="upload-btn" style="margin-top: 20px;">Submit Images</button>
+
+            <button class="upload-btn" id="submitBtn-lock" style="margin-top: 20px;display:none;">Submited Images</button>
+        </div>
+        <div class="preview-container" id="previewContainer"></div>
+    </div>
+
+
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .drop-zone {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .drop-zone.dragover {
+            border-color: #2196F3;
+            background-color: #f8f9fa;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .preview-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .preview-item {
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .preview-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .file-info {
+            font-size: 12px;
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+<script lang="js">
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const previewContainer = document.getElementById('previewContainer');
+    let uploadedFiles = [];
+    const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB in bytes
+
+    // Handle file selection
+    fileInput.addEventListener('change', function(e) {
+        handleFiles(e.target.files);
+    });
+
+    // Handle drag and drop
+    dropZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', function(e) {
+        this.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    function handleFiles(files) {
+        const validFiles = [];
+        const invalidFiles = [];
+        
+        Array.from(files).forEach(file => {
+            if (!file.type.startsWith('image/')) {
+                invalidFiles.push(`${file.name}: Not an image file`);
+            } else if (file.size > MAX_FILE_SIZE) {
+                invalidFiles.push(`${file.name}: Exceeds 25MB limit`);
+            } else {
+                validFiles.push(file);
+            }
+        });
+
+        if (invalidFiles.length > 0) {
+            alert("Some files were rejected:\n" + invalidFiles.join('\n'));
+        }
+
+        uploadedFiles = [...uploadedFiles, ...validFiles];
+        updatePreview();
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function updatePreview() {
+        previewContainer.innerHTML = '';
+        
+        uploadedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewItem = document.createElement('div');
+                previewItem.className = 'preview-item';
+                
+                previewItem.innerHTML = `
+                    <button class="remove-btn" style="position: absolute;background: red; color: white; border: none; border-radius: 5px; width: 24px; height: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center;" data-index="${index}">&times;</button>
+                    <img class="preview-img" style="height: 150px;object-fit: cover;border-radius: 5px;" src="${e.target.result}" alt="${file.name}">
+                    <div class="file-info">
+                        <div>${formatFileSize(file.size)}</div>
+                    </div>
+                `;
+                
+                previewContainer.appendChild(previewItem);
+                
+                previewItem.querySelector('.remove-btn').addEventListener('click', function() {
+                    const indexToRemove = parseInt(this.dataset.index);
+                    uploadedFiles.splice(indexToRemove, 1);
+                    updatePreview();
+                });
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+</script>
+<script lang="js" define:vars={{API_URL}}>
+    document.getElementById('submitBtn').addEventListener('click', async function() {
+
+        
+        const formData = new FormData();
+        uploadedFiles.forEach(file => {
+            formData.append('images', file);
+
+        const submitBtn = document.querySelector('#submitBtn');
+        const submitBtnlock = document.querySelector('#submitBtn-lock');
+        submitBtnlock.style.display = submitBtnlock.style.display = 'inline';
+        submitBtn.style.display = submitBtn.style.display = 'none';
+        });
+    try {
+        
+        const response = await fetch(API_URL+"auth/python", {  
+            method: 'POST',
+            body: formData
+        });
+        
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            
+            throw new Error(errorData.message || 'Server error');
+        }
+        
+        const result = await response.json();
+        alert(result.message);
+
+        const submitBtn = document.querySelector('#submitBtn');
+        const submitBtnlock = document.querySelector('#submitBtn-lock');
+        submitBtnlock.style.display = submitBtnlock.style.display = 'none';
+        submitBtn.style.display = submitBtn.style.display = 'inline';
+    } catch (error) {
+        console.error('Error:', error);
+        alert(error.message || 'Failed to send images!');
+    }
+});
+</script>
+</body>
+</html>
