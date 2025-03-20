@@ -1,51 +1,37 @@
 <script lang="ts">
-    import data from '../../data/gallery.json'
-    import "./ControlBar.less"
+    import data from '../../data/gallery.json';
+    import "./ControlBar.less";
 
-    export let CurrentPageNum:number
+    export let CurrentPageNum: number;
 
-    let buttons = []
-
-    for(let i = 0;i<data.length;i++){
-        buttons.push(data[i].page)
+    interface PageButton {
+        page: number;
+        isCurrent: boolean;
+        href: string;
     }
 
-    let NextPage = `/Gallery/Page-${CurrentPageNum+1}`
-    let NextDisabled = false
-    let PrevPage = `/Gallery/Page-${CurrentPageNum-1}`
-    let PrevDisabled = false
-    if(CurrentPageNum<=0){
-        // hide or removeControlBar-Prev-Link
-        PrevPage = ``
-        PrevDisabled = true
-
-    }
-    if(CurrentPageNum>=buttons.length){
-        // hide or remove ControlBar-Next-Link
-        NextPage = ``
-        NextDisabled = true
-    }
+    const buttons: PageButton[] = data.map(item => ({
+        page: item.page,
+        isCurrent: item.page === CurrentPageNum,
+        href: `/Gallery/Page-${item.page}`
+    }));
 </script>
 
 <div id="Control-BackPlate">
-        <button id="ControlBar-Previous" disabled={PrevDisabled}>
-            <a id="ControlBar-Prev-Link" href={PrevPage} aria-disabled={PrevDisabled}>
-                &lt; <br> Previous Page
-            </a>
-        </button>
     <div id="ControlBar">
-        <a href="/Gallery">
+        <a href="/Gallery" class="control-link" aria-current={CurrentPageNum === 0 ? 'page' : undefined}>
             Home
         </a>
-        {#each buttons as link}
-            <a href={"/Gallery/Page-"+link} id={`ControlBar-Button${link}`}>
-                {link}
+        {#each buttons as button}
+            <a
+                href={button.isCurrent ? 'javascript:void(0);' : button.href}
+                id={button.isCurrent ? `ControlBar-Button${CurrentPageNum}` : ''}
+                class="control-link"
+                aria-current={button.isCurrent ? 'page' : undefined}
+                on:click|preventDefault={button.isCurrent ? (e) => e.preventDefault() : null}
+            >
+                {button.page}
             </a>
         {/each}
     </div>
-        <button id="ControlBar-Next" disabled={NextDisabled}>
-            <a id="ControlBar-Next-Link" href={NextPage} aria-disabled={NextDisabled}>
-                &gt; <br> Next Page
-            </a>
-        </button>
 </div>
