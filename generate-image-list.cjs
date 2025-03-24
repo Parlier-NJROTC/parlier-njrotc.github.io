@@ -25,7 +25,7 @@ let GalleryData = [
 ]
 
 async function CreatePage(token = null) {
-   console.log("PHOTOS PAGE "+`${PageNumber}`+" MADE")
+   console.log("PHOTOS PAGE "+`${PageNumber + 1}`+" MADE")
 
    let page = {
       slug: `Page-${PageNumber + 1}`,
