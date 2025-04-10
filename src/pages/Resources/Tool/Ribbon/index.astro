@@ -6,7 +6,7 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
 <meta
   name="description"
   content="Build Your Ribbon Rack in Our Ad-Free Ribbon Rack Builder for NJROTC"
-  content="Ribbon Rack, NJROTC, Ad-Free, Parlier"
+  content="Ribbon Rack, NJROTC, Ad-Free, Parlier, Stars, Cadet Made, Cadet Run"
 />
 
 <Layout name="Ribbon Rack Builder">
@@ -174,7 +174,16 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         <div class="separator"></div>
         <div class="ribbon-rack"></div>
         <button id="DOWNLOAD-RACK">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+            ><path
+              d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"
+            ></path></svg
+          >
         </button>
       </div>
       <hr />
@@ -280,34 +289,34 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         width: 100%;
       }
     }
-  #DOWNLOAD-RACK{
-    margin-top: 20px;
-    padding: 5px;
-    position: absolute;
-    right: 0px;
+    #DOWNLOAD-RACK {
+      margin-top: 20px;
+      padding: 5px;
+      position: absolute;
+      right: 0px;
 
-    background:var(--body-color);
-    color: var(--Text-color);
+      background: var(--body-color);
+      color: var(--Text-color);
 
-    border: 1px solid var(--Button-border-color);
-    border-radius: 5px;
+      border: 1px solid var(--Button-border-color);
+      border-radius: 5px;
 
-    cursor: pointer;
+      cursor: pointer;
 
-    svg{
-      filter: invert(var(--svg-invert));
+      svg {
+        filter: invert(var(--svg-invert));
+      }
+
+      transition: ease-in-out 250ms;
     }
+    #DOWNLOAD-RACK:hover {
+      background: var(--Button-border-color);
 
-    transition: ease-in-out 250ms;
-  }
-  #DOWNLOAD-RACK:hover{
-    background: var(--Button-border-color);
-
-    border: 1px solid var(--body-color);
-    svg{
-      filter: invert(var(--svg-invert));
+      border: 1px solid var(--body-color);
+      svg {
+        filter: invert(var(--svg-invert));
+      }
     }
-  }
   </style>
   <script lang="js">
     function copyToClipboard() {
@@ -325,7 +334,10 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
     }
   </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- DON'T TOUCH MY CODE. NO JOKE IT IS SCARY -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+  ></script>
   <script lang="js">
     const ribbonSelection = document.querySelector(".ribbon-selection");
     const ribbonRack = document.querySelector(".ribbon-rack");
@@ -361,31 +373,120 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       "CERT Ribbon",
     ];
 
-    ribbonSelection.addEventListener("change", handleRibbonChange);
-
     document.querySelectorAll("#ribbon-option").forEach((option) => {
       option.addEventListener("click", handleRibbonOptionClick);
       const label = option.querySelector("label");
       if (label) {
         label.addEventListener("click", handleLabelClick);
       }
+
+      const select = option.querySelector("select");
+      select.addEventListener("click", function (e) {
+        e.stopPropagation(); 
+      });
     });
 
-    function handleRibbonChange(event) {
-      const ribbon = event.target.closest(".ribbon-option");
-      const ribbonImage = ribbon.querySelector("img");
+    ribbonSelection.addEventListener("change", function (event) {
+      const target = event.target;
 
-      if (event.target.checked) {
-        if (!selectedRibbons.has(ribbonImage.src)) {
-          addRibbon(ribbonImage);
+      // Handle checkbox changes
+      if (target.matches('input[type="checkbox"]')) {
+        const ribbonOption = target.closest(".ribbon-option");
+        const ribbonImage = ribbonOption.querySelector("img");
+        const numberR = target.id;
+
+        if (target.checked) {
+          if (!selectedRibbons.has(numberR)) {
+            addRibbon(ribbonImage, ribbonOption);
+          }
+        } else {
+          removeRibbon(numberR);
         }
-      } else {
-        removeRibbon(ribbonImage);
+        updateCenteredBox();
       }
 
-      updateCenteredBox();
+      // Handle select changes
+      if (target.matches("select")) {
+        const ribbonOption = target.closest(".ribbon-option");
+        const ribbonId = ribbonOption.querySelector("input").id;
+        const starValue = target.value;
+        updateStar(ribbonId, starValue);
+      }
+    });
+
+    // Ribbon Functions
+    function addRibbon(ribbonImage, ribbonOption) {
+      const numberR = ribbonOption.querySelector("input").id;
+      const container = document.createElement("div");
+      container.className = "ribbon-container";
+      container.dataset.ribbonId = numberR;
+      container.style.height = "30px";
+      container.style.position = "relative";
+
+      // Create ribbon image
+      const newRibbonImage = document.createElement("img");
+      newRibbonImage.src = ribbonImage.src;
+      newRibbonImage.alt = ribbonOption.querySelector("label").textContent;
+      newRibbonImage.style = `transform: rotate(180deg);
+        user-select: none;
+        -webkit-user-drag: none;`;
+
+      // Create star image
+      const starImg = document.createElement("img");
+      starImg.className = "ribbon-star";
+      starImg.style = `position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        transform: rotate(180deg);`;
+
+      // Set initial star value
+      const select = ribbonOption.querySelector("select");
+      starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${select.value}.png`;
+
+      container.appendChild(newRibbonImage);
+      container.appendChild(starImg);
+
+      // Sort and add to rack
+      const containers = Array.from(
+        ribbonRack.querySelectorAll(".ribbon-container"),
+      );
+      containers.push(container);
+
+      containers.sort((a, b) => {
+        const aAlt = a.querySelector("img").alt;
+        const bAlt = b.querySelector("img").alt;
+        return displayOrder.indexOf(bAlt) - displayOrder.indexOf(aAlt);
+      });
+
+      ribbonRack.innerHTML = "";
+      containers.forEach((c) => ribbonRack.appendChild(c));
+      selectedRibbons.add(numberR);
     }
 
+    function removeRibbon(numberR) {
+      const container = document.querySelector(
+        `div[data-ribbon-id="${numberR}"]`,
+      );
+      if (container) {
+        container.remove();
+        selectedRibbons.delete(numberR);
+      }
+    }
+
+    function updateStar(ribbonId, starValue) {
+      const container = document.querySelector(
+        `div[data-ribbon-id="${ribbonId}"]`,
+      );
+      if (!container) return;
+
+      const starImg = container.querySelector(".ribbon-star");
+      starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${starValue}.png`;
+    }
+
+    // Helper Functions
     function handleRibbonOptionClick(event) {
       const checkbox = event.currentTarget.querySelector(
         'input[type="checkbox"]',
@@ -405,107 +506,53 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       }
     }
 
-    function addRibbon(ribbonImage) {
-      const newRibbonImage = document.createElement("img");
-      newRibbonImage.src = ribbonImage.src;
-      newRibbonImage.style =
-        "transform: rotate(180deg);user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; -webkit-user-drag: none; -moz-user-drag: none; -ms-user-drag: none;";
-      newRibbonImage.alt =
-        ribbonImage.parentElement.querySelector("label").textContent;
-      selectedRibbons.add(ribbonImage.src);
-
-      const displayedImages = [...ribbonRack.getElementsByTagName("img")];
-      displayedImages.push(newRibbonImage);
-
-      displayedImages.sort(
-        (a, b) => displayOrder.indexOf(b.alt) - displayOrder.indexOf(a.alt),
-      );
-
-      ribbonRack.innerHTML = "";
-      displayedImages.forEach((image) => ribbonRack.appendChild(image));
-    }
-
-    function removeRibbon(ribbonImage) {
-      if (selectedRibbons.has(ribbonImage.src)) {
-        const ribbonImages = Array.from(ribbonRack.getElementsByTagName("img"));
-        const imgToRemove = ribbonImages.find(
-          (img) => img.src === ribbonImage.src,
-        );
-        selectedRibbons.delete(ribbonImage.src);
-        ribbonRack.removeChild(imgToRemove);
-      }
-    }
-
     function updateCenteredBox() {
-      let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      let checkedCount = 0;
+      const centeredBox = document.getElementById("centered-box");
+      centeredBox.style.transform =
+        selectedRibbons.size > 0
+          ? "translate(0, -50%)"
+          : "translate(100%, -50%)";
+    }
 
-      checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-          checkedCount++;
+    document
+      .getElementById("DOWNLOAD-RACK")
+      .addEventListener("click", async function () {
+        const preloadImages = Array.from(
+          document.querySelectorAll(".ribbon-container"),
+        ).flatMap((container) => {
+          const images = Array.from(container.querySelectorAll("img"));
+          return images.map((img) => {
+            return new Promise((resolve, reject) => {
+              const newImg = new Image();
+              newImg.crossOrigin = "Anonymous";
+              newImg.src = img.src;
+              newImg.onload = () => resolve(true);
+              newImg.onerror = () => reject(`Failed to load image: ${img.src}`);
+            });
+          });
+        });
+
+        try {
+          await Promise.all(preloadImages);
+
+          html2canvas(document.querySelector(".ribbon-rack"), {
+            useCORS: true,
+            backgroundColor: null,
+            scale: 2,
+            logging: true,
+            allowTaint: false,
+          }).then((canvas) => {
+            const link = document.createElement("a");
+            link.download = "ribbon-rack.png";
+            link.href = canvas.toDataURL("image/png");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          });
+        } catch (error) {
+          console.error("Error generating image:", error);
+          alert("Error generating ribbon rack image. Please try again.");
         }
       });
-
-      const centeredBox = document.getElementById("centered-box");
-
-      if (checkedCount > 0) {
-        centeredBox.style.transform = "translate(0, -50%)";
-        console.log("More than one checkbox is checked.");
-      } else {
-        centeredBox.style.transform = "translate(100%, -50%)";
-        console.log("One or no checkboxes are checked.");
-      }
-    }
-
-    document.getElementById("checkbox").addEventListener("change", function () {
-      var ribbonOption = this.parentElement;
-      if (this.checked) {
-        ribbonOption.classList.add("checked");
-      } else {
-        ribbonOption.classList.remove("checked");
-      }
-    });
   </script>
-<!-- used HTML as Base and Some CORS -->
-<!-- http://developer.mozilla.org/en-US/docs/Web/HTTP/CORS -->
-<!-- https://html2canvas.hertzen.com/configuration -->
-<script lang="js">
-  document.getElementById('DOWNLOAD-RACK').addEventListener('click', async function() {
-    const preloadImages = Array.from(document.querySelectorAll('.ribbon-rack img'))
-      .map(img => {
-        return new Promise((resolve, reject) => {
-          const newImg = new Image();
-          newImg.crossOrigin = 'Anonymous';  
-          newImg.src = img.src;
-          newImg.onload = () => resolve(true);
-          newImg.onerror = () => reject();
-        });
-      });
-  
-    try {
-      await Promise.all(preloadImages);
-      
-      html2canvas(document.querySelector('.ribbon-rack'), {
-        useCORS: true,  
-        backgroundColor: 'none',
-        scale: 2,
-        logging: true,
-        removeContainer:true,  
-        allowTaint: false
-      }).then(canvas => {
-        const dataUrl = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.download = 'ribbon-rack.png';
-        link.href = dataUrl;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      });
-    } catch (error) {
-      console.error('Error loading images:', error);
-      alert('Error generating image.');
-    }
-  });
-  </script>
-  
 </Layout>
