@@ -389,7 +389,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
     ribbonSelection.addEventListener("change", function (event) {
       const target = event.target;
 
-      // Handle checkbox changes
       if (target.matches('input[type="checkbox"]')) {
         const ribbonOption = target.closest(".ribbon-option");
         const ribbonImage = ribbonOption.querySelector("img");
@@ -405,7 +404,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         updateCenteredBox();
       }
 
-      // Handle select changes
       if (target.matches("select")) {
         const ribbonOption = target.closest(".ribbon-option");
         const ribbonId = ribbonOption.querySelector("input").id;
@@ -414,7 +412,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       }
     });
 
-    // Ribbon Functions
     function addRibbon(ribbonImage, ribbonOption) {
       const numberR = ribbonOption.querySelector("input").id;
       const container = document.createElement("div");
@@ -423,15 +420,13 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       container.style.height = "30px";
       container.style.position = "relative";
 
-      // Create ribbon image
       const newRibbonImage = document.createElement("img");
       newRibbonImage.src = ribbonImage.src;
       newRibbonImage.alt = ribbonOption.querySelector("label").textContent;
       newRibbonImage.style = `transform: rotate(180deg);
         user-select: none;
         -webkit-user-drag: none;`;
-
-      // Create star image
+        
       const starImg = document.createElement("img");
       starImg.className = "ribbon-star";
       starImg.style = `position: absolute;
@@ -442,14 +437,12 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
         pointer-events: none;
         transform: rotate(180deg);`;
 
-      // Set initial star value
       const select = ribbonOption.querySelector("select");
       starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${select.value}.png`;
 
       container.appendChild(newRibbonImage);
       container.appendChild(starImg);
 
-      // Sort and add to rack
       const containers = Array.from(
         ribbonRack.querySelectorAll(".ribbon-container"),
       );
@@ -486,7 +479,6 @@ import Boxess from "../../../../components/Sections/Ribbon.astro";
       starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${starValue}.png`;
     }
 
-    // Helper Functions
     function handleRibbonOptionClick(event) {
       const checkbox = event.currentTarget.querySelector(
         'input[type="checkbox"]',

@@ -6,6 +6,7 @@
     --ribbon-option-BG-color:#f2f2f2;
     --tutorial-BG-color:azure;
     --PDF-name-BG-color:whitesmoke;
+    --calender-BG: #f8f9fa;
     --fund-BG-color:gainsboro;
     --order-II:burlywood;
     --Text-H1-color: white;
@@ -36,6 +37,7 @@ body.dark-mode {
     --order-II:#214778;
     --Instructor-BG-color:black;
     --Top-Menu-BG-color:rgb(0, 0, 0);
+    --calender-BG: black;
     --ribbon-option-BG-color:#0d0d0d;
     --PDF-name-BG-color:black;
     --tutorial-BG-color:black;

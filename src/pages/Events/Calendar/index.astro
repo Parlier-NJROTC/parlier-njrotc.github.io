@@ -3,78 +3,324 @@
 ---
 
 <Layout name="Calendar">
-    <div id="CalendarContainer">
-        <button id="CalendarUp">&#x25B2;<br>Backwards 1 Month</button>
-        <div id="CalendarCarusel"> <!-- idk how to spell -->
-            <!-- Will be simple for now -->
-            <img id="CalendarImg" src="/Calendar/March_2025.png">
-        </div>
-        <button id="CalendarDown">Forwads 1 Month<br>&#x25BC;</button>
+ 
+<div class="calendar">
+    <div class="header">
+        <button class="nav-button" id="prev-month">← Previous</button>
+        <h2 id="current-month"></h2>
+        <button class="nav-button" id="next-month">Next →</button>
     </div>
-    <script>
-        // im too lazy to do it properly
-        let months = ["Janurary","Feburary","March","April","May","June","July","August","September","Octorber","November","December"]
-        let limits = [
-            {Month:10,Year:2024},
-            {Month:7,Year:2025}
-        ]
-        let current = {Month:3,Year:2025}
+    <div class="calendar-grid" id="calendar-grid"></div>
+</div>
+<style>
+  .calendar {
+      background: var(--body-color);
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
 
-        let up = document.getElementById("CalendarUp");
-        let down = document.getElementById("CalendarDown");
-        up.onclick = ()=>{
-            current.Month--
-            if(current.Month<=limits[0].Month && current.Year==limits[0].Year){
-                current.Month++
-            }
-            if(current.Month>=13){
-                current.Month=1
-                current.Year++
-            }
-            if(current.Month<=0){
-                current.Month=12
-                current.Year--
+  h2{
+    color: var(--Text-color);
+  }
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  }
+
+  .nav-button {
+      background: navy;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .nav-button:hover {
+      background: #0505b0;
+  }
+
+  .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+  }
+
+  .day-header {
+      padding: 10px;
+      text-align: center;
+      background: #f8f9fa;
+      font-weight: bold;
+  }
+
+  .calendar-cell {
+      padding: 10px;
+      min-height: 100px;
+      border: 1px solid #dee2e6;
+      background: white;
+      position: relative;
+  }
+
+  .calendar-cell:hover {
+      background: #f8f9fa;
+  }
+
+  .date-number {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-weight: bold;
+  }
+
+  .event {
+      background: navy;
+      color: white;
+      padding: 2px 5px;
+      border-radius: 3px;
+      margin-top: 20px;
+      font-size: 0.8em;
+      cursor: pointer;
+  }
+
+  .event:hover {
+      background: #0056b3;
+  }
+
+  .current-date {
+      background-color: #e3f2fd;
+  }
+</style>
+
+<script lang="js">
+
+  // 'YYYY-M-D': ['NAME'],
+  // 'YYYY-M-D': ['NAME', 'NAME'],
+  const events = {
+      '2025-4-5': ['Cadet Ball'],
+      '2025-4-11': ['PHS Prom'],
+      '2025-4-14': ['Spring Break'],
+      '2025-4-15': ['Spring Break'],
+      '2025-4-16': ['Spring Break'],
+      '2025-4-17': ['Spring Break'],
+      '2025-4-18': ['Spring Break'],
+      '2025-4-21': ['Spring Break'],
+      '2025-4-23': ['Parlier Round Up', 'Parade Kick Off'],
+      '2025-4-24': ['UCLA'],
+      '2025-4-25': ['ASB CAASPP Rally Kick Off', 'Arbor Day','USS Boxer'],
+      '2025-5-1': ['May Day', 'National Day of Prayer'],
+      '2025-5-5': ['Cinco de Mayo'],
+      '2025-5-11': ['Mother’s Day'],
+      '2025-5-23': ['Awards Night'],
+      '2025-5-24': ['Senior Grad. Night','Senior Last Day'],
+      '2025-5-25': ['Senior Sunset/ Senior Checkout'],
+      '2025-5-26': ['Memorial Day'],
+      '2025-6-5': ['Last Day of School'],
+      '2025-6-6': ['Summer Break'],
+      '2025-6-7': ['Summer Break'],
+      '2025-6-8': ['Summer Break'],
+      '2025-6-9': ['Summer Break'],
+      '2025-6-10': ['Summer Break'],
+      '2025-6-11': ['Summer Break'],
+      '2025-6-12': ['Summer Break'],
+      '2025-6-13': ['Summer Break'],
+      '2025-6-14': ['Summer Break'],
+      '2025-6-15': ['Summer Break'],
+      '2025-6-16': ['Summer Break'],
+      '2025-6-17': ['Summer Break'],
+      '2025-6-18': ['Summer Break'],
+      '2025-6-19': ['Summer Break'],
+      '2025-6-20': ['Summer Break'],
+      '2025-6-21': ['Summer Break'],
+      '2025-6-22': ['Summer Break'],
+      '2025-6-23': ['Summer Break'],
+      '2025-6-24': ['Summer Break'],
+      '2025-6-25': ['Summer Break'],
+      '2025-6-26': ['Summer Break'],
+      '2025-6-27': ['Summer Break'],
+      '2025-6-28': ['Summer Break'],
+      '2025-6-29': ['Summer Break'],
+      '2025-6-30': ['Summer Break'],
+      '2025-7-1': ['Summer Break'],
+      '2025-7-2': ['Summer Break'],
+      '2025-7-3': ['Summer Break'],
+      '2025-7-4': ['Independence Day', 'Summer Break'],
+      '2025-7-5': ['Summer Break'],
+      '2025-7-6': ['Summer Break'],
+      '2025-7-7': ['Summer Break'],
+      '2025-7-8': ['Summer Break'],
+      '2025-7-9': ['Summer Break'],
+      '2025-7-10': ['Summer Break'],
+      '2025-7-11': ['Summer Break'],
+      '2025-7-12': ['Summer Break'],
+      '2025-7-13': ['Summer Break'],
+      '2025-7-14': ['Summer Break'],
+      '2025-7-15': ['Summer Break'],
+      '2025-7-16': ['Summer Break'],
+      '2025-7-17': ['Summer Break'],
+      '2025-7-18': ['Summer Break'],
+      '2025-7-19': ['Summer Break'],
+      '2025-7-20': ['Summer Break'],
+      '2025-7-21': ['Summer Break'],
+      '2025-7-22': ['Summer Break'],
+      '2025-7-23': ['Summer Break'],
+      '2025-7-24': ['Summer Break'],
+      '2025-7-25': ['Summer Break'],
+      '2025-7-26': ['Summer Break'],
+      '2025-7-27': ['Summer Break'],
+      '2025-7-28': ['Summer Break'],
+      '2025-7-29': ['Summer Break'],
+      '2025-7-30': ['Summer Break'],
+      '2025-7-31': ['Summer Break'],
+      '2025-8-1': ['Summer Break'],
+      '2025-8-2': ['Summer Break'],
+      '2025-8-3': ['Summer Break'],
+      '2025-8-4': ['Summer Break'],
+      '2025-8-5': ['Summer Break'],
+      '2025-8-6': ['Summer Break'],
+      '2025-8-7': ['Summer Break'],
+      '2025-8-8': ['Summer Break'],
+      '2025-8-9': ['Summer Break'],
+      '2025-8-10': ['Summer Break'],
+      '2025-8-11': ['Summer Break'],
+      '2025-8-12': ['Summer Break'],
+      '2025-8-13': ['First Day of School'],
+      '2025-9-1': ['Labor Day'],
+      '2025-10-13': ['Columbus Day'],
+      '2025-11-11': ['Veterans Day'],
+      '2025-11-27': ['Thanksgiving Day'],
+      '2025-12-25': ['Christmas Day']
+  };
+
+
+
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    function generateCalendar(month, year) {
+        const firstDay = new Date(year, month, 1);
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const startingDay = firstDay.getDay();
+
+        document.getElementById('current-month').textContent = 
+            `${monthNames[month]} ${year}`;
+
+        const calendarGrid = document.getElementById('calendar-grid');
+        calendarGrid.innerHTML = '';
+
+
+        dayNames.forEach(day => {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'day-header';
+            dayElement.textContent = day;
+            dayElement.style.padding = '10px';
+            dayElement.style.color = 'var(--Text-color)';
+            dayElement.style.textAlign = 'center';
+            dayElement.style.background = 'var(--calender-BG)';
+            dayElement.style.fontWeight = 'bold';
+            calendarGrid.appendChild(dayElement);
+        });
+
+
+        for (let i = 0; i < startingDay; i++) {
+            calendarGrid.appendChild(createCell(''));
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateKey = `${year}-${month + 1}-${day}`;
+            const cellEvents = events[dateKey] || [];
+            const isCurrentDate = day === currentDate.getDate() && 
+                                month === currentDate.getMonth() && 
+                                year === currentDate.getFullYear();
+
+            const cell = createCell(day);
+            if (isCurrentDate) {
+                cell.classList.add('current-date');
+                cell.style.backgroundColor = '#e3f2fd';
             }
 
-            let img = document.getElementById("CalendarImg") as HTMLImageElement
-            img.src = `/Calendar/${months[current.Month-1]}_${current.Year}.png`
-        }
-        down.onclick = ()=>{
-            current.Month++
-            if(current.Month>=limits[1].Month && current.Year==limits[1].Year){
-                current.Month--
-            }
-            if(current.Month>=13){
-                current.Month=1
-                current.Year++
-            }
-            if(current.Month<=0){
-                current.Month=12
-                current.Year--
-            }
+            
 
-            let img = document.getElementById("CalendarImg") as HTMLImageElement
-            img.src = `/Calendar/${months[current.Month-1]}_${current.Year}.png`
-        }
-    </script>
-    <style>
-        #CalendarContainer{
-            display: grid;
-            align-content: center;
-            justify-content: center;
-            background-color: var(--Button-BG-color);
-        }
-        #CalendarContainer button{
+            const eventContainer = document.createElement('div');
+            cellEvents.forEach(event => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event';
+                eventElement.textContent = event;
+                eventContainer.appendChild(eventElement);
 
-            background-color: var(--Button-BG-color);
-            width:100%;
-            color: var(--Text-color);
-        }
-        #CalendarContainer img{
-            position: relative;
-            width:50%;
-            left: 25%;
-        }
-    </style>
-</Layout>
+                eventElement.style.background = 'navy';
+                eventElement.style.color ='white';
+                eventElement.style.padding ='2px 5px';
+                eventElement.style.borderRadius = '3px';
+                eventElement.style.marginTop = '20px';
+                eventElement.style.fontSize = '0.8em';
+                eventElement.style.cursor ='pointer';
+            });
 
+            cell.appendChild(eventContainer);
+            calendarGrid.appendChild(cell);
+        }
+    }
+
+    function createCell(day) {
+        const cell = document.createElement('div');
+        cell.className = 'calendar-cell';
+        cell.style.padding = '10px';
+        cell.style.minHeight = '100px';
+        cell.style.border = '1px solid #dee2e6';
+        cell.style.position = 'relative';
+        if (day) {
+            const dateNumber = document.createElement('div');
+            dateNumber.className = 'date-number';
+            dateNumber.textContent = day;
+            dateNumber.style.position ='absolute';
+            dateNumber.style.color = 'var(--Text-color)';
+            dateNumber.style.top ='5px';
+            dateNumber.style.right = '5px';
+            dateNumber.style.fontWeight ='bold';
+            cell.appendChild(dateNumber);
+
+            cell.addEventListener('click', () => {
+                const date = `${currentYear}-${currentMonth + 1}-${day}`;
+                
+                if (eventText) {
+                    if (!events[date]) events[date] = [];
+                    events[date].push(eventText);
+                    generateCalendar(currentMonth, currentYear);
+                }
+            });
+
+        }
+        return cell;
+    }
+
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        generateCalendar(currentMonth, currentYear);
+    });
+
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        generateCalendar(currentMonth, currentYear);
+    });
+
+    generateCalendar(currentMonth, currentYear);
+</script>
