@@ -12,6 +12,7 @@
     --Text-H1-color: white;
     --a-link: rgb(0, 0, 255);
     --Text-color: black;
+    --day-calendar-BG: rgb(227, 242, 253);
     --Instructor-BG-color:navajowhite;
     --info-BG-color:#d7e4ec;
     --general-orders-BG-color: #EDDDCF;
@@ -33,6 +34,7 @@
 body.dark-mode {
     --Header-BG-Color:black;
     --fund-BG-color:black;
+    --day-calendar-BG:rgb(37, 37, 37);
     --body-color: black;
     --order-II:#214778;
     --Instructor-BG-color:black;
