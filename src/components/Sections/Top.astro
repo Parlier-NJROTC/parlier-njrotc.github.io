@@ -32,6 +32,16 @@ const {
 </div>
 
 <style>
+     @media (orientation: portrait) {
+        .image {
+        top: -12%;
+        }
+     }
+     @media (orientation: landscape) {
+        .image {
+        top: -21%;
+        }
+     }
     .parallax-container {
         position: relative;
         height: 600px;
@@ -43,7 +53,6 @@ const {
 
     .image {
         position: absolute;
-        top: -10%;
         left: -10%;
         width: 120%;
         height: 120%;

@@ -1,0 +1,255 @@
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+          <style>
+      
+              #celebration {
+                  z-index: 999999999999999;
+                  height: 100vh;
+                  width: 100%;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  pointer-events: none;
+                  opacity: 0;
+                  transition: opacity 0.5s;
+              }
+              h1{
+                color: var(--Text-color);
+              }
+      
+              h2{
+                color: var(--Text-color);
+              }
+              h3{
+                color: var(--Text-color);
+              }
+              .balloon {
+                  z-index: 99999999999999999;
+                  height: 125px;
+                  width: 105px;
+                  border-radius: 75% 75% 70% 70%;
+                  position: fixed;
+                  opacity: 0.7;
+                  visibility: hidden;
+              }
+      
+              .balloon:before {
+                  content: "";
+                  height: 75px;
+                  width: 1px;
+                  background-color: #FDFD96;
+                  position: absolute;
+                  top: 125px;
+                  left: 50%;
+              }
+      
+              .balloon:after {
+                  content: "▲";
+                  position: absolute;
+                  top: 120px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  color: inherit;
+              }
+      
+              #birthdayButton {
+                  position: fixed;
+                  bottom: -100px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  padding: 15px 30px;
+                  font-size: 20px;
+                  background: #3b76fc;
+                  color: #fdfffc;
+                  border: none;
+                  border-radius: 25px;
+                  cursor: pointer;
+                  z-index: 1000;
+                  transition: bottom 0.5s ease-out, opacity 0.3s;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+              }
+      
+              @keyframes float {
+                  0% {
+                      transform: translateY(100vh) scale(1);
+                      opacity: 1;
+                  }
+      
+                  100% {
+                      transform: translateY(-100vh) scale(0.5);
+                      opacity: 0;
+                  }
+              }
+      
+              @keyframes fadeIn {
+                  from {
+                      opacity: 0;
+                  }
+      
+                  to {
+                      opacity: 1;
+                  }
+              }
+          </style>
+      </head>
+      
+      <body>
+          <div id="celebration"></div>
+          <button id="birthdayButton">HAPPY BIRTHDAY</button>
+      
+          <script lang="">
+              function createCelebration() {
+                  const container = document.getElementById('celebration');
+                  container.innerHTML = '';
+                  const colors = ['#ffaf09', '#3b76fc', '#273788', '#fdfffc'];
+      
+                  // Create balloons
+                  for (let i = 0; i < 50; i++) {
+                      const balloon = document.createElement('div');
+                      balloon.className = 'balloon';
+      
+                      const color = colors[Math.floor(Math.random() * colors.length)];
+                      const leftPos = Math.random() * 90;
+                      const duration = 8 + Math.random() * 7;
+                      const delay = Math.random() * 5;
+                      const endY = -50 - (Math.random() * 50);
+
+                      
+                      const string = document.createElement('div');
+                    const triangle = document.createElement('div');
+
+                    // Add pseudo-elements to balloon
+                    balloon.appendChild(string);
+                    balloon.appendChild(triangle);
+
+                    // Set balloon styles
+                    balloon.style.cssText = `
+                        transform: translateY(100vh);
+                        position: absolute;
+                        background-color: ${color};
+                        color: ${color};
+                        left: ${leftPos}%;
+                        height: 125px;
+                        width: 105px;
+                        border-radius: 75% 75% 70% 70%;
+                        opacity: 0.7;
+                        z-index: 99999999999999999;
+                        visibility: visible;
+                        animation: float ${duration}s cubic-bezier(0.25,0.1,0.25,1) ${delay}s forwards;
+                    `;
+
+                    // Set string styles (for :before pseudo-element)
+                    string.style.cssText = `
+                        position: absolute;
+                        height: 75px;
+                        width: 1px;
+                        background-color: #FDFD96;
+                        top: 125px;
+                        left: 50%;
+                    `;
+
+                    // Set triangle styles (for :after pseudo-element)
+                    triangle.textContent = '▲';
+                    triangle.style.cssText = `
+                        position: absolute;
+                        top: 120px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: inherit;
+                    `;
+
+      
+                      container.appendChild(balloon);
+                  }
+      
+                  // Create text
+                  const text = document.createElement('div');
+                  text.className = 'birthday-text';
+                  text.style.position = 'absolute';
+                  text.style.mixBlendMode = 'difference';
+                  text.style.top = '50%';
+                  text.style.left = '50%';
+                  text.style.transform = 'translate(-50%, -50%)';
+                  text.style.textAlign = 'center';
+                  text.style.color = 'var(--Text-color)';
+                  text.style.fontFamily = 'Arial, sans-serif';
+                  text.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
+                  text.style.opacity = '0';
+                  text.style.background = 'white';
+                  text.style.border = '1px solid white';
+                  text.style.borderRadius = '10px';
+                  text.innerHTML = `
+                      <h1>Happy 2nd Birthday To</h1>
+                      <h2>Parlier NJROTC Website</h2>
+                      <h3>Celebrate with us!</h3>
+                  `;
+                  text.style.animation = 'fadeIn 1s forwards';
+                  container.appendChild(text);
+      
+                  container.style.opacity = '1';
+                  setTimeout(() => {
+                      container.style.opacity = '0';
+                      setTimeout(() => {
+                          container.innerHTML = '';
+                      }, 500);
+                  }, 15000);
+              }
+      
+              function fireConfetti() {
+                  const defaults = {
+                      particleCount: 100,
+                      spread: 100,
+                      colors: ['#ffaf09', '#3b76fc', '#273788', '#fdfffc'],
+                      gravity: 0.8
+                  };
+      
+                  confetti(Object.assign({}, defaults, {
+                      origin: {x: 0, y: 1},
+                      angle: 70
+                  }));
+      
+                  confetti(Object.assign({}, defaults, {
+                      origin: {x: 1, y: 1},
+                      angle: 110
+                  }));
+      
+                  confetti(Object.assign({}, defaults, {
+                      origin: {x: 0.5, y: 0},
+                      angle: 90,
+                      spread: 360,
+                      gravity: 0.5,
+                      ticks: 200,
+                      particleCount: 150
+                  }));
+              }
+      
+              document.addEventListener('DOMContentLoaded', () => {
+                  const today = new Date().toDateString();
+                  const lastCelebration = sessionStorage.getItem('lastCelebration');
+      
+                  if (lastCelebration !== today) {
+                      createCelebration();
+                      fireConfetti();
+      
+                      setTimeout(() => {
+                          document.getElementById('celebration').style.opacity = '0';
+                      }, 14000);
+      
+                      setTimeout(() => {
+                          document.getElementById('birthdayButton').style.display = 'block';
+                      }, 15000);
+                  }
+      
+              const button = document.getElementById('birthdayButton');
+                  setTimeout(() => {
+                      button.style.bottom = '20px';
+                  }, 15000);
+      
+                  button.addEventListener('click', () => {
+                      fireConfetti();
+                  });
+              });
+      
+          </script>
+      </body>
+      
+      </html>

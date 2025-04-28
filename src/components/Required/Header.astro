@@ -6,7 +6,7 @@
     </a>
     <!--<a href="/Login"><button>Login</button></a> no completo -->
     <!--Despite this being here, it still triggers the menus, clever -->
-    <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;color:white;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
+    <label for="box" style="font-family: 'Times New Roman', Times, serif; font-weight: 100;color:white;position: absolute;">&#8801; <!--This is the ≡ (Hamburger) character, DO NOT DELETE --></label>
 </header>
 <div id="Importment">
 <span>Test 
@@ -90,6 +90,14 @@
         color: white;
         margin-right: 30px;
     }
+    @media (orientation: portrait) {
+    header label{
+        margin-right: 10px;
+    }
+    header{
+      grid-template-columns: 40px 330px 0%;
+    }
+}
     button {
     color: #ffffff;
     background: rgb(0, 0, 0);
@@ -119,11 +127,6 @@
     -webkit-user-drag: none;
     -moz-user-drag: none;
     -ms-user-drag: none;
-}
-@media (orientation: portrait) {
-    header label{
-        margin-right: 17.2%;
-    }
 }
 
 </style>
