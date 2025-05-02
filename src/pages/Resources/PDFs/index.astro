@@ -153,6 +153,20 @@
     .PDF-Holder img:hover{
         animation: infinite Craysinp 250ms ease;
     }
+    @media (orientation: portrait) {
+        #A-LINKS-GROUP{
+            translate: 0% 0%;
+        }
+        .PDF-Name{
+            height: 100%;
+        }
+    }
+    @media (orientation: landscape){
+        #A-LINKS-GROUP{
+            display: flex;
+            translate: -10% 50%;
+        }
+    }
     @keyframes Craysinp{
         25%{
             transform: rotate(10deg);
@@ -201,8 +215,7 @@
         background: wheat;
     }
     #A-LINKS-GROUP{
-        display: flex;
-        translate: -10% 50%;
+        
 
         width: 100%;
 
