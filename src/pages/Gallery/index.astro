@@ -14,7 +14,7 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
     </Top>
     <div class="eyehurts"/>
     <h1 style="color: var(--Text-color);">Instructions</h1>
-    <ul style="color: var(--Text-color);">
+    <ul style="color: var(--Text-color);" id="Landscape">
         <li>
             <div class="container" style="display: flex; align-items: left;">
                 <button id="btn33">How do I Send NJROTC Photos?</button>
@@ -27,13 +27,36 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
         <li style="color: var(--Text-color); padding-left: 6px;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
         <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif">
     </ul>
-    
+    <ul style="color: var(--Text-color);" id="portrait">
+        <li>
+            <div class="container" style="display: flex; align-items: left;">
+                <button id="btn33">How do I Send NJROTC Photos?</button>
+                </li>
+                <div class="Gif">
+                    <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
+                </div>
+            </div>
+        <li style="color: var(--Text-color); padding-left: 6px;">Navigate through pages to see different images</li>
+        <li style="color: var(--Text-color); padding-left: 6px;">Tab The Page list And Swipe to Scroll the Page List</li>
+        <img style="display: block; width: 90%; height: 20pc; background: white; padding-top: 10px; padding-bottom: 20px; margin: -3px;">
+    </ul>
+
     <ControlBar CurrentPageNum={0}></ControlBar>
 </Layout>
 
 <style>  
 :root{
     --align:center;
+}
+    @media (orientation: landscape) {
+        #Landscape{
+            display: block;
+    }
+}
+    @media (orientation: portrait) {
+    #Landscape{
+        display: none;
+    }
 }
     li{
         color: #000;
