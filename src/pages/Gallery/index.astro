@@ -38,7 +38,18 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
             </div>
         <li style="color: var(--Text-color); padding-left: 6px;">Navigate through pages to see different images</li>
         <li style="color: var(--Text-color); padding-left: 6px;">Tab The Page list And Swipe to Scroll the Page List</li>
-        <img style="display: block; width: 90%; height: 20pc; background: white; padding-top: 10px; padding-bottom: 20px; margin: -3px;">
+        <div style="display: block; width: 90%; height: 20pc; background: white; padding-top: 10px; padding-bottom: 20px; margin: -3px;">
+            <video 
+                width="100%" 
+                height="100%" 
+                controlslist="nofullscreen nodownload noremoteplayback noplaybackrate"
+                loop 
+                muted 
+                playsinline 
+                autoplay>
+                <source src="https://github.com/Parlier-NJROTC/Assets/raw/refs/heads/main/Other/HelpPhone.mp4" type="video/mp4">
+            </video>
+        </div>
     </ul>
 
     <ControlBar CurrentPageNum={0}></ControlBar>
@@ -52,10 +63,17 @@ import ControlBar from "../../components/ControlBar/ControlBar.svelte";
         #Landscape{
             display: block;
     }
+    #portrait{
+        display: none;
+    }
 }
     @media (orientation: portrait) {
     #Landscape{
         display: none;
+    }
+
+    #portrait{
+        display: block;
     }
 }
     li{
