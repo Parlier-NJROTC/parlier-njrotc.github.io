@@ -15,7 +15,7 @@ import Layout from "../../layouts/GlobalHTMLLayout.astro"
             Senior Chief Gutierrez 
             <hr>
         </h1>
-        <img id="Chief"src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/refs/heads/main/People/vecteezy_user-profile-vector-flat-illustration-avatar-person-icon_37336395.jpg">
+        <img id="Chief"src="/images/SeniorCheifCookingPancaks.jpg">
         <p id="sub">N/A</p>
        <p id="description">Born in Michoacan, Mexico and raised in Parlier, California, Senior Chief Gutierrez enlisted in the Navy on July 2, 2002. He completed various trainings and deployments, advancing to Engineman First Class in 2010. He served on multiple ships, including <a href="https://www.surfpac.navy.mil/lsd45/">USS COMSTOCK</a> and <a href="https://www.history.navy.mil/research/histories/ship-histories/danfs/v/vandegrift--ffg-48-.html">USS VANDEGRIFT</a>, before transitioning to shore duty at SWRMC San Diego. He later served on <a href="https://en.wikipedia.org/wiki/USS_Spruance_(DDG-111)">USS SPRUANCE</a> and embarked <a href="https://en.wikipedia.org/wiki/USS_Anchorage_(LPD-23)">USS ANCHORAGE</a>, being selected as Senior Sailor of the Quarter. In 2014, he became a Chief Petty Officer at ACU-1, completing deployments and eventually serving as CSMP Manager for <a href="https://en.wikipedia.org/wiki/USS_Freedom_(LCS-1)">USS FREEDOM</a> and <a href="https://en.wikipedia.org/wiki/USS_Fort_Worth">USS FORT WORTH</a>. He then served on <a href="https://en.wikipedia.org/wiki/USS_Boxer_(LHD-4)">USS BOXER</a>, being promoted to Senior Chief and completing a Western Pacific Deployment. In 2020, he served on <a href="https://en.wikipedia.org/wiki/USS_Coronado_(LCS-4)">USS CORONADO</a> before retiring in April 2023 after 20 years and 9 months of service.</p>
     </div>
@@ -33,7 +33,6 @@ import Layout from "../../layouts/GlobalHTMLLayout.astro"
 
 <style>
     body * {
-        
     color: var(--Text-color);
     }
     @media (orientation: portrait){
@@ -116,20 +115,42 @@ body * {
     color: var(--Text-color);
 }
 @media (orientation: portrait) {
-    #description{
-    grid-area: none;
-    margin-left: 4%;
-    position: absolute;
-    font-size: 24px;
-    bottom: -208px;
+    #title{
+        text-align: center;
     }
-    #profile{
-        height: 200vw;
-        grid-template-rows: 100px 1fr 325px;
-        grid-template-columns: 6fr 1fr 5fr 1fr;
+    #profile {
+        display: block;
+        position: relative;
+        height: auto;
     }
-    #name{
-        translate: 5% 0%;
+    
+    #description {
+        position: static;
+        margin-left: 4%;
+        font-size: 24px;
+        width: 95%;
+        box-sizing: border-box;
+        padding-right: 4%;
+        padding-bottom: 20px;
+    }
+    
+    #name {
+        width: 100%;
+        translate: 0;
+        margin-bottom: 20px;
+
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    #Chief {
+        width: 99%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    #sub {
+        display: none;
     }
 }
 </style>
