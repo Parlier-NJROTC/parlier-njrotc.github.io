@@ -8,5 +8,8 @@ export default defineConfig({
   redirects: {
     "/Gallery/Page--1": "/Gallery",
     "/Gallery/Page-0": "/Gallery"
+  },
+  devToolbar: {
+    enabled: false,
   }
 });
