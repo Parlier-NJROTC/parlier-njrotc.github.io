@@ -15,7 +15,7 @@ const {
     desc, 
     backgroundColor = "white", 
     align = "center", 
-    parallaxSpeed = 0.5 
+    parallaxSpeed = -0.5 
 } = Astro.props;
 ---
 
@@ -34,12 +34,12 @@ const {
 <style>
      @media (orientation: portrait) {
         .image {
-        top: -12%;
+        top: -3%;
         }
      }
      @media (orientation: landscape) {
         .image {
-        top: -21%;
+        top: -10%;
         }
      }
     .parallax-container {
