@@ -2,7 +2,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" as="style"> 
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <div class="spinner-container">
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" alt="Loading" class="spinner" width="40" height="40">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" class="spinner" type="image/svg+xml">
         <div class="jumping-text">
             <span>L</span>
             <span>o</span>
@@ -41,6 +41,8 @@
     .spinner {
         margin-right: 10px;
         animation: spin 1.5s linear infinite;
+        width: 40px;
+        height: 40px;
     }
 
     img {
@@ -133,7 +135,7 @@
     // fail safe because some how something acts werid
     setTimeout(function() {
                 document.querySelector(".spinner-container").style.display = "none";
-    }, 3500); 
+    }, 1000); 
 
     window.addEventListener('error', function(event) {
         console.error("An error occurred:", event.message);
