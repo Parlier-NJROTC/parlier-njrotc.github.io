@@ -281,39 +281,17 @@ ul {
 
 <script is:inline lang="js">
     document.addEventListener('DOMContentLoaded', function() {
-        const toggleButtons = document.querySelectorAll('.toggle');
-        
-        toggleButtons.forEach(button => {
-            const subject = button.parentElement;
-            const container = subject.querySelector('.links-container');
-            const links = subject.querySelector('.links');
-            
-            // Initialize all as collapsed
-            links.classList.add('collapsed');
-            container.style.height = '0';
-            
-            button.addEventListener('click', function() {
-                if (links.classList.contains('collapsed')) {
-                    // Calculate full height
-                    links.classList.remove('collapsed');
-                    const fullHeight = links.scrollHeight + 'px';
-                    
-                    // Set initial height and animate
-                    container.style.height = '0';
-                    requestAnimationFrame(() => {
-                        container.style.height = fullHeight;
-                    });
-                } else {
-                    // Animate collapse
-                    container.style.height = container.scrollHeight + 'px';
-                    requestAnimationFrame(() => {
-                        container.style.height = '0';
-                        setTimeout(() => {
-                            links.classList.add('collapsed');
-                        }, parseFloat(getComputedStyle(container).transitionDuration) * 1000);
-                    });
-                }
+        const subjects = document.querySelectorAll('.subject');
+        subjects.forEach(subject => {
+            const toggleButton = subject.querySelector('.toggle');
+            const linksList = subject.querySelector('.links');
+
+            toggleButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                linksList.classList.toggle('hidden');
             });
+
+            linksList.classList.remove('hidden');
         });
     });
 </script>
