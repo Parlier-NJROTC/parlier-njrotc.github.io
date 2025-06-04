@@ -106,8 +106,7 @@
         if (container) container.style.display = 'none';
     }
 
-    document.addEventListener('readystatechange', () => {
-    if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
         const storedState = localStorage.getItem('colorState');
         if (storedState === 'dark') {
             document.body.classList.add('dark-mode');
@@ -126,7 +125,7 @@
             darkSide.style.transition = '';
         }
     }
-});
+);
 
     document.getElementById('APPLY').addEventListener('click', toggleDarkMode);
 </script>
