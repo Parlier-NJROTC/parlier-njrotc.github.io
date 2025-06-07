@@ -1,23 +1,36 @@
 <script lang="ts">
-    import data from '../../data/gallery.json'
-    import "./ControlBar.less"
+    import data from '../../data/gallery.json';
+    import "./ControlBar.less";
 
-    let buttons = []
+    export let CurrentPageNum: number;
 
-    for(let i = 0;i<data.length;i++){
-        buttons.push(data[i].page)
+    interface PageButton {
+        page: number;
+        isCurrent: boolean;
+        href: string;
     }
 
+    const buttons: PageButton[] = data.map(item => ({
+        page: item.page,
+        isCurrent: item.page === CurrentPageNum,
+        href: `/Gallery/Page-${item.page}`
+    }));
 </script>
 
 <div id="Control-BackPlate">
     <div id="ControlBar">
-        <a href="/Gallery">
+        <a href="/Gallery" class="control-link" aria-current={CurrentPageNum === 0 ? 'page' : undefined}>
             Home
         </a>
-        {#each buttons as link}
-            <a href={"/Gallery/Page-"+link}>
-                {link}
+        {#each buttons as button}
+            <a
+                href={button.isCurrent ? 'javascript:void(0);' : button.href}
+                id={button.isCurrent ? `ControlBar-Button${CurrentPageNum}` : ''}
+                class="control-link"
+                aria-current={button.isCurrent ? 'page' : undefined}
+                on:click|preventDefault={button.isCurrent ? (e) => e.preventDefault() : null}
+            >
+                {button.page}
             </a>
         {/each}
     </div>

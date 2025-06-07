@@ -15,10 +15,48 @@
     width: 100vw;
 
     background-color: black;
+
+    .control-link {
+        &[aria-current="page"] {
+            background: white;
+            color: #000;
+            cursor: default;
+            font-weight: bold;
+        }
+        &[aria-current="page"]:hover{
+            box-shadow: 0px 0px 0px rgb(114, 239, 255);
+        }
+    }
+
+    button{
+        position: relative;
+        top: calc(calc( -@height / 2) + 2px);
+        height: @height;
+
+        width: 5vw;
+
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            color:black;
+        }
+        &:disabled{
+            text-decoration: none;
+            color: white;
+            a{
+                color: white;
+                text-decoration: none;
+                cursor: not-allowed;
+            }
+        }
+    }
 }
 
 #ControlBar{
-    position: absolute;
+    position: relative;
     top: calc( -@height / 2);
 
     display: flex;
@@ -33,8 +71,8 @@
     height: @height;
 
     overflow-x: scroll;
-    scrollbar-width: none;
-    scrollbar-color: #ffffff #ffffff;
+    scrollbar-width: 2px;
+    scrollbar-color: #ffffff #00000000;
 
 
     background-color: #333333;
@@ -61,6 +99,13 @@
         background-color: black;
 
         text-decoration: none;
+
+        box-shadow: 0px 0px 0px rgb(114, 239, 255);
+
+        transition: ease-in-out 250ms;
+    }
+    a:hover{
+        box-shadow: 3px 3px 0px rgb(114, 239, 255);
     }
     #ControlBar::-webkit-scrollbar{
         height: 0px;

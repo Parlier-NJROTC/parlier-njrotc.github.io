@@ -16,7 +16,7 @@ import Top from "../../components/Sections/Top.astro";
     </Top>
     <div id="subjects">
         <div class="subject">
-            <h2 id="credits" style="max-height:10px;color: black;">Credits</h2>
+            <h2 id="credits" style="max-height:10px;color: var(--Text-color);">Credits</h2>
                 <hr>
         </div>
     </div> 
@@ -25,11 +25,11 @@ import Top from "../../components/Sections/Top.astro";
     <p>
         <div style="text-align:center">
           <div class="subject">
-              <a id="Ibarra">Cadet Ibarra - First Programmer</a><br> 
-              <a id="Sanchez">Cadet Sanchez - Second Programmer</a><br>
-              <a id="Pena">Cadet Pena - Third Programmer</a><br>
-              <a id="Hernandez">Cadet Hernandez - Thanks for the color palette inspiration</a><br>
-              <a id="Espinosa">Cadet Espinosa - Thanks for making the booklets</a><br>
+              <a id="Credit" id="Ibarra">Cadet Ibarra - First Programmer</a><br> 
+              <a id="Credit" id="Sanchez">Cadet Sanchez - Second Programmer</a><br>
+              <a id="Credit" id="Pena">Cadet Pena - Third Programmer</a><br>
+              <a id="Credit" id="Hernandez">Cadet Hernandez - Thanks for the color palette inspiration</a><br>
+              <a id="Credit" id="Espinosa">Cadet Espinosa - Thanks for making the booklets</a><br>
           </div>
       </p>
 </Layout>
@@ -69,6 +69,9 @@ import Top from "../../components/Sections/Top.astro";
     }, 1000);
 </script>
 <style>
+    :root{
+    --align:center;
+}
     body {
         margin: 0;
     }
@@ -88,14 +91,14 @@ import Top from "../../components/Sections/Top.astro";
         font-family: 'Josefin sans';
         font-size: 36px; 
         padding-block: 10px;
-        color: whitesmoke;
+        color: var(--PDF-name-BG-color);
         text-decoration: underline;
     }
 
     #title p {
         width: 90vw;
         background-color: navy;
-        color: white;
+        color: var(--Text-color);
         text-align: center;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         box-sizing: border-box;
@@ -105,7 +108,7 @@ import Top from "../../components/Sections/Top.astro";
 
     #extraStuff {
         width: 100vw;
-        background-color: azure;
+        background-color: var(--tutorial-BG-color);
         text-align: center;
     }
 
@@ -116,7 +119,7 @@ import Top from "../../components/Sections/Top.astro";
         text-align: center;
         font-family: 'Josefin sans';
         padding-block: 2vh;
-        background-color: azure;
+        background-color: var(--tutorial-BG-color);
     }
 
     .subject {
@@ -159,7 +162,7 @@ import Top from "../../components/Sections/Top.astro";
     }
 
     .subject a {
-        color: #000000;
+        color: var(--Button-border-color);
         padding: 1vh;
         border-radius: 1vmin;
         transition:  250ms;
@@ -184,6 +187,6 @@ import Top from "../../components/Sections/Top.astro";
         height: 80%;
         z-index: -1;
         position: absolute;
-        background-color: white;
+        background-color: var(--body-color);
     }
 </style>

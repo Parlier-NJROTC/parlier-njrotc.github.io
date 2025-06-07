@@ -1,0 +1,229 @@
+---
+    import Layout from "../../../../../layouts/GlobalHTMLLayout.astro";
+---
+<Layout name="Chain of Command Cards">
+<div id="FlashCard-BG">
+    <div class="back"></div>
+    <div class="container444">
+        <div class="flashcard">
+            <div class="front"></div>
+            <div class="back" style="transform: rotateX(180deg);"></div>
+        </div>
+    </div>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+    <div class="navigation">
+        <button onclick="prevCard()">Previous</button>
+        <button onclick="scrambleCards()">Scramble</button>
+        <button onclick="nextCard()">Next</button>
+    </div>
+</div>
+</Layout>
+<style>
+    #FlashCard-BG{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    body {
+        background-color: #f0f2f5;
+    }
+
+    .container444 {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        margin-top: 50px;
+    }
+
+    .flashcard {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: all 0.6s ease;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        align-items: center;
+    }
+
+    .flashcard.flipped {
+        transform: rotateX(180deg);
+    }
+
+    .front,
+    .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        text-align: center;
+        color: #000;
+    }
+
+    .back {
+        transform: rotate3d(1, 0, 0, 180deg);
+        background-color: #f8f9fa;
+        font-size: 20px;
+    }
+
+    .progress-bar {
+        width: 600px;
+        height: 4px;
+        background-color: #ddd;
+        margin-top: 60px;
+        border-radius: 2px;
+
+        border: 2px solid #ddd;
+    }
+    @media (orientation: portrait){
+        .progress-bar{
+            width: 90%;
+        }
+        .container444{
+            width: 90%;
+        }
+        .flashcard{
+            width: 99%;
+        }
+    }
+
+    .progress {
+        height: 100%;
+        background-color: Navy;
+
+        border-radius: 2px;
+        transition: width 0.3s cubic-bezier(0.05, 0.67, 0.45, 1.46);
+    }
+
+    .navigation {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: Navy;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(5, 5, 165);
+    }
+</style>
+
+<script lang="js">
+    const flashcards = [
+        { front: "Commander in Chief", back: "President Donald Trump" },
+        { front: "Vice President", back: "James David Vance" },
+        { front: "Speaker of the House", back: "Speaker Mike Johnson" },
+        { front: "Secretary of State", back: "Marco Rubio" },
+        { front: "Secretary of Defense", back: "Honorable Pete Hegseth" },
+        { front: "Secretary of the Navy", back: "Honorable John Phelan" },
+        { front: "Chief of Naval Operations", back: "Admiral James Kilby" },
+        { front: "Master Chief Petty Officer of the Navy",back: "James M. Honea",},
+        { front: "Naval Education and Training Commander",back: "Rear Admiral Jeffrey Czerewko",},
+        { front: "Naval Service Training Commander",back: "Rear Adm. Matthew T. Pottenburgh",},
+        { front: "Director of NJROTC", back: "Mr. Bruce Nolan"},
+        { front: "Area 22 Service Manager", back: "Master Chief Ken Ballard" },
+        { front: "Naval Science Instructor",back: "Senior Chief Felipe Gutierrez",},
+        { front: "Naval Science Instructor", back: "Chief Killian" },
+        { front: "Unit Cadet Commanding Officer (CO)", back: "Cadet Lieutenant Luis Garcia",},
+        { front: "Unit Cadet Executive Officer (XO)", back: "Cadet LTJG Jesus Cruz",},
+    ];
+
+    let currentFlashcards = [...flashcards];
+    let currentCardIndex = 0;
+    let isCooldown = false;
+    const container444 = document.querySelector(".container444");
+    const progress = document.querySelector(".progress");
+    const flashcard = document.querySelector(".flashcard");
+
+    function updateProgress() {
+        const progressWidth = 
+            ((currentCardIndex + 1) / currentFlashcards.length) * 100;
+        progress.style.width = `${progressWidth}%`;
+    }
+
+    function updateCard() {
+        const card = currentFlashcards[currentCardIndex];
+        container444.querySelector(".front").textContent = card.front;
+        container444.querySelector(".back").textContent = card.back;
+        flashcard.classList.remove("flipped");
+        updateProgress();
+    }
+
+    function flipCard() {
+        flashcard.classList.toggle("flipped");
+    }
+
+    function scrambleCards() {
+        const shuffled = [...flashcards];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        currentFlashcards = shuffled;
+        currentCardIndex = 0;
+        updateCard();
+    }
+
+    function nextCard() {
+        if (currentCardIndex < currentFlashcards.length - 1) {
+            currentCardIndex++;
+            updateCard();
+        }
+    }
+
+    function prevCard() {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+            updateCard();
+        }
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === "Space" && !isCooldown) {
+            flipCard();
+            isCooldown = true;
+            setTimeout(() => {
+                isCooldown = false;
+            }, 600);
+        } else if (e.key === "ArrowRight") {
+            nextCard();
+        } else if (e.key === "ArrowLeft") {
+            prevCard();
+        }
+    });
+
+    flashcard.addEventListener("click", flipCard);
+    updateProgress();
+    updateCard();
+    window.addEventListener('keydown', function(e) {
+    if(e.keyCode == 32 && e.target == document.body) {
+        e.preventDefault();
+    }
+    });
+</script>

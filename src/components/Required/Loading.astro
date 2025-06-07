@@ -1,7 +1,8 @@
 <div>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" as="style"> 
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <div class="spinner-container">
-        <img src="/NJROTC-Seal.svg" alt="Loading" class="spinner" width="40" height="40">
+    <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/NJROTC-Seal.svg" alt="Loading" class="spinner" width="40" height="40">
         <div class="jumping-text">
             <span>L</span>
             <span>o</span>
@@ -18,106 +19,108 @@
 </div>
 
 <style >
-        .spinner-container {
-            left: 0;
-            top: 0;
-            display: flex;
-            position: fixed;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width:100%;
-            background-color:white;
-            z-index: 99999999999999999999;
-            cursor: wait;
+    .spinner-container {
+        left: 0;
+        top: 0;
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width:100%;
+        background-color:var(--body-color);
+        z-index: 99999999999999999999;
+        cursor: wait;
 
-            -webkit-user-select: none; 
-            -moz-user-select: none; 
-            -ms-user-select: none; 
-            user-select: none; 
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+    }
+
+    .spinner {
+        margin-right: 10px;
+        animation: spin 1.5s linear infinite;
+        width: 40px;
+        height: 40px;
+    }
+
+    img {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+        -ms-user-drag: none;
+    }
+    
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
         }
 
-        .spinner {
-            margin-right: 10px;
-            animation: spin 1.5s linear infinite;
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .jumping-text span {
+        display: inline-block;
+        animation: bounce 0.5s ease-in-out infinite alternate;
+        font-size: 24px;
+        font-family: 'Josefin Sans', sans-serif;
+        color: var(--Text-color);
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-        img {
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -webkit-user-drag: none;
-            -moz-user-drag: none;
-            -ms-user-drag: none;
+        50% {
+            transform: translateY(-10px);
         }
-        
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
+    }
 
-            to {
-                transform: rotate(360deg);
-            }
-        }
+    .jumping-text span:nth-child(2) {
+        animation-delay: 0.1s;
+    }
 
-        .jumping-text span {
-            display: inline-block;
-            animation: bounce 0.5s ease-in-out infinite alternate;
-            font-size: 24px;
-            font-family: 'Josefin Sans', sans-serif;
-            color:black
-        }
+    .jumping-text span:nth-child(3) {
+        animation-delay: 0.2s;
+    }
 
-        @keyframes bounce {
+    .jumping-text span:nth-child(4) {
+        animation-delay: 0.3s;
+    }
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
+    .jumping-text span:nth-child(5) {
+        animation-delay: 0.4s;
+    }
 
-            50% {
-                transform: translateY(-10px);
-            }
-        }
+    .jumping-text span:nth-child(6) {
+        animation-delay: 0.5s;
+    }
 
-        .jumping-text span:nth-child(2) {
-            animation-delay: 0.1s;
-        }
+    .jumping-text span:nth-child(7) {
+        animation-delay: 0.6s;
+    }
 
-        .jumping-text span:nth-child(3) {
-            animation-delay: 0.2s;
-        }
+    .jumping-text span:nth-child(8) {
+        animation-delay: 0.7s;
+    }
 
-        .jumping-text span:nth-child(4) {
-            animation-delay: 0.3s;
-        }
+    .jumping-text span:nth-child(9) {
+        animation-delay: 0.8s;
+    }
 
-        .jumping-text span:nth-child(5) {
-            animation-delay: 0.4s;
-        }
-
-        .jumping-text span:nth-child(6) {
-            animation-delay: 0.5s;
-        }
-
-        .jumping-text span:nth-child(7) {
-            animation-delay: 0.6s;
-        }
-
-        .jumping-text span:nth-child(8) {
-            animation-delay: 0.7s;
-        }
-
-        .jumping-text span:nth-child(9) {
-            animation-delay: 0.8s;
-        }
-
-        .jumping-text span:nth-child(10) {
-            animation-delay: 0.9s;
-        }
-    </style>
+    .jumping-text span:nth-child(10) {
+        animation-delay: 0.9s;
+    }
+</style>
     <script lang="js">
     document.addEventListener('readystatechange', function() {
         if (document.readyState!== "complete") {
@@ -129,10 +132,10 @@
         }   
     });
 
-    // fail safe because some how something acts werid on chrome running in MacOS 12/13 or below
+    // fail safe because some how something acts werid
     setTimeout(function() {
                 document.querySelector(".spinner-container").style.display = "none";
-    }, 3500); 
+    }, 1000); 
 
     window.addEventListener('error', function(event) {
         console.error("An error occurred:", event.message);

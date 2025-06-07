@@ -28,31 +28,31 @@
     <div id="info">
       <ol>
         <div class="sup">11 Navy General Orders</div>
-        <li>To take charge of this post and all government property in view.</li>
-        <li>To walk my post in a military manner, keeping always on the alert and obversing everything that takes place within sight or hearing.</li>
-        <li>To report all violations of orders I am instructed to enforce.</li>
-        <li>To reapet all calls more distant from the guard house than my own.</li>
-        <li>To quit my post only when properly relived</li>
-        <li>To recieve obey and pass on the sentry who relives me, all orders from the commanding officer, command duty officer, officer of the deck, and officers, and petty officers of the watch only.</li>
-        <li>To talk to no one except in the line of duty.</li>
-        <li>To give the alarm in case of fire or disorder.</li>
-        <li>To call the officer of the deck in any case not covered by instruction.</li>
-        <li>To salute all officer and colors and standards not cased.</li>
-        <li>To be especially watchfull at night and during times of challenging to challenge all people on or near my post, and to allow no one to pass without proper athority</li>
+        <li style="color:var(--Text-color);">To take charge of this post and all government property in view.</li>
+        <li style="color:var(--Text-color);">To walk my post in a military manner, keeping always on the alert and obversing everything that takes place within sight or hearing.</li>
+        <li style="color:var(--Text-color);">To report all violations of orders I am instructed to enforce.</li>
+        <li style="color:var(--Text-color);">To reapet all calls more distant from the guard house than my own.</li>
+        <li style="color:var(--Text-color);">To quit my post only when properly relived</li>
+        <li style="color:var(--Text-color);">To recieve obey and pass on the sentry who relives me, all orders from the commanding officer, command duty officer, officer of the deck, and officers, and petty officers of the watch only.</li>
+        <li style="color:var(--Text-color);">To talk to no one except in the line of duty.</li>
+        <li style="color:var(--Text-color);">To give the alarm in case of fire or disorder.</li>
+        <li style="color:var(--Text-color);">To call the officer of the deck in any case not covered by instruction.</li>
+        <li style="color:var(--Text-color);">To salute all officer and colors and standards not cased.</li>
+        <li style="color:var(--Text-color);">To be especially watchfull at night and during times of challenging to challenge all people on or near my post, and to allow no one to pass without proper athority</li>
       </ol>
       <ol>
         <div class="sup">Simplified Orders</div>
-        <li>Gaurd your building, a.k.a. the classroom or your home.</li>
-        <li>See everything happening around you, not letting your guard down.</li>
-        <li>If some one breaks rules, then report it.</li>
-        <li>If someone tells you that something happen, relay it to your instructor</li>
-        <li>Leave when allowed</li>
-        <li>If a higher officer gives you orders, then pass em on to the next person taking care of your post</li>
-        <li>No converations allowed while on watch</li>
-        <li>If you see a shooter or fire, SCREAM, WHAT ARE YOU DOING!?!?!!</li>
-        <li>Not sure what to do? Ask your instructor</li>
-        <li>Salute your fellow officers, colors, and purple heart awardies</li>
-        <li>If you see someone breaking in, WACK EM.</li>
+        <li style="color:var(--Text-color);">Gaurd your building, a.k.a. the classroom or your home.</li>
+        <li style="color:var(--Text-color);">See everything happening around you, not letting your guard down.</li>
+        <li style="color:var(--Text-color);">If some one breaks rules, then report it.</li>
+        <li style="color:var(--Text-color);">If someone tells you that something happen, relay it to your instructor</li>
+        <li style="color:var(--Text-color);">Leave when allowed</li>
+        <li style="color:var(--Text-color);">If a higher officer gives you orders, then pass em on to the next person taking care of your post</li>
+        <li style="color:var(--Text-color);">No converations allowed while on watch</li>
+        <li style="color:var(--Text-color);">If you see a shooter or fire, SCREAM, WHAT ARE YOU DOING!?!?!!</li>
+        <li style="color:var(--Text-color);">Not sure what to do? Ask your instructor</li>
+        <li style="color:var(--Text-color);">Salute your fellow officers, colors, and purple heart awardies</li>
+        <li style="color:var(--Text-color);">If you see someone breaking in, WACK EM.</li>
       </ol>
     </div>
 </Layout>
@@ -64,7 +64,9 @@
     
 }
 
-
+:root{
+    --align:center;
+}
 #background{
     width: 100vw;
     text-align: center;
@@ -125,7 +127,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
-    background-color:burlywood;
+    background-color:var(--order-II);
 }
 
 #options{
@@ -133,7 +135,7 @@
     flex-wrap: wrap;
     width: 100vw;
     column-gap: 1vw;
-    background-color:  #EDDDCF;
+    background-color:  var(--general-orders-BG-color);
     justify-content: center;
     align-items: center;
     
@@ -159,12 +161,14 @@
     text-align: center;
     font-size: 36px;
     margin-bottom: 20px;
+    color: var(--Text-color);
     
 }
 
 .sup{
     font-size: 26px;
     padding-block: 10px;
+    color:var(--Text-color);
 }
 .img{
     object-fit:contain;
@@ -172,5 +176,14 @@
     width:200px;
     height: 100px;
     padding-block: 20px;
+}
+@media (orientation: portrait) {
+    #info{
+        display: flex;
+        flex-direction: column;
+    }
+    li{
+        padding-top: 10px;
+    }
 }
 </style>

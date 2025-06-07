@@ -10,7 +10,7 @@ interface Props {
     color?:string;
 }
 
-const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt, order = 0, align = "center", margin = "0px"} = Astro.props
+const {backgroundColor, image , color = "white", altTxt, desc = altTxt, order = 0, align = "center", margin = "0px"} = Astro.props
 
 ---
 
@@ -23,7 +23,7 @@ const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt
     <img src={image} alt={altTxt} title={desc} decoding="async" loading="lazy">
 </div>
 
-<style define:vars={{backgroundColor, order, align, margin, color}} >
+<style define:vars={{backgroundColor,order, align, margin, color}} >
     div *{
         color: var(--color);
     }
@@ -41,6 +41,7 @@ const { image , color = "white", backgroundColor = "navy", altTxt, desc = altTxt
         padding-block: 40px;
         padding-inline: 5vw;
         margin: var(--margin);
+        color:var(--Text-H1-color);
 
         width: 100vw  100vw;
         overflow-x: hidden;

@@ -5,5 +5,11 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
-  server:{host:true}
+  redirects: {
+    "/Gallery/Page--1": "/Gallery",
+    "/Gallery/Page-0": "/Gallery"
+  },
+  devToolbar: {
+    enabled: false,
+  }
 });

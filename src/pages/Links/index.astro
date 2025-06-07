@@ -20,14 +20,14 @@
 
 <style>
 #title{
-    color: black;
+    color: var(--Text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 200px;
-    background-color: #EDDDCF;
+    background-color: var(--body-color);
 
     user-select: none;
     -moz-user-select: none;
@@ -35,8 +35,8 @@
     -ms-user-select: none;
 }
 #title div{
-    color: black;
-    border: black solid 5px;
+    color: var(--Text-color);
+    border: var(--Text-color) solid 5px;
     border-left: none;
     border-right: none;
     font-size: 50px;
@@ -51,11 +51,11 @@
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
-    color: #000;
+    color: var(--Text-color);
     justify-content: space-evenly;
     row-gap: 20px;
     padding-top: 20px;
-    background-color: #F1F0EA;
+    background-color: var(--links-BG-color);
 
 }
 .link{

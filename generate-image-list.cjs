@@ -13,7 +13,8 @@ const path =  require('path');
 let fileConfig = {
    q: `'${folderId}' in parents AND (mimeType='image/jpeg' OR mimeType='image/png' OR mimeType='video/mp4')`,
    pageSize: 30,
-   key: apiKey
+   key: apiKey,
+   orderBy: 'createdTime desc' // This Makes it to Youngest to Oldest
 };
 
 let currentPageToken = null;
@@ -24,6 +25,7 @@ let GalleryData = [
 ]
 
 async function CreatePage(token = null) {
+   console.log("PHOTOS PAGE "+`${PageNumber + 1}`+" MADE")
 
    let page = {
       slug: `Page-${PageNumber + 1}`,

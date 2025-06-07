@@ -1,51 +1,129 @@
 ---
-
 interface Props {
-	name: string;
-    spa?: boolean; // single page app, if true webpage will behave more like an app
+    name: string;
+    frontmatter?;
 }
-const { name, spa = false } = Astro.props;
+const { frontmatter, name = frontmatter.name } = Astro.props;
 
-import Header from '../components/Required/Header.astro';
-import Menus from '../components/Required/menus/Menus.astro';
-import MobileNav from '../components/Required/MobileNav.astro';
-import Footer from '../components/Required/Footer.astro';
+import Header from "../components/Required/Header.astro";
+import Menus from "../components/Required/menus/Menus.astro";
+import Footer from "../components/Required/Footer.astro";
+import "../styles/Default/main.css";
 // disable the loading page in development if u want
-import Loading from '../components/Required/Loading.astro'
-
-import { ViewTransitions } from 'astro:transitions';
-import "../styles/standard.css"
-
+import Loading from "../components/Required/Loading.astro";
+import Birthday from "../components/Sections/birthday.astro";
+import Sode from "../components/Required/DarkLight.astro";
 ---
 
-<!doctype html>
+<!-- Default layout for all .md files --><!doctype html>
 <html>
     <head>
-        <ViewTransitions></ViewTransitions>
         <meta charset="UTF-8" />
-		<meta name="description" content="NJROTC" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
-        <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
-		<title>Parlier NJROTC | {name}</title>
-        <script is:inline>
-            let loaded = false
-        </script>
+        <meta name="description" content="NJROTC" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="icon" href="/48x48.svg" type="image/svg+xml" sizes="48x48" />
+        <link rel="icon" href="/96x96.svg" type="image/svg+xml" sizes="96x96" />
+        <link
+            rel="icon"
+            href="/144x144.svg"
+            type="image/svg+xml"
+            sizes="144x144"
+        />
+        <link
+            rel="icon"
+            href="/192x192.svg"
+            type="image/svg+xml"
+            sizes="192x192"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+            rel="stylesheet"
+        />
+        <meta
+            name="google-site-verification"
+            content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0"
+        />
+        <!-- Open Graph/Twitter Cards (for better social sharing) -->
+        <meta property="og:title" content="Parlier NJROTC" />
+        <meta
+            property="og:description"
+            content="Parlier High School NJROTC - Developing leaders through naval science education."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://parlier-njrotc.github.io" />
+        <meta
+            property="og:image"
+            content="https://parlier-njrotc.github.io/images/njrotc-social-preview.png"
+        />
+        <meta
+            property="twitter:description"
+            content="Parlier High School NJROTC - Developing leaders through naval science education."
+        />
+        <meta property="twitter:title" content="Parlier NJROTC" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:image"
+            content="https://parlier-njrotc.github.io/images/njrotc-social-preview.png"
+        />
+
+        <title>Parlier NJROTC | {name}</title>
     </head>
     <body style="margin:0px; overflow-x:hidden;">
-        
-        <Header transition:persist></Header>
-        <Menus></Menus>
-        <MobileNav transition:persist></MobileNav>
-        <!-- set z-index to negative else the main content will overlap the menus -->
-        <main id="Main-Content" transition:animate="slide" style="z-index: -999;">
-            <slot></slot>
-        </main>
-        <Footer  transition:persist></Footer>
-        <script is:inline>
-            loaded = true
-            console.log("loaded")
-        </script>
-        
+        <style is:global>
+            body * {
+                color: var(--Text-H1-color);
+                font-family: "Gill Sans", "Gill Sans MT", Calibri,
+                    "Trebuchet MS", sans-serif;
+            }
+            body {
+                overscroll-behavior: none;
+                background-color: var(--body-color);
+            }
+            .page-title {
+                display: none;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-weight: 600;
+            }
+            h1 {
+                font-size: 3em;
+                font-family: "Josefin sans";
+            }
+            h2 {
+                font-size: 2em;
+            }
+            @font-face {
+                font-family: "Josefin Sans"; /** Look its me */
+                src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
+            }
+        </style>
+        <Header />
+        <Sode />
+        <Menus />
+        <Loading />
+        <Birthday />
+        <slot />
+        <Footer />
     </body>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Parlier NJROTC",
+            "alternateName": "Parlier-NJROTC",
+            "url": "https://parlier-njrotc.github.io/",
+            "sameAs": [
+                "https://www.instagram.com/parlierhsnjrotc/",
+                "https://github.com/Parlier-NJROTC/website"
+            ]
+        }
+    </script>
 </html>

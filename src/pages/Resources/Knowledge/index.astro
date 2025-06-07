@@ -6,9 +6,9 @@
 <Layout name="Knowledge">
     <Top>
         <div id="title">Cadet Knowledge</div>
-        <p style="color:black;">
+        <p style="color: var(--Text-color);">
             "Important information needed for all your years in NJ"<br>
-        Search in you cadet field manual (B.O.B.) for more information.<br>
+        Search in you cadet field manual (B.O.B.) for more information. in the <a href="#PDF" style="color: var(--Text-color);text-decoration: none;">NJROTC Manual's</a><br>
         If something is missing let any one of us know
         </p>
     </Top>
@@ -17,35 +17,37 @@
             <div class="sup">Freshman - NS1</div>
             <div class="material">
                 <a class="study" href="/Resources/Knowledge/Orders/">General Orders<br>"The rules you follow while being in the NJROTC"</a>
-                <a class="study" href="/Resources/PDFs/" >The NJROTC Manual's</a>
+                <a class="study" id="PDF" href="/Resources/PDFs/" >The NJROTC Manual's</a>
                 <a class="study" href="/Resources/Knowledge/Chain/">Chain of Command<br>"Who is incharge of what"</a>
             </div>
         </div>
         <div id="Sophomore" class="year">
             <div class="sup">Sophomore - NS2</div>
             <div class="material">
-                <a class="study" href="https://www.federalpay.org/military/navy/ranks"target="_blank">Navy Ranks - Links to military.com article<br>"How Knowledgable are you?"</a>
-                <a class="study" href="https://quizlet.com/notes/brief-description-of-the-note-ef026190-1500-44bb-badb-f97fe35e0ef7"target="_blank">Navy Ranks Flashcards<br>"Study up on rank knowledge"</a>
-                <a class="study" href="https://www.history.navy.mil/content/history/museums/nmusn/education/educational-resources/navy-abcs--all-ages-.html"target="_blank">Military Alphabet - links to navy.mil article<br>"X Y and Z now I
+                <a class="study" href="/Resources/Knowledge/Ranks/">Navy Ranks<br>"How Knowledgable are you?"</a>
+                <a class="study" href="https://quizlet.com/893894016/navy-and-njrotc-ranks-flash-cards/?funnelUUID=1c12c3d0-e490-45d7-a18b-c0252f125790"target="_blank">Navy Ranks Flashcards<br>(QUIZLET)</a>
+                <a  class="study" href="/Resources/Tool/FlashCards/Navy/">Navy Ranks Flashcards<br>"Study up on rank knowledge"</a>
+                <a class="study" href="/Resources/Knowledge/Alphabet/">Military Alphabet <br>"X Y and Z now I
                     know my ABCs."</a>
-                  <a  class="study" href="https://quizlet.com/894014603/chain-of-command-flashcards/?new"target="_blank">Chain of Command Flashcards</a>
-                <span style="color: black;">+ The NJROTC Manual's <br> + AMI uniform questions <br>+ Chain of command <br> + General orders <br>+ Officer Sleeves </span>
+                  <a  class="study" href="https://quizlet.com/894014603/flashcards?funnelUUID=a0228bd3-785d-46f0-b1e4-42333b3a9fa2"target="_blank">Chain of Command Flashcards<br>(QUIZLET)</a>
+                  <a  class="study" href="/Resources/Tool/FlashCards/Chain/">Chain of Command Flashcards</a>
+                <span style="color: var(--Text-color);">+ The NJROTC Manual's <br> + AMI uniform questions <br>+ Chain of command <br> + General orders <br>+ Officer Sleeves </span>
             </div>
         </div>
         <div id="junior" class="year">
             <div class="sup">Junior - NS3</div>
-            <div class="material">
+            <div class="material" >
                 <a class="study" href="https://quizlet.com/notes/njrotc-uniform-regulations-d760c639-fa2f-4b83-93a7-c30bf4491f34"target="_blank">AMI Questions Flashcards</a>
                 <a class="study" href="https://quizlet.com/894017921/military-alphabet-flash-cards/?new"target="_blank">Military Alphebet Flashcards</a>
-                <span>+ The NJROTC Manual's <br> + AMI questions <br> + Navy Ranks <br> + Military Alphabet & flags <br> + AMI uniform questions <br>+ Chain of Command <br> +
+                <span style="color: white;">+ The NJROTC Manual's <br> + AMI questions <br> + Navy Ranks <br> + Military Alphabet & flags <br> + AMI uniform questions <br>+ Chain of Command <br> +
                     General Orders</span>
             </div>
         </div>
         <div id="senior" class="year">
             <div class="sup">Senior - NS4</div>
             <div class="material">
-                <a class="study" href="https://www.cnn.com/world"target="_blank">Current Events - Links to CNN<br>"All events happening here on planet earth"</a>
-                <div>+ Everything from previous years </div>
+                <a class="study" href="https://www.cnn.com/world"target="_blank" >Current Events - Links to CNN<br>"All events happening here on planet earth"</a>
+                <div style="color: white;">+ Everything from previous years </div>
             </div>
         </div>
     </div>
@@ -56,6 +58,9 @@
     height:100%;
 }
 
+:root{
+    --align:center;
+}
 
 #background{
     width: 100vw;
@@ -67,7 +72,7 @@
     height: 400px;
 }
 #title{
-    color: black;
+    color: var(--Text-color);
     border: 5px solid gold;
     border-top:none;
     border-bottom: none;
@@ -82,16 +87,16 @@
     width: 100vw;
 }
 #freshman{
-    background-color: rgb(206, 224, 230);
+    background-color: var(--freshman-BG-color);
 }
 #sophomore{
-    background-color:  lightblue;
+    background-color:  var(--sophomore-BG-color);
 }
 #junior{
-    background-color: cornflowerblue;
+    background-color: var(--junior-BG-color);
 }
 #senior{
-    background-color: navy;
+    background-color: var(--senior-BG-color);
     color: white;
 }
 .year{
@@ -103,7 +108,6 @@
     margin-top: 20px;
     display: grid;
     row-gap: 20px;
-
 }
 .study{
     text-decoration: none;

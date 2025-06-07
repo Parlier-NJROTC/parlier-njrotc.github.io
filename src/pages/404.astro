@@ -1,27 +1,23 @@
 ---
 import Layout from "../layouts/GlobalHTMLLayout.astro";
+import '../styles/Default/main.css'
 ---
 
 
 <Layout name="404">
     <div id="screen">
-        <h1 class="text-link" >Error 404 not found</h1>
+        <h1 class="text-link" >Error&nbsp;<div class="digits-container"><span class="digit">4</span><span class="digit">0</span><span class="digit">4</span></div>&nbsp;not found</h1>
         <hr />
         <p>Webpage not found, it might have been moved to or removed</p>
         <img id="cat" src="">
         <p id="quote"></p>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
-        <marquee direction="down" width="100%" height="100%" behavior="alternate" style="position: absolute;"><marquee behavior="alternate">404</marquee>
     </div>
-</marquee>
 </Layout>
 
 
 <style>
     body *{
-        color: black;
+        color: var(--Text-color);
     }
     #screen {
         display: grid;
@@ -33,7 +29,7 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
         padding-inline: 5vw;
         max-width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 125, 255, 0.09);
+        background-color: var(--error-BG-color);
 
         -webkit-user-select: none; 
         -moz-user-select: none; 
@@ -58,10 +54,22 @@ import Layout from "../layouts/GlobalHTMLLayout.astro";
     }
     .text-link {
     position: relative;
-    display: inline-block;
+    display: flex;
     font-size: 45px;
     text-decoration: none;
     z-index: 1;
+    }
+    .digits-container {
+        display: flex;
+    }
+
+    .digit {
+        font-weight: bold;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .flipped {
+        transform: rotateX(180deg);
     }
 </style>
 
@@ -112,11 +120,10 @@ import { imageConfig } from "astro:assets";
         `"Hmm... yes indeed, that is very odd"`,
     ];
     let cats = [
-        "https://c.tenor.com/oS5SFKhlWYwAAAAC/tenor.gif",
-        "https://c.tenor.com/6fQtF5aqiicAAAAC/tenor.gif",
-        "https://c.tenor.com/8nkvuog5-zMAAAAC/tenor.gif",
-        "https://c.tenor.com/tlWYGpkm7v0AAAAC/tenor.gif"
-    ]
+         "https://github.com/Parlier-NJROTC/Assets/blob/main/Cats/Laptop-cat-Mad.gif?raw=true", 
+         "https://github.com/Parlier-NJROTC/Assets/blob/main/Cats/Laptop-cat-Smeshing.gif?raw=true", 
+         "https://github.com/Parlier-NJROTC/Assets/blob/main/Cats/Laptop-cat-typing.gif?raw=true",
+         "https://github.com/Parlier-NJROTC/Assets/blob/main/Cats/Laptop-cat-typing2.gif?raw=true" ]
     // @ts-ignore
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
     // @ts-ignore
@@ -125,3 +132,44 @@ import { imageConfig } from "astro:assets";
 
     // imagestuff.src = `http//:theurl.com/images/image-${ Math.floor( Math.random * 3)+1 }.png`
 </script>
+<script lang="js">
+    const digits = document.querySelectorAll('.digit');
+        let lastFlippedIndex = null;
+        const titles = ["Parlier NJROTC | ‎", "Parlier NJROTC | 404"];
+        // const titles = ["Parlier NJROTC | ‎","Parlier NJROTC | 4","Parlier NJROTC | 40","Parlier NJROTC | 404","Parlier NJROTC | 40","Parlier NJROTC | 4"];
+        let currentIndex = 0;
+        
+        let intervalId;
+
+        function flipRandomDigit() {
+            const availableDigits = Array.from(digits).filter(d => d !== lastFlippedIndex);
+            
+            if (availableDigits.length === 0) {
+                setTimeout(() => {
+                    flipRandomDigit();
+                }, 1000);
+                return;
+            }
+
+            const selectedDigit = availableDigits[Math.floor(Math.random() * availableDigits.length)];
+            selectedDigit.classList.add('flipped');
+
+            setTimeout(() => {
+                selectedDigit.classList.remove('flipped');
+            }, 500);
+
+            lastFlippedIndex = selectedDigit;
+        }
+
+        // Wait before Flipping
+        intervalId = setInterval(flipRandomDigit, 404); 
+
+        // Title
+
+        function updateTitle() {
+            document.title = titles[currentIndex];
+            currentIndex = (currentIndex + 1) % titles.length;
+        }
+
+        setInterval(updateTitle, 500);// 500ms cuz it look cool
+    </script>

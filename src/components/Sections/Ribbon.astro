@@ -1,143 +1,88 @@
 ---
 interface Props {
-    rlink:string;
-    namelink:string;
-    numberR:string
+  rlink: string;
+  namelink: string;
+  numberR: string;
 }
-const {rlink , namelink , numberR}= Astro.props
+const { rlink, namelink, numberR } = Astro.props;
 ---
 
 <div class="ribbon-option" id="ribbon-option">
-    <img src={rlink} alt={numberR}>
-    <label for={numberR}>{namelink}</label>
-    <input type="checkbox" class="checkSwitch" id={numberR} name={numberR}>
-  </div>
+  <img src={rlink} alt={numberR} />
+  <label for={numberR}>{namelink}</label>
+  <input type="checkbox" class="checkSwitch" id={numberR} name={numberR} />
+  <select id="ribbonSelect">
+    <option value="star-none">NONE</option>
+    <option value="star-1bronze">Single Bronze</option>
+    <option value="star-2bronze">Double Bronze</option>
+    <option value="star-3bronze">Triple Bronze</option>
+    <option value="star-4bronze">Quadruple Bronze</option>
+    <option value="star-1sliver">Single Sliver</option>
+    <option value="star-2sliver">Double Sliver</option>
+    <option value="star-3sliver">Triple Sliver</option>
+    <option value="star-4sliver">Quadruple Sliver</option>
+    <option value="star-1gold">Single Gold</option>
+    <option value="star-2gold">Double Gold</option>
+    <option value="star-3gold">Triple Gold</option>
+    <option value="star-4gold">Quadruple Gold</option>
+  </select>
+</div>
 
 <style>
-body * {
-    color: black;
+  body * {
+    color: var(--Text-color);
     text-align: center;
-}
-.checkbox input {
-  height: 0;
-  width: 0;
-  opacity: 0;
-  cursor: cell;
-}
+  }
+  .select-awards{
+    margin-top: 5px;
+    border: 1px rgba(0, 0, 0, 0.40) solid;
+  }
+  .ribbon-selection {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    width: 100%;
+    margin: 0;
+    height: 100vw;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 
-.checkbox {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  font-size: 22px;
-  user-select: none;
-}
-
-.checkbox.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border: 1px solid #ddd;
-}
-
-.checkbox:hover input ~.checkmark {
-  background-color: #ccc;
-}
-
-.checkbox input:checked ~.checkmark {
-  background-color: #2196F3;
-}
-
-
-.checkbox.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-
-.checkbox input:checked ~.checkmark:after {
-  display: block;
-}
-
-
-.checkbox.checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-      .ribbon-selection {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -10px;
-        width: 100%;
-        margin: 0;
-        height: 100vw;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-
-        background-color: white;
-      }
-      .ribbon-option {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: calc(33.333% - 20px);
-        margin: 10px;
-        padding: 10px;
-        background-color: #f2f2f2;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        
-      }
-      .ribbon-option img {
-        width: 100%;
-        max-width: 100px;
-        margin-bottom: 10px;
-      }
-      .ribbon-option button {
-        font-size: 15px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 5px;
-      }
-      .ribbon-option:hover {
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      }
-      .ribbon-option input[type="checkbox"] {
-        margin-bottom: 10px;
-        display: none;
-      }
-      input[type="submit"], input[type="reset"] {
-       border: 1px solid #AAA;
-       border-radius: 3px;
-        color: #FFF;
-      padding : 2px;
-      font-weight : bold;
-      font-size : 18px;
-      background-image: linear-gradient(to bottom, #3BA3FF 0%, #173DBD 100%);
-      }
-      input[type="submit"]:hover, input[type="reset"]:hover {
-       border: 1px solid #FF0000;
-       border-radius: 3px;
-        color: #FF0000;
-      padding : 2px;
-      font-weight : bold;
-      font-size : 18px;
-      background-image: linear-gradient(to top, #3BA3FF 0%, #173DBD 100%);
-      }
+    background-color: var(--body-color);
+  }
+  .ribbon-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.333% - 20px);
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--ribbon-option-BG-color);
+    color: var(--Text-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  .ribbon-option img {
+    width: 100%;
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  .ribbon-option button {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    color: var(--Text-color);
+  }
+  .ribbon-option:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .ribbon-option input[type="checkbox"] {
+    margin-bottom: 10px;
+    display: none;
+  }
 </style>

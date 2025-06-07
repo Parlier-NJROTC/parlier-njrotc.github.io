@@ -14,8 +14,10 @@ import Header from '../components/Required/Header.astro';
 import Menus from '../components/Required/menus/Menus.astro';
 import Footer from '../components/Required/Footer.astro';
 import Top from '../components/Sections/Top.astro';
+import '../styles/Default/main.css'
 // Disable the loading page if your Are developing, If You want
 import Loading from '../components/Required/Loading.astro';
+import Sode from '../components/Required/DarkLight.astro';
 ---
 
 <!-- Default layout for all .md files -->
@@ -24,7 +26,7 @@ import Loading from '../components/Required/Loading.astro';
 <html>
     <head>
         <meta charset="UTF-8" />
-		<meta name="description" content=" The portfolio of Cyborgnetical." />
+		<meta name="description" content="NJROTC" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link rel="icon" type="image/svg+xml" href="/NJROTC-Seal.svg" />
         <meta name="google-site-verification" content="veqAgmjtvOmwMZALJnKHKFKtjwAMRzjQivx_rp-51T0" />
@@ -33,6 +35,7 @@ import Loading from '../components/Required/Loading.astro';
     <body style="margin:0px;">
         <Header></Header>
         <Menus></Menus>
+        <Sode></Sode>
         <Loading></Loading>
         <Top backgroundColor={bgColor}>
             <h1 id="TopTitle">{frontmatter.title}</h1>
@@ -43,8 +46,9 @@ import Loading from '../components/Required/Loading.astro';
         <Footer></Footer>
         <style is:global define:vars={{bgColor, boxColor, lineColor1, lineColor2, textColor}}>
             body *{
+                overscroll-behavior: none;
+                background-color: var(--body-color);
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                cursor: url('https://github.com/Parlier-NJROTC/Assets/raw/main/Cursor/Cursor/Normal.cur'), pointer;
             }
             h1{
                 font-size: 2.5em;

@@ -4,69 +4,159 @@ import Layout from "../../layouts/GlobalHTMLLayout.astro";
 import ControlBar from "../../components/ControlBar/ControlBar.svelte";
 // import data from '../../data/gallery.json' // Uncomment if you plan to use this data
 ---
-
+<meta name="robots" content="noindex, nofollow" />
 <Layout name="Gallery Home">
-    <Top image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg">
+    <Top
+        image="https://raw.githubusercontent.com/Parlier-NJROTC/Gallery/main/teaching.jpeg"
+    >
         <h1><u>Photo Gallery</u></h1>
-        <div style="background-color: navy; padding-inline: 5vw; padding-block:10px;">
-            Welcome to the Gallery, our massive picture collection. Here is where our pictures are stored.
+        <div
+            style="background-color: var(--backgroundColor);color:white; padding-inline: 5vw; padding-block:10px;"
+        >
+            Welcome to the Gallery, our massive picture collection. Here is
+            where our pictures are stored.
         </div>
     </Top>
-    <div class="eyehurts"/>
-    <h1 style="color: black;">Instructions</h1>
-    <ul style="color: black;">
+    <div class="eyehurts"></div>
+    <h1 style="color: var(--Text-color);">Instructions</h1>
+    <ul style="color: var(--Text-color);" id="Landscape">
         <li>
             <div class="container" style="display: flex; align-items: left;">
-                <button class="btn" onclick="displayRoutine()">How do I Send NJROTC Photos?</button>
-                </li>
-                <div class="Gif">
-                    <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif">
-                </div>
+                <button id="btn33">How do I Send NJROTC Photos?</button>
             </div>
-        <li style="color: black; padding-left: 6px;">Navigate through pages to see different images</li>
-        <li style="color: black; padding-left: 6px;">Click that Page list And Press Your Arrows Buttons to Scroll the Page List</li>
-        <img src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif">
+            <div class="Gif">
+                <video
+                width="500px"
+                controlslist="nofullscreen nodownload noremoteplayback noplaybackrate"
+                loop
+                muted
+                playsinline
+                autoplay
+            >
+                <source
+                    src="https://github.com/Parlier-NJROTC/Assets/raw/refs/heads/main/Other/Help.mp4"
+                    type="video/mp4"
+                />
+            </video>
+            </div>
+        </li>
+        <li style="color: var(--Text-color); padding-left: 6px;">
+            Navigate through pages to see different images
+        </li>
+        <li style="color: var(--Text-color); padding-left: 6px;">
+            Click that Page list And Press Your Arrows Buttons to Scroll the
+            Page List
+        </li>
+        <img
+            src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Preview.gif"
+        />
     </ul>
-    <ControlBar></ControlBar>
+    <ul style="color: var(--Text-color);" id="portrait">
+        <li>
+            <div class="container" style="display: flex; align-items: left;">
+                <button id="btn33">How do I Send NJROTC Photos?</button>
+            </div>
+            <div class="Gif">
+                <img
+                    src="https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/Other/Help.gif"
+                />
+            </div>
+        </li>
+        <li style="color: var(--Text-color); padding-left: 6px;">
+            Navigate through pages to see different images
+        </li>
+        <li style="color: var(--Text-color); padding-left: 6px;">
+            Tab The Page list And Swipe to Scroll the Page List
+        </li>
+        <div
+            style="display: block; width: 90%; height: 20pc; background: white; padding-top: 10px; padding-bottom: 20px; margin: -3px;"
+        >
+            <video
+                width="100%"
+                height="100%"
+                controlslist="nofullscreen nodownload noremoteplayback noplaybackrate"
+                loop
+                muted
+                playsinline
+                autoplay
+            >
+                <source
+                    src="https://github.com/Parlier-NJROTC/Assets/raw/refs/heads/main/Other/HelpPhone.mp4"
+                    type="video/mp4"
+                />
+            </video>
+        </div>
+    </ul>
+
+    <ControlBar CurrentPageNum={0} />
 </Layout>
 
-<style>  
-    li{
+<style>
+    :root {
+        --align: center;
+    }
+    @media (orientation: landscape) {
+        #Landscape {
+            display: block;
+        }
+        #portrait {
+            display: none;
+        }
+    }
+    @media (orientation: portrait) {
+        #Landscape {
+            display: none;
+        }
+
+        #portrait {
+            display: block;
+        }
+    }
+    li {
         color: #000;
         font-size: 18px;
-        
     }
-    .eyehurts{
+    .eyehurts {
         overflow-y: hidden;
         width: 100%;
         height: 130%;
         z-index: -1;
         position: absolute;
-        
-        background-color: white;
+
+        background-color: var(--body-color);
     }
-  .container{
-      justify-content: flex-start; 
-      cursor: help;
-      
+    .container {
+        justify-content: flex-start;
+        cursor: help;
     }
-  .btn{
-      position: relative;
-      left: 0px;
-      color:rgb(0, 0, 255);
-      font-size: 18px;
-      background: none;
-      border: none;
-      cursor: help;
+    #btn33 {
+        position: relative;
+        left: 0px;
+        color: rgb(0, 0, 255);
+        font-size: 18px;
+        background: none;
+        border: none;
+        cursor: help;
     }
-  .Gif {
-      display: none;
+    .Gif {
+        display: none;
     }
 </style>
 
-<script lang="JS">
-    function displayRoutine() {
-      const gifElement = document.querySelector('.Gif');
-      gifElement.style.display = 'block';
-    }
+<script lang="js">
+    let set = false;
+
+    document.getElementById("btn33").addEventListener("click", function () {
+        const astroComponent = document.querySelector(".Gif");
+
+        if (!set) {
+            astroComponent.style.display = "block";
+            astroComponent.style.opacity = "1";
+        } else {
+            astroComponent.style.display = "none";
+            astroComponent.style.opacity = "0";
+        }
+
+        set = !set;
+    });
 </script>

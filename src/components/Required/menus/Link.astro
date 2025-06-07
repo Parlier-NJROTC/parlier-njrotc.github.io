@@ -10,7 +10,8 @@ const { title ,link = title} = Astro.props
 ---
 
 <span>
-    <a href=`/${link}`> {title} </a>
+    <a href=`/${link}`> {title} <div id="Sidething"></div></a>
+    
 </span>
 <style>
     span{
@@ -29,7 +30,8 @@ const { title ,link = title} = Astro.props
         justify-content: right;
         height: 50px;
         text-decoration: none;
-        transition: ease-in-out 250ms;
+        transition: ease 750ms;
+        border-right: 0px solid rgb(255, 255, 255);
 
         
 
@@ -40,8 +42,22 @@ const { title ,link = title} = Astro.props
         
 
         color: white;
+    } 
+    #Sidething{
+        height: 50px;
+        right: 0px;
+        width: 0%;
+
+        position: absolute;
+        background: white;
+        transition: ease 750ms;
+
+        z-index: -1;
     }
     span a:hover{
-        border-right: 4px solid rgb(255, 255, 255);
+        color:  var(--Top-Menu-BG-color);
+        #Sidething{
+            width: 100%;
+        }
     }
 </style>
