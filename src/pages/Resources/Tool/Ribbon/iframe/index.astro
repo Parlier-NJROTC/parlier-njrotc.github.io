@@ -177,7 +177,7 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
   </h2>
 
   <style>
-    body * {
+        body * {
       color: var(--Text-color);
       text-align: center;
     }
@@ -246,6 +246,12 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
     #centered-box.none {
       transform: translate(100%, -50%);
     }
+
+    @media (orientation: portrait) {
+      #centered-box.none {
+        transform: translate(100%, -100%);
+      }
+    }
     body {
       user-select: none;
       -moz-user-select: none;
@@ -269,10 +275,13 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
     }
     @media (orientation: portrait) {
       #centered-box {
-        width: 80%;
+        width: 100%;
       }
       .ribbon-selection {
         width: 100%;
+      }
+      .ribbon-selection {
+        justify-content: space-around;
       }
     }
     #DOWNLOAD-RACK {
@@ -304,21 +313,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
       }
     }
   </style>
-  <script lang="js">
-    function copyToClipboard() {
-      const iframeCode =
-        '<iframe src="https://parlier-njrotc.github.io/Resources/Tool/Ribbon/iframe/" title="NJROTC Ribbon Iframe" height="500px" width="500px"></iframe>';
-
-      navigator.clipboard
-        .writeText(iframeCode)
-        .then(() => {
-          console.log("Iframe code copied to clipboard");
-        })
-        .catch((err) => {
-          console.error("Failed to copy text: ", err);
-        });
-    }
-  </script>
 
   <!-- DON'T TOUCH MY CODE. NO JOKE IT IS SCARY -->
   <script
@@ -368,14 +362,13 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
 
       const select = option.querySelector("select");
       select.addEventListener("click", function (e) {
-        e.stopPropagation(); 
+        e.stopPropagation();
       });
     });
 
     ribbonSelection.addEventListener("change", function (event) {
       const target = event.target;
 
-      // Handle checkbox changes
       if (target.matches('input[type="checkbox"]')) {
         const ribbonOption = target.closest(".ribbon-option");
         const ribbonImage = ribbonOption.querySelector("img");
@@ -391,7 +384,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
         updateCenteredBox();
       }
 
-      // Handle select changes
       if (target.matches("select")) {
         const ribbonOption = target.closest(".ribbon-option");
         const ribbonId = ribbonOption.querySelector("input").id;
@@ -400,7 +392,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
       }
     });
 
-    // Ribbon Functions
     function addRibbon(ribbonImage, ribbonOption) {
       const numberR = ribbonOption.querySelector("input").id;
       const container = document.createElement("div");
@@ -409,7 +400,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
       container.style.height = "30px";
       container.style.position = "relative";
 
-      // Create ribbon image
       const newRibbonImage = document.createElement("img");
       newRibbonImage.src = ribbonImage.src;
       newRibbonImage.alt = ribbonOption.querySelector("label").textContent;
@@ -417,7 +407,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
         user-select: none;
         -webkit-user-drag: none;`;
 
-      // Create star image
       const starImg = document.createElement("img");
       starImg.className = "ribbon-star";
       starImg.style = `position: absolute;
@@ -428,14 +417,12 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
         pointer-events: none;
         transform: rotate(180deg);`;
 
-      // Set initial star value
       const select = ribbonOption.querySelector("select");
       starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${select.value}.png`;
 
       container.appendChild(newRibbonImage);
       container.appendChild(starImg);
 
-      // Sort and add to rack
       const containers = Array.from(
         ribbonRack.querySelectorAll(".ribbon-container"),
       );
@@ -472,7 +459,6 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
       starImg.src = `https://raw.githubusercontent.com/Parlier-NJROTC/Assets/main/ribbon-stars/${starValue}.png`;
     }
 
-    // Helper Functions
     function handleRibbonOptionClick(event) {
       const checkbox = event.currentTarget.querySelector(
         'input[type="checkbox"]',
@@ -494,10 +480,17 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
 
     function updateCenteredBox() {
       const centeredBox = document.getElementById("centered-box");
-      centeredBox.style.transform =
-        selectedRibbons.size > 0
-          ? "translate(0, -50%)"
-          : "translate(100%, -50%)";
+      if (window.matchMedia("(orientation: portrait)").matches) {
+        centeredBox.style.transform =
+          selectedRibbons.size > 0
+            ? "translate(0, -100%)"
+            : "translate(100%, -100%)";
+      } else {
+        centeredBox.style.transform =
+          selectedRibbons.size > 0
+            ? "translate(0, -50%)"
+            : "translate(100%, -50%)";
+      }
     }
 
     document
@@ -540,5 +533,7 @@ import Boxess from "../../../../../components/Sections/Ribbon.astro";
           alert("Error generating ribbon rack image. Please try again.");
         }
       });
+    window.addEventListener("orientationchange", updateCenteredBox);
+    window.addEventListener("resize", updateCenteredBox);
   </script>
 </Layout>
