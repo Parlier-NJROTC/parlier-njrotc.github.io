@@ -12,7 +12,7 @@
     </div>
     <div class="calendar-grid" id="calendar-grid"></div>
 </div>
-<style>
+<style is:inline> /* Don't remove Is:inline it is the glue of the whole code */
   .calendar {
       background: var(--body-color);
       max-width: 800px;
@@ -22,9 +22,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
-  h2{
-    color: var(--Text-color);
-  }
   .header {
       display: flex;
       justify-content: space-between;
@@ -56,6 +53,7 @@
       text-align: center;
       background: #f8f9fa;
       font-weight: bold;
+      color: #000;
   }
 
   .calendar-cell {
@@ -63,7 +61,12 @@
       min-height: 100px;
       border: 1px solid #dee2e6;
       background: white;
-      position: relative;
+      position: relative; 
+      color: #000;
+  }
+  .calendar-cell *{
+    
+      color: #000;
   }
 
   .calendar-cell:hover {
@@ -172,11 +175,6 @@
             const dayElement = document.createElement('div');
             dayElement.className = 'day-header';
             dayElement.textContent = day;
-            dayElement.style.padding = '10px';
-            dayElement.style.color = 'var(--Text-color)';
-            dayElement.style.textAlign = 'center';
-            dayElement.style.background = 'var(--calender-BG)';
-            dayElement.style.fontWeight = 'bold';
             calendarGrid.appendChild(dayElement);
         });
 
@@ -195,7 +193,6 @@
             const cell = createCell(day);
             if (isCurrentDate) {
                 cell.classList.add('current-date');
-                cell.style.backgroundColor = 'var(--day-calendar-BG)';
             }
 
             
@@ -207,13 +204,6 @@
                 eventElement.textContent = event;
                 eventContainer.appendChild(eventElement);
 
-                eventElement.style.background = 'navy';
-                eventElement.style.color ='white';
-                eventElement.style.padding ='2px 5px';
-                eventElement.style.borderRadius = '3px';
-                eventElement.style.marginTop = '20px';
-                eventElement.style.fontSize = '0.8em';
-                eventElement.style.cursor ='pointer';
             });
 
             cell.appendChild(eventContainer);
@@ -224,19 +214,10 @@
     function createCell(day) {
         const cell = document.createElement('div');
         cell.className = 'calendar-cell';
-        cell.style.padding = '10px';
-        cell.style.minHeight = '100px';
-        cell.style.border = '1px solid #dee2e6';
-        cell.style.position = 'relative';
         if (day) {
             const dateNumber = document.createElement('div');
             dateNumber.className = 'date-number';
             dateNumber.textContent = day;
-            dateNumber.style.position ='absolute';
-            dateNumber.style.color = 'var(--Text-color)';
-            dateNumber.style.top ='5px';
-            dateNumber.style.right = '5px';
-            dateNumber.style.fontWeight ='bold';
             cell.appendChild(dateNumber);
 
             cell.addEventListener('click', () => {
