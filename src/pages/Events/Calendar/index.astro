@@ -1,5 +1,5 @@
 ---
-    import Layout from "../../../layouts/GlobalHTMLLayout.astro";
+import Layout from "../../../layouts/GlobalHTMLLayout.astro";
 ---
 
 <Layout name="Calendar">
@@ -12,7 +12,22 @@
     </div>
     <div class="calendar-grid" id="calendar-grid"></div>
 </div>
-<style is:inline> /* Don't remove Is:inline it is the glue of the whole code */
+
+<div id="event-dialog" class="event-dialog">
+    <div class="event-dialog-content">
+        <span class="close-dialog">&times;</span>
+        <h3 id="dialog-date"></h3>
+        <div id="dialog-events"></div>
+    </div>
+</div>
+
+<style is:inline>
+  h2,
+  #dialog-date,
+  .dialog-event-item{
+    color: var(--Text-color);
+  }
+
   .calendar {
       background: var(--body-color);
       max-width: 800px;
@@ -63,9 +78,9 @@
       background: white;
       position: relative; 
       color: #000;
+      cursor: pointer;
   }
-  .calendar-cell *{
-    
+  .calendar-cell * {
       color: #000;
   }
 
@@ -97,11 +112,187 @@
   .current-date {
       background-color: #e3f2fd;
   }
+
+  .event-notification {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 18px;
+      height: 18px;
+      background-color: navy;
+      border-radius: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+      cursor: pointer;
+  }
+
+  @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 0, 128, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 5px rgba(0, 0, 128, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 0, 128, 0); }
+  }
+
+  .event-dialog {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+  }
+
+  .event-dialog-content {
+      background-color: var(--body-color);
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .close-dialog {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: ease 0.3s;
+  }
+
+  .close-dialog:hover {
+      color: black;
+      animation: infinite scarid 300ms ease-in-out;
+  }
+
+  .dialog-event-item {
+      padding: 8px 0;
+  }
+
+  @media (orientation: portrait) {
+      .calendar {
+          margin: 20px auto;
+          padding: 10px;
+          width: 95%;
+      }
+      
+      .header {
+          flex-direction: column;
+          gap: 10px;
+      }
+      
+      .nav-button {
+          padding: 8px 15px;
+          font-size: 0.9em;
+      }
+      
+      .calendar-cell {
+          min-height: 60px;
+          padding: 5px;
+          font-size: 0.8em;
+      }
+      
+      .date-number {
+          font-size: 0.9em;
+      }
+      
+      .event {
+          display: none;
+      }
+      
+      .event-notification {
+          display: flex;
+      }
+      
+      #current-month {
+          font-size: 1.2em;
+          text-align: center;
+      }
+      
+      .event-dialog-content {
+          margin: 80% auto;
+      }
+  }
+
+  @media (orientation: landscape) {
+      .event-notification {
+          display: none;
+      }
+      
+      .event {
+          display: block;
+      }
+  }
 </style>
 
 <script lang="js">
+let currentDate = new Date();
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
+const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
- const events = {
+function handleOrientationChange() {
+    generateCalendar(currentMonth, currentYear);
+}
+
+function initOrientation() {
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+    mediaQuery.addEventListener('change', handleOrientationChange);
+    handleOrientationChange();
+}
+
+function showEventDialog(date, events) {
+    if (events.length === 0) return;
+    
+    const dialog = document.getElementById('event-dialog');
+    const dialogDate = document.getElementById('dialog-date');
+    const dialogEvents = document.getElementById('dialog-events');
+    
+    dialogDate.textContent = formatDialogDate(date);
+    dialogEvents.innerHTML = '';
+    
+    events.forEach(event => {
+        const eventElement = document.createElement('div');
+        eventElement.className = 'dialog-event-item';
+        eventElement.textContent = event;
+        dialogEvents.appendChild(eventElement);
+    });
+    
+    dialog.style.display = 'block';
+}
+
+function formatDialogDate(dateStr) {
+    const [year, month, day] = dateStr.split('-');
+    const date = new Date(year, month-1, day);
+    return date.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
+
+document.querySelector('.close-dialog').addEventListener('click', () => {
+    document.getElementById('event-dialog').style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    const dialog = document.getElementById('event-dialog');
+    if (event.target === dialog) {
+        dialog.style.display = 'none';
+    }
+});
+
+const events = {
   '2025-1-1': ['New Year’s Day'],
   '2025-1-20': ['Martin Luther King Jr. Day'],
   '2025-2-14': ['Valentine’s Day'],
@@ -147,110 +338,101 @@
   '2026-2-9': ['Parlier NJROTC Websites 2nd Birthday!'],
 };
 
+function generateCalendar(month, year) {
+    const firstDay = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const startingDay = firstDay.getDay();
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
+    document.getElementById('current-month').textContent = 
+        `${monthNames[month]} ${year}`;
 
+    const calendarGrid = document.getElementById('calendar-grid');
+    calendarGrid.innerHTML = '';
 
-    let currentDate = new Date();
-    let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
+    dayNames.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day-header';
+        dayElement.textContent = isPortrait ? day.substring(0, 1) : day;
+        calendarGrid.appendChild(dayElement);
+    });
 
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
+    for (let i = 0; i < startingDay; i++) {
+        calendarGrid.appendChild(createCell(''));
+    }
 
-    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateKey = `${year}-${month + 1}-${day}`;
+        const cellEvents = events[dateKey] || [];
+        const isCurrentDate = day === currentDate.getDate() && 
+                            month === currentDate.getMonth() && 
+                            year === currentDate.getFullYear();
 
-    function generateCalendar(month, year) {
-        const firstDay = new Date(year, month, 1);
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const startingDay = firstDay.getDay();
-
-        document.getElementById('current-month').textContent = 
-            `${monthNames[month]} ${year}`;
-
-        const calendarGrid = document.getElementById('calendar-grid');
-        calendarGrid.innerHTML = '';
-
-
-        dayNames.forEach(day => {
-            const dayElement = document.createElement('div');
-            dayElement.className = 'day-header';
-            dayElement.textContent = day;
-            calendarGrid.appendChild(dayElement);
-        });
-
-
-        for (let i = 0; i < startingDay; i++) {
-            calendarGrid.appendChild(createCell(''));
+        const cell = createCell(day, dateKey, cellEvents);
+        if (isCurrentDate) {
+            cell.classList.add('current-date');
         }
 
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dateKey = `${year}-${month + 1}-${day}`;
-            const cellEvents = events[dateKey] || [];
-            const isCurrentDate = day === currentDate.getDate() && 
-                                month === currentDate.getMonth() && 
-                                year === currentDate.getFullYear();
+        if (cellEvents.length > 0 && isPortrait) {
+            const notificationDot = document.createElement('div');
+            notificationDot.className = 'event-notification';
+            notificationDot.textContent = cellEvents.length;
+            cell.appendChild(notificationDot);
+        }
 
-            const cell = createCell(day);
-            if (isCurrentDate) {
-                cell.classList.add('current-date');
-            }
-
-            
-
+        if (!isPortrait) {
             const eventContainer = document.createElement('div');
             cellEvents.forEach(event => {
                 const eventElement = document.createElement('div');
                 eventElement.className = 'event';
                 eventElement.textContent = event;
                 eventContainer.appendChild(eventElement);
-
             });
-
             cell.appendChild(eventContainer);
-            calendarGrid.appendChild(cell);
         }
+
+        calendarGrid.appendChild(cell);
     }
+}
 
-    function createCell(day) {
-        const cell = document.createElement('div');
-        cell.className = 'calendar-cell';
-        if (day) {
-            const dateNumber = document.createElement('div');
-            dateNumber.className = 'date-number';
-            dateNumber.textContent = day;
-            cell.appendChild(dateNumber);
+function createCell(day, dateKey = '', cellEvents = []) {
+    const cell = document.createElement('div');
+    cell.className = 'calendar-cell';
+    if (day) {
+        const dateNumber = document.createElement('div');
+        dateNumber.className = 'date-number';
+        dateNumber.textContent = day;
+        cell.appendChild(dateNumber);
 
-            cell.addEventListener('click', () => {
-                const date = `${currentYear}-${currentMonth + 1}-${day}`;
-                
-                if (eventText) {
-                    if (!events[date]) events[date] = [];
-                    events[date].push(eventText);
-                    generateCalendar(currentMonth, currentYear);
-                }
-            });
-
-        }
-        return cell;
+        cell.addEventListener('click', () => {
+            if (cellEvents.length > 0) {
+                showEventDialog(dateKey, cellEvents);
+            }
+        });
     }
+    return cell;
+}
 
-    document.getElementById('prev-month').addEventListener('click', () => {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        generateCalendar(currentMonth, currentYear);
-    });
-
-    document.getElementById('next-month').addEventListener('click', () => {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        generateCalendar(currentMonth, currentYear);
-    });
-
+document.getElementById('prev-month').addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
     generateCalendar(currentMonth, currentYear);
+});
+
+document.getElementById('next-month').addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    generateCalendar(currentMonth, currentYear);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    initOrientation();
+    generateCalendar(currentMonth, currentYear);
+});
 </script>
