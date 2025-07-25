@@ -21,7 +21,7 @@ const {
 
 <div class="parallax-container" data-speed={parallaxSpeed}>
     <div class="image">
-        <img src={image} alt={altTxt} title={desc} decoding="async" loading="eager"class="parallax-image" />
+        <img src={image} alt={altTxt} title={desc} decoding="sync" loading="eager"class="parallax-image" />
     </div>
     
     <div class="content">
@@ -39,7 +39,7 @@ const {
      }
      @media (orientation: landscape) {
         .image {
-        top: -10%;
+        top: -15%;
         }
      }
     .parallax-container {
@@ -55,7 +55,7 @@ const {
         position: absolute;
         left: -10%;
         width: 120%;
-        height: 120%;
+        height: 160%;
         transform-style: preserve-3d;
         will-change: transform;
     }

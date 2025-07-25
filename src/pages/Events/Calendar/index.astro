@@ -184,7 +184,6 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
       }
       
       .header {
-          flex-direction: column;
           gap: 10px;
       }
       
@@ -295,6 +294,7 @@ window.addEventListener('click', (event) => {
 const events = {
   '2025-1-1': ['New Year’s Day'],
   '2025-1-20': ['Martin Luther King Jr. Day'],
+  '2025-2-10': ['Lincoln’s Birthday'], // Local observance
   '2025-2-14': ['Valentine’s Day'],
   '2025-2-17': ['Presidents’ Day'],
   '2025-3-17': ['St. Patrick’s Day'],
@@ -303,7 +303,7 @@ const events = {
   '2025-4-14': ['Spring Break'],
   '2025-4-15': ['Spring Break'],
   '2025-4-16': ['Spring Break'],
-  '2025-4-17': ['Spring Break'],
+  '2025-4-17': ['Spring Break', 'Local Holiday'],
   '2025-4-18': ['Spring Break'],
   '2025-4-21': ['Spring Break'],
   '2025-4-22': ['Earth Day'],
@@ -321,11 +321,19 @@ const events = {
   '2025-6-5': ['Last Day of School'],
   '2025-6-6': ['Summer Break'],
   '2025-6-15': ['Father’s Day'],
+  '2025-6-19': ['Juneteenth'],
   '2025-7-4': ['Independence Day', 'Summer Break'],
+  '2025-7-20': ['Moon Landing Anniversary'],
+  '2025-8-4': ['National Coast Guard Day'],
+  '2025-8-13': ['First Day of School'],
+  '2025-8-19': ['World Humanitarian Day'],
   '2025-9-1': ['Labor Day'],
   '2025-9-6': ['National Read a Book Day'],
-  '2025-10-13': ['Columbus Day'],
-  '2025-10-31': ['Halloween'],
+  '2025-9-8': ['First Day of School'],
+  '2025-9-17': ['Constitution Day'],
+  '2025-10-13': ['Columbus Day', 'U.S. Navy Birthday'],
+  '2025-10-16': ['Boss’s Day'],
+  '2025-10-24': ['United Nations Day'],
   '2025-11-11': ['Veterans Day'],
   '2025-11-24': ['Thanksgiving Break'],
   '2025-11-25': ['Thanksgiving Break'],
@@ -335,8 +343,19 @@ const events = {
   '2025-12-24': ['Christmas Eve'],
   '2025-12-25': ['Christmas Day'],
   '2025-12-31': ['New Year’s Eve'],
+  '2026-1-1': ['New Year’s Day'],
+  '2026-2-2': ['Groundhog Day'],
   '2026-2-9': ['Parlier NJROTC Websites 2nd Birthday!'],
+  '2026-2-14': ['Valentine’s Day'],
+  '2026-2-17': ['Presidents’ Day'],
+  '2026-3-17': ['St. Patrick’s Day'],
+  '2026-4-22': ['Earth Day'],
+  '2026-5-10': ['Mother’s Day'],
+  '2026-5-25': ['Memorial Day'],
+  '2026-6-14': ['Flag Day'],
+  '2026-6-21': ['Father’s Day'],
 };
+
 
 function generateCalendar(month, year) {
     const firstDay = new Date(year, month, 1);

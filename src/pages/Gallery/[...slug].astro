@@ -64,8 +64,8 @@ const { page, images } = Astro.props;
         let img = document.createElement("img")
         img.src = `https://lh3.googleusercontent.com/d/${images[i]}=h280`
         img.className = "Gallery-Image"
-        img.decoding = "sync"
-        img.loading = "eager"
+        img.decoding = "async"
+        img.loading = "lazy"
 
         img.onclick = ()=>{
 
