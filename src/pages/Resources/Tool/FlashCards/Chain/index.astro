@@ -167,11 +167,13 @@
     }
 
     function updateCard() {
-        const card = currentFlashcards[currentCardIndex];
-        container444.querySelector(".front").textContent = card.front;
-        container444.querySelector(".back").textContent = card.back;
         flashcard.classList.remove("flipped");
-        updateProgress();
+        setTimeout(() => {
+            const card = currentFlashcards[currentCardIndex];
+            container444.querySelector(".front").textContent = card.front;
+            container444.querySelector(".back").textContent = card.back;
+            updateProgress();
+        }, 150);
     }
 
     function flipCard() {
