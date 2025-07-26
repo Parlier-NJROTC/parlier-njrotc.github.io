@@ -10,7 +10,9 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
         <h2 id="current-month"></h2>
         <button class="nav-button" id="next-month">Next →</button>
     </div>
-    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="calendar-container">
+        <div class="calendar-grid" id="calendar-grid"></div>
+    </div>
 </div>
 
 <div id="event-dialog" class="event-dialog">
@@ -35,6 +37,14 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      touch-action: pan-y;
+      overflow: hidden;
+      position: relative;
+  }
+
+  .calendar-container {
+      position: relative;
+      overflow: hidden;
   }
 
   .header {
@@ -61,6 +71,7 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
+      transition: transform 0.3s ease-out;
   }
 
   .day-header {
@@ -176,10 +187,62 @@ import Layout from "../../../layouts/GlobalHTMLLayout.astro";
       padding: 8px 0;
   }
 
+  .slide-out-left {
+      animation: slideOutLeft 0.3s forwards;
+  }
+
+  .slide-out-right {
+      animation: slideOutRight 0.3s forwards;
+  }
+
+  .slide-in-left {
+      animation: slideInLeft 0.3s forwards;
+  }
+
+  .slide-in-right {
+      animation: slideInRight 0.3s forwards;
+  }
+
+  @keyframes slideOutLeft {
+      to {
+          transform: translateX(-100%);
+          opacity: 0;
+      }
+  }
+
+  @keyframes slideOutRight {
+      to {
+          transform: translateX(100%);
+          opacity: 0;
+      }
+  }
+
+  @keyframes slideInLeft {
+      from {
+          transform: translateX(-100%);
+          opacity: 0;
+      }
+      to {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }
+
+  @keyframes slideInRight {
+      from {
+          transform: translateX(100%);
+          opacity: 0;
+      }
+      to {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }
+
   @media (orientation: portrait) {
       .calendar {
           margin: 20px auto;
-          padding: 10px;
+          padding: 5px;
           width: 95%;
       }
       
@@ -239,6 +302,11 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+let touchStartX = 0;
+let touchEndX = 0;
+let isSwiping = false;
+const SWIPE_THRESHOLD = 50; // Minimum distance to consider it a swipe
+
 function handleOrientationChange() {
     generateCalendar(currentMonth, currentYear);
 }
@@ -247,6 +315,85 @@ function initOrientation() {
     const mediaQuery = window.matchMedia("(orientation: portrait)");
     mediaQuery.addEventListener('change', handleOrientationChange);
     handleOrientationChange();
+    
+    const calendarGrid = document.getElementById('calendar-grid');
+    calendarGrid.addEventListener('touchstart', handleTouchStart, { passive: false });
+    calendarGrid.addEventListener('touchmove', handleTouchMove, { passive: false });
+    calendarGrid.addEventListener('touchend', handleTouchEnd, { passive: false });
+}
+
+function handleTouchStart(e) {
+    touchStartX = e.touches[0].clientX;
+    isSwiping = false;
+}
+
+function handleTouchMove(e) {
+    if (!isSwiping) {
+        const xDiff = Math.abs(e.touches[0].clientX - touchStartX);
+        if (xDiff > 10) { 
+            isSwiping = true;
+        }
+    }
+    
+    if (isSwiping) {
+        e.preventDefault();
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - touchStartX;
+        document.getElementById('calendar-grid').style.transform = `translateX(${diff}px)`;
+    }
+}
+
+function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].clientX;
+    const calendarGrid = document.getElementById('calendar-grid');
+    
+    calendarGrid.style.transform = 'translateX(0)';
+    
+    if (isSwiping) {
+        handleSwipeGesture();
+    }
+    isSwiping = false;
+}
+
+function handleSwipeGesture() {
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) < SWIPE_THRESHOLD) return;
+    
+    const calendarGrid = document.getElementById('calendar-grid');
+    
+    if (diff < 0) {
+        calendarGrid.classList.add('slide-out-left');
+        setTimeout(() => {
+            calendarGrid.classList.remove('slide-out-left');
+            navigateMonth(1);
+            calendarGrid.classList.add('slide-in-right');
+            setTimeout(() => {
+                calendarGrid.classList.remove('slide-in-right');
+            }, 300);
+        }, 300);
+    } else {
+        calendarGrid.classList.add('slide-out-right');
+        setTimeout(() => {
+            calendarGrid.classList.remove('slide-out-right');
+            navigateMonth(-1);
+            calendarGrid.classList.add('slide-in-left');
+            setTimeout(() => {
+                calendarGrid.classList.remove('slide-in-left');
+            }, 300);
+        }, 300);
+    }
+}
+
+function navigateMonth(direction) {
+    currentMonth += direction;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    generateCalendar(currentMonth, currentYear);
 }
 
 function showEventDialog(date, events) {
@@ -294,7 +441,7 @@ window.addEventListener('click', (event) => {
 const events = {
   '2025-1-1': ['New Year’s Day'],
   '2025-1-20': ['Martin Luther King Jr. Day'],
-  '2025-2-10': ['Lincoln’s Birthday'], // Local observance
+  '2025-2-10': ['Lincoln’s Birthday'], 
   '2025-2-14': ['Valentine’s Day'],
   '2025-2-17': ['Presidents’ Day'],
   '2025-3-17': ['St. Patrick’s Day'],
@@ -355,7 +502,6 @@ const events = {
   '2026-6-14': ['Flag Day'],
   '2026-6-21': ['Father’s Day'],
 };
-
 
 function generateCalendar(month, year) {
     const firstDay = new Date(year, month, 1);
@@ -433,21 +579,29 @@ function createCell(day, dateKey = '', cellEvents = []) {
 }
 
 document.getElementById('prev-month').addEventListener('click', () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    }
-    generateCalendar(currentMonth, currentYear);
+    const calendarGrid = document.getElementById('calendar-grid');
+    calendarGrid.classList.add('slide-out-right');
+    setTimeout(() => {
+        calendarGrid.classList.remove('slide-out-right');
+        navigateMonth(-1);
+        calendarGrid.classList.add('slide-in-left');
+        setTimeout(() => {
+            calendarGrid.classList.remove('slide-in-left');
+        }, 300);
+    }, 300);
 });
 
 document.getElementById('next-month').addEventListener('click', () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    generateCalendar(currentMonth, currentYear);
+    const calendarGrid = document.getElementById('calendar-grid');
+    calendarGrid.classList.add('slide-out-left');
+    setTimeout(() => {
+        calendarGrid.classList.remove('slide-out-left');
+        navigateMonth(1);
+        calendarGrid.classList.add('slide-in-right');
+        setTimeout(() => {
+            calendarGrid.classList.remove('slide-in-right');
+        }, 300);
+    }, 300);
 });
 
 window.addEventListener('DOMContentLoaded', () => {
